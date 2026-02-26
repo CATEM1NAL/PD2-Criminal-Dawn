@@ -3,7 +3,7 @@ local APD2FileIdent = "[APD2>client_bridge] "
 dofile(APD2Path .. "lua/tables/heists.lua")
 dofile(APD2Path .. "lua/tables/upgrades.lua")
 dofile(APD2Path .. "lua/tables/weapons.lua")
-dofile(APD2Path .. "lua/dlc_check.lua")
+dofile(APD2Path .. "lua/tables/dlc.lua")
 
 dofile(APD2Path .. "lua/archipelago/unlock_generator.lua")
 

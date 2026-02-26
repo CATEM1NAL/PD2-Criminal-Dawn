@@ -26,8 +26,8 @@ MutatorShotgunTweak:register_value("pull_strength", nil, "ps")
 MutatorShotgunTweak:register_value("mothership", nil, "ms")
 
 -- Generate the mutator effects
-local AlternateArsenal = 1.01 + math.random() * (10 - 1.01)
-local BecauseOfTraining = 1.01 + math.random() * (3 - 1.01)
+local AlternateArsenal = 1.5 + math.random() * (2 - 1.5)
+local BecauseOfTraining = 1.5 + math.random() * (2 - 1.5)
 
 local CloneArmy = { "taser", "shield", "medic" }
 CloneArmy = CloneArmy[math.random(#CloneArmy)]
