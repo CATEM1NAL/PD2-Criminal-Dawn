@@ -63,22 +63,22 @@ local function is_player_team(unit)
     local base = unit:base()
 
     if base.is_local_player or base.is_husk_player then
-        return true
-    end
-
-    if base._tweak_table == "team_ai" then
+        log(APD2FileIdent .. "player got a kill")
         return true
     end
 
     if base._tweak_table == "converted_enemy" then
+        log(APD2FileIdent .. "convert got a kill")
         return true
     end
 
     if base.is_sentry_gun and base._owner_id then
+        log(APD2FileIdent .. "sentry got a kill")
         return true
     end
 
     if base.thrower_unit and alive(base:thrower_unit()) then
+        log(APD2FileIdent .. "kill from other source")
         return is_player_team(base:thrower_unit())
     end
 

@@ -6,7 +6,7 @@ apd2_weapon_tables = {
               "x_shrew", "x_sparrow", "x_breech", "x_jowi", "x_1911", "x_b92fs", "x_deagle", "x_g17",
               "x_g22c", "x_p226", "x_ppk", "x_usp", "x_baka", "x_coal", "x_cobray", "x_hajk", "x_m1928",
               "x_mac10", "x_mp9", "x_olympic", "x_p90", "x_polymer", "x_schakal", "x_scorpion",
-              "x_shepheard",  "x_sterling", "x_tec9", "x_uzi", "x_erma", "x_akmsu", "x_m45", "x_mp5",
+              "x_shepheard", "x_sterling", "x_tec9", "x_uzi", "x_erma", "x_akmsu", "x_m45", "x_mp5",
               "x_mp7", "x_basset", "x_judge", "x_rota" },
 
   secondaries = { "g22c", "lemming", "b92fs", "chinchilla", "colt_1911", "deagle", "glock_18c",

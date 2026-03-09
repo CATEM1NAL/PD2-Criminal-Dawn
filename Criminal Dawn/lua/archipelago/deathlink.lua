@@ -10,9 +10,9 @@ Hooks:PreHook(PlayerDamage, "damage_bullet", "apd2_deathlink_checker", function(
     -- reduces downs remaining by 1. sidenote: this fucking sucks ass
     self:_send_set_revives()
 
-    apd2_chat_send("Deathlink received.")
+    apd2_chat_send("Death link received.")
 
     apd2_data.game.deathlink = APD2Client.deathlink
-    apd2_save(APD2FileIdent, "deathlink received")
+    apd2_save(APD2FileIdent, "deathlink")
   end
 end)

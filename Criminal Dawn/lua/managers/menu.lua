@@ -104,7 +104,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "apd2_custommenus", function(menu_manag
       ["apd2_enter_lobby_desc"] = "Begin playing Criminal Dawn.",
       ["apd2_start_run_title"] = "A New Criminal Dawn",
       ["apd2_start_run_desc"] = "Bring as much chaos to the streets of D.C. as you can within the time limit.",
-      ["apd2_play_next_title"] = "Criminal Dawn [" .. #apd2_data.game.heists .. "/6]",
+      ["apd2_play_next_title"] = ordinal(apd2_data.game.run) .. " Criminal Dawn [" .. #apd2_data.game.heists .. "/6]",
       ["apd2_play_next_desc"] = "Time remaining: " .. math.floor(apd2_data.game.ponr or -1) .. " seconds.",
       ["apd2_safehouse_desc"] = "Spend your coins on room upgrades! You never know what you might find..."
     })
@@ -163,6 +163,12 @@ Hooks:Add("MenuManagerBuildCustomMenus", "apd2_custommenus", function(menu_manag
         item:set_visible(false)
       end
     end
+
+    if RestructuredMenus then
+      if RestructuredMenus.settings.lobby_add_contract_broker then
+        MenuHelper:HideMenuItem(lobbymenu, "contract_broker")
+      end
+    end
   end
   
   -- Pause Menu
@@ -175,7 +181,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "apd2_custommenus", function(menu_manag
         breakCounter = breakCounter + 1
         
       elseif item._parameters.name == "end_game" then
-        --item._enabled = false
+        item._enabled = false
         breakCounter = breakCounter + 1
       end
       

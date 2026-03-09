@@ -54,5 +54,5 @@ if UnlockedUpgrade.player_corpse_dispose and UnlockedUpgrade.player_extra_corpse
 end
 
 if apd2_data.game.ponr >= 1800 then
-  table.insert(apd2_heist_tables.tier1, "28_stores")
+  table.insert(apd2_heist_tables.tier1, "apd2_28stores")
 end

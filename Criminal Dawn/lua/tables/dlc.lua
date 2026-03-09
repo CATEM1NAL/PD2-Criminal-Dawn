@@ -196,8 +196,7 @@ local dlc_content = {
   -- h3h3 Character Pack
   ecp = { ecp = primary,
           meter = melee,
-          h3h3_base = "Soul Mates", h3h3_cd_1 = "Independence", h3h3_cd_2 = "Harmony",
-          h3h3_absorption = "Synergy" },
+          h3h3_base = "Soul Mates", h3h3_cd = "Harmony", h3h3_absorption = "Synergy" },
 
   -- Border Crossing
   mex = { mex = heist.tier5, mex_cooking = heist.tier5 },

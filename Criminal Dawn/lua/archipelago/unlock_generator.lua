@@ -22,70 +22,97 @@ end
 
 -- Generate specific number of specific upgrade type
 function apd2_random_upgrades(count, table_name)
-  local BaseTable = {}
-
-  for key, data in pairs(apd2_upgrade_tables[table_name]) do
-    local name = data.name
-
-    -- Check if data value is met
-    local CountMet
-    if data.countreq then
-      local CountKey, CountValue = data.count_req:match("([^:]+):(.*)")
-      if data.count_req and (apd2_data.x[CountKey] >= tonumber(CountValue)) then
-        CountMet = true
-      end
-    end
-
-    -- Create table of item requirements
-    local ItemReq = {}
-    if data.item_req then
-      for item in data.item_req:gmatch("([^,]+)") do
-        table.insert(ItemReq, item)
-      end
-    end
-    
-    -- Create table of upgrade requirements
-    local UpgReq = {}
-    if data.upg_req then
-      for item in data.upg_req:gmatch("([^,]+)") do
-        table.insert(UpgReq, item)
-      end
-    end
-
-    -- If upgrade is valid,
-    -- any upgrade req. is obtained,
-    -- any item req. is unlocked,
-    -- and the data count is met,
-    -- add it to the base table
-    if name ~= "INVALID" and
-    (not data.upg_req or AnyUpgradeObtained(UpgReq)) and
-    (not data.item_req or AnyUnlockObtained(ItemReq)) and
-    (not data.count_req or CountMet) then
-      BaseTable[key] = name
-    end
-  end
-
-  -- Get current upgrades
-  for _, upgrade in pairs(apd2_data.upgrades) do
-    local tableName, key = upgrade:match("([^%-]+)%-(.+)")
-    if tableName == table_name then
-      BaseTable[key] = nil
-    end
-  end
-
-  -- Build working table from base table
-  local WorkingTable = {}
-  for i, _ in pairs(BaseTable) do
-    table.insert(WorkingTable, i)
-  end
-
-  -- Update count to fit the new table length
-  count = math.min(count or 0, #WorkingTable)
-
-  local UpgradeIndex
-  -- Add the specified number of random upgrades
   for i = 1, count do
-    UpgradeIndex = math.random(#WorkingTable)
+    local BaseTable = {}
+    local UpgType
+    
+    if table_name == "skills" then
+      local TypeCount = (apd2_data.x.skills + i) % 7
+      local TypePattern = { "general",
+                            "loud",
+                            "stealth",
+                            "weapon",
+                            "loud",
+                            "weapon",
+                            "loud" }
+      UpgType = TypePattern[TypeCount + 1]
+
+    elseif table_name == "perks" then
+      local TypeCount = (apd2_data.x.perks + i) % 4
+      local TypePattern = { "stat",
+                            "ability",
+                            "stat" }
+      UpgType = TypePattern[TypeCount + 1]
+
+    elseif table_name == "stats" then
+      local TypeCount = (apd2_data.x.stats + i) % 2
+      local TypePattern = { "player",
+                            "weapon" }
+      UpgType = TypePattern[TypeCount + 1]
+    end
+
+    for key, data in pairs(apd2_upgrade_tables[table_name]) do
+      log(APD2FileIdent .. "deciding whether " .. data.name .. " is valid candidate"
+      -- Check if data value is met
+      local CountMet
+      if data.countreq then
+        local CountKey, CountValue = data.count_req:match("([^:]+):(.*)")
+        if data.count_req and (apd2_data.x[CountKey] >= tonumber(CountValue)) then
+          CountMet = true
+        end
+      end
+
+      -- Create table of item requirements
+      local ItemReq = {}
+      if data.item_req then
+        for item in data.item_req:gmatch("([^,]+)") do
+          table.insert(ItemReq, item)
+        end
+      end
+      
+      -- Create table of upgrade requirements
+      local UpgReq = {}
+      if data.upg_req then
+        for item in data.upg_req:gmatch("([^,]+)") do
+          table.insert(UpgReq, item)
+        end
+      end
+
+      -- If upgrade is valid,
+      -- any upgrade req. is obtained,
+      -- any item req. is unlocked,
+      -- and the data count is met,
+      -- add it to the base table
+      if data.name ~= "INVALID" and data.upg_type == UpgType and
+      (not data.upg_req or AnyUpgradeObtained(UpgReq)) and
+      (not data.item_req or AnyUnlockObtained(ItemReq)) and
+      (not data.count_req or CountMet) then
+        log(APD2FileIdent .. data.name .. " added as candidate"
+        BaseTable[key] = name
+      end
+    end
+
+    -- Get current upgrades
+    for _, upgrade in pairs(apd2_data.upgrades) do
+      local tableName, key = upgrade:match("([^%-]+)%-(.+)")
+      if tableName == table_name then
+        BaseTable[key] = nil
+      end
+    end
+
+    -- Build working table from base table
+    local WorkingTable = {}
+    for i, _ in pairs(BaseTable) do
+      table.insert(WorkingTable, i)
+    end
+
+    -- Abort if no more upgrades to give
+    if not next(WorkingTable) then
+      return
+    end
+
+    -- Add the specified number of random upgrades
+    local UpgradeIndex = math.random(#WorkingTable)
     table.insert(apd2_data.upgrades, table_name .. "-" .. WorkingTable[UpgradeIndex])
     log(APD2FileIdent .. "Added " .. WorkingTable[UpgradeIndex] .. " to upgrade table")
     table.remove(WorkingTable, UpgradeIndex)

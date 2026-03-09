@@ -18,6 +18,7 @@ Hooks:PostHook(GameOverState, "at_enter", "apd2_run_failed", function(self)
     apd2_data.game.run = apd2_data.game.run + 1
     apd2_data.game.ponr = nil
     apd2_data.game.heists = {}
+    managers.mutators:reset_all_mutators()
   end
 
   apd2_save(APD2FileIdent, "run failed")

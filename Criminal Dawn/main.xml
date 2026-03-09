@@ -2,7 +2,7 @@
 	<Localization directory="loc" default="english.txt">
 		<loc file="apd2_jobs.json" language="english"/>
 	</Localization>
-	<narrative id="apd2_28stores" name_id="heist_28stores_name" contact="bain">
+	<narrative id="apd2_28stores" name_id="heist_apd2_28stores_name" contact="bain">
 		<chain>
 			<table level_id="four_stores"/>
 			<table level_id="four_stores"/>

@@ -88,6 +88,12 @@ function apd2_poll_client()
     apd2_data.game.max_diff = APD2Client.max_diff
     DataChanged = true
   end
+  
+  if not apd2_data.game.score_cap and APD2Client.score_cap then
+    log(APD2FileIdent .. "Setting score cap")
+    apd2_data.game.score_cap = APD2Client.score_cap
+    DataChanged = true
+  end
 
   -- Set default client values if they don't exist
   APD2Client.seed = APD2Client.seed or nil
@@ -156,7 +162,7 @@ function apd2_poll_client()
   if APD2Client["Extra Bot"] > apd2_data.x.bots then
     log(APD2FileIdent .. APD2Client["Extra Bot"] .. " bots")
     apd2_data.x.bots = APD2Client["Extra Bot"]
-    apd2_chat_send("Received extra bot (" .. APD2Client["Nine Lives"] .. " total)!")
+    apd2_chat_send("Received extra bot (" .. APD2Client["Extra Bot"] .. " total)!")
     DataChanged = true
   end
 
@@ -167,7 +173,7 @@ function apd2_poll_client()
     apd2_data.x.diff = APD2Client["Difficulty Increase"]
 
     local DiffIndex = math.min(#apd2_data.game.heists + apd2_data.x.diff, apd2_data.game.max_diff)
-    local Difficulty = tweak_data.difficulties[DiffIndex + 1]
+    local Difficulty = tweak_data.difficulties[DiffIndex]
     apd2_chat_send("Received difficulty increase (new dawns start on " .. Difficulty .. ")!")
     DataChanged = true
   end
@@ -187,7 +193,7 @@ function apd2_poll_client()
     if APD2Client["6 Coins"] > apd2_data.x.coins then
       log(APD2FileIdent .. "Giving " .. 6 * (APD2Client["6 Coins"] - apd2_data.x.coins) .. " coins")
       managers.custom_safehouse:add_coins(6 * (APD2Client["6 Coins"] - apd2_data.x.coins))
-      apd2_chat_send("Received " .. 6 * (APD2Client["6 Coins"] - apd2_data.x.coins) .. "coins!")
+      apd2_chat_send("Received " .. 6 * (APD2Client["6 Coins"] - apd2_data.x.coins) .. " coins!")
       apd2_data.x.coins = APD2Client["6 Coins"]
       DataChanged = true
     end
@@ -199,7 +205,7 @@ function apd2_poll_client()
     if APD2Client["24 Coins"] > apd2_data.x.big_coins then
       log(APD2FileIdent .. "Giving " .. 24 * (APD2Client["24 Coins"] - apd2_data.x.big_coins) .. " progression coins")
       managers.custom_safehouse:add_coins(24 * (APD2Client["24 Coins"] - apd2_data.x.big_coins))
-      apd2_chat_send("Received " .. 24 * (APD2Client["24 Coins"] - apd2_data.x.big_coins) .. "coins!")
+      apd2_chat_send("Received " .. 24 * (APD2Client["24 Coins"] - apd2_data.x.big_coins) .. " coins!")
       apd2_data.x.big_coins = APD2Client["24 Coins"]
       DataChanged = true
     end
@@ -367,8 +373,7 @@ function apd2_poll_client()
           managers.upgrades:aquire(upgrade)
         end
 
-      -- On a table/index pair, look it up and add all upgrades it encompasses
-      else           
+      else -- On a table/index pair, look it up and add all upgrades it encompasses
         for _, currentUpgrade in pairs(apd2_upgrade_tables[tableName][upgradeName]) do
            if not Global.upgrades_manager.aquired[currentUpgrade] then
              --log(APD2FileIdent .. "Adding upgrade: " .. currentUpgrade)

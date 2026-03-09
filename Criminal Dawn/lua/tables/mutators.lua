@@ -2,7 +2,7 @@ managers.mutators:reset_all_mutators()
 
 local MutatorTable = { 
   "CloakerEffect", "EnemyDamage", "EnemyHealth", "EnemyReplacer",
-  "Titandozers", "Hydra", "ShotgunTweak"
+  "Titandozers", "ShotgunTweak"
 }
 
 local peers_table = managers.network and managers.network:session() and managers.network:session():peers()
