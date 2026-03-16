@@ -71,7 +71,7 @@ function CrimDawn:RandomUpgrade(count, table_name)
       UpgType = TypePattern[TypeCount + 1]
     end
 
-    self.Log(FileIdent, "Next upgrade type: " .. UpgType)
+    if UpgType then self.Log(FileIdent, "Next upgrade type: " .. UpgType) end
 
     for key, data in pairs(Global.CrimDawn.tables.upgrades[table_name]) do
       --self.Log(FileIdent, "checking if " .. data.name .. " is valid")

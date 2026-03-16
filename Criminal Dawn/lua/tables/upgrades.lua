@@ -651,7 +651,7 @@ Global.CrimDawn.tables.upgrades = {
       "melee_stacking_hit_damage_multiplier_1"
     },
     infil_melee_timer = { name = "INVALID", desc = "Psychopath timer increased to 7 seconds.",
-                          upg_type = "ability", upg_req = "perks-infil_melee_boost",
+                          upg_type = "stat", upg_req = "perks-infil_melee_boost",
       "melee_stacking_hit_expire_t"
     },
     infil_melee_heal = { name = "INVALID", desc = "Heal 20% on melee hit (10s cooldown).",
@@ -695,7 +695,7 @@ Global.CrimDawn.tables.upgrades = {
       "temporary_loose_ammo_give_team"
     },
     gambler_heal_team = { name = "Sharing is Caring", desc = "50% of healing from 'Medical Supplies' is given to the crew.",
-                          upg_type = "ability", upg_req = "perks-gambler_heal_1,perks-gambler_heal_2,perks-gambler_heal_3",
+                          upg_type = "stat", upg_req = "perks-gambler_heal_1,perks-gambler_heal_2,perks-gambler_heal_3",
       "player_loose_ammo_restore_health_give_team"
     },
 
@@ -1647,11 +1647,11 @@ Global.CrimDawn.tables.upgrades = {
       "ecm_jammer_duration_multiplier_2", "ecm_jammer_duration_multiplier"
     },
     ecm_feedback_duration_1 = { name = "ECM Overdrive Lv1", desc = "ECM feedback duration increased by 25%.",
-                                item_req = "ecm_jammer", disable = "ecm_feedback_duration_2",
+                                item_req = "ecm_jammer", upg_req = "deployable-ecm_feedback", disable = "ecm_feedback_duration_2",
       "ecm_jammer_feedback_duration_boost"
     },
     ecm_feedback_duration_2 = { name = "ECM Overdrive Lv2", desc = "ECM feedback duration increased by 50%.",
-                                item_req = "ecm_jammer", disable = "ecm_feedback_duration_1",
+                                item_req = "ecm_jammer", upg_req = "deployable-ecm_feedback", disable = "ecm_feedback_duration_1",
       "ecm_jammer_feedback_duration_boost_2", "ecm_jammer_feedback_duration_boost"
     },
     ecm_doors = { name = "Open Sesame", desc = "ECMs can open doors.",

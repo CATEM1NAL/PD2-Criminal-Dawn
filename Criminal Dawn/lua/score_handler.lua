@@ -1,4 +1,4 @@
-if not Global.CrimDawn then return end
+if not CrimDawn then return end
 local FileIdent = "score_handler"
 
 -- To calculate multipliers properly in multiplayer session
@@ -13,39 +13,49 @@ end
 local HeistCount = #Global.CrimDawn.data.game.heists or 1
 if not NetworkHelper:IsHost() then HeistCount = Global.CrimDawn.data.game.host_heists or 1 end
 
--- Using floats for small score increments was causing rounding errors. For this reason, all scores
--- are x100 internally. Any time scores should be displayed to the player, they should be divided!!
+local ScorePerThing = (HeistCount + DifficultyIndex) * (1 + #ActiveMutators)
+local ScorePerPackage = HeistCount * (1 + #ActiveMutators)
+CrimDawn.ScoreCap()
 
-local ScorePerBag = (HeistCount + DifficultyIndex) * (1 + #ActiveMutators) * 100
-local ScorePerPackage = HeistCount * (1 + #ActiveMutators) * 100 
-local ScorePerCash = ScorePerBag / 100
+local function GainPoints(points, reason)
+  if CrimDawn.state.cap_reached then CrimDawnClient:PollTimeUpgrades() -- Cap reached; check for upgrades
+    if CrimDawn.state.cap_reached then return end
+  end
+
+  if reason == "loot" or reason == "Gage package" then -- Full points
+    if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + points) then
+      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + points
+      CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
+                       .. " (+" .. points .. " from " .. reason .. ").\n"
+                       .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    end CrimDawn:WriteSave(FileIdent, reason .. " secured")
+
+  else -- Fractional points
+    if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + 1) then
+      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + 1
+      CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
+                       .. " (+1 per " .. math.ceil(points) .. " " .. reason .. ").\n"
+                       .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    end CrimDawn:WriteSave(FileIdent, reason .. " milestone")
+  end
+end
 
 -- Loot gives points equal to heists + difficulty * mutators
-Hooks:PostHook(LootManager, "secure", "CrimDawn_LootSecured", function(self)
+if LootManager then Hooks:PostHook(LootManager, "secure", "CrimDawn_LootSecured", function(self)
   if not tweak_data.carry.small_loot[self._global.secured[#self._global.secured].carry_id] then
-    Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + ScorePerBag
-    Global.CrimDawn.next_point = 100 + (Global.CrimDawn.data.game.score - Global.CrimDawn.data.game.score % 100)
-    NetworkHelper:SendToPeers("CrimDawn_SendPoints", ScorePerBag .. "," .. -1 .. "," .. "lootbag")
-    
-    CrimDawn:WriteSave(FileIdent, "bag secured")
-    CrimDawn.ChatNotify("Score: " .. math.floor(Global.CrimDawn.data.game.score / 100)
-                     .. " (+" .. ScorePerBag / 100 .. " from loot).\n"
-                     .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    NetworkHelper:SendToPeers("CrimDawn_SendPoints", ScorePerThing .. "," .. -1 .. "," .. "loot")
+    GainPoints(ScorePerThing, "loot")
 
-  else -- Loose cash
-    Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + ScorePerCash
+  else -- Loose cash uses fractional points (100 needed for full point)
+    Global.CrimDawn.data.game.f_score = Global.CrimDawn.data.game.f_score + ScorePerThing
 
-    if Global.CrimDawn.next_point <= Global.CrimDawn.data.game.score then
-      Global.CrimDawn.next_point = Global.CrimDawn.next_point + 100
-      NetworkHelper:SendToPeers("CrimDawn_SendPoints", 100 .. "," .. math.ceil(100 / ScorePerCash) .. "," .. "loose cash")
-
-      CrimDawn:WriteSave(FileIdent, "loose cash milestone")
-      CrimDawn.ChatNotify("Score: " .. math.floor(Global.CrimDawn.data.game.score / 100)
-                       .. " (+1 per " .. math.ceil(100 / ScorePerCash) .. " loose cash).\n"
-                       .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    if Global.CrimDawn.data.game.f_score >= 100 then
+      Global.CrimDawn.data.game.f_score = Global.CrimDawn.data.game.f_score - 100
+      NetworkHelper:SendToPeers("CrimDawn_SendPoints", 1 .. "," .. math.ceil(100 / ScorePerThing) .. "," .. "loose cash")
+      GainPoints(100 / ScorePerThing, "loose cash")
     end
   end
-end)
+end) end
 
 -- Enemy kills grant hundredths of a point, like loose cash
 local function IsPlayerKill(unit)
@@ -65,29 +75,20 @@ local function IsPlayerKill(unit)
   end
 return false end
 
-Hooks:PostHook(CopDamage, "die", "CrimDawn_EnemyKilled", function(self, attack_data)
+if CopDamage then Hooks:PostHook(CopDamage, "die", "CrimDawn_EnemyKilled", function(self, attack_data)
   local unit = attack_data and attack_data.attacker_unit
   if IsPlayerKill(unit) then
-    Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + ScorePerCash
+    Global.CrimDawn.data.game.f_score = Global.CrimDawn.data.game.f_score + ScorePerThing
 
-    if Global.CrimDawn.next_point <= Global.CrimDawn.data.game.score then
-      Global.CrimDawn.next_point = Global.CrimDawn.next_point + 100
-      NetworkHelper:SendToPeers("CrimDawn_SendPoints", 100 .. "," .. math.ceil(100 / ScorePerCash) .. "," .. "enemies killed")
-
-      CrimDawn:WriteSave(FileIdent, "kill milestone")
-      CrimDawn.ChatNotify("Score: " .. math.floor(Global.CrimDawn.data.game.score / 100)
-                       .. " (+1 per " .. math.ceil(100 / ScorePerCash) .. " enemies killed).\n"
-                       .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    if Global.CrimDawn.data.game.f_score >= 100 then
+      Global.CrimDawn.data.game.f_score = Global.CrimDawn.data.game.f_score - 100
+      NetworkHelper:SendToPeers("CrimDawn_SendPoints", 1 .. "," .. math.ceil(100 / ScorePerThing) .. "," .. "enemies killed")
+      GainPoints(100 / ScorePerThing, "enemies killed")
     end
   end
-end)
+end) end
 
 -- On package pickup, gain points equal to heists * mutators (more spawn on higher difficulties anyway)
-Hooks:PostHook(GageAssignmentManager, "on_unit_interact", "CrimDawn_PackagePickup", function(self)
-  Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + ScorePerPackage
-  Global.CrimDawn.next_point = 100 + (Global.CrimDawn.data.game.score - Global.CrimDawn.data.game.score % 100)
-  CrimDawn:WriteSave(FileIdent, "package secured")
-  CrimDawn.ChatNotify("Score: " .. math.floor(Global.CrimDawn.data.game.score / 100)
-                   .. " (+" .. ScorePerPackage / 100 .. " from package).\n"
-                   .. CrimDawn.ScoreNeeded() .. " more for next check.")
-end)
+if GageAssignmentManager then Hooks:PostHook(GageAssignmentManager, "on_unit_interact", "CrimDawn_PackagePickup", function(self)
+  GainPoints(ScorePerPackage, "Gage package")
+end) end

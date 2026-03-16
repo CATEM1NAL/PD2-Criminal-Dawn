@@ -31,7 +31,7 @@ Hooks:PreHook(PlayerManager, "aquire_default_upgrades", "CrimDawn_UpgradeHandler
 
   for key, _ in pairs(Global.CrimDawn.data.unlocks) do
     if not Global.upgrades_manager.aquired[key] then
-      CrimDawn.Log(FileIdent .. "Unlocking " .. key)
+      CrimDawn.Log(FileIdent, "Unlocking " .. key)
       managers.upgrades:aquire(key)
     end
   end

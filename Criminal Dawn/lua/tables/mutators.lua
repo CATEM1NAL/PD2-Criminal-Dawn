@@ -11,7 +11,7 @@ if table.size(peers_table or {}) > 0 then
   table.insert(MutatorTable, "FriendlyFire")
 end
 
-for i = 1, #Global.CrimDawn.data.game.heists - 1 + Global.CrimDawn.data.x.mutators do
+for i = 1, #Global.CrimDawn.data.game.heists - 1 + CrimDawn.DiffScale do
   if next(MutatorTable) then
     local CurrentIndex = math.random(#MutatorTable)
     local CurrentMutator = MutatorTable[CurrentIndex]

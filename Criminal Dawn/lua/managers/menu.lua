@@ -5,6 +5,7 @@ function MenuCallbackHandler:CrimDawn_CreateLobby()
   CrimDawnClient:PollData()
 
   if Global.CrimDawn.data.game.seed then
+    CrimDawnClient:PollTimeUpgrades()
     if NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY ~= Global.CrimDawn.data.game.seed then
       NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
       NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
@@ -191,12 +192,17 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
 
     NetworkHelper:SendToPeers("CrimDawn_HeistCount", #Global.CrimDawn.data.game.heists)
 
+    -- Mutator/difficulty scaling
+    local LogicItemCount = Global.CrimDawn.data.x.time_upgrades + Global.CrimDawn.data.x.bots +
+                           Global.CrimDawn.data.x.permaskills + Global.CrimDawn.data.x.permaperks
+    CrimDawn.DiffScale = math.floor(LogicItemCount / (Global.CrimDawn.data.game.scaling_count / 6))
+
     -- Random mutators
     dofile(CrimDawn.ModPath .. "lua/tables/mutators.lua")
 
     -- Drop you straight into a heist
     local DiffIndex =
-    math.min(#Global.CrimDawn.data.game.heists + Global.CrimDawn.data.x.diff, Global.CrimDawn.data.game.max_diff)
+    math.min(#Global.CrimDawn.data.game.heists + CrimDawn.DiffScale, Global.CrimDawn.data.game.max_diff)
     local NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
 
     self:start_job({

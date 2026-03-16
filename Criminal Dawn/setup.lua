@@ -11,15 +11,31 @@ function CrimDawn:Init()
 
   self.state = { ponr = false,
                  heist_started = false,
-                 maskup_time = 0 }
+                 maskup_time = 0,
+                 cap_reached = false }
 
   function self.Log(FileIdent, LogMessage)
     log("[DAWN>" .. FileIdent .. "] " .. LogMessage)
   end -- Yes, this WILL crash without a FileIdent. This is intentional, otherwise I'd get lazy
 
   function self.ScoreNeeded()
-    local n = math.ceil((math.sqrt(1 + 8 * ((Global.CrimDawn.data.game.score + 100) / 100)) - 1) / 2)
-    return (n * (n + 1) / 2) - math.floor(Global.CrimDawn.data.game.score / 100)
+    local n = math.ceil((math.sqrt(1 + 8 * (Global.CrimDawn.data.game.score) - 1) / 2))
+    return (n * (n + 1) / 2) - math.floor(Global.CrimDawn.data.game.score)
+  end
+
+  function self.ScoreCap(score) -- Limit score to cap
+    if not Global.CrimDawn.data.game.score_cap then return true end
+    if score >= Global.CrimDawn.data.game.score_cap then CrimDawnClient:PollTimeUpgrades() end
+    -- Might seem redundant, but we only want to check if upgrades were received IF we are over the score cap before
+    -- we continue. Otherwise we'd be polling the client EVERY SINGLE TIME we get a point, which feels very wasteful
+    if score >= Global.CrimDawn.data.game.score_cap then
+      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score_cap
+      CrimDawn.state.cap_reached = true
+
+      if managers.chat then
+        CrimDawn.ChatNotify("Score cap reached: " .. Global.CrimDawn.data.game.score_cap
+                         .. "\nTime Bonus required to increase cap!") end
+    return true end
   end
 
   function self.ChatNotify(message)
@@ -31,16 +47,16 @@ function CrimDawn:Init()
       upgrades = {},
       unlocks = {},
       x = {
-        bots = 0, mutators = 0, diff = 0, time_upgrades = 0,
+        bots = 0, time_upgrades = 0,
         skills = 0, permaskills = 0, perks = 0, permaperks = 0, stats = 0,
         drill = 0, lives = 0,
-        saws = false, primaries = 0, akimbos = 0, secondaries = 0, melee = 0,
+        saws = 0, primaries = 0, akimbos = 0, secondaries = 0, melee = 0,
         throwables = 0, deployables = 0, armour = 0,
         big_coins = 0, coins = 0
       },
       game = {
-        seed = false, max_diff = false, run = 1, score = 0, score_cap = false,
-        heists = {}, ponr = false, timer_strength = false, deathlink = 0
+        seed = false, max_diff = false, run = 1, score = 0, f_score = 0, score_cap = false, scaling_count = false,
+        heists_won = 0, host_heists = 0, heists = {}, ponr = false, timer_strength = false, deathlink = 0
       },
       chat = { message = "", timestamp = 0 },
       safehouse = {}

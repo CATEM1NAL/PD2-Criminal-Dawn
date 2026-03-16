@@ -10,10 +10,10 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWin", function(self)
     for key, _ in pairs(Global.mutators.active_on_load) do table.insert(ActiveMutators, key) end
   end
 
-  local HeistCount = #CrimDawn.data.game.heists or 1
-  if not NetworkHelper:IsHost() then HeistCount = CrimDawn.data.game.host_heists or 1 end
+  local HeistCount = #Global.CrimDawn.data.game.heists or 1
+  if not NetworkHelper:IsHost() then HeistCount = Global.CrimDawn.data.game.host_heists or 1 end
 
-  local VictoryScore = (HeistCount + DifficultyIndex) * (1 + #ActiveMutators) * 100
+  local VictoryScore = (HeistCount + DifficultyIndex) * (1 + #ActiveMutators)
 
   -- calculates time remaining for next PONR
   if NetworkHelper:IsHost() then
@@ -21,26 +21,32 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWin", function(self)
       Global.CrimDawn.data.game.ponr =
       Global.CrimDawn.data.game.ponr - (TimerManager:game():time() - CrimDawn.state.maskup_time)
     else Global.CrimDawn.data.game.ponr = managers.groupai:state():get_point_of_no_return_timer() end
-    CrimDawnClient:PollTimeUpgrades()
   end
 
+  CrimDawn.state.ponr = false
+  CrimDawnClient:PollTimeUpgrades()
+
   if managers.job:on_last_stage() then -- Heist completed, give more points
-    Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + (VictoryScore * 2)
-    CrimDawn.ChatNotify("Score: " .. math.floor(Global.CrimDawn.data.game.score / 100)
-                     .. " (+" .. VictoryScore / 50 .. " from heist completion).\n"
-                     .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    end if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + (VictoryScore * 2)) then
+      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + (VictoryScore * 2)
+      CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
+                       .. " (+" .. VictoryScore * 2 .. " from heist completion).\n"
+                       .. CrimDawn.ScoreNeeded() .. " more for next check.") end
 
     if NetworkHelper:IsHost() then
       CrimDawn:NextHeist(#Global.CrimDawn.data.game.heists)
+      if #Global.CrimDawn.data.game.heists - 1 > Global.CrimDawn.data.game.heists_won then
+        Global.CrimDawn.data.game.heists_won = #Global.CrimDawn.data.game.heists - 1
+      end
       NetworkHelper:SendToPeers("CrimDawn_HeistCount", #Global.CrimDawn.data.game.heists)
     end
 
   else -- Heist isn't finished (multiday or escape), give less points
-    Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + (VictoryScore)
-    CrimDawn.ChatNotify("Score: " .. math.floor(Global.CrimDawn.data.game.score / 100)
-                     .. " (+" .. VictoryScore / 100 .. " from day completion).\n"
-                     .. CrimDawn.ScoreNeeded() .. " more for next check.")
-
-    CrimDawn:WriteSave(FileIdent, "day completed")
+    end if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + VictoryScore) then
+      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + VictoryScore
+      CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
+                       .. " (+" .. VictoryScore .. " from day completion).\n"
+                       .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    end CrimDawn:WriteSave(FileIdent, "day completed")
   end
 end)

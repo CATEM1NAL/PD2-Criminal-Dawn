@@ -5,7 +5,6 @@ Hooks:PostHook(GameOverState, "at_enter", "CrimDawn_RunFailed", function(self)
 
   CrimDawn:PermaUpgrade(Global.CrimDawn.data.x.permaskills, "permaskills")
   CrimDawn:PermaUpgrade(Global.CrimDawn.data.x.permaperks, "permaperks")
-  -- ^^ because we're deleting them lmao ^^
 
   -- generate a new set of randomised upgrades
   CrimDawn:RandomUpgrade(Global.CrimDawn.data.x.skills, "skills")
@@ -25,7 +24,6 @@ Hooks:PostHook(GameOverState, "at_enter", "CrimDawn_RunFailed", function(self)
     Global.CrimDawn.data.game.heists = {}
 
     NetworkHelper:SendToPeers("CrimDawn_HeistCount", #Global.CrimDawn.data.game.heists)
-    managers.mutators:reset_all_mutators()
   end
 
   CrimDawn:WriteSave(FileIdent, "run failed")

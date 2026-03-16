@@ -8,14 +8,6 @@
 	"color" : "118 126 189",
 	"image" : "dawn.png",
 
-	"updates" : [
-		{
-			"identifier" : "criminal-dawn-apworld",
-			"host": 
-				{ "meta" : "https://raw.githubusercontent.com/CATEM1NAL/Criminal-Dawn/refs/heads/main/meta.json" }
-		}
-	],
-
 	"hooks" : [
 	  { "hook_id" : "lib/setups/setup", "script_path" : "setup.lua" }
 		{ "hook_id" : "lib/managers/menumanager",		"script_path" : "lua/managers/menu.lua" },
@@ -25,7 +17,6 @@
 		{ "hook_id" : "lib/managers/customsafehousemanager",	"script_path" : "lua/managers/safehouse.lua" },
 		{ "hook_id" : "lib/managers/criminalsmanager",		"script_path" : "lua/managers/criminals.lua" },
 		{ "hook_id" : "lib/managers/lootmanager",		"script_path" : "lua/score_handler.lua" },
-		{ "hook_id" : "lib/managers/experiencemanager",		"script_path" : "lua/score_handler.lua" },
 		{ "hook_id" : "lib/managers/mission/elementpickup",	"script_path" : "lua/score_handler.lua" },
 		{ "hook_id" : "lib/units/enemies/cop/copdamage",	"script_path" : "lua/score_handler.lua" },
 		{ "hook_id" : "lib/managers/playermanager",	"script_path" : "lua/upgrade_handler.lua" },

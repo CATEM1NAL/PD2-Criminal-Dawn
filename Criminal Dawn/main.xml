@@ -3,7 +3,7 @@
 		<loc file="en/jobs.json" language="english"/>
 		<loc file="en/menu.json" language="english"/>
 	</Localization>
-	<narrative id="cd_28stores" name_id="heist_cd_28stores_name" contact="bain">
+	<narrative id="cd_28stores" name_id="heist_cd_28stores_name" contact="vlad">
 		<chain>
 			<table level_id="four_stores"/>
 			<table level_id="four_stores"/>
