@@ -273,9 +273,9 @@ local dlc_content = {
 }
 
 -- To avoid distributing unowned content, test for a DLC unlocker
-if WinSteamDLCManager:_check_dlc_data("Fake DLC Test") or
-   WinEpicDLCManager:_check_dlc_data("Fake DLC Test") or
-   WINDLCManager:_check_dlc_data("Fake DLC Test") then
+if WinSteamDLCManager:_check_dlc_data(tostring(os.time())) or
+   WinEpicDLCManager:_check_dlc_data(tostring(os.time())) or
+   WINDLCManager:_check_dlc_data(tostring(os.time())) then
      CrimDawn.Log(FileIdent, "Found DLC unlocker")
      CrimDawn_DLC = true
 end

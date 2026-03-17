@@ -1,6 +1,6 @@
 local FileIdent = "gameover"
 
-Hooks:PostHook(GameOverState, "at_enter", "CrimDawn_RunFailed", function(self)
+Hooks:PostHook(GameOverState, "at_enter", "CrimDawn_HeistFailed", function(self)
   Global.CrimDawn.data.upgrades = {}
 
   CrimDawn:PermaUpgrade(Global.CrimDawn.data.x.permaskills, "permaskills")

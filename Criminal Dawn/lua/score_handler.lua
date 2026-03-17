@@ -15,7 +15,6 @@ if not NetworkHelper:IsHost() then HeistCount = Global.CrimDawn.data.game.host_h
 
 local ScorePerThing = (HeistCount + DifficultyIndex) * (1 + #ActiveMutators)
 local ScorePerPackage = HeistCount * (1 + #ActiveMutators)
-CrimDawn.ScoreCap()
 
 local function GainPoints(points, reason)
   if CrimDawn.state.cap_reached then CrimDawnClient:PollTimeUpgrades() -- Cap reached; check for upgrades
@@ -23,16 +22,14 @@ local function GainPoints(points, reason)
   end
 
   if reason == "loot" or reason == "Gage package" then -- Full points
-    if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + points) then
-      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + points
+    if not CrimDawn.ScoreCap(points) then
       CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
                        .. " (+" .. points .. " from " .. reason .. ").\n"
                        .. CrimDawn.ScoreNeeded() .. " more for next check.")
     end CrimDawn:WriteSave(FileIdent, reason .. " secured")
 
   else -- Fractional points
-    if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + 1) then
-      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + 1
+    if not CrimDawn.ScoreCap(1) then
       CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
                        .. " (+1 per " .. math.ceil(points) .. " " .. reason .. ").\n"
                        .. CrimDawn.ScoreNeeded() .. " more for next check.")

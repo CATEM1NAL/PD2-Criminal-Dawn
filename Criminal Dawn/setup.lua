@@ -23,19 +23,21 @@ function CrimDawn:Init()
     return (n * (n + 1) / 2) - math.floor(Global.CrimDawn.data.game.score)
   end
 
-  function self.ScoreCap(score) -- Limit score to cap
+  function self.ScoreCap(points)
     if not Global.CrimDawn.data.game.score_cap then return true end
-    if score >= Global.CrimDawn.data.game.score_cap then CrimDawnClient:PollTimeUpgrades() end
+
+    local NewScore = Global.CrimDawn.data.game.score + points
+    if NewScore >= Global.CrimDawn.data.game.score_cap then CrimDawnClient:PollTimeUpgrades() end
     -- Might seem redundant, but we only want to check if upgrades were received IF we are over the score cap before
     -- we continue. Otherwise we'd be polling the client EVERY SINGLE TIME we get a point, which feels very wasteful
-    if score >= Global.CrimDawn.data.game.score_cap then
+    if NewScore >= Global.CrimDawn.data.game.score_cap then
       Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score_cap
       CrimDawn.state.cap_reached = true
 
-      if managers.chat then
+      if Utils:IsInGameState() then
         CrimDawn.ChatNotify("Score cap reached: " .. Global.CrimDawn.data.game.score_cap
-                         .. "\nTime Bonus required to increase cap!") end
-    return true end
+                         .. "\nTime Bonus required to increase cap!") end return true
+    else Global.CrimDawn.data.game.score = NewScore return false end
   end
 
   function self.ChatNotify(message)
@@ -56,7 +58,7 @@ function CrimDawn:Init()
       },
       game = {
         seed = false, max_diff = false, run = 1, score = 0, f_score = 0, score_cap = false, scaling_count = false,
-        heists_won = 0, host_heists = 0, heists = {}, ponr = false, timer_strength = false, deathlink = 0
+        heists_won = 0, host_heists = 0, heists = {}, ponr = false, timer_strength = false, deathlink = os.time()
       },
       chat = { message = "", timestamp = 0 },
       safehouse = {}

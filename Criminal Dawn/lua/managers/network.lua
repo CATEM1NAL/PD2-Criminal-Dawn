@@ -23,6 +23,12 @@ NetworkHelper:AddReceiveHook("CrimDawn_HeistCount", "CrimDawn_SyncHeistCount", f
   CrimDawn:WriteSave(FileIdent, "received heist number [" .. data .. "] from host")
 end)
 
+-- Sync active mutators (tables/mutators.lua)
+NetworkHelper:AddReceiveHook("CrimDawn_ActiveMutators", "CrimDawn_SyncMutators", function(data, sender)
+  CrimDawn.Log(FileIdent, "Active mutators: " .. data)
+  for mutator in string.gmatch(data, "([^,]+)") do managers.mutators:set_enabled(mutator) end
+end) -- The game SHOULD handle this but it shits itself and ends up one heist behind, idk why
+
 -- PONR time remaining chat message (archipelago/client_bridge)
 NetworkHelper:AddReceiveHook("CrimDawn_TimeUpdate", "CrimDawn_SyncTimeUpdate", function(data, sender)
   if not CrimDawn.state.ponr then CrimDawn.ChatNotify(data .. " seconds remaining.")
@@ -44,29 +50,26 @@ end)
 
 -- Syncing score (score_handler.lua)
 NetworkHelper:AddReceiveHook("CrimDawn_SendPoints", "CrimDawn_ReceivePoints", function(data, sender)
-  if CrimDawn.state.cap_reached == true then CrimDawnClient:PollTimeUpgrades()
-    if Global.CrimDawn.data.game.score ~= Global.CrimDawn.data.game.score_cap then CrimDawn.state.cap_reached = false
+  if CrimDawn.state.cap_reached then CrimDawnClient:PollTimeUpgrades()
+    if Global.CrimDawn.data.game.score < Global.CrimDawn.data.game.score_cap then CrimDawn.state.cap_reached = false
     else return end
   end
 
   CrimDawn.Log(FileIdent, "Received score from host")
   local points, xPerPoint, reason = data:match("([^,]+),([^,]+),([^,]+)")
 
-  Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + points
-
   -- Give points
-  if reason == "loot" then
-    if not CrimDawn_ScoreCap() then
-      CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
-                       .. " (+" .. tonumber(points) .. " from " .. reason .. ").\n"
-                       .. CrimDawn.ScoreNeeded() .. " more for next check.") end
+  if reason == "loot" and not CrimDawn.ScoreCap(tonumber(points)) then
+    CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
+                     .. " (+" .. tonumber(points) .. " from " .. reason .. ").\n"
+                     .. CrimDawn.ScoreNeeded() .. " more for next check.")
 
-  else if not CrimDawn_ScoreCap() then
+  elseif not CrimDawn.ScoreCap(tonumber(points)) then
     CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
                      .. " (+1 per " .. xPerPoint .. " " .. reason .. ").\n"
                      .. CrimDawn.ScoreNeeded() .. " more for next check.") end
 
-  end CrimDawn:WriteSave(FileIdent, "received score [" .. points .. "] from host")
+  CrimDawn:WriteSave(FileIdent, "received score [" .. points .. "] from host")
 end)
 -- FINISHED NETWORK HOOK SETUP
 

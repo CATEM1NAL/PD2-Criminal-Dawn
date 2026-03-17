@@ -1,6 +1,6 @@
 local FileIdent = "victory"
 
-Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWin", function(self)
+Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
   -- Determine points for victory
   local Difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
   local DifficultyIndex = tweak_data:difficulty_to_index(Difficulty) - 1
@@ -27,8 +27,7 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWin", function(self)
   CrimDawnClient:PollTimeUpgrades()
 
   if managers.job:on_last_stage() then -- Heist completed, give more points
-    end if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + (VictoryScore * 2)) then
-      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + (VictoryScore * 2)
+    if not CrimDawn.ScoreCap(VictoryScore) then
       CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
                        .. " (+" .. VictoryScore * 2 .. " from heist completion).\n"
                        .. CrimDawn.ScoreNeeded() .. " more for next check.") end
@@ -42,8 +41,7 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWin", function(self)
     end
 
   else -- Heist isn't finished (multiday or escape), give less points
-    end if not CrimDawn.ScoreCap(Global.CrimDawn.data.game.score + VictoryScore) then
-      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score + VictoryScore
+    if not CrimDawn.ScoreCap(VictoryScore) then
       CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
                        .. " (+" .. VictoryScore .. " from day completion).\n"
                        .. CrimDawn.ScoreNeeded() .. " more for next check.")

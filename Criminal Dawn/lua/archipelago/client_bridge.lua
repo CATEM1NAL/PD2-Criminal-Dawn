@@ -166,7 +166,7 @@ function CrimDawnClient:PollData()
   end
 
   -- Get Perma-Perks
-  if self.data["Perma-Perk"] > Global.CrimDawn.data.x.permaskills then
+  if self.data["Perma-Perk"] > Global.CrimDawn.data.x.permaperks then
     CrimDawn:PermaUpgrade(self.data["Perma-Perk"], "permaperks")
 
     Global.CrimDawn.data.x.permaperks = self.data["Perma-Perk"]
@@ -340,35 +340,23 @@ function CrimDawnClient:PollData()
     DataChanged = true
   end
 
-  if DataChanged then -- Write to apyday2.txt if any values were updated
-
-    -- Pull upgrades from save file and split them into a table/index pair
+  if DataChanged then -- Pull upgrades from save file and split them into a table/index pair
     for _, upgrade in pairs(Global.CrimDawn.data.upgrades) do
       local tableName, upgradeName = upgrade:match("([^%-]+)%-(.+)")
-      if tonumber(upgradeName) then upgradeName = tonumber(upgradeName) end
+      if tonumber(upgradeName) then upgradeName = tonumber(upgradeName) end -- Permaupgrades
 
-      -- If the table is nil it's an actual upgrade ID, we can just add it
-      if tableName == nil then
-        if not Global.upgrades_manager.aquired[upgrade] then
-          --CrimDawn.Log(FileIdent, "Adding upgrade: " .. upgrade)
-          managers.upgrades:aquire(upgrade)
-        end
+      if tableName == nil then -- If the table is nil it's an actual upgrade ID, we can just add it
+        if not Global.upgrades_manager.aquired[upgrade] then managers.upgrades:aquire(upgrade) end
 
       else -- On a table/index pair, look it up and add all upgrades it encompasses
         for _, currentUpgrade in pairs(Global.CrimDawn.tables.upgrades[tableName][upgradeName]) do
-          if not Global.upgrades_manager.aquired[currentUpgrade] then
-            --CrimDawn.Log(FileIdent, "Adding upgrade: " .. currentUpgrade)
-            managers.upgrades:aquire(currentUpgrade)
-          end
+          if not Global.upgrades_manager.aquired[currentUpgrade] then managers.upgrades:aquire(currentUpgrade) end
         end
       end
     end
 
     for key, _ in pairs(Global.CrimDawn.data.unlocks) do
-      if not Global.upgrades_manager.aquired[key] then
-        --CrimDawn.Log(FileIdent, "Unlocking " .. currentUpgrade)
-        managers.upgrades:aquire(key)
-      end
+      if not Global.upgrades_manager.aquired[key] then managers.upgrades:aquire(key) end
     end CrimDawn:WriteSave(FileIdent, "multiworld client update")
   end
 end

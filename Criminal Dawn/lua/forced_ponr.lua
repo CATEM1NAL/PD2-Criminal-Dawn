@@ -31,9 +31,9 @@ function CrimDawn_CreatePONR()
 
   else
     -- Testing whether a DLC unlocker is installed, just to fuck with people
-    assert(not WinSteamDLCManager:_check_dlc_data("Fake DLC Test"), "nil returned true")
-    assert(not WinEpicDLCManager:_check_dlc_data("Fake DLC Test"), "nil returned true")
-    assert(not WINDLCManager:_check_dlc_data("Fake DLC Test"), "nil returned true")
+    assert(not WinSteamDLCManager:_check_dlc_data(tostring(os.time())), "nil returned true")
+    assert(not WinEpicDLCManager:_check_dlc_data(tostring(os.time())), "nil returned true")
+    assert(not WINDLCManager:_check_dlc_data(tostring(os.time())), "nil returned true")
     managers.localization:add_localized_strings({ ["hud_crimdawn_no_return"] = RarePONRMessages[math.random(#RarePONRMessages)] })
   end
 

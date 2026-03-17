@@ -182,44 +182,38 @@ end)
 
 
 Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", function(self)
-  if not CrimDawn.state.heist_started and not Utils:IsInGameState() and NetworkHelper:IsHost() then
-
-    -- Pick starting heist if no active run
-    if not next(Global.CrimDawn.data.game.heists) then
-      CrimDawnClient:PollTimeUpgrades()
-      CrimDawn:NextHeist(0)
-    end
-
-    NetworkHelper:SendToPeers("CrimDawn_HeistCount", #Global.CrimDawn.data.game.heists)
-
-    -- Mutator/difficulty scaling
-    local LogicItemCount = Global.CrimDawn.data.x.time_upgrades + Global.CrimDawn.data.x.bots +
-                           Global.CrimDawn.data.x.permaskills + Global.CrimDawn.data.x.permaperks
-    CrimDawn.DiffScale = math.floor(LogicItemCount / (Global.CrimDawn.data.game.scaling_count / 6))
-
-    -- Random mutators
-    dofile(CrimDawn.ModPath .. "lua/tables/mutators.lua")
-
-    -- Drop you straight into a heist
-    local DiffIndex =
-    math.min(#Global.CrimDawn.data.game.heists + CrimDawn.DiffScale, Global.CrimDawn.data.game.max_diff)
-    local NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
-
-    self:start_job({
-      difficulty = tweak_data.difficulties[DiffIndex + 1],
-      one_down = true,
-      job_id = NextHeist
-    })
-    CrimDawn.Log(FileIdent, "Loading: " .. NextHeist)
-  end
-end)
-
-Hooks:PostHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PostStartGame", function(self)
   if not CrimDawn.state.heist_started and not Utils:IsInGameState() then
     -- check for any last second items
     CrimDawnClient:PollTimeUpgrades()
     CrimDawnClient:PollData()
-    CrimDawn.state.heist_started = true
+
+    if NetworkHelper:IsHost() then
+      -- Pick starting heist if no active run
+      if not next(Global.CrimDawn.data.game.heists) then CrimDawn:NextHeist(0) end
+      NetworkHelper:SendToPeers("CrimDawn_HeistCount", #Global.CrimDawn.data.game.heists)
+
+      -- Difficulty/mutator scaling
+      local LogicItemCount = Global.CrimDawn.data.x.time_upgrades + Global.CrimDawn.data.x.bots +
+                           Global.CrimDawn.data.x.permaskills + Global.CrimDawn.data.x.permaperks
+      CrimDawn.DiffScale = math.floor(LogicItemCount / (Global.CrimDawn.data.game.scaling_count / 6))
+
+      -- If no mutators active, try to enable them
+      dofile(CrimDawn.ModPath .. "lua/tables/mutators.lua")
+
+      -- Drop you straight into a heist
+      local DiffIndex =
+      math.min(#Global.CrimDawn.data.game.heists + CrimDawn.DiffScale, Global.CrimDawn.data.game.max_diff)
+      local NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
+
+      self:start_job({
+        difficulty = tweak_data.difficulties[DiffIndex + 1],
+        one_down = true,
+        job_id = NextHeist
+      })
+
+      CrimDawn.Log(FileIdent, "Loading: " .. NextHeist)
+    end
+  CrimDawn.state.heist_started = true
   end
 end)
 
