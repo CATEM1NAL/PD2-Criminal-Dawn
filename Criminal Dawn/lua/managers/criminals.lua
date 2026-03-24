@@ -11,4 +11,6 @@ end
 CrimDawn.Log(FileIdent, "Bot count: " .. math.min(Global.CrimDawn.data.x.bots, MaxBots))
 
 CriminalsManager.MAX_NR_TEAM_AI = MaxBots
-if NetworkHelper:IsHost() then CriminalsManager.MAX_NR_TEAM_AI = math.min(Global.CrimDawn.data.x.bots, MaxBots) end
+if NetworkHelper:IsHost() then
+  CriminalsManager.MAX_NR_TEAM_AI = math.min(Global.CrimDawn.data.x.bots, MaxBots)
+end

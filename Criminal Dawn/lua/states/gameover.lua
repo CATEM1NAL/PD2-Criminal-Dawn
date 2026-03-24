@@ -3,27 +3,24 @@ local FileIdent = "gameover"
 Hooks:PostHook(GameOverState, "at_enter", "CrimDawn_HeistFailed", function(self)
   Global.CrimDawn.data.upgrades = {}
 
-  CrimDawn:PermaUpgrade(Global.CrimDawn.data.x.permaskills, "permaskills")
-  CrimDawn:PermaUpgrade(Global.CrimDawn.data.x.permaperks, "permaperks")
-
-  -- generate a new set of randomised upgrades
+  -- Generate new random upgrades
   CrimDawn:RandomUpgrade(Global.CrimDawn.data.x.skills, "skills")
   CrimDawn:RandomUpgrade(Global.CrimDawn.data.x.perks, "perks")
   CrimDawn:RandomUpgrade(Global.CrimDawn.data.x.stats, "stats")
   
-  local ExtraUpgrades = 0
-  if Global.CrimDawn.data.unlocks.ecm_jammer then ExtraUpgrades = ExtraUpgrades + 1 end
-  if Global.CrimDawn.data.unlocks.trip_mine then ExtraUpgrades = ExtraUpgrades + 1 end
-  CrimDawn:RandomUpgrade(Global.CrimDawn.data.x.deployables + ExtraUpgrades, "deployable")
+  local DeployableUpgrades = 0
+  for _, deployable in ipairs(Global.CrimDawn.tables.etc.deployables) do
+    if Global.CrimDawn.data.unlocks[deployable] then DeployableUpgrades = DeployableUpgrades + 1 end
+  end
+
+  CrimDawn:RandomUpgrade(DeployableUpgrades, "deployable")
 
   -- Prevent deathlink loopback, setup next run
-  Global.CrimDawn.data.game.deathlink = os.time() + 3
+  Global.CrimDawn.data.game.deathlink = os.time() + 10
   if NetworkHelper:IsHost() then
     Global.CrimDawn.data.game.run = Global.CrimDawn.data.game.run + 1
     Global.CrimDawn.data.game.ponr = false
     Global.CrimDawn.data.game.heists = {}
-
-    NetworkHelper:SendToPeers("CrimDawn_HeistCount", #Global.CrimDawn.data.game.heists)
   end
 
   CrimDawn:WriteSave(FileIdent, "run failed")

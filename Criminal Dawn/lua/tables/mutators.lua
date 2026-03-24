@@ -6,11 +6,12 @@ local MutatorTable = { "EnemyDamage", "EnemyHealth", "ShotgunTweak",
   "ShieldPhalanx", "ZealSniper", "Heavies" }
 
 local Difficulty = #Global.CrimDawn.data.game.heists + CrimDawn.DiffScale
-local peers_table = managers.network and managers.network:session() and managers.network:session():peers()
+local PeerTable = managers.network and managers.network:session() and managers.network:session():peers()
+local OtherPlayers = table.size(PeerTable or {}) + Global.CrimDawn.data.x.bots
 
 if Difficulty >= 2 then -- Hard
   table.insert(MutatorTable, "TaserOvercharge")
-  if table.size(peers_table or {}) > 0 then managers.mutators:set_enabled("MutatorFriendlyFire") end
+  if OtherPlayers > 0 then managers.mutators:set_enabled("MutatorFriendlyFire") end
 end
 
 if Difficulty >= 3 then -- Very Hard

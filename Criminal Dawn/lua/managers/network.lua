@@ -14,44 +14,44 @@ CrimDawn.Log(FileIdent, "Matchmaking key: " .. NetworkMatchMakingEPIC._BUILD_SEA
 -- SETTING UP NETWORK HOOKS
 -- Sync run progress (managers/menu.lua)
 NetworkHelper:AddReceiveHook("CrimDawn_HeistCount", "CrimDawn_SyncHeistCount", function(data, sender)
-  Global.CrimDawn.data.game.host_heists = tonumber(data)
+  local HostHeistsWon = tonumber(data - 1)
 
-  if Global.CrimDawn.data.game.host_heists - 1 > Global.CrimDawn.data.game.heists_won then
-    Global.CrimDawn.data.game.heists_won = Global.CrimDawn.data.game.host_heists - 1
+  if HostHeistsWon > Global.CrimDawn.data.game.heists_won then
+    Global.CrimDawn.data.game.heists_won = HostHeistsWon
   end
 
   CrimDawn:WriteSave(FileIdent, "received heist number [" .. data .. "] from host")
 end)
 
--- Sync active mutators (tables/mutators.lua)
-NetworkHelper:AddReceiveHook("CrimDawn_ActiveMutators", "CrimDawn_SyncMutators", function(data, sender)
-  CrimDawn.Log(FileIdent, "Active mutators: " .. data)
-  for mutator in string.gmatch(data, "([^,]+)") do managers.mutators:set_enabled(mutator) end
-end) -- The game SHOULD handle this but it shits itself and ends up one heist behind, idk why
-
 -- PONR time remaining chat message (archipelago/client_bridge)
 NetworkHelper:AddReceiveHook("CrimDawn_TimeUpdate", "CrimDawn_SyncTimeUpdate", function(data, sender)
-  if not CrimDawn.state.ponr then CrimDawn.ChatNotify(data .. " seconds remaining.")
-  else CrimDawn.ChatNotify("Next heist will start with " .. data / 60 .. " more minutes.") end
+  if not CrimDawn.state.ponr then CrimDawn.ChatNotify(data .. " minutes remaining.")
+  else CrimDawn.ChatNotify("Next heist will start with " .. data .. " more minutes.") end
 end)
 
--- Sync PONR (force_ponr.lua)
+-- Sync PONR (ponr.lua)
 NetworkHelper:AddReceiveHook("CrimDawn_StartPONR", "CrimDawn_SyncPONR", function(data, sender)
   CrimDawn.Log(FileIdent, "Received PONR sync")
-  if not CrimDawn.state.ponr then
-    CrimDawn_CreatePONR()
+  if CrimDawn.state.ponr then return end
 
-    managers.groupai:state():set_point_of_no_return_timer(Global.CrimDawn.data.game.ponr, "crimdawn_ponr", "crimdawn_ponr")
-    CrimDawn.state.maskup_time = TimerManager:game():time()
+  CrimDawn_CreatePONR()
+  managers.groupai:state():set_point_of_no_return_timer(Global.CrimDawn.data.game.ponr, "crimdawn_ponr", "crimdawn_ponr_tweak")
+  CrimDawn.state.maskup_time = TimerManager:game():time()
 
-    CrimDawn.state.ponr = true
-  end
+  CrimDawn.state.ponr = true
+end)
+
+-- Disable PONR (overrides/disable_ponr.lua)
+NetworkHelper:AddReceiveHook("CrimDawn_DisablePONR", "CrimDawn_SyncPONRDisabled", function(data, sender)
+  CrimDawn.Log(FileIdent, "Disabling PONR timer")
+  CrimDawn.state.ponr = true
 end)
 
 -- Syncing score (score_handler.lua)
 NetworkHelper:AddReceiveHook("CrimDawn_SendPoints", "CrimDawn_ReceivePoints", function(data, sender)
   if CrimDawn.state.cap_reached then CrimDawnClient:PollTimeUpgrades()
-    if Global.CrimDawn.data.game.score < Global.CrimDawn.data.game.score_cap then CrimDawn.state.cap_reached = false
+    if Global.CrimDawn.data.game.score < Global.CrimDawn.data.game.score_cap then
+      CrimDawn.state.cap_reached = false
     else return end
   end
 
@@ -59,15 +59,15 @@ NetworkHelper:AddReceiveHook("CrimDawn_SendPoints", "CrimDawn_ReceivePoints", fu
   local points, xPerPoint, reason = data:match("([^,]+),([^,]+),([^,]+)")
 
   -- Give points
-  if reason == "loot" and not CrimDawn.ScoreCap(tonumber(points)) then
-    CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
-                     .. " (+" .. tonumber(points) .. " from " .. reason .. ").\n"
-                     .. CrimDawn.ScoreNeeded() .. " more for next check.")
+  if xPerPoint == -1 and not CrimDawn.ScoreCap(tonumber(points)) then
+    CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
+      .. " (+" .. tonumber(points) .. " from " .. reason .. ").\n"
+      .. CrimDawn.ScoreNeeded() .. " more for next check.")
 
   elseif not CrimDawn.ScoreCap(tonumber(points)) then
-    CrimDawn.ChatNotify("Score: " .. Global.CrimDawn.data.game.score
-                     .. " (+1 per " .. xPerPoint .. " " .. reason .. ").\n"
-                     .. CrimDawn.ScoreNeeded() .. " more for next check.") end
+    CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
+      .. " (+1 per " .. xPerPoint .. " " .. reason .. ").\n"
+      .. CrimDawn.ScoreNeeded() .. " more for next check.") end
 
   CrimDawn:WriteSave(FileIdent, "received score [" .. points .. "] from host")
 end)

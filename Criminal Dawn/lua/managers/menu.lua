@@ -14,18 +14,23 @@ function MenuCallbackHandler:CrimDawn_CreateLobby()
     end self:create_lobby()
 
   elseif Global.CrimDawn.data.game.seed ~= CrimDawnClient.data.seed then
-    local InvalidSeed = QuickMenu:new(loc:text("crimdawn_multiworld_invalid_title"),
+    local InvalidSeed = QuickMenu:new(
+      loc:text("crimdawn_multiworld_invalid_title"),
       loc:text("crimdawn_multiworld_invalid_desc"),
-      {}, true)
+      {}, true
+    )
 
-  else local NeedSeed = QuickMenu:new(loc:text("crimdawn_multiworld_missing_title"),
+  else local NeedSeed = QuickMenu:new(
+    loc:text("crimdawn_multiworld_missing_title"),
     loc:text("crimdawn_multiworld_missing_desc"),
-    {}, true)
+    {}, true
+  )
   end
 end
 
 -- Safehouse button
 function MenuCallbackHandler:CrimDawn_Safehouse()
+  CrimDawnClient:PollData()
   managers.menu:open_node("custom_safehouse")
 end
 
@@ -34,6 +39,7 @@ local function InjectCrimDawnButtons(node)
   local data = {
     type = "CoreMenuItem.Item",
   }
+
   local params = {
     name = "crimdawn_play_next_btn",
     text_id = "crimdawn_enter_lobby_title",
@@ -65,7 +71,7 @@ local function InjectCrimDawnButtons(node)
     font_size = 35,
     font = tweak_data.menu.pd2_large_font
   }
-  
+
   local new_item = node:create_item(data, params)
 
   new_item.dirty_callback = callback(node, node, "item_dirty")
@@ -86,7 +92,6 @@ end
 
 
 -- MENU CHANGES START HERE --
--- Hook adapted from Create Empty Lobby by Snh20
 Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_manager, nodes)
   local mainmenu = nodes.main
   local pausemenu = nodes.pause
@@ -98,14 +103,25 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
     CrimDawnClient:PollTimeUpgrades()
     CrimDawnClient:PollData()
 
+    local MaxTime = 900 * Global.CrimDawn.data.game.run_length
+    local TimeCharMap = { "", "", "" }
+    local TimeCharacter = ""
+
+    if Global.CrimDawn.data.game.ponr then
+      for i = 1, 3 do
+        if Global.CrimDawn.data.game.ponr < ((i/3) * MaxTime) then TimeCharacter = TimeCharMap[i] break end
+      end
+    end
+
     managers.localization:add_localized_strings({
       ["crimdawn_play_next_title"] = ordinal(Global.CrimDawn.data.game.run) ..
         " Criminal Dawn [" .. #Global.CrimDawn.data.game.heists .. "/" .. Global.CrimDawn.data.game.run_length .. "]",
-      ["crimdawn_play_next_desc"] = "Time remaining: " .. math.floor(Global.CrimDawn.data.game.ponr or -1) .. " seconds.",
+      ["crimdawn_play_next_desc"] = TimeCharacter .. " " .. math.floor(Global.CrimDawn.data.game.ponr / 60 or -1) .. " minutes remaining."
     })
 
     if Global.CrimDawn.data.game.run == 1 then managers.localization:add_localized_strings({
       ["crimdawn_start_run_title"] = managers.localization:text("crimdawn_first_run_title") })
+
     else managers.localization:add_localized_strings({
       ["crimdawn_start_run_title"] = "A " .. ordinal(Global.CrimDawn.data.game.run) .. " Criminal Dawn" })
     end
@@ -113,9 +129,11 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
     InjectCrimDawnButtons(mainmenu)
 
     -- Hides all the unnecessary menu buttons
-    local HiddenButtons = { crimenet = true, crimenet_offline = true, story_missions = true,
-                            fbi_files = true, gamehub = true, movie_theater = true,
-                            achievements = true, crimdawn_safehouse = true }
+    local HiddenButtons = {
+      crimenet = true, crimenet_offline = true, story_missions = true,
+      fbi_files = true, gamehub = true, movie_theater = true,
+      achievements = true, crimdawn_safehouse = true
+    }
 
     for i, item in pairs(mainmenu._items) do
       if HiddenButtons[item._parameters.name] then item:set_visible(false) end
@@ -127,30 +145,31 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
       end
     end
   end
-  
+
   -- Lobby
   if lobbymenu ~= nil then
     InjectCrimDawnButtons(lobbymenu)
-    
+
     -- Make start game button always visible
     for i, item in pairs(lobbymenu._items) do
       if item._parameters.name == "start_the_game" then
         table.remove(item._visible_callback_list, 2)
-        
+
         if next(Global.CrimDawn.data.game.heists) then
           item._parameters.text_id = "crimdawn_play_next_title"
           item._parameters.help_id = "crimdawn_play_next_desc"
+
         else
           item._parameters.text_id = "crimdawn_start_run_title"
           item._parameters.help_id = "crimdawn_start_run_desc"
         end break
       end
     end
-    
+
     -- Hides all the unnecessary menu buttons
     local HiddenButtons = { story_missions = true, achievements = true, side_jobs = true,
                             crimdawn_play_next_btn = true, crimenet_nj = true, crimenet_j = true  }
-    
+
     for i, item in pairs(lobbymenu._items) do
       if HiddenButtons[item._parameters.name] then item:set_visible(false) end
     end
@@ -161,21 +180,21 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
       end
     end
   end
-  
+
   -- Pause Menu
   if pausemenu ~= nil then
     local breakCounter = 0
     for i, item in pairs(pausemenu._items) do
-      
+
       if item._parameters.name == "abort_mission" then
         item:set_visible(false)
         breakCounter = breakCounter + 1
-        
+
       elseif item._parameters.name == "end_game" then
         item._enabled = false
         breakCounter = breakCounter + 1
       end
-      
+
       if breakCounter == 2 then break end
     end
   end
@@ -196,7 +215,7 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
 
       -- Difficulty/mutator scaling
       local LogicItemCount = Global.CrimDawn.data.x.time_upgrades + Global.CrimDawn.data.x.bots +
-                           Global.CrimDawn.data.x.permaskills + Global.CrimDawn.data.x.permaperks
+                             Global.CrimDawn.data.x.permaskills + Global.CrimDawn.data.x.permaperks
       CrimDawn.DiffScale = math.floor(LogicItemCount / (Global.CrimDawn.data.game.scaling_count / 6))
 
       -- If no mutators active, try to enable them

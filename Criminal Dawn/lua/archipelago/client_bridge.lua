@@ -24,7 +24,7 @@ function CrimDawnClient:LoadData()
   self.data["Stat Boost"] = self.data["Stat Boost"] or 0
   self.data["24 Coins"] = self.data["24 Coins"] or 0
   self.data["6 Coins"] = self.data["6 Coins"] or 0
-end
+end CrimDawnClient:LoadData()
 
 -- Timer upgrades need to be checked between heists and when score cap is reached
 function CrimDawnClient:PollTimeUpgrades()
@@ -37,13 +37,16 @@ function CrimDawnClient:PollTimeUpgrades()
   CrimDawnClient:LoadData()
   if Global.CrimDawn.data.game.seed ~= self.data.seed then return end
 
+  local TimeRemaining = math.floor(Global.CrimDawn.data.game.ponr / 60)
+
   if self.data["Time Bonus"] > Global.CrimDawn.data.x.time_upgrades then -- Get time upgrades
     local ExtraTime = Global.CrimDawn.data.game.timer_strength * (self.data["Time Bonus"] - Global.CrimDawn.data.x.time_upgrades)
     Global.CrimDawn.data.game.ponr = Global.CrimDawn.data.game.ponr + ExtraTime
+    TimeRemaining = TimeRemaining + math.floor(ExtraTime / 60)
     Global.CrimDawn.data.x.time_upgrades = self.data["Time Bonus"]
     Global.CrimDawn.data.game.score_cap = self.data.score_cap
     CrimDawn:WriteSave(FileIdent, "Time Bonus received from multiworld")
-    NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", math.floor(Global.CrimDawn.data.game.timer_strength))
+    if NetworkHelper:IsHost() then NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", TimeRemaining) end
 
     if CrimDawn.state.ponr then -- Mid-game timer update (increase score cap)
       CrimDawn.state.cap_reached = false
@@ -53,20 +56,18 @@ function CrimDawnClient:PollTimeUpgrades()
 
     if NetworkHelper:IsHost() then -- Send timer update to peers
       DelayedCalls:Add("CrimDawn_ChatPONR", 1, function()
-        CrimDawn.ChatNotify(math.floor(Global.CrimDawn.data.game.ponr) .. " (+" .. ExtraTime .. " from Time Bonus) seconds remaining.")
-        NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", math.floor(Global.CrimDawn.data.game.ponr))
+        CrimDawn.ChatNotify(TimeRemaining .. " (+" .. math.floor(ExtraTime / 60) .. " from Time Bonus) minutes remaining.")
       end)
     end
 
   else if CrimDawn.state.ponr then return end
     if NetworkHelper:IsHost() then -- No time upgrades received, send current time to peers
       DelayedCalls:Add("CrimDawn_ChatPONR", 1, function()
-        if Global.CrimDawn.data.game.ponr < 0 then
-          CrimDawn.ChatNotify("Remaining time is less than 0!")
-          NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", "0")
-        else
-          CrimDawn.ChatNotify(math.floor(Global.CrimDawn.data.game.ponr) .. " seconds remaining.")
-          NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", math.floor(Global.CrimDawn.data.game.ponr))
+        if TimeRemaining < 0 then
+          CrimDawn.ChatNotify("Remaining time is less than 1 minute!")
+          NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", 0)
+        else CrimDawn.ChatNotify(TimeRemaining .. " minutes remaining.")
+          NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", TimeRemaining)
         end
       end)
     end
@@ -96,51 +97,24 @@ function CrimDawnClient:PollData()
   return end
 
   -- Add drill speed upgrades
-  if self.data["Drill Sawgeant"] ~= 0 then
-    local FoundUpgrade
-    for i, upgrade in ipairs(Global.CrimDawn.data.upgrades) do
-      if upgrade == "player_drill_speed_multiplier" .. self.data["Drill Sawgeant"] then FoundUpgrade = true break
-      elseif upgrade == "player_drill_speed_multiplier" .. (self.data["Drill Sawgeant"] - 1) then
-        table.remove(Global.CrimDawn.data.upgrades, i)
-      break end
-    end
-
-    if FoundUpgrade ~= true then
-      table.insert(Global.CrimDawn.data.upgrades, "player_drill_speed_multiplier" .. self.data["Drill Sawgeant"])
-      if self.data["Drill Sawgeant"] ~= Global.CrimDawn.data.x.drill then
-        CrimDawn.Log(FileIdent, "Drill Sawgeant Lv" .. self.data["Drill Sawgeant"])
-        Global.CrimDawn.data.x.drill = self.data["Drill Sawgeant"]
-        CrimDawn.ChatNotify("Received Drill Sawgeant Lv" .. self.data["Drill Sawgeant"] .. "!")
-        DataChanged = true
-      end
-    end
+  if self.data["Drill Sawgeant"] > Global.CrimDawn.data.x.drill then
+    CrimDawn.Log(FileIdent, "Drill Sawgeant Lv" .. self.data["Drill Sawgeant"])
+    Global.CrimDawn.data.x.drill = self.data["Drill Sawgeant"]
+    CrimDawn.ChatNotify("Received Drill Sawgeant Lv" .. self.data["Drill Sawgeant"] .. "!")
+    DataChanged = true
   end
 
   -- Add Nine Lives upgrades
-  if self.data["Nine Lives"] ~= 0 then
-    local FoundUpgrade
-    for i, upgrade in ipairs(Global.CrimDawn.data.upgrades) do
-      if upgrade == "player_additional_lives_" .. self.data["Nine Lives"] then FoundUpgrade = true break
-      elseif upgrade == "player_additional_lives_" .. (self.data["Nine Lives"] - 1) then
-        table.remove(Global.CrimDawn.data.upgrades, i)
-      break end
-    end
-
-    if FoundUpgrade ~= true then
-      table.insert(Global.CrimDawn.data.upgrades, "player_additional_lives_" .. self.data["Nine Lives"])
-      if self.data["Nine Lives"] ~= Global.CrimDawn.data.x.lives then
-        CrimDawn.Log(FileIdent, "Nine Lives Lv" .. self.data["Nine Lives"])
-        Global.CrimDawn.data.x.lives = self.data["Nine Lives"]
-        CrimDawn.ChatNotify("Received Nine Lives Lv" .. self.data["Nine Lives"] .. "!")
-        DataChanged = true
-      end
-    end
+  if self.data["Nine Lives"] > Global.CrimDawn.data.x.lives then
+    CrimDawn.Log(FileIdent, "Nine Lives Lv" .. self.data["Nine Lives"])
+    Global.CrimDawn.data.x.lives = self.data["Drill Sawgeant"]
+    CrimDawn.ChatNotify("Received Nine Lives Lv" .. self.data["Nine Lives"] .. "!")
+    DataChanged = true
   end
 
   -- Get Perma-Skills
   if self.data["Perma-Skill"] > Global.CrimDawn.data.x.permaskills then
-    CrimDawn:PermaUpgrade(self.data["Perma-Skill"], "permaskills")
-
+    CrimDawn.Log(FileIdent, "Permaskills: " .. self.data["Perma-Skill"])
     Global.CrimDawn.data.x.permaskills = self.data["Perma-Skill"]
     CrimDawn.ChatNotify("Now have " .. self.data["Perma-Skill"] .. " Perma-Skills!")
     DataChanged = true
@@ -148,8 +122,7 @@ function CrimDawnClient:PollData()
 
   -- Get Perma-Perks
   if self.data["Perma-Perk"] > Global.CrimDawn.data.x.permaperks then
-    CrimDawn:PermaUpgrade(self.data["Perma-Perk"], "permaperks")
-
+    CrimDawn.Log(FileIdent, "Permaperks: " .. self.data["Perma-Perk"])
     Global.CrimDawn.data.x.permaperks = self.data["Perma-Perk"]
     CrimDawn.ChatNotify("Now have " .. self.data["Perma-Perk"] .. " Perma-Perks!")
     DataChanged = true
@@ -202,92 +175,136 @@ function CrimDawnClient:PollData()
     DataChanged = true
   end
 
-  -- Unlock ECM
-  if not Global.CrimDawn.data.unlocks.ecm_jammer and self.data["ECM"] then
-    CrimDawn.Log(FileIdent, "Unlocking ECM jammer")
-    Global.CrimDawn.data.unlocks.ecm_jammer = true
-    CrimDawn:RandomUpgrade(1, "deployable")
-    CrimDawn.ChatNotify("Unlocked ECM jammer and gained an upgrade!")
-    DataChanged = true
-  end
-
-  -- Unlock tripmines
-  if not Global.CrimDawn.data.unlocks.trip_mine and self.data["Trip Mines"] then
-    CrimDawn.Log(FileIdent, "Unlocking trip mine")
-    Global.CrimDawn.data.unlocks.trip_mine = true
-    CrimDawn:RandomUpgrade(1, "deployable")
-    CrimDawn.ChatNotify("Unlocked trip mine and gained an upgrade!")
-    DataChanged = true
-  end
-
   -- Unlock random deployables
-  if self.data["Deployable"] > Global.CrimDawn.data.x.deployables then
-    local DeployablesNeeded = self.data["Deployable"] - Global.CrimDawn.data.x.deployables
-    CrimDawn:RandomDeployable(DeployablesNeeded)
-    CrimDawn:RandomUpgrade(DeployablesNeeded, "deployable")
+  local UnlockObtained = 0
+  for _, deployable in ipairs(Global.CrimDawn.tables.etc.deployables) do
+    if Global.CrimDawn.data.unlocks[deployable] then UnlockObtained = UnlockObtained + 1 end
+  end
 
-    Global.CrimDawn.data.x.deployables = self.data["Deployable"]
-    CrimDawn.ChatNotify("Unlocked new deployables and gained upgrades!")
+  for _, key in ipairs(CrimDawn.state.upg_queue) do
+    if key == "deployables" then UnlockObtained = UnlockObtained + 1 end
+  end
+
+  if self.data["Deployable"] > UnlockObtained then
+    local UnlockNeeded = self.data["Deployable"] - UnlockObtained
+    for i = 1, UnlockNeeded do
+      table.insert(CrimDawn.state.upg_queue, {BaseTable = "etc", TableName = "deployables" })
+    end
+
     DataChanged = true
   end
 
   -- Unlock random armours
-  if self.data["Armor"] > Global.CrimDawn.data.x.armour then
-    local ArmourNeeded = self.data["Armor"] - Global.CrimDawn.data.x.armour
-    CrimDawn:RandomArmour(ArmourNeeded)
+  local UnlockObtained = 0
+  for _, armour in ipairs(Global.CrimDawn.tables.etc.armour) do
+    if Global.CrimDawn.data.unlocks[armour] then UnlockObtained = UnlockObtained + 1 end
+  end
 
-    Global.CrimDawn.data.x.armour = self.data["Armor"]
-    CrimDawn.ChatNotify("Unlocked new armor!")
+  for _, key in ipairs(CrimDawn.state.upg_queue) do
+    if key == "armour" then UnlockObtained = UnlockObtained + 1 end
+  end
+
+  if self.data["Armor"] > UnlockObtained then
+    local UnlockNeeded = self.data["Armor"] - UnlockObtained
+    for i = 1, UnlockNeeded do
+      table.insert(CrimDawn.state.upg_queue, {BaseTable = "etc", TableName = "armour" })
+    end
+
     DataChanged = true
   end
 
   -- Unlock random primaries
-  if self.data["Primary Weapon"] > Global.CrimDawn.data.x.primaries then
-    local PrimariesNeeded = self.data["Primary Weapon"] - Global.CrimDawn.data.x.primaries
-    CrimDawn:RandomWeapon(PrimariesNeeded, "primaries")
+  local UnlockObtained = 0
+  for _, weapon in ipairs(Global.CrimDawn.tables.weapons.primaries) do
+    if Global.CrimDawn.data.unlocks[weapon] then UnlockObtained = UnlockObtained + 1 end
+  end
 
-    Global.CrimDawn.data.x.primaries = self.data["Primary Weapon"]
-    CrimDawn.ChatNotify("Unlocked new primary weapons!")
+  for _, key in ipairs(CrimDawn.state.upg_queue) do
+    if key == "primaries" then UnlockObtained = UnlockObtained + 1 end
+  end
+
+  if self.data["Primary Weapon"] > UnlockObtained then
+    local UnlockNeeded = self.data["Primary Weapon"] - UnlockObtained
+    for i = 1, UnlockNeeded do
+      table.insert(CrimDawn.state.upg_queue, {BaseTable = "weapons", TableName = "primaries" })
+    end
+
     DataChanged = true
   end
   
   -- Unlock random akimbos
-  if self.data["Akimbo"] > Global.CrimDawn.data.x.akimbos then
-    local AkimbosNeeded = self.data["Akimbo"] - Global.CrimDawn.data.x.akimbos
-    CrimDawn:RandomWeapon(AkimbosNeeded, "akimbos")
+  local UnlockObtained = 0
+  for _, weapon in ipairs(Global.CrimDawn.tables.weapons.akimbos) do
+    if Global.CrimDawn.data.unlocks[weapon] then UnlockObtained = UnlockObtained + 1 end
+  end
 
-    Global.CrimDawn.data.x.akimbos = self.data["Akimbo"]
-    CrimDawn.ChatNotify("Unlocked new akimbos!")
+  for _, key in ipairs(CrimDawn.state.upg_queue) do
+    if key == "akimbos" then UnlockObtained = UnlockObtained + 1 end
+  end
+
+  if self.data["Akimbo"] > UnlockObtained then
+    local UnlockNeeded = self.data["Akimbo"] - UnlockObtained
+    for i = 1, UnlockNeeded do
+      table.insert(CrimDawn.state.upg_queue, {BaseTable = "weapons", TableName = "akimbos" })
+    end
+
     DataChanged = true
   end
 
   -- Unlock random secondaries
-  if self.data["Secondary Weapon"] > Global.CrimDawn.data.x.secondaries then
-    local SecondariesNeeded = self.data["Secondary Weapon"] - Global.CrimDawn.data.x.secondaries
-    CrimDawn:RandomWeapon(SecondariesNeeded, "secondaries")
+  local UnlockObtained = 0
+  for _, weapon in ipairs(Global.CrimDawn.tables.weapons.secondaries) do
+    if Global.CrimDawn.data.unlocks[weapon] then UnlockObtained = UnlockObtained + 1 end
+  end
 
-    Global.CrimDawn.data.x.secondaries = self.data["Secondary Weapon"]
-    CrimDawn.ChatNotify("Unlocked new secondary weapons!")
+  for _, key in ipairs(CrimDawn.state.upg_queue) do
+    if key == "secondaries" then UnlockObtained = UnlockObtained + 1 end
+  end
+
+  if self.data["Secondary Weapon"] > UnlockObtained then
+    local UnlockNeeded = self.data["Secondary Weapon"] - UnlockObtained
+    for i = 1, UnlockNeeded do
+      table.insert(CrimDawn.state.upg_queue, {BaseTable = "weapons", TableName = "secondaries" })
+    end
+
     DataChanged = true
   end
 
   -- Unlock random melees
-  if self.data["Melee Weapon"] > Global.CrimDawn.data.x.melee then
-    local MeleeNeeded = self.data["Melee Weapon"] - Global.CrimDawn.data.x.melee
-    CrimDawn:RandomWeapon(MeleeNeeded, "melee")
+  local UnlockObtained = 0
+  for _, weapon in ipairs(Global.CrimDawn.tables.weapons.melee) do
+    if Global.CrimDawn.data.unlocks[weapon] then UnlockObtained = UnlockObtained + 1 end
+  end
 
-    Global.CrimDawn.data.x.melee = self.data["Melee Weapon"]
-    CrimDawn.ChatNotify("Unlocked new melee weapons!")
+  for _, key in ipairs(CrimDawn.state.upg_queue) do
+    if key == "melee" then UnlockObtained = UnlockObtained + 1 end
+  end
+
+  if self.data["Melee Weapon"] > UnlockObtained then
+    local UnlockNeeded = self.data["Melee Weapon"] - UnlockObtained
+    for i = 1, UnlockNeeded do
+      table.insert(CrimDawn.state.upg_queue, {BaseTable = "weapons", TableName = "melee" })
+    end
+
     DataChanged = true
   end
 
   -- Unlock random throwables
-  if self.data["Throwable"] > Global.CrimDawn.data.x.throwables then
-    local ThrowablesNeeded = self.data["Throwable"] - Global.CrimDawn.data.x.throwables
-    CrimDawn:RandomWeapon(ThrowablesNeeded, "throwables")
+  local UnlockObtained = 0
+  for _, weapon in ipairs(Global.CrimDawn.tables.weapons.throwables) do
+    if Global.CrimDawn.data.unlocks[weapon] then UnlockObtained = UnlockObtained + 1 end
+  end
 
-    Global.CrimDawn.data.x.throwables = self.data["Throwable"]
-    CrimDawn.ChatNotify("Unlocked new throwables!")
+  for _, key in ipairs(CrimDawn.state.upg_queue) do
+    if key == "throwables" then UnlockObtained = UnlockObtained + 1 end
+  end
+
+  if self.data["Throwable"] > UnlockObtained then
+    local UnlockNeeded = self.data["Throwable"] - UnlockObtained
+    for i = 1, UnlockNeeded do
+      table.insert(CrimDawn.state.upg_queue, {BaseTable = "weapons", TableName = "throwables" })
+    end
+
     DataChanged = true
   end
 
@@ -330,14 +347,14 @@ function CrimDawnClient:PollData()
         if not Global.upgrades_manager.aquired[upgrade] then managers.upgrades:aquire(upgrade) end
 
       else -- On a table/index pair, look it up and add all upgrades it encompasses
-        for _, currentUpgrade in pairs(Global.CrimDawn.tables.upgrades[tableName][upgradeName]) do
-          if not Global.upgrades_manager.aquired[currentUpgrade] then managers.upgrades:aquire(currentUpgrade) end
+        for key, currentUpgrade in pairs(Global.CrimDawn.tables.upgrades[tableName][upgradeName]) do
+          if key == type("number") and not Global.upgrades_manager.aquired[currentUpgrade]
+            then managers.upgrades:aquire(currentUpgrade)
+          end
         end
       end
     end
-
-    for key, _ in pairs(Global.CrimDawn.data.unlocks) do
-      if not Global.upgrades_manager.aquired[key] then managers.upgrades:aquire(key) end
-    end CrimDawn:WriteSave(FileIdent, "multiworld client update")
+  CrimDawn:RandomUnlock()
+  CrimDawn:WriteSave(FileIdent, "multiworld client update")
   end
 end

@@ -12,7 +12,8 @@ function CrimDawn:Init()
   self.state = { ponr = false,
                  heist_started = false,
                  maskup_time = 0,
-                 cap_reached = false }
+                 cap_reached = false,
+                 upg_queue = {} }
 
   function self.Log(FileIdent, LogMessage)
     log("[DAWN>" .. FileIdent .. "] " .. LogMessage)
@@ -35,13 +36,19 @@ function CrimDawn:Init()
       CrimDawn.state.cap_reached = true
 
       if Utils:IsInGameState() then
-        CrimDawn.ChatNotify("Score cap reached: " .. Global.CrimDawn.data.game.score_cap
-                         .. "\nTime Bonus required to increase cap!") end return true
+        CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score_cap .. " (score cap reached)."
+                         .. "\nTime Bonus required to increase cap.")
+      end return true
     else Global.CrimDawn.data.game.score = NewScore return false end
   end
 
   function self.ChatNotify(message)
-    managers.chat:_receive_message(ChatManager.GAME, "CRIMINAL DAWN", message, Color(255, 217, 160, 125) / 255)
+    managers.chat:_receive_message(
+      ChatManager.GAME,
+      "CRIMINAL DAWN",
+      message,
+      Color(255, 217, 160, 125) / 25
+    )
   end
 
   function self:Reset()
@@ -51,20 +58,19 @@ function CrimDawn:Init()
       x = {
         bots = 0, time_upgrades = 0,
         skills = 0, permaskills = 0, perks = 0, permaperks = 0, stats = 0,
-        drill = 0, lives = 0,
-        saws = 0, primaries = 0, akimbos = 0, secondaries = 0, melee = 0,
-        throwables = 0, deployables = 0, armour = 0,
+        drill = 0, lives = 0, saws = 0,
         big_coins = 0, coins = 0
       },
       game = {
-        seed = false, max_diff = false, run = 1, score = 0, f_score = 0, score_cap = false, scaling_count = false,
-        heists_won = 0, host_heists = 0, heists = {}, ponr = false, timer_strength = false, deathlink = os.time(),
-        run_length = 0
+        seed = false, max_diff = false, timer_strength = false, run_length = 0, scaling_count = false,
+        score = 0, f_score = 0, score_cap = false, ponr = false, deathlink = os.time(),
+        run = 1, heists_won = 0, heists = {},
       },
-      chat = { message = "", timestamp = 0 },
       safehouse = {}
     }
   end
+
+  if Global.CrimDawn then Global.CrimDawn.data.chat = { message = "", timestamp = 0 } end
 
   function self:WriteSave(FileIdent, SaveReason)
     if Global.CrimDawn.data.game.seed ~= CrimDawnClient.data.seed then return end
@@ -93,6 +99,7 @@ function Global.CrimDawn:Init()
   dofile(CrimDawn.ModPath .. "lua/tables/heists.lua")
   dofile(CrimDawn.ModPath .. "lua/tables/upgrades.lua")
   dofile(CrimDawn.ModPath .. "lua/tables/weapons.lua")
+  dofile(CrimDawn.ModPath .. "lua/tables/etc.lua")
   dofile(CrimDawn.ModPath .. "lua/tables/dlc.lua")
 end
 

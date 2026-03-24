@@ -13,16 +13,6 @@ local function UpgradeMatched(upg_name)
   end
 return false end
 
--- Permaskills/perks should be given in order
-function CrimDawn:PermaUpgrade(count, table_name)
-  self.Log(FileIdent, "Giving " .. count .. " " .. table_name)
-  for i, _ in pairs(Global.CrimDawn.tables.upgrades[table_name]) do
-    if tonumber(i) > count then return end
-    UpgName = table_name .. "-" .. i
-    if not UpgradeMatched(UpgName) then table.insert(Global.CrimDawn.data.upgrades, UpgName) end
-  end
-end
-
 -- Generate specific number of specific upgrade type
 function CrimDawn:RandomUpgrade(count, table_name)
   self.Log(FileIdent, "Generating " .. count .. " random " .. table_name)
@@ -97,13 +87,14 @@ function CrimDawn:RandomUpgrade(count, table_name)
         for item in data.upg_req:gmatch("([^,]+)") do table.insert(UpgReq, item) end
       end
 
-      if data.name ~= "INVALID" and data.upg_type == UpgType and -- If upgrade is valid, matches the type we want,
-      not DisabledUpgrades[key] and not AcquiredUpgrades[key] and -- isn't disabled, isn't owned,
-      (not data.upg_req or AnyObtained(UpgReq, "upgrades")) and -- any upgrade req. is obtained,
-      (not data.item_req or AnyObtained(ItemReq, "unlocks")) and -- any item req. is unlocked,
-      (not data.count_req or CountMet) then -- and the variable count is met...
+      -- Create valid upgrade table
+      if data.dlc_owned and data.upg_type == UpgType and
+      not DisabledUpgrades[key] and not AcquiredUpgrades[key] and
+      (not data.upg_req or AnyObtained(UpgReq, "upgrades")) and
+      (not data.item_req or AnyObtained(ItemReq, "unlocks")) and
+      (not data.count_req or CountMet) then
         --self.Log(FileIdent, data.name .. " added as candidate")
-        BaseTable[key] = data.name -- ...then add it to the base table
+        BaseTable[key] = data.name
       end
     end
 
@@ -137,67 +128,104 @@ function CrimDawn:RandomUpgrade(count, table_name)
   end
 end
 
--- Unlock a certain number of weapons
-function CrimDawn:RandomWeapon(count, table_name)
-  local WorkingTable = Global.CrimDawn.tables.weapons[table_name]
+-- Unlock Menu
+local TypeToPrefix = {
+  primaries = "w_",
+  akimbos = "w_",
+  secondaries = "w_",
+  melee = "melee_",
+  throwables = "",
+  deployables = "equipment_",
+  armour = "armor_level_"
+}
 
-  -- Remove upgrades that the player already has
+local function UnlockMenu(unlock_type)
+  if unlock_type == "armour" then
+    UnlockName1 = tonumber(CrimDawn.state.unlockopt[1]:sub(-1)) + 1
+    UnlockName2 = tonumber((CrimDawn.state.unlockopt[2] or "0"):sub(-1)) + 1
+    UnlockName3 = tonumber((CrimDawn.state.unlockopt[3] or "0"):sub(-1)) + 1
+  else
+    UnlockName1 = CrimDawn.state.unlockopt[1]
+    UnlockName2 = CrimDawn.state.unlockopt[2] or "nil"
+    UnlockName3 = CrimDawn.state.unlockopt[3] or "nil"
+  end
+
+  local UnlockButtons = {
+    [1] = { text = managers.localization:text("bm_" .. TypeToPrefix[unlock_type] .. UnlockName1),
+            callback = CrimDawn.UnlockButton1 },
+    [2] = { text = managers.localization:text("bm_" .. TypeToPrefix[unlock_type] .. UnlockName2),
+            callback = CrimDawn.UnlockButton2 },
+    [3] = { text = managers.localization:text("bm_" .. TypeToPrefix[unlock_type] .. UnlockName3),
+            callback = CrimDawn.UnlockButton3 }
+  }
+  if not CrimDawn.state.unlockopt[3] then table.remove(UnlockButtons, 3) end
+  if not CrimDawn.state.unlockopt[2] then table.remove(UnlockButtons, 2) end
+
+  local UnlockMenu = QuickMenu:new(
+    string.upper("New " .. unlock_type),
+    managers.localization:text("crimdawn_new_item" .. math.random(1,9)),
+    UnlockButtons,
+    true
+  )
+end
+
+function CrimDawn.UnlockButton1()
+  CrimDawn.UnlockItem(1)
+end
+
+function CrimDawn.UnlockButton2()
+  CrimDawn.UnlockItem(2)
+end
+
+function CrimDawn.UnlockButton3()
+  CrimDawn.UnlockItem(3)
+end
+
+function CrimDawn.UnlockItem(i)
+  Global.CrimDawn.data.unlocks[CrimDawn.state.unlockopt[i]] = true
+  managers.upgrades:aquire(CrimDawn.state.unlockopt[i])
+  for _, deployable in ipairs(Global.CrimDawn.tables.etc.deployables) do
+    if CrimDawn.state.unlockopt[i] == deployable then
+      CrimDawn:RandomUpgrade(1, "deployable")
+    break end
+  end
+
+  CrimDawn:WriteSave(FileIdent, "new item unlocked")
+  table.remove(CrimDawn.state.upg_queue, 1)
+  if next(CrimDawn.state.upg_queue) then
+    CrimDawn:RandomUnlock(
+      CrimDawn.state.upg_queue[1][BaseTable],
+      CrimDawn.state.upg_queue[1][TableName]
+    )
+  end
+end
+
+function CrimDawn:RandomUnlock()
+  if not next(CrimDawn.state.upg_queue) then return end
+  local BaseTable = CrimDawn.state.upg_queue[1].BaseTable
+  local TableName = CrimDawn.state.upg_queue[1].TableName
+  local WorkingTable = deep_clone(Global.CrimDawn.tables[BaseTable][TableName])
+
+  Utils.PrintTable(WorkingTable)
   for i = #WorkingTable, 1, -1 do
     if Global.CrimDawn.data.unlocks[WorkingTable[i]] then table.remove(WorkingTable, i) end
   end
-  
-  count = math.min(count, #WorkingTable)
+  Utils.PrintTable(WorkingTable)
 
-  local WeaponIndex
-  -- Add the specified number of random upgrades
-  for i = 1, count do
-    WeaponIndex = math.random(#WorkingTable)
-    Global.CrimDawn.data.unlocks[WorkingTable[WeaponIndex]] = true
-    self.Log(FileIdent, "Added " .. WorkingTable[WeaponIndex] .. " to unlock table")
-    table.remove(WorkingTable, WeaponIndex)
+  CrimDawn.state.unlockopt = {}
+
+  for i = 1, math.min(3, #WorkingTable) do
+    local UnlockIndex = math.random(#WorkingTable)
+    CrimDawn.state.unlockopt[i] = WorkingTable[UnlockIndex]
+    table.remove(WorkingTable, UnlockIndex)
   end
-end
+  CrimDawn.Log(FileIdent, (CrimDawn.state.unlockopt[1] or "nil"))
+  CrimDawn.Log(FileIdent, (CrimDawn.state.unlockopt[2] or "nil"))
+  CrimDawn.Log(FileIdent, (CrimDawn.state.unlockopt[3] or "nil"))
+  Utils.PrintTable(WorkingTable)
 
--- Unlock a certain number of armors
-function CrimDawn:RandomArmour(count)
-  local ArmorTable = { "body_armor1", "body_armor2",
-    "body_armor3", "body_armor4", "body_armor5", "body_armor6" }
-
-  -- Remove upgrades that the player already has
-  for i = #ArmorTable, 1, -1 do
-    if Global.CrimDawn.data.unlocks[ArmorTable[i]] then table.remove(ArmorTable, i) end
-  end
-
-  count = math.min(count, #ArmorTable)
-
-  local ArmorIndex
-  -- Add the specified number of random upgrades
-  for i = 1, count do
-    ArmorIndex = math.random(#ArmorTable)
-    Global.CrimDawn.data.unlocks[ArmorTable[ArmorIndex]] = true
-    self.Log(FileIdent, "Added " .. ArmorTable[ArmorIndex] .. " to unlock table")
-    table.remove(ArmorTable, ArmorIndex)
-  end
-end
-
--- Unlock a certain number of deployables
-function CrimDawn:RandomDeployable(count)
-  local DeployTable = { "doctor_bag", "ammo_bag", "sentry_gun",
-    "sentry_gun_silent", "first_aid_kit", "bodybags_bag", "armor_kit" }
-
-  -- Remove upgrades that the player already has
-  for i = #DeployTable, 1, -1 do
-    if Global.CrimDawn.data.unlocks[DeployTable[i]] then table.remove(DeployTable, i) end
-  end
-
-  count = math.min(count, #DeployTable)
-
-  local DeployIndex
-  -- Add the specified number of random upgrades
-  for i = 1, count do
-    DeployIndex = math.random(#DeployTable)
-    Global.CrimDawn.data.unlocks[DeployTable[DeployIndex]] = true
-    self.Log(FileIdent, "Added " .. DeployTable[DeployIndex] .. " to unlock table")
-    table.remove(DeployTable, DeployIndex)
+  if CrimDawn.state.unlockopt[1] then UnlockMenu(TableName)
+  else table.remove(self.state.upg_queue, 1)
+    self:RandomUnlock()
   end
 end

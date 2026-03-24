@@ -54,11 +54,11 @@ local dlc_content = {
   -- Clover Character Pack
   character_pack_clover = { l85a2 = primary,
                             shillelagh = melee,
-                            burglar_dodge_1 = "Sneaky Lv1", burglar_dodge_2 = "Sneaky Lv2",
-                            burglar_dodge_3 = "Sneaky Lv3", burglar_prio_1 = "Tricksy Lv1",
-                            burglar_prio_2 = "Tricksy Lv2", burglar_prio_3 = "Tricksy Lv3",
-                            burglar_bag_speed = "Bagger", burglar_lockpick_speed = "Binding",
-                            burglar_pager_speed = "Dutch Courage", burglar_recovery = "Fresh Air" },
+                            burglar_dodge_1 = true, burglar_dodge_2 = true,
+                            burglar_dodge_3 = true, burglar_prio_1 = true,
+                            burglar_prio_2 = true, burglar_prio_3 = true,
+                            burglar_bag_speed = true, burglar_lockpick_speed = true,
+                            burglar_pager_speed = true, burglar_recovery = true },
 
   -- The Diamond
   hope_diamond = { mus = heist.tier5 },
@@ -66,9 +66,9 @@ local dlc_content = {
   -- Dragan Character Pack
   character_pack_dragan = { vhs = primary,
                             meat_cleaver = melee,
-                            infil_overdog = "Overdog", infil_single_dog_1 = "Close Combat Lv1",
-                            infil_single_dog_2 = "Close Combat Lv2", infil_single_dog_3 = "Close Combat Lv3",
-                            infil_melee_boost = "Psychopath", infil_melee_timer = "CBT", infil_melee_heal = "Life Drain" },
+                            infil_overdog = true, infil_single_dog_1 = true,
+                            infil_single_dog_2 = true, infil_single_dog_3 = true,
+                            infil_melee_boost = true, infil_melee_timer = true, infil_melee_heal = true },
 
   -- Bomb Heists
   the_bomb = { crojob1 = heist.tier4, crojob_wrapper = heist.tier4,
@@ -76,9 +76,9 @@ local dlc_content = {
 
   -- Jacket Character Pack
   hlm2_deluxe = { cobray = secondary, hammer = melee,
-                  infil_overdog = "Overdog", infil_melee_boost = "Psychopath",
-                  socio_armor_1 = "Tension", socio_heal = "Clean Hit",
-                  socio_armor_2 = "Overdose", socio_panic = "Showdown" },
+                  infil_overdog = true, infil_melee_boost = true,
+                  socio_armor_1 = true, socio_heal = true,
+                  socio_armor_2 = true, socio_panic = true },
 
   -- Overkill Pack
   overkill_pack = { m134 = primary, rpg7 = secondary },
@@ -100,9 +100,9 @@ local dlc_content = {
   -- Sokol Character Pack
   character_pack_sokol = { asval = primary,
                            hockey = melee,
-                           grind_hot_1 = "Dopamine Lv1", grind_hot_2 = "Dopamine Lv2",
-                           grind_hot_3 = "Dopamine Lv3", grind_hot_4 = "Dopamine Lv4",
-                           grind_hot_duration = "Euphoria", grind_ap = "Endorphins" },
+                           grind_hot_1 = true, grind_hot_2 = true,
+                           grind_hot_3 = true, grind_hot_4 = true,
+                           grind_hot_duration = true, grind_ap = true },
 
   -- Golden Grin Casino
   kenaz = { kenaz = heist.tier5,
@@ -118,9 +118,9 @@ local dlc_content = {
   -- Yakuza Character Pack
   dragon = { baka = secondary,
              sandsteel = melee,
-             yakuza_recovery_1 = "Yoroi Irezumi Lv1", yakuza_recovery_2 = "Yoroi Irezumi Lv2",
-             yakuza_recovery_3 = "Yoroi Irezumi Lv3", yakuza_speed = "Sokudo Irezumi",
-             yakuza_threshold = "Ageru Irezumi" },
+             yakuza_recovery_1 = true, yakuza_recovery_2 = true,
+             yakuza_recovery_3 = true, yakuza_speed = true,
+             yakuza_threshold = true },
 
   -- Gage Chivalry Pack
   steel = { arblast = primary, frankish = primary, long = primary,
@@ -144,16 +144,16 @@ local dlc_content = {
   -- Sydney Character Pack
   opera = { tecci = primary,
             wing = melee,
-            anarch_recovery = "Blitzkrieg Bop", anarch_armour_1 = "Rise Above Lv1",
-            anarch_armour_2 = "Rise Above Lv2", anarch_armour_3 = "Rise Above Lv3",
-            anarch_bullseye = "Lust for Life" },
+            anarch_recovery = true, anarch_armour_1 = true,
+            anarch_armour_2 = true, anarch_armour_3 = true,
+            anarch_bullseye = true },
 
   -- Biker Character Pack
   wild = { boot = primary,
            road = melee,
-           biker_base = "Prospect", biker_armour_plus = "Tail Gunner",
-           biker_health_cd = "Road Captain", biker_health_plus = "Sgt-at-Arms",
-           biker_armour_cd = "Prez" },
+           biker_base = true, biker_armour_plus = true,
+           biker_health_cd = true, biker_health_plus = true,
+           biker_armour_cd = true },
 
   -- Biker Heist
   born = { born = heist.tier3,
@@ -171,8 +171,8 @@ local dlc_content = {
   -- Scarface Character Pack
   chico = { contraband = primary,
             cs = melee,
-            kingpin_base = "Bad Guy", kingpin_prio = "Public Enemy",
-            kingpin_immunity = "Balls vs Bullets", kingpin_cd = "Right to the Top" },
+            kingpin_base = true, kingpin_prio = true,
+            kingpin_immunity = true, kingpin_cd = true },
 
   -- Scarface Mansion
   friend = { friend = heist.tier5,
@@ -195,7 +195,7 @@ local dlc_content = {
   -- h3h3 Character Pack
   ecp = { ecp = primary,
           meter = melee,
-          h3h3_base = "Soul Mates", h3h3_cd = "Harmony", h3h3_absorption = "Synergy" },
+          h3h3_base = true, h3h3_cd = true, h3h3_absorption = true },
 
   -- Border Crossing
   mex = { mex = heist.tier5, mex_cooking = heist.tier5 },
@@ -283,7 +283,8 @@ if not Global.CrimDawn.DLC then -- Only apply DLC if ownership can be verified
   for dlc, _ in pairs(dlc_content) do
     if managers.dlc:is_dlc_unlocked(dlc) then CrimDawn.Log(FileIdent, "Found DLC " .. dlc)
       for dlc_item, dlc_target in pairs(dlc_content[dlc]) do
-        if type(dlc_target) == "string" then Global.CrimDawn.tables.upgrades.perks[dlc_item]["name"] = dlc_target
+        if type(dlc_target) == "boolean" then
+          Global.CrimDawn.tables.upgrades.perks[dlc_item]["dlc_owned"] = dlc_target
         else table.insert(dlc_target, dlc_item) end
       end
     end
