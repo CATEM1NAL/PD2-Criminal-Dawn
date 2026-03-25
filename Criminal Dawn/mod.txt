@@ -1,6 +1,6 @@
 {
 	"name" : "Criminal Dawn",
-	"description" : "Turns PAYDAY 2 into a multiworld randomiser roguelite powered by https://archipelago.gg.",
+	"description" : "Turns PAYDAY 2 into a multiworld roguelite, powered by https://archipelago.gg.",
 	"author" : "C@:\\EM1NAL\\",
 	"contact" : "contact@stupidcat.uk",
 	"version" : "0.0.0",
