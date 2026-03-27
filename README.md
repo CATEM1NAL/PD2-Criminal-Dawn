@@ -25,7 +25,7 @@ At the very beginning the game starts on normal difficulty with one random mutat
 increases, and you get another random mutator. You can choose the difficulty cap in the APWorld YAML, but the minimum is Overkill.
 As you receive more items, the starting difficulty and number of mutators gradually increase to keep the game balanced.
 
-If you think you can beat White House or Crude Awakening on Overkill with no skills, no perks, no bots, an AMCAR and Chimano,
+If you think you can beat White House or Crude Awakening on Overkill with no skills, no perks, no bots, no deployable, an AMCAR and Chimano,
 and 5 active mutators on Overkill, I would like to see proof. Oh yeah, you also have to finish the entire run in under **10 minutes total**.
 
 ## Wait, what?
