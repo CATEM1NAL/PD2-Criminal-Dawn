@@ -29,10 +29,12 @@ end
 
 -- Mask up hook
 Hooks:PostHook(IngameStandardState, "at_enter", "CrimDawn_ForcePONR", function(self)
-  local TotalTimeItems = ((Global.CrimDawn.data.game.run_length * 15) / Global.CrimDawn.data.game.timer_strength) - 1
-
+  local TotalTimeItems = ((Global.CrimDawn.data.game.run_length * 15) / (Global.CrimDawn.data.game.timer_strength / 60)) - 1
   if NetworkHelper:IsHost() then -- Disable timer when all time upgrades + 1 are collected
-    if Global.CrimDawn.data.x.time_upgrades > TotalTimeItems then CrimDawn.state.ponr = true end
+    if Global.CrimDawn.data.x.time_upgrades > TotalTimeItems then
+      CrimDawn.Log(FileIdent, "disabling PONR timer")
+      CrimDawn.state.ponr = true
+    end
   end
 
   if CrimDawn.state.ponr then return end

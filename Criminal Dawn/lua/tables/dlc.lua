@@ -285,7 +285,9 @@ if not Global.CrimDawn.DLC then -- Only apply DLC if ownership can be verified
       for dlc_item, dlc_target in pairs(dlc_content[dlc]) do
         if type(dlc_target) == "boolean" then
           Global.CrimDawn.tables.upgrades.perks[dlc_item]["dlc_owned"] = dlc_target
-        else table.insert(dlc_target, dlc_item) end
+        elseif CrimDawn.SettingsData[dlc_item] ~= false then
+          table.insert(dlc_target, dlc_item)
+        end
       end
     end
   end

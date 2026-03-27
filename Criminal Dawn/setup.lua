@@ -7,7 +7,12 @@ function CrimDawn:Init()
   self.SavePath = SavePath
 
   self.SaveFile = self.SavePath .. "crimdawn_save.txt"
-  self.Settings = self.SavePath .. "crimdawn_settings.txt"
+  self.SettingsFile = self.SavePath .. "crimdawn_settings.txt"
+
+  self.SettingsData = io.load_as_json(CrimDawn.SettingsFile)
+  if not self.SettingsData then self.SettingsData = {} end
+
+  MenuHelper:LoadFromJsonFile(CrimDawn.ModPath .. "settings.json", CrimDawn, CrimDawn.SettingsData)
 
   self.state = { ponr = false,
                  heist_started = false,
@@ -47,7 +52,7 @@ function CrimDawn:Init()
       ChatManager.GAME,
       "CRIMINAL DAWN",
       message,
-      Color(255, 217, 160, 125) / 25
+      Color(255, 217, 160, 125) / 256
     )
   end
 
@@ -66,6 +71,7 @@ function CrimDawn:Init()
         score = 0, f_score = 0, score_cap = false, ponr = false, deathlink = os.time(),
         run = 1, heists_won = 0, heists = {},
       },
+      chat = { message = "", timestamp = 0 },
       safehouse = {}
     }
   end

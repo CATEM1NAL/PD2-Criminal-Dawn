@@ -14,7 +14,7 @@ local HeistCount = #Global.CrimDawn.data.game.heists or 1
 
 local ScorePerThing = (HeistCount + DifficultyIndex) * #ActiveMutators
 local ScorePerPackage = HeistCount * #ActiveMutators
-local xPerPoint = 100 / ScorePerThing
+local xPerPoint = math.ceil(100 / ScorePerThing)
 
 local function GainPoints(points, xPerPoint, reason)
   if CrimDawn.state.cap_reached then CrimDawnClient:PollTimeUpgrades() -- Cap reached, check for upgrades
@@ -88,7 +88,7 @@ if CopDamage then Hooks:PostHook(CopDamage, "die", "CrimDawn_EnemyKilled", funct
         "enemies killed"
       )
 
-      GainPoints(points, xPerPoint, "loose cash")
+      GainPoints(points, xPerPoint, "enemies killed")
       Global.CrimDawn.data.game.f_score = Global.CrimDawn.data.game.f_score % 100
     end
   end

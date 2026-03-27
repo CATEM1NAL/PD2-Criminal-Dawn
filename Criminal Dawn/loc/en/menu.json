@@ -8,6 +8,10 @@
   "crimdawn_multiworld_missing_desc" : "You need to connect to a multiworld at least once before playing.",
   "crimdawn_multiworld_invalid_title" : "Invalid Multiworld Data",
   "crimdawn_multiworld_invalid_desc" : "Restart the game to load the correct data.",
+  "crimdawn_settings_name" : "Criminal Dawn",
+  "crimdawn_settings_desc" : "Toggle heists that you don't like so you never have to see them again!",
+  "crimdawn_settings_heist_desc" : "Toggle to enable/disable this heist from appearing in a run.",
+  "crimdawn_settings_dlc_desc" : "Toggle to enable/disable this DLC heist from appearing in a run.",
   "crimdawn_new_item1" : "Gage visited the safe house and dropped something new on the table.",
   "crimdawn_new_item2" : "You looted a dead cop during the last heist. Only he knows what he was planning, and you're not going to get any answers now.",
   "crimdawn_new_item3" : "During the trip home you opened a loot bag to admire your winnings, only to find something else instead...",
@@ -32,5 +36,5 @@
   "crimdawn_new_item22" : "The Dentist was rambling about some ancient Mesopotamian bullshit. When he finished he gave us a parting gift.",
   "crimdawn_new_item23" : "Hector promised even better rewards if we keep putting our lives in danger. Sounds good to me!",
   "crimdawn_new_item24" : "Bain decided to swing by Kung Bo and snagged some swag.",
-  "crimdawn_new_item25" : "The Elephant kept trying to sell us on oil. Unfortunately for him, we can only spend money on heist assets.",
+  "crimdawn_new_item25" : "The Elephant kept trying to sell us on oil. Unfortunately for him, we only spend money on heist assets.",
 }

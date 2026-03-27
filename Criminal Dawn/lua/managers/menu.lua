@@ -1,5 +1,4 @@
 local FileIdent = "menu"
-local loc = managers.localization
 
 -- PLAY BUTTON
 function MenuCallbackHandler:CrimDawn_CreateLobby()
@@ -13,16 +12,16 @@ function MenuCallbackHandler:CrimDawn_CreateLobby()
       CrimDawn.Log(FileIdent, "Updated matchmaking key: " .. NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY)
     end self:create_lobby()
 
-  elseif Global.CrimDawn.data.game.seed ~= CrimDawnClient.data.seed then
+  elseif Global.CrimDawn.data.game.seed and Global.CrimDawn.data.game.seed ~= CrimDawnClient.data.seed then
     local InvalidSeed = QuickMenu:new(
-      loc:text("crimdawn_multiworld_invalid_title"),
-      loc:text("crimdawn_multiworld_invalid_desc"),
+      managers.localization:text("crimdawn_multiworld_invalid_title"),
+      managers.localization:text("crimdawn_multiworld_invalid_desc"),
       {}, true
     )
 
   else local NeedSeed = QuickMenu:new(
-    loc:text("crimdawn_multiworld_missing_title"),
-    loc:text("crimdawn_multiworld_missing_desc"),
+    managers.localization:text("crimdawn_multiworld_missing_title"),
+    managers.localization:text("crimdawn_multiworld_missing_desc"),
     {}, true
   )
   end
@@ -32,6 +31,11 @@ end
 function MenuCallbackHandler:CrimDawn_Safehouse()
   CrimDawnClient:PollData()
   managers.menu:open_node("custom_safehouse")
+end
+
+function MenuCallbackHandler:CrimDawn_UpdateActiveContent(item)
+  CrimDawn.SettingsData[item:name():sub(10)] = item:value() == "on"
+	io.save_as_json(CrimDawn.SettingsData, CrimDawn.SettingsFile)
 end
 
 -- Add custom buttons to menu
@@ -176,7 +180,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
 
     if RestructuredMenus then
       if RestructuredMenus.settings.lobby_add_contract_broker then
-        MenuHelper:HideMenuItem(lobbymenu, "contract_broker")
+        --MenuHelper:HideMenuItem(lobbymenu, "contract_broker")
       end
     end
   end
