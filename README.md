@@ -55,7 +55,7 @@ Finally, there are checks for finishing each heist number for the first time. Ri
 
 ## Is this multiplayer compatible?
 There wouldn't be much point if it wasn't! Ignoring the obvious argument I could make about how Archipelago is inherently multiplayer
-(which is a bullshit non-answer), the mod was built to support multiplayer from *almost* the start. There are a few things you need to make
+(which is a bullshit non-answer), the mod was built to support multiplayer *almost* from the start. There are a few things you need to make
 sure of if you want to play this way:
 
 **How many slots?** Each player can use their own YAML and player slot. Playing in the same lobby like this means you will send checks
