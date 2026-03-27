@@ -1,7 +1,7 @@
 # FAQ & Common Issues
 This page contains simple answers to common issues or questions you might have.
 
-## How do I join a lobby in-game?
+## How do I join an in-game lobby?
 1. Connect to the multiworld using the Criminal Dawn client in the Archipelago launcher.
 2. Launch PAYDAY 2 (if you haven't already) and click "Create Lobby".
 3. You can now connect to any other lobby in the multiworld!
