@@ -17,6 +17,3 @@ No. I have a concept for an automated save switching system that will allow you
 to jump between multiworlds without having to reset your multiworld data, but due to how PAYDAY 2
 works it will take a bit of time to figure out and implement. Due to this it's a low priority feature,
 however I can bump it up the queue if enough people want this to happen!
-
-## I'm not seeing any DLC content.
-Criminal Dawn avoids distributing DLC content if you have a DLC unlocker enabled.
