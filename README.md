@@ -65,7 +65,7 @@ the same gameplay YAML settings.
 
 Alternatively you can just use same-slot coop, with only a single YAML and player slot being used for world generation. Everyone playing
 Criminal Dawn connects to the same slot, and they will remain perfectly in sync - only one set of checks for the entire game, and no score cap
-shenanigans. This is the simplest and most foolproof way of setting up the mod.
+shenanigans. This is the simplest and most foolproof way of setting up the APWorld.
 
 **^ Note that this does not mean everyone will have the same upgrades and unlocks!** These are still random per player, it simply means everyone
 gets their own upgrades and unlocks *at the same time*.
