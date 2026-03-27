@@ -1,7 +1,7 @@
 # PAYDAY 2: Criminal Dawn
 PAYDAY 2 mod that turns the game into a multiworld roguelite, powered by [Archipelago](https://archipelago.gg).
 
-[FAQ & Common Issues](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md) • [Trello Board](https://trello.com/b/iiMFiVjE/payday-2-criminal-dawn-apworld) • [APWorld Repo](https://github.com/CATEM1NAL/Archipelago/tree/payday2/worlds/pd2_crimdawn)
+[FAQ & Common Issues](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md) • [Trello Board](https://trello.com/b/iiMFiVjE/payday-2-criminal-dawn-apworld) • [APWorld Repo](https://github.com/CATEM1NAL/Archipelago/tree/payday2)
 
 ## Why?
 Because Archipelago is fucking awesome and deserves more implementations.
