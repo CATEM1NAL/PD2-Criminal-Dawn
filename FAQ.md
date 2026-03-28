@@ -47,6 +47,11 @@ they're enabled.
 
 There are also 2 Drill Sawgeant upgrades and 2 Nine Lives upgrades.
 
+### Those are some weird numbers.
+I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21.
+There are more references like this, for example the YAML setting for the number of score checks;
+368 is the max value of all cards in a deck plus four jokers (clowns).
+
 ### Two Nine Lives upgrades?
 Yes! It turns out there's a second upgrade for Nine Lives in the base game which gives you 3 more
 downs instead of 1. Makes sense as to why it was never used, but it makes my life more convenient.
@@ -54,11 +59,6 @@ downs instead of 1. Makes sense as to why it was never used, but it makes my lif
 ### So all the upgrades in the mod are vanilla (even if unused)?
 Yep! Everything currently in the mod is something that already exists within the game. I haven't
 looked into making custom upgrades yet, but it is something I want to do eventually.
-
-### Those are some weird numbers.
-Correct! I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21.
-There are more references like this, for example the YAML setting for the number of score checks;
-368 is the max value of all cards in a deck plus four jokers (clowns).
 
 ## Can I use multiple save files to play multiple multiworlds at once?
 No. I have a concept for an automated save switching system that will allow you
