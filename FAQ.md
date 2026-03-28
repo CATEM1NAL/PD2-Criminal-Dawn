@@ -1,4 +1,4 @@
-# FAQ & Common Issues
+# FAQ
 This page contains simple answers to common issues or questions you might have.
 
 ## What mods is this compatible with?
