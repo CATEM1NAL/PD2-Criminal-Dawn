@@ -5,7 +5,8 @@ PAYDAY 2 mod that turns the game into a multiworld roguelite, powered by [Archip
 
 ## Why?
 Because Archipelago is fucking awesome and deserves more implementations.
-PAYDAY 2 is a game that I have put 3000 hours into since 2014. Makes a lot of sense that I'd do this, right?
+PAYDAY 2 is a game that I have put 3000 hours into since 2014.
+Makes a lot of sense that I'd do this, right?
 
 As for why the mod is a roguelite - PAYDAY 2 is a game without a structure so I figured trying to make a standard
 implementation would be a bit hellish (especially when trying to factor in DLCs). Additionally I just don't have much fun with the
@@ -14,29 +15,29 @@ to use creates an interesting player experience where I'm actually excited to se
 got is actually viable. Turning the game into a roguelite also provides a solution to the number one problem: what's the goal?
 
 ## So what *is* the goal?
-To beat 6 (or 4) heists in a row without failing. The heists are grouped into tiers that loosely follow heist complexity/story progress,
+Beat 6 (or 4) heists in a row without failing. The heists are grouped into tiers that loosely follow heist complexity/story progress,
 so later heists tend to be heists that are grander in scale or concept than those that come before. Jewelry Store and Ukrainian Job are
 only valid in the 1st of 6 heist tiers for example (and you literally won't play them in 4 heist mode!).
 
 Beating 6 heists in a row sounds easy, right?
 
 ## How is this hard?
-At the very beginning the game starts on normal difficulty with one random mutator active. Every heist the difficulty
-increases, and you get another random mutator. You can choose the difficulty cap in the APWorld YAML, but the minimum is Overkill.
+At the beginning the game starts on normal difficulty with one random mutator active. Every heist the difficulty
+increases, and you get another mutator. You can choose the difficulty cap in the APWorld YAML, but the minimum is Overkill.
 As you receive more items, the starting difficulty and number of mutators gradually increase to keep the game balanced.
 
-If you think you can beat White House or Crude Awakening on Overkill with no skills, no perks, no bots, no deployable, an AMCAR and Chimano,
-and 5 active mutators on Overkill, I would like to see proof. Oh yeah, you also have to finish the entire run in under **10 minutes total**.
+If you think you can beat White House on Overkill with no skills, no perks, no bots, no deployable, an AMCAR and Chimano,
+and 5 active mutators on Overkill, I would like to see you try. Oh yeah, you also have to finish the entire run in under **10 minutes total**.
 
 ## Wait, what?
 At the start of the game, each run has a 10 minute point of no return timer that begins counting down after masking up. This timer
-persists between heists, effectively capping the length of each run. You can receive items that increase the timer by 10 minutes up
+persists between heists, capping the length of each run. You can receive items that increase the timer by 10 minutes up
 to a cap of 90 minutes (60 minutes in 4 heist mode).
 
-There are some APWorld settings that tweak the timer for different use cases (shorter games and longer games). There's also a setting
-that adds an additional time bonus, and after obtaining every time bonus the timer is permanently disabled. This is the default setting,
-but if you're okay with potentially failing due to running out of time even after unlocking everything you can, I would recommend turning
-it off. The pressure the timer gives you during the final few heists is *extremely* exhilarating.
+There are some APWorld settings that tweak the timer for different use cases (shorter or longer games). There's also a setting
+to add an additional time bonus which permanently disables the timer. This is the default setting, but if you're okay with potentially
+failing a run due to running out of time even after unlocking everything, I would recommend turning it off. The pressure the timer gives
+you during the final few heists is *extremely* exhilarating.
 
 ## How do I send checks?
 Score! Pretty much everything you do gives points that progress towards sending a check. Securing bags and Gage packages gives a point,
@@ -65,10 +66,8 @@ the same gameplay YAML settings.
 
 Alternatively you can just use same-slot coop, with only a single YAML and player slot being used for world generation. Everyone playing
 Criminal Dawn connects to the same slot, and they will remain perfectly in sync - only one set of checks for the entire game, and no score cap
-shenanigans. This is the simplest and most foolproof way of setting up the APWorld.
-
-**^ Note that this does not mean everyone will have the same upgrades and unlocks!** These are still random per player, it simply means everyone
-gets their own upgrades and unlocks *at the same time*.
+shenanigans. This is the simplest and most foolproof way of setting up the APWorld. **Note that this does not mean everyone will have the same
+upgrades and unlocks!** These are still random per player, it simply means everyone gets their own upgrades and unlocks *at the same time*.
 
 ## I don't like you and this APWorld concept sucks.
 Thank you for your constructive criticism. I will not take this into account.
