@@ -29,7 +29,11 @@ correctly.
 ## Why do I have hundreds of coins?
 After installing the mod for the first time you get given coins for achievement milestones.
 You can either roll with it and take the one time bonus for your first multiworld, or reset the
-save file to fix it ('Options' > 'Advanced' > 'Reset Account Progression').
+save file to fix it (Options > Advanced > Reset Account Progression).
+
+## How do I see my current skills/perks/stat boosts?
+Go to Options > Mod Keybinds > Criminal Dawn Upgrades. Set the key to whatever you want, and now you
+can see a list of your upgrades at any time!
 
 ## Can I use multiple save files to play multiple multiworlds at once?
 No. I have a concept for an automated save switching system that will allow you
