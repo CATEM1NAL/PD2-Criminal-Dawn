@@ -38,9 +38,8 @@ can see a list of your upgrades at any time!
 ## I keep getting [heist] and it sucks.
 Go to Options > Mod Options > Criminal Dawn and you can disable literally any heist in the game.
 You can do this at any time, but if the game has already picked a heist you need to play it first.
-The heists are grouped by tier (heist 1, 2, 3, 4, 5) - make sure you don't disable an entire tier
-at once, or the game **will** crash. You need to own DLC heists for them to be in the pool, even if
-they're enabled.
+I'd recommend only disabling the heists you *really* don't like, as disabling too many may
+negatively impact the experience.
 
 ## How many upgrades are there?
 7 Perma-Skills, 7 Perma-Perks, 13 Skills, 13 Perks, and between 13 and 52 Stat Boosts.
