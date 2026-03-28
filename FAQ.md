@@ -15,6 +15,15 @@ No idea! Feel free to give it a shot and tell me how it goes, but realistically 
 The VR exclusive skill/perk bonuses are not part of this mod and I don't know if VR supports BLT's
 custom keybinds - if it does and QuickMenu works, then the mod should be fully playable.
 
+## Is this multiplayer?
+Yes! Each player using their own YAML gives more freedom for people to choose their own item limits,
+but works best if everyone is using the same gameplay settings (run length/timer settings). This
+requires a bit more coordination pre-multiworld.
+
+Alternatively, same-slot coop works very well for syncs! Use a single YAML and have everyone connect
+to the same slot, and everyone will receive random items together. The safehouse checks are a bit
+weird with this setup, but I can look into syncing that.
+
 ## How do I join an in-game lobby?
 1. Connect to the multiworld using the Criminal Dawn client in the Archipelago launcher.
 2. Launch PAYDAY 2 (if you haven't already) and click "Create Lobby".
@@ -36,7 +45,7 @@ Go to Options > Mod Keybinds > Criminal Dawn Upgrades. Set the key to whatever y
 can see a list of your upgrades at any time!
 
 ## I keep getting [heist] and it sucks.
-Go to Options > Mod Options > Criminal Dawn and you can disable literally any heist in the game.
+Go to Options > Mod Options > Criminal Dawn and you can disable any heist in the game.
 You can do this at any time, but if the game has already picked a heist you need to play it first.
 
 I'd recommend only disabling the heists you *really* don't like, as disabling too many may
@@ -56,9 +65,11 @@ There are more references like this, for example the YAML setting for the number
 Yes! It turns out there's a second upgrade for Nine Lives in the base game which gives you 3 more
 downs instead of 1. Makes sense as to why it was never used, but it makes my life more convenient.
 
-### So all the upgrades in the mod are vanilla (even if unused)?
+### So all the upgrades in the mod are vanilla?
 Yep! Everything currently in the mod is something that already exists within the game. I haven't
-looked into making custom upgrades yet, but it is something I want to do eventually.
+looked into making custom upgrades yet, but it is something I want to do eventually. There are a
+decent number of unused upgrades in the game's code that I've enabled though, so you'll probably
+see some stuff you've never seen before.
 
 ## Can I use multiple save files to play multiple multiworlds at once?
 No. I have a concept for an automated save switching system that will allow you
