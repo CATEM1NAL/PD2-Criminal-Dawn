@@ -35,6 +35,13 @@ save file to fix it (Options > Advanced > Reset Account Progression).
 Go to Options > Mod Keybinds > Criminal Dawn Upgrades. Set the key to whatever you want, and now you
 can see a list of your upgrades at any time!
 
+## I keep getting [heist] and it sucks.
+Go to Options > Mod Options > Criminal Dawn and you can disable literally any heist in the game.
+You can do this at any time, but if the game has already picked a heist you need to play it first.
+The heists are grouped by tier (heist 1, 2, 3, 4, 5) - make sure you don't disable an entire tier
+at once, or the game **will** crash. You need to own DLC heists for them to be in the pool, even if
+they're enabled.
+
 ## Can I use multiple save files to play multiple multiworlds at once?
 No. I have a concept for an automated save switching system that will allow you
 to jump between multiworlds without having to reset your multiworld data, but due to how PAYDAY 2
