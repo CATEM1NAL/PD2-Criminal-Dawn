@@ -1,6 +1,20 @@
 # FAQ & Common Issues
 This page contains simple answers to common issues or questions you might have.
 
+## What mods is this compatible with?
+As long as it isn't a total overhaul or a mod that adds new content (new weapons, new heists, etc)
+it should work fine! Custom weapons will probably be available from the start, and custom heists just
+won't appear at all.
+
+This mod does have built in support for BigLobby, but in my testing it seemed a little unstable.
+I left it in as an option in the YAML since it *is* pretty neat, even if a little broken. I don't
+recommend it as a serious option though.
+
+## Does this work in VR?
+No idea! Feel free to give it a shot and tell me how it goes, but realistically it *should* work?
+The VR exclusive skill/perk bonuses are not part of this mod and I don't know if VR supports BLT's
+custom keybinds - if it does and QuickMenu works, then the mod should be fully playable.
+
 ## How do I join an in-game lobby?
 1. Connect to the multiworld using the Criminal Dawn client in the Archipelago launcher.
 2. Launch PAYDAY 2 (if you haven't already) and click "Create Lobby".
