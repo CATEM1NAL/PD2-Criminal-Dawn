@@ -1,7 +1,7 @@
 # PAYDAY 2: Criminal Dawn
 PAYDAY 2 mod that turns the game into a multiworld roguelite, powered by [Archipelago](https://archipelago.gg).
 
-[FAQ & Common Issues](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md) • [Trello Board](https://trello.com/b/iiMFiVjE/payday-2-criminal-dawn-apworld) • [APWorld Repo](https://github.com/CATEM1NAL/Archipelago/tree/payday2)
+[FAQ & Common Issues](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md) • [Trello Board](https://trello.com/b/iiMFiVjE/payday-2-criminal-dawn-apworld) • [APWorld Repo](https://github.com/CATEM1NAL/Archipelago/tree/payday2) • [My Other Stuff](https://ema.stupidcat.uk/)
 
 ## Why?
 Because Archipelago is fucking awesome and deserves more implementations.
@@ -70,5 +70,16 @@ shenanigans. This is the simplest and most foolproof way of setting up the APWor
 **^ Note that this does not mean everyone will have the same upgrades and unlocks!** These are still random per player, it simply means everyone
 gets their own upgrades and unlocks *at the same time*.
 
+## What about mod compatibility?
+As long as it isn't a total overhaul or a mod that adds new content (new weapons, new heists, etc) it'll work fine! Custom weapons will probably
+be available from the start, and custom heists just won't appear at all.
+
+## What about *VR* compatibility?
+Untested! Feel free to give it a shot and tell me how it goes, but realistically it *should* work? The VR exclusive skill/perk bonuses are not
+part of this mod and I don't know if VR supports BLT's custom keybinds - if it does and QuickMenu works, then the mod should be fully playable.
+
 ## I don't like you and this APWorld concept sucks.
 Thank you for your constructive criticism. I will not take this into account.
+
+---
+[FAQ & Common Issues](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md) • [Trello Board](https://trello.com/b/iiMFiVjE/payday-2-criminal-dawn-apworld) • [APWorld Repo](https://github.com/CATEM1NAL/Archipelago/tree/payday2) • [My Other Stuff](https://ema.stupidcat.uk/)
