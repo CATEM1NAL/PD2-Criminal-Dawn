@@ -50,7 +50,7 @@ There are also 2 Drill Sawgeant upgrades and 2 Nine Lives upgrades.
 ### Those are some weird numbers.
 I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21.
 There are more references like this, for example the YAML setting for the number of score checks;
-368 is the max value of all cards in a deck plus four jokers (clowns).
+368 is the max value of all cards in a deck plus four jokers.
 
 ### Two Nine Lives upgrades?
 Yes! It turns out there's a second upgrade for Nine Lives in the base game which gives you 3 more
