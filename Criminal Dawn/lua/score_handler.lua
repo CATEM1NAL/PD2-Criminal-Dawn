@@ -43,7 +43,7 @@ if LootManager then Hooks:PostHook(LootManager, "secure", "CrimDawn_LootSecured"
       "CrimDawn_SendPoints",
       ScorePerThing .. "," ..
       -1 .. "," ..
-      "loot"
+      "loot secured"
     )
 
     GainPoints(ScorePerThing, -1, "loot")
@@ -100,7 +100,7 @@ if GageAssignmentManager then Hooks:PostHook(GageAssignmentManager, "on_unit_int
     "CrimDawn_SendPoints",
     ScorePerPackage .. "," ..
     -1 .. "," ..
-    "Gage package"
+    "Gage package secured"
   )
 
   GainPoints(ScorePerPackage, -1, "Gage package")

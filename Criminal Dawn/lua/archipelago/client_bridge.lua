@@ -107,7 +107,7 @@ function CrimDawnClient:PollData()
   -- Add Nine Lives upgrades
   if self.data["Nine Lives"] > Global.CrimDawn.data.x.lives then
     CrimDawn.Log(FileIdent, "Nine Lives Lv" .. self.data["Nine Lives"])
-    Global.CrimDawn.data.x.lives = self.data["Drill Sawgeant"]
+    Global.CrimDawn.data.x.lives = self.data["Nine Lives"]
     CrimDawn.ChatNotify("Received Nine Lives Lv" .. self.data["Nine Lives"] .. "!")
     DataChanged = true
   end

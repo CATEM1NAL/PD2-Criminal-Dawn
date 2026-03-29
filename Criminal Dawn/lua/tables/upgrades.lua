@@ -959,6 +959,7 @@ Global.CrimDawn.tables.upgrades = {
     },
     biker_armour_plus = {
       dlc_owned = false, upg_type = "stat",
+      upg_req = "perks-biker_base",
       disable = "stoic_armor_convert",
       "player_less_health_wild_armor_1"
     },
@@ -969,10 +970,12 @@ Global.CrimDawn.tables.upgrades = {
     },
     biker_health_plus = {
       dlc_owned = false, upg_type = "stat",
+      upg_req = "perks-biker_base",
       "player_less_armor_wild_health_1"
     },
     biker_armour_cd = {
-      dlc_owned = false, upg_type = "stat", upg_req = "perks-biker_base",
+      dlc_owned = false, upg_type = "stat",
+      upg_req = "perks-biker_base",
       "player_less_armor_wild_cooldown_1"
     },
 

@@ -59,7 +59,7 @@ NetworkHelper:AddReceiveHook("CrimDawn_SendPoints", "CrimDawn_ReceivePoints", fu
   local points, xPerPoint, reason = data:match("([^,]+),([^,]+),([^,]+)")
 
   -- Give points
-  if xPerPoint == -1 and not CrimDawn.ScoreCap(tonumber(points)) then
+  if xPerPoint == "-1" and not CrimDawn.ScoreCap(tonumber(points)) then
     CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
       .. " (+" .. tonumber(points) .. " from " .. reason .. ").\n"
       .. CrimDawn.ScoreNeeded() .. " more for next check.")
@@ -67,7 +67,8 @@ NetworkHelper:AddReceiveHook("CrimDawn_SendPoints", "CrimDawn_ReceivePoints", fu
   elseif not CrimDawn.ScoreCap(tonumber(points)) then
     CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
       .. " (+1 per " .. xPerPoint .. " " .. reason .. ").\n"
-      .. CrimDawn.ScoreNeeded() .. " more for next check.") end
+      .. CrimDawn.ScoreNeeded() .. " more for next check.")
+  end
 
   CrimDawn:WriteSave(FileIdent, "received score [" .. points .. "] from host")
 end)

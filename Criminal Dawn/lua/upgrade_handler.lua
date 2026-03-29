@@ -20,8 +20,8 @@ Hooks:PreHook(PlayerManager, "aquire_default_upgrades", "CrimDawn_UpgradeHandler
 
   -- Nuke current upgrades
   for key, _ in pairs(Global.upgrades_manager.aquired) do
-    if key ~= "amcar" and key ~= "glock_17" and key ~= "weapon" then
-      if not Global.CrimDawn.data.unlocks[key] then Global.upgrades_manager.aquired[key] = nil end
+    if key ~= "amcar" and key ~= "glock_17" and key ~= "weapon" and key ~= "second_deployable_1" then
+      if not Global.CrimDawn.data.unlocks[key] then managers.upgrades:unaquire(key) end
     end
   end
 
@@ -34,8 +34,8 @@ Hooks:PreHook(PlayerManager, "aquire_default_upgrades", "CrimDawn_UpgradeHandler
 
   -- Apply permaupgrades
   if Global.CrimDawn.data.x.permaskills > 0 then PermaUpgrade("permaskills") end
-  if Global.CrimDawn.data.x.lives > 0 then PermaUpgrade("player_drill_speed_multiplier", Global.CrimDawn.data.x.lives) end
-  if Global.CrimDawn.data.x.drill > 0 then PermaUpgrade("player_additional_lives_", Global.CrimDawn.data.x.drill) end
+  if Global.CrimDawn.data.x.lives > 0 then PermaUpgrade("player_additional_lives_", Global.CrimDawn.data.x.lives) end
+  if Global.CrimDawn.data.x.drill > 0 then PermaUpgrade("player_drill_speed_multiplier", Global.CrimDawn.data.x.drill) end
   if Global.CrimDawn.data.x.permaperks > 0 then PermaUpgrade("permaperks") end
 
   -- Pull upgrades from save file
