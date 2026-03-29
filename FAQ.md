@@ -11,7 +11,7 @@ I left it in as an option in the YAML since it *is* pretty neat, even if a littl
 recommend it as a serious option though.
 
 Due to this mod adding a persistent point of no return timer, some HUDs might be a bit fucky.
-From my testing there won't be any major issues, but most HUDs *won't* tell you if an assault is
+From my testing there won't be any major issues but most HUDs *won't* tell you if an assault is
 currently in progress, and some HUDs may potentially hide the hostage counter too. Out of all the
 custom HUDs I tried only MUI and VanillaHUD+ worked exactly as intended.
 
