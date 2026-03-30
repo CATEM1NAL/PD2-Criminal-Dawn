@@ -47,7 +47,7 @@ Go to Options > Mod Keybinds > Criminal Dawn Upgrades. Set the key to whatever y
 can see a list of your upgrades at any time!
 
 ## How many upgrades do I get in a playthrough?
-7 Perma-Skills, 7 Perma-Perks, 13 Skills, 13 Perks, and between 13 and 52 Stat Boosts.
+7 Perma-Skills, 7 Perma-Perks, 13 Skills, 13 Perks, and at least 13 Stat Boosts.
 
 There are also 2 Drill Sawgeant upgrades and 2 Nine Lives upgrades.
 
