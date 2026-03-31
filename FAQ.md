@@ -35,8 +35,8 @@ decision making (such as changing host based on who has the most time upgrades).
 Due to how flexible the multiplayer system is, you can do some pretty cool stuff. For example if
 someone gets BKd and they own PAYDAY 2 they can  set up the mod, connect to a Criminal Dawn
 slot, and hop into the lobby until they get unstuck! You could also do a sync where everyone has
-their own games, but periodically you all join a PAYDAY slot to get a few checks. You can be as
-creative with this game's inclusion in a multiworld as you want to be.
+their own games, but periodically you all join a Criminal Dawn slot to get a few checks. You can
+be as creative with this game's inclusion in a multiworld as you want to be.
 
 ## Why do I have hundreds of coins?
 After installing the mod for the first time you get given coins for achievement milestones.
