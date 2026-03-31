@@ -4,6 +4,7 @@
 		<loc file="en/jobs.json" language="english"/>
 		<loc file="en/ponr.json" language="english"/>
 		<loc file="en/upgrades.json" language="english"/>
+		<loc file="en/overrides.json" language="english"/>
 	</Localization>
 	<narrative id="cd_28stores" name_id="heist_cd_28stores_name" contact="vlad">
 		<chain>

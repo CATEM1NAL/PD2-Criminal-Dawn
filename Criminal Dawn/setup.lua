@@ -52,7 +52,7 @@ function CrimDawn:Init()
       ChatManager.GAME,
       "CRIMINAL DAWN",
       message,
-      Color(255, 217, 160, 125) / 256
+      Global.CrimDawn.archicolours[orange]
     )
   end
 
@@ -64,7 +64,7 @@ function CrimDawn:Init()
         bots = 0, time_upgrades = 0,
         skills = 0, permaskills = 0, perks = 0, permaperks = 0, stats = 0,
         drill = 0, lives = 0, saws = 0,
-        big_coins = 0, coins = 0
+        coins = 0
       },
       game = {
         seed = false, max_diff = false, timer_strength = false, run_length = 0, scaling_count = false,
@@ -91,6 +91,13 @@ end
 
 CrimDawn:Init()
 
+-- Load logo replacements
+DB:create_entry(Idstring("texture"), Idstring("guis/textures/menu_title_screen"), CrimDawn.ModPath .. "assets/title_logo.texture")
+DB:create_entry(Idstring("texture"), Idstring("guis/textures/game_small_logo"), CrimDawn.ModPath .. "assets/small_logo.texture")
+DB:create_entry(Idstring("texture"), Idstring("units/menu/menu_scene/menu_cylinder_logo"), CrimDawn.ModPath .. "assets/menu_logo.texture")
+
+-- Load safehouse textures
+DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse0"), CrimDawn.ModPath .. "assets/safehouse0.texture")
 DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse1"), CrimDawn.ModPath .. "assets/safehouse1.texture")
 DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse2"), CrimDawn.ModPath .. "assets/safehouse2.texture")
 DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse3"), CrimDawn.ModPath .. "assets/safehouse3.texture")
@@ -98,9 +105,51 @@ DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse4"), CrimDawn.M
 DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse5"), CrimDawn.ModPath .. "assets/safehouse5.texture")
 DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse6"), CrimDawn.ModPath .. "assets/safehouse6.texture")
 
+local function SetPeerColours()
+  local player1 = Global.CrimDawn.archicolours[green]
+  local player2 = Global.CrimDawn.archicolours[blue]
+  local player3 = Global.CrimDawn.archicolours[pink]
+  local player4 = Global.CrimDawn.archicolours[yellow]
+  local team_ai = Color(1, 1, 1, 1)
+
+  tweak_data.peer_vector_colors[1] = player1
+  tweak_data.chat_colors[1] = player1
+  tweak_data.preplanning_peer_colors[1] = player1
+
+  tweak_data.peer_vector_colors[2] = player2
+  tweak_data.chat_colors[2] = player2
+  tweak_data.preplanning_peer_colors[2] = player2
+
+  tweak_data.peer_vector_colors[3] = player3
+  tweak_data.chat_colors[3] = player3
+  tweak_data.preplanning_peer_colors[3] = player3
+
+  tweak_data.peer_vector_colors[4] = player4
+  tweak_data.chat_colors[4] = player4
+  tweak_data.preplanning_peer_colors[4] = player4
+
+  tweak_data.peer_vector_colors[5] = team_ai
+  tweak_data.chat_colors[5] = team_ai
+
+  tweak_data.system_chat_color = Global.CrimDawn.archicolours[orange]
+end
+
+if Global.CrimDawn then SetPeerColours() end
+
 -- Add save data to global table
 if Global.CrimDawn then return end
-Global.CrimDawn = { tables = {} }
+Global.CrimDawn = {
+    tables = {},
+    archicolours = {
+      green = Color(255, 117, 194, 117) / 255,
+      blue = Color(255, 118, 126, 189) / 255,
+      pink = Color(255, 202, 148, 194) / 255,
+      red = Color(255, 201, 118, 130) / 255,
+      orange = Color(255, 217, 160, 125) / 255,
+      yellow = Color(255, 238, 227, 145) / 255,
+    }
+  }
+SetPeerColours()
 
 function Global.CrimDawn:Init()
   CrimDawn.Log(FileIdent, "Attempting to load save file...")

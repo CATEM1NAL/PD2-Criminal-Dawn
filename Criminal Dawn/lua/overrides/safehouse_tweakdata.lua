@@ -1,6 +1,6 @@
 Hooks:PostHook(CustomSafehouseTweakData, "init", "CrimDawn_SafehouseTweakData", function(self)
   self.prices = {
-    rooms = { 0, 12, 12, 12, 12, 12 },
+    rooms = { 0, 1, 1, 1, 1, 1, 1 },
     weapon_mod = 0,
     event_weapon_mod = 0,
     crew_boost = 0,
@@ -11,13 +11,14 @@ Hooks:PostHook(CustomSafehouseTweakData, "init", "CrimDawn_SafehouseTweakData", 
     challenge = 0,
     daily_complete = 0,
     raid = 0,
-    experience_ratio = -1
+    experience_ratio = 2147483647
   }
   self.level_limit = 193
 end)
 
 Hooks:PostHook(CustomSafehouseTweakData, "_init_map", "CrimDawn_SafehouseFrames", function(self)
   self.map.frame_texture = {
+    "crimdawn/safehouse0",
     "crimdawn/safehouse1",
 		"crimdawn/safehouse2",
 		"crimdawn/safehouse3",

@@ -1,0 +1,5 @@
+{
+  "menu_cs_upgrade_cost" : "It costs ##1## coin to upgrade a room.",
+  "menu_cs_upgrade_max" : "More upgrades become available after finishing the current tier and reaching a new heist milestone.",
+  "menu_cs_fully_upgraded" : "This room cannot be upgraded any further!",
+}

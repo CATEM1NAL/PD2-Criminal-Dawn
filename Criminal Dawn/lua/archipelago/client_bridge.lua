@@ -22,8 +22,7 @@ function CrimDawnClient:LoadData()
   self.data["Skill"] = self.data["Skill"] or 0
   self.data["Perk"] = self.data["Perk"] or 0
   self.data["Stat Boost"] = self.data["Stat Boost"] or 0
-  self.data["24 Coins"] = self.data["24 Coins"] or 0
-  self.data["6 Coins"] = self.data["6 Coins"] or 0
+  self.data["2 Coins"] = self.data["24 Coins"] or 0
 end CrimDawnClient:LoadData()
 
 -- Timer upgrades need to be checked between heists and when score cap is reached
@@ -136,22 +135,12 @@ function CrimDawnClient:PollData()
     DataChanged = true
   end
 
-  if managers.custom_safehouse then -- Give small number of coins
-    if self.data["6 Coins"] > Global.CrimDawn.data.x.coins then
-      CrimDawn.Log(FileIdent, "Giving " .. 6 * (self.data["6 Coins"] - Global.CrimDawn.data.x.coins) .. " coins")
-      managers.custom_safehouse:add_coins(6 * (self.data["6 Coins"] - Global.CrimDawn.data.x.coins))
-      CrimDawn.ChatNotify("Received " .. 6 * (self.data["6 Coins"] - Global.CrimDawn.data.x.coins) .. " coins!")
-      Global.CrimDawn.data.x.coins = self.data["6 Coins"]
-      DataChanged = true
-    end
-  end
-
-  if managers.custom_safehouse then -- Give big number of coins (intended for safehouse)
-    if self.data["24 Coins"] > Global.CrimDawn.data.x.big_coins then
-      CrimDawn.Log(FileIdent, "Giving " .. 24 * (self.data["24 Coins"] - Global.CrimDawn.data.x.big_coins) .. " progression coins")
-      managers.custom_safehouse:add_coins(24 * (self.data["24 Coins"] - Global.CrimDawn.data.x.big_coins))
-      CrimDawn.ChatNotify("Received " .. 24 * (self.data["24 Coins"] - Global.CrimDawn.data.x.big_coins) .. " coins!")
-      Global.CrimDawn.data.x.big_coins = self.data["24 Coins"]
+  if managers.custom_safehouse then -- Safehouse coins
+    if self.data["2 Coins"] > Global.CrimDawn.data.x.coins then
+      CrimDawn.Log(FileIdent, "Giving " .. 2 * (self.data["24 Coins"] - Global.CrimDawn.data.x.coins) .. " progression coins")
+      managers.custom_safehouse:add_coins(2 * (self.data["24 Coins"] - Global.CrimDawn.data.x.coins))
+      CrimDawn.ChatNotify("Received " .. 2 * (self.data["24 Coins"] - Global.CrimDawn.data.x.coins) .. " coins!")
+      Global.CrimDawn.data.x.coins = self.data["24 Coins"]
       DataChanged = true
     end
   end
