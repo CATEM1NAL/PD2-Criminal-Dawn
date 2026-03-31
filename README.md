@@ -54,18 +54,8 @@ Finally, there are checks for finishing each heist number for the first time. Ri
 
 ## Is this multiplayer compatible?
 There wouldn't be much point if it wasn't! Ignoring the obvious argument I could make about how Archipelago is inherently multiplayer
-(which is a bullshit non-answer), the mod was built to support multiplayer *almost* from the start. There are a few things you need to make
-sure of if you want to play this way:
-
-**How many slots?** Each player can use their own YAML and player slot. Playing in the same lobby like this means you will send checks
-in tandem, multiplying the number of checks per location. This also means you can play more strategically, for example changing lobby host
-based on which player has the most time upgrades. Playing this way requires a bit more preparation, as it works best with all players using
-the same gameplay YAML settings.
-
-Alternatively you can just use same-slot coop, with only a single YAML and player slot being used for world generation. Everyone playing
-Criminal Dawn connects to the same slot, and they will remain perfectly in sync - only one set of checks for the entire game, and no score cap
-shenanigans. This is the simplest and most foolproof way of setting up the APWorld. **Note that this does not mean everyone will have the same
-upgrades and unlocks!** These are still random per player, it simply means everyone gets their own upgrades and unlocks *at the same time*.
+(which is a bullshit non-answer), the mod was built to support multiplayer basically from the start. For more details about this and
+how it works, please refer to the [FAQ](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md).
 
 ## I don't like you and this APWorld concept sucks.
 Thank you for your constructive criticism. I will not take this into account.
