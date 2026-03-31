@@ -47,10 +47,7 @@ there's also a hard score cap that is increased through the time upgrades - this
 single check* from the very first heist before receiving any items. Even if that *was* possible, the later checks require so many points
 that you'd legitimately be better off just playing the game normally anyway.
 
-There are additional checks locked behind upgrading the safe house. THESE ones legitimately are a concern for Archipelago's logic, so right
-now they are forced to only include filler items. This does mean your item unlocks can be behind the safe house so it's still worth going
-for them, with coin bundles to upgrade the safe house being a pretty common item in the multiworld. There are always enough coin bundles
-to fully upgrade the safe house with 132 coins left over to spend on 22 weapon mods.
+There are additional checks locked behind upgrading the safe house.
 
 Finally, there are checks for finishing each heist number for the first time. Right now these are set to always be progression items.
 
