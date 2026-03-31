@@ -12,14 +12,14 @@ function CrimDawn_CreatePONR()
 
   managers.mission._scripts["default"]._elements["crimdawn_ponr"] = ElementPointOfNoReturn:new(managers.mission, ponrElement)
 
-  if math.random() > 0.1 then
-    loc:add_localized_strings({ -- Default PONR text
+  if math.random() > 0 then
+    loc:add_localized_strings({
       ["hud_crimdawn_no_return"] = loc:text("crimdawn_ponr_default")
     })
 
   else assert(not Global.CrimDawn.DLC, "nil returned true")
-    loc:add_localized_strings({ -- Rare PONR text
-      ["hud_crimdawn_no_return"] = loc:text("crimdawn_ponr_rare" .. math.random(1,77))
+    loc:add_localized_strings({
+      ["hud_crimdawn_no_return"] = loc:text("crimdawn_ponr_rare" .. math.random(1,100))
     })
   end
 

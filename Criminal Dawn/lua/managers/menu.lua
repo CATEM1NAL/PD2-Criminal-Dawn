@@ -9,6 +9,12 @@ function MenuCallbackHandler:CrimDawn_CreateLobby()
     if NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY ~= Global.CrimDawn.data.game.seed then
       NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
       NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
+      if CrimDawnClient.data.seed then
+        managers.localization:add_localized_strings({
+          ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_create_lobby_title"),
+          ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_create_lobby_desc")
+        })
+      end
       CrimDawn.Log(FileIdent, "Updated matchmaking key: " .. NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY)
     end self:create_lobby()
 
@@ -45,7 +51,7 @@ local function InjectCrimDawnButtons(node)
   }
 
   local params = {
-    name = "crimdawn_play_next_btn",
+    name = "crimdawn_createlobby_btn",
     text_id = "crimdawn_enter_lobby_title",
     help_id = "crimdawn_enter_lobby_desc",
     callback = "CrimDawn_CreateLobby",
@@ -120,8 +126,17 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
     managers.localization:add_localized_strings({
       ["crimdawn_play_next_title"] = ordinal(Global.CrimDawn.data.game.run) ..
         " Criminal Dawn [" .. #Global.CrimDawn.data.game.heists .. "/" .. Global.CrimDawn.data.game.run_length .. "]",
-      ["crimdawn_play_next_desc"] = TimeCharacter .. " " .. math.floor((Global.CrimDawn.data.game.ponr or 0) / 60) .. " minutes remaining."
+      ["crimdawn_play_next_desc"] = TimeCharacter .. " " .. math.floor((Global.CrimDawn.data.game.ponr or 0) / 60) .. " minutes remaining.",
+      ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_init_multiworld_title"),
+      ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_init_multiworld_desc")
     })
+
+    if CrimDawnClient.data.seed then
+      managers.localization:add_localized_strings({
+        ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_create_lobby_title"),
+        ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_create_lobby_desc")
+      })
+    end
 
     if Global.CrimDawn.data.game.run == 1 then managers.localization:add_localized_strings({
       ["crimdawn_start_run_title"] = managers.localization:text("crimdawn_first_run_title") })
@@ -172,7 +187,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
 
     -- Hides all the unnecessary menu buttons
     local HiddenButtons = { story_missions = true, achievements = true, side_jobs = true,
-                            crimdawn_play_next_btn = true, crimenet_nj = true, crimenet_j = true  }
+                            crimdawn_createlobby_btn = true, crimenet_nj = true, crimenet_j = true  }
 
     for i, item in pairs(lobbymenu._items) do
       if HiddenButtons[item._parameters.name] then item:set_visible(false) end

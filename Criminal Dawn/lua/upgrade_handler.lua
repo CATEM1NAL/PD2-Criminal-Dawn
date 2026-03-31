@@ -23,7 +23,7 @@ Hooks:PreHook(PlayerManager, "aquire_default_upgrades", "CrimDawn_UpgradeHandler
     if key ~= "amcar" and key ~= "glock_17" and key ~= "weapon" and key ~= "second_deployable_1" then
       if not Global.CrimDawn.data.unlocks[key] then managers.upgrades:unaquire(key) end
     elseif key == "second_deployable_1" then Global.upgrades_manager.aquired.second_deployable_1 = nil end
-    -- Removing Jack of all Trades normally causes it to reset the second deployable
+    -- Removing Jack of all Trades using unaquire causes it to reset the second deployable
   end
 
   Global.player_manager.upgrades = {}
@@ -47,8 +47,6 @@ Hooks:PreHook(PlayerManager, "aquire_default_upgrades", "CrimDawn_UpgradeHandler
     end
   end
 
-  Utils.PrintTable(Global.upgrades_manager.aquired)
-
   -- Pull unlocks from save file
   for key, _ in pairs(Global.CrimDawn.data.unlocks) do
     if not Global.upgrades_manager.aquired[key] then
@@ -68,6 +66,5 @@ Hooks:PostHook(UpgradesTweakData, "init", "CrimDawn_LevelTree", function(self)
       for _, upgrade in ipairs(level.upgrades) do table.insert(all_levels.upgrades, upgrade) end
     end
   end
-
   self.level_tree = { [193] = all_levels }
 end)

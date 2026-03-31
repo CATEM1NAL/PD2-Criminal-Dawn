@@ -39,6 +39,7 @@
 		{ "hook_id" : "lib/network/base/basenetworksession",		"script_path" : "lua/overrides/peer_sync.lua" },
 		{ "hook_id" : "lib/managers/blackmarketmanager",		"script_path" : "lua/overrides/sidejob_unlocks.lua" },
 		{ "hook_id" : "lib/managers/skilltreemanager",		"script_path" : "lua/overrides/skills_perks.lua" },
+		{ "hook_id" : "lib/tweak_data/customsafehousetweakdata",		"script_path" : "lua/overrides/safehouse_tweakdata.lua" },
 		{ "hook_id" : "lib/tweak_data/moneytweakdata",		"script_path" : "lua/overrides/item_cost.lua" }
 	],
 

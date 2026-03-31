@@ -45,8 +45,8 @@ function CrimDawn:NextHeist(HeistsWon)
       ValidHeists[tier] = NewTable
     end
 
-    -- 28 Stores replaces final heist with 30+ minutes
-    if Global.CrimDawn.data.game.ponr >= 1800 then ValidHeists.tier6 = {"cd_28stores"} end
+    -- 28 Stores replaces final heist with 27+ minutes
+    if Global.CrimDawn.data.game.ponr >= 1620 then ValidHeists.tier6 = {"cd_28stores"} end
 
     CurrentTier = ValidHeists["tier" .. TierIndex]
 

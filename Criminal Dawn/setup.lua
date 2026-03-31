@@ -91,6 +91,13 @@ end
 
 CrimDawn:Init()
 
+DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse1"), CrimDawn.ModPath .. "assets/safehouse1.texture")
+DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse2"), CrimDawn.ModPath .. "assets/safehouse2.texture")
+DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse3"), CrimDawn.ModPath .. "assets/safehouse3.texture")
+DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse4"), CrimDawn.ModPath .. "assets/safehouse4.texture")
+DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse5"), CrimDawn.ModPath .. "assets/safehouse5.texture")
+DB:create_entry(Idstring("texture"), Idstring("crimdawn/safehouse6"), CrimDawn.ModPath .. "assets/safehouse6.texture")
+
 -- Add save data to global table
 if Global.CrimDawn then return end
 Global.CrimDawn = { tables = {} }
