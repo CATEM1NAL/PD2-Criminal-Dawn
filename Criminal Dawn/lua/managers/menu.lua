@@ -10,6 +10,7 @@ function MenuCallbackHandler:CrimDawn_CreateLobby()
       NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
       NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
       if CrimDawnClient.data.seed then
+        managers.localization:load_localization_file(CrimDawn.SavePath .. "crimdawn_rooms.txt")
         managers.localization:add_localized_strings({
           ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_create_lobby_title"),
           ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_create_lobby_desc")
@@ -109,6 +110,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
 
   -- Main Menu
   if mainmenu ~= nil then
+    managers.localization:load_localization_file(CrimDawn.SavePath .. "crimdawn_rooms.txt")
 
     CrimDawnClient:PollTimeUpgrades()
     CrimDawnClient:PollData()

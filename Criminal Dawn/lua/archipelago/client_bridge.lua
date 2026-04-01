@@ -22,7 +22,7 @@ function CrimDawnClient:LoadData()
   self.data["Skill"] = self.data["Skill"] or 0
   self.data["Perk"] = self.data["Perk"] or 0
   self.data["Stat Boost"] = self.data["Stat Boost"] or 0
-  self.data["2 Coins"] = self.data["24 Coins"] or 0
+  self.data["Coins"] = self.data["Coins"] or 0
 end CrimDawnClient:LoadData()
 
 -- Timer upgrades need to be checked between heists and when score cap is reached
