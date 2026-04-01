@@ -46,7 +46,7 @@ be good to go. You'll know if the mod is working because you will have a fresh s
 menu will be different.
 
 ## Why do I have hundreds of coins?
-After installing the mod for the first time you get given coins for achievement milestones.
+After installing the mod for the first time you get given coins for achievement milestones (may have been fixed?? let me know!).
 You can either roll with it and take the one time bonus for your first multiworld, or reset the
 save file to fix it (`Options > Advanced > Reset Account Progression`).
 
