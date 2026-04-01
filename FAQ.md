@@ -24,7 +24,7 @@ custom keybinds - if it does and QuickMenu works, then the mod should be fully p
 Yes! Same slot coop is the preferred way to play syncs, with everyone that wants to play together
 connecting to the same player slot. This means only one YAML is needed and everyone gets the same
 items at the same time, creating a more cohesive experience (this doesn't mean you all get the
-same items/upgrades, though!).
+same unlocks/upgrades, though!).
 
 Each player using their own YAML gives more freedom for people to choose their own item limits,
 but works best if everyone is using the same gameplay settings (run length/timer settings). This
