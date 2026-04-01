@@ -1,6 +1,9 @@
 # FAQ
 This page contains simple answers to common issues or questions you might have.
 
+## The world doesn't generate/I can't find the client.
+This APWorld requires the [0.6.7 launcher](https://github.com/ArchipelagoMW/Archipelago/releases/latest).
+
 ## What mods is this compatible with?
 As long as it isn't a total overhaul or a mod that adds new content (new weapons, new heists, etc)
 it should work fine! Custom weapons will probably be available from the start, and custom heists just
