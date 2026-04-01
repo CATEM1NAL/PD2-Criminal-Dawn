@@ -69,7 +69,7 @@ can see a list of your upgrades at any time!
 
 There are also 2 Drill Sawgeant upgrades and 2 Nine Lives upgrades.
 
-## The fuck is a Perma-Skill/Perk?
+### The fuck is a Perma-Skill/Perk?
 Basically a progressive line of upgrades. The Perma-Perks are the universal perk cards (with the
 final one being an upgraded Walk-In Closet (which is actually just Fully Loaded)). The skills
 are organised in such a way that they give you generally useful abilities, for example the third
