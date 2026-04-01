@@ -78,9 +78,9 @@ There are also 2 Drill Sawgeant upgrades and 2 Nine Lives upgrades.
 
 ### The fuck is a Perma-Skill/Perk?
 Basically a progressive line of upgrades. The Perma-Perks are the universal perk cards (with the
-final one being an upgraded Walk-In Closet (which is actually just Fully Loaded)). The skills
+final one being an upgraded Walk-In Closet (which is actually just Fully Loaded)). The Perma-Skills
 are organised in such a way that they give you generally useful abilities, for example the second
-skill allows you to bag bodies and the third skill allows you to intimidate cops.
+Perma-Skill allows you to bag bodies and the third Perma-Skill allows you to intimidate cops.
 
 ### Those are some weird numbers.
 I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21.
