@@ -40,7 +40,8 @@ creative with this game's inclusion in a multiworld as you want to be.
 
 ## The mod isn't working?
 There's a few dependencies which BLT will prompt you to install after launching the game with
-Criminal Dawn. Download them, restart the game, and you should be good to go.
+Criminal Dawn. Download them, restart the game, and you should be good to go. You'll know if
+the mod is working because you should have a fresh save file and the main menu will be different.
 
 ## Why do I have hundreds of coins?
 After installing the mod for the first time you get given coins for achievement milestones.
