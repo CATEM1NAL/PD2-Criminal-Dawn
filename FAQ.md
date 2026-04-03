@@ -86,9 +86,7 @@ are organised in such a way that they give you generally useful abilities, for e
 Perma-Skill allows you to bag bodies and the third Perma-Skill allows you to intimidate cops.
 
 ### Those are some weird numbers.
-I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21.
-There are more references like this, for example the YAML setting for the number of score checks;
-386 is the max value of all cards in a deck plus 22 jokers.
+I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21 each (52 total).
 
 ### Two Nine Lives upgrades?
 Yes! It turns out there's a second upgrade for Nine Lives in the base game which gives you 3 more
