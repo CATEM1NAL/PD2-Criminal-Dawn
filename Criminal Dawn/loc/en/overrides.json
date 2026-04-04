@@ -31,7 +31,7 @@
   "bm_menu_skill_locked_sentry_gun_silent" : "This item is locked!",
   "bm_menu_skill_locked_trip_mine" : "This item is locked!",
   "bm_wpn_money_event_ended" : "This item is locked!",
-  "bm_global_value_gage_pack_jobs_unlock" : "Buy the Gage Mod Courier DLC to unlock!"
+  "bm_global_value_gage_pack_jobs_unlock" : "Buy the Gage Mod Courier DLC to unlock!",
   "menu_reset_account" : "Reset Multiworld Data",
   "menu_reset_account_help" : "Wipe all active multiworld data.",
   "dialog_are_you_sure_you_want_to_clear_progress" : "You are about to wipe your multiworld data! If you are currently connected to the client, you will need to reconnect.",

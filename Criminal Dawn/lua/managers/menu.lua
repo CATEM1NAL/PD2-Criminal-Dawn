@@ -235,8 +235,8 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
       NetworkHelper:SendToPeers("CrimDawn_HeistCount", #Global.CrimDawn.data.game.heists)
 
       -- Difficulty/mutator scaling
-      local LogicItemCount = Global.CrimDawn.data.x.bots + Global.CrimDawn.data.x.permaskills + Global.CrimDawn.data.x.permaperks      
-      CrimDawn.DiffScale = math.floor((LogicItemCount - 1) / (Global.CrimDawn.data.game.scaling_count / Global.CrimDawn.data.game.max_diff))
+      local LogicItemCount = Global.CrimDawn.data.x.bots + Global.CrimDawn.data.x.permaskills + Global.CrimDawn.data.x.permaperks
+      CrimDawn.DiffScale = math.max(math.floor((LogicItemCount - 1) / (Global.CrimDawn.data.game.scaling_count / Global.CrimDawn.data.game.max_diff)), 0)
 
       -- If no mutators active, try to enable them
       dofile(CrimDawn.ModPath .. "lua/tables/mutators.lua")
