@@ -51,7 +51,7 @@ menu will be different.
 ## Why do I have hundreds of coins?
 After installing the mod for the first time you get given coins for achievement milestones (may have been fixed?? let me know!).
 You can either roll with it and take the one time bonus for your first multiworld, or reset the
-save file to fix it (`Options > Advanced > Reset Account Progression`).
+save file to fix it (`Options > Advanced > Reset Multiworld Data`).
 
 ## How do I send checks?
 Just play the game! Basically anything you do will give you points that contribute to getting checks,
