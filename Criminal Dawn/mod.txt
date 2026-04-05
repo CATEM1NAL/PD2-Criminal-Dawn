@@ -1,0 +1,62 @@
+{
+	"name" : "Criminal Dawn",
+	"description" : "Turns PAYDAY 2 into a multiworld randomiser roguelite powered by https://archipelago.gg.",
+	"author" : "C@:\\EM1NAL\\",
+	"contact" : "contact@stupidcat.uk",
+	"version" : "0.2.0",
+	"blt_version" : 2,
+	"color" : "118 126 189",
+	"image" : "dawn.png",
+	"needs_restart" : true,
+
+  "dependencies" : {
+    "BeardLib" : "https://github.com/simon-wh/PAYDAY-2-BeardLib/releases/latest/download/BeardLib.zip",
+    "MutatorHelper" : { "meta" : "https://www.dropbox.com/s/2sba0sy88kzdyor/meta.json?raw=1" },
+    "CSLMM" : { "meta" : "https://www.dropbox.com/s/b1hkmlxt8sifjcc/meta.json?raw=1" }
+  },
+
+	"hooks" : [
+	  { "hook_id" : "lib/setups/setup", "script_path" : "setup.lua" },
+	  { "hook_id" : "lib/setups/gamesetup", "script_path" : "lua/create_ponr.lua" },
+		{ "hook_id" : "lib/managers/menumanager",		"script_path" : "lua/managers/menu.lua" },
+		{ "hook_id" : "lib/network/base/networkmanager",	"script_path" : "lua/managers/network.lua" },
+		{ "hook_id" : "lib/managers/chatmanager",		"script_path" : "lua/managers/chatroom.lua" },
+		{ "hook_id" : "lib/managers/menu/playerinventorygui",	"script_path" : "lua/managers/inventorygui.lua" },
+		{ "hook_id" : "lib/managers/customsafehousemanager",	"script_path" : "lua/managers/safehouse.lua" },
+		{ "hook_id" : "lib/managers/criminalsmanager",		"script_path" : "lua/managers/criminals.lua" },
+		{ "hook_id" : "lib/managers/blackmarketmanager",		"script_path" : "lua/managers/blackmarket.lua" },
+		{ "hook_id" : "lib/managers/jobmanager",		"script_path" : "lua/managers/jobs.lua" },
+		{ "hook_id" : "lib/managers/mutatorsmanager",		"script_path" : "lua/managers/mutators.lua" },
+		{ "hook_id" : "lib/managers/hud/hudassaultcorner",		"script_path" : "lua/managers/hud/assault_corner.lua" },
+		{ "hook_id" : "lib/managers/lootmanager",		"script_path" : "lua/score_handler.lua" },
+		{ "hook_id" : "lib/managers/mission/elementpickup",	"script_path" : "lua/score_handler.lua" },
+		{ "hook_id" : "lib/units/enemies/cop/copdamage",	"script_path" : "lua/score_handler.lua" },
+		{ "hook_id" : "lib/managers/objectivesmanager",	"script_path" : "lua/score_handler.lua" },
+		{ "hook_id" : "lib/managers/playermanager",	"script_path" : "lua/upgrade_handler.lua" },
+		{ "hook_id" : "lib/tweak_data/upgradestweakdata",	"script_path" : "lua/tweakdata/upgrades.lua" },
+		{ "hook_id" : "lib/tweak_data/customsafehousetweakdata",		"script_path" : "lua/tweakdata/safehouse.lua" },
+		{ "hook_id" : "lib/tweak_data/moneytweakdata",		"script_path" : "lua/tweakdata/money.lua" },
+		{ "hook_id" : "lib/tweak_data/weaponfactorytweakdata",		"script_path" : "lua/tweakdata/weaponfactory.lua" },
+		{ "hook_id" : "lib/states/ingamestandard",		"script_path" : "lua/states/ponr.lua" },
+		{ "hook_id" : "lib/states/victorystate",		"script_path" : "lua/states/victory.lua" },
+		{ "hook_id" : "lib/states/gameoverstate",		"script_path" : "lua/states/gameover.lua" },
+		{ "hook_id" : "lib/units/beings/player/playerdamage",		"script_path" : "lua/archipelago/deathlink.lua" },
+		{ "hook_id" : "lib/managers/savefilemanager",		"script_path" : "lua/overrides/savefile.lua" },
+		{ "hook_id" : "lib/managers/group_ai_states/groupaistatebase",		"script_path" : "lua/overrides/enable_dropin.lua" },
+		{ "hook_id" : "lib/managers/menu/menuscenemanager",		"script_path" : "lua/overrides/color_grading.lua" },
+		{ "hook_id" : "lib/network/base/basenetworksession",		"script_path" : "lua/overrides/peer_sync.lua" },
+		{ "hook_id" : "lib/managers/perpetualeventmanager", "script_path" : "lua/overrides/event_items.lua" },
+		{ "hook_id" : "lib/managers/skilltreemanager",		"script_path" : "lua/overrides/skills_perks.lua" }
+	],
+
+	"keybinds": [
+		{
+			"keybind_id" : "crimdawn_upgrade_menu",
+			"name" : "Criminal Dawn Upgrades",
+			"description" : "See a list of your current upgrades.",
+			"script_path" : "lua/upgrade_menu.lua",
+			"run_in_menu" : true,
+			"run_in_game" : true
+		}
+	]
+}

@@ -1,0 +1,116 @@
+{
+  "menu_id" : "crimdawn_heist2_settings",
+  "parent_menu_id" : "crimdawn_settings",
+  "title" : "crimdawn_heist2_settings_name",
+  "description" : "crimdawn_heist2_settings_desc",
+  "items" : [
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_watchdogs_wrapper",
+      "title" : "heist_watchdogs",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "watchdogs_wrapper",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_family",
+      "title" : "heist_family",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "family",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_roberts",
+      "title" : "heist_roberts",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "roberts",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_gallery",
+      "title" : "heist_gallery",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "gallery",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_dinner",
+      "title" : "heist_dinner",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "dinner",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_help",
+      "title" : "heist_help",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "help",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_wwh",
+      "title" : "heist_wwh",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "wwh",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_arm_hcm",
+      "title" : "heist_arm_hcm",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "arm_hcm",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_arm_fac",
+      "title" : "heist_arm_fac",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "arm_fac",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_pal",
+      "title" : "heist_pal",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "pal",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_pex",
+      "title" : "heist_pex",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "pex",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_chas",
+      "title" : "heist_chas",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "chas",
+      "default_value" : true
+    }
+  ]
+}
