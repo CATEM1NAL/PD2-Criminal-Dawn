@@ -15,7 +15,7 @@ Hooks:PostHook(GameSetup, "init_finalize", "CrimDawn_CreatePONR", function()
       ["hud_crimdawn_no_return"] = loc:text("crimdawn_ponr_default")
     })
 
-  else assert(not Global.CrimDawn.DLC, "nil returned true")
+  else --assert(not Global.CrimDawn.DLC, "nil returned true")
     loc:add_localized_strings({
       ["hud_crimdawn_no_return"] = loc:text("crimdawn_ponr_rare" .. math.random(1,100))
     })

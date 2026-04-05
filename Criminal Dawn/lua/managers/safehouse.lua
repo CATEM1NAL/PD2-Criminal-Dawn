@@ -50,7 +50,11 @@ Hooks:PostHook(CustomSafehouseManager, "purchase_room_tier", "CrimDawn_Safehouse
   SetTierCap()
 end)
 
-Hooks:PostHook(CustomSafehouseManager, "init_finalize", "CrimDawn_SafehouseCap", function(self)
+Hooks:PostHook(CustomSafehouseManager, "init_finalize", "CrimDawn_SafehouseInit", function(self)
+  SetTierCap()
+end)
+
+Hooks:PostHook(CustomSafehouseManager, "load", "CrimDawn_SafehouseLoad", function(self)
   SetTierCap()
 end)
 

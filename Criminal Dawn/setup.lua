@@ -9,7 +9,7 @@ function CrimDawn:Init()
   self.SaveFile = self.SavePath .. "crimdawn_save.txt"
   self.SettingsFile = self.SavePath .. "crimdawn_settings.txt"
 
-  self.SettingsData = io.load_as_json(CrimDawn.SettingsFile)
+  self.SettingsData = io.load_as_json(CrimDawn.SettingsFile) or {}
   if not self.SettingsData then self.SettingsData = {} end
 
   MenuHelper:LoadFromJsonFile(CrimDawn.ModPath .. "menus/settings.json", CrimDawn, CrimDawn.SettingsData)
