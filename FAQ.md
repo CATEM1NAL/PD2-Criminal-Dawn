@@ -2,7 +2,7 @@
 This page contains simple answers to common issues or questions you might have.
 
 ## The world doesn't generate/I can't find the client.
-This APWorld requires the [0.6.7 launcher](https://github.com/ArchipelagoMW/Archipelago/releases/latest).
+Make sure you have the [0.6.7 launcher](https://github.com/ArchipelagoMW/Archipelago/releases/latest)!
 
 ## What mods is this compatible with?
 As long as it isn't a total overhaul or a mod that adds new content (new weapons, new heists, etc)
@@ -45,8 +45,8 @@ creative with this game's inclusion in a multiworld as you want to be.
 Make sure you have [SuperBLT](https://superblt.znix.xyz/) installed, and then extract
 `BLT-Criminal_Dawn.zip` into `PAYDAY 2/mods`. There are a few dependencies which BLT will prompt you
 to install after launching the game with Criminal Dawn. Download them, restart the game, and you should
-be good to go. You'll know if the mod is working because you will have a fresh save file and the main
-menu will be different.
+be good to go. You'll know if the mod is working because you will have a fresh save file and the game
+will have an orange/pink colour palette (instead of blue).
 
 ## Why do I have hundreds of coins?
 After installing the mod for the first time you get given coins for achievement milestones (may have been fixed?? let me know!).
@@ -97,6 +97,14 @@ Yep! Everything currently in the mod is something that already exists within the
 looked into making custom upgrades yet, but it is something I want to do eventually. There are a
 decent number of unused upgrades in the game's code that I've enabled though, so you'll probably
 see some stuff you've never seen before.
+
+## I don't like the mutators.
+Go to `Options > Mod Options > Criminal Dawn` and you can change the mutator mode. There are
+four options:
+- **Off:** No random mutators will generate. Friendly Fire (Hard+) and Winters' Shields (Death Wish+) will still be enabled.
+- **On:** Number of mutators will scale with heist number (1 mutator for first heist, 2 for second heist, etc).
+- **On + Scaling (default):** Number of mutators will also scale with items received in the same way as difficulty.
+- **Inverted Scaling:** Number of mutators will start maxed out (based on difficulty setting), but decrease as you receive items.
 
 ## I keep getting [heist] and it sucks.
 Go to `Options > Mod Options > Criminal Dawn` and you can disable any heist in the game.
