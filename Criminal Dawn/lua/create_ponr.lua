@@ -9,7 +9,7 @@ Hooks:PostHook(GameSetup, "init_finalize", "CrimDawn_CreatePONR", function()
 
   managers.mission._scripts.default._elements.crimdawn_ponr = ElementPointOfNoReturn:new(managers.mission, ponrElement)
 
-  math.randomseed(os.time())
+  math.randomseed(os.time() .. os.clock())
   if math.random() > 0.1 then
     loc:add_localized_strings({
       ["hud_crimdawn_no_return"] = loc:text("crimdawn_ponr_default")
