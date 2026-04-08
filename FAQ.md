@@ -61,7 +61,8 @@ save file to fix it (`Options > Advanced > Reset Multiworld Data`).
 
 ## How do I send checks?
 Just play the game! Basically anything you do will give you points that contribute to getting checks,
-with the number of points scaling as your run progresses and you receive more items.
+with the number of points scaling as your run progresses and you receive more items. You can check
+various score related stats by typing `/score` into the client.
 
 There are also checks locked behind the safehouse, with **138** on 6 heist mode or **92** on
 4 heist mode. The coins needed to unlock these are multiworld items. To move on to the next tier you
