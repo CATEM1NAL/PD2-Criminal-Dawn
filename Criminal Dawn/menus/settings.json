@@ -1,0 +1,23 @@
+{
+  "menu_id" : "crimdawn_settings",
+  "parent_menu_id" : "blt_options",
+  "title" : "crimdawn_settings_name",
+  "description" : "crimdawn_settings_desc",
+  "items" : [
+    {
+      "type" : "multiple_choice",
+      "id" : "crimdawn_mutator_mode",
+      "title" : "menu_mutators",
+      "description" : "crimdawn_mutator_desc",
+      "callback" : "CrimDawn_SaveChoiceSettings",
+      "items" : [
+        "menu_off",
+        "menu_on",
+        "crimdawn_diff_scaling",
+        "crimdawn_inverse_scaling"
+      ],
+      "value" : "mutator_mode",
+      "default_value" : 3
+    }
+  ]
+}
