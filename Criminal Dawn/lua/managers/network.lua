@@ -37,6 +37,7 @@ NetworkHelper:AddReceiveHook("CrimDawn_StartPONR", "CrimDawn_SyncPONR", function
   CrimDawn.Log(FileIdent, "Received PONR sync")
   if CrimDawn.state.ponr then return end
 
+  managers.groupai:state():set_point_of_no_return_timer(Global.CrimDawn.data.game.ponr, "crimdawn_ponr", "crimdawn_ponr_tweak")
   CrimDawn.state.maskup_time = TimerManager:game():time()
   CrimDawn.state.ponr = true
 end)
