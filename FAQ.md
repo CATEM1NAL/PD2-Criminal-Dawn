@@ -9,13 +9,13 @@ Make sure you have [SuperBLT](https://superblt.znix.xyz/) installed, and then ex
 `BLT-Criminal_Dawn.zip` into `PAYDAY 2/mods`. There are a few dependencies which BLT will prompt you
 to install after launching the game with Criminal Dawn. Download them, restart the game, and you should
 be good to go. You'll know if the mod is working because you will have a fresh save file and the game
-will have an orange/pink colour palette (instead of blue).
+will have an orange/pink colour palette (instead of blue). After verifying that the mod is loading
+correctly, you need to restart the game before you can start the playing.
 
 When it comes to connecting to the multiworld, always make sure you connect *before* launching the game.
 The client automatically handles switching between different save files (if they exist), but the mod only
 loads saves on launch. If you connect while the game is open nothing bad will happen, but you will have to
-restart for the mod to work again. If it's your first time playing you can ignore this - but keep it in mind
-if you want to play more seeds.
+restart for the mod to work again.
 
 ## What mods is this compatible with?
 As long as it isn't a total overhaul or a mod that adds new content (new weapons, new heists, etc)
