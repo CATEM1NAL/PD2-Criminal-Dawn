@@ -54,11 +54,6 @@ and hop into the lobby until they get unstuck! You could also do a sync where ev
 own games, but periodically you all join a Criminal Dawn slot to get a few checks. You can be as
 creative with this game's inclusion in a multiworld as you want to be.
 
-## Why do I have hundreds of coins?
-After installing the mod for the first time you get given coins for achievement milestones (may have been fixed?? let me know!).
-You can either roll with it and take the one time bonus for your first multiworld, or reset the
-save file to fix it (`Options > Advanced > Reset Multiworld Data`).
-
 ## How do I send checks?
 Just play the game! Basically anything you do will give you points that contribute to getting checks,
 with the number of points scaling as your run progresses and you receive more items. You can check
