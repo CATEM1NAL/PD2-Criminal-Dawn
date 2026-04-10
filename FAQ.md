@@ -116,6 +116,8 @@ I'd recommend only disabling the heists you *really* don't like, as disabling to
 the available pool which may negatively impact the experience. Disabling every heist will also cause
 the game to crash on heist generation, so uh... don't do that.
 
+Disabling heists has no effect during campaign runs.
+
 ## I'm playing but nothing is happening.
 Did you connect to a different multiworld while in a lobby? In this case the game will allow you
 to keep playing, but you won't be able to make any progress or receive any items. Always restart
