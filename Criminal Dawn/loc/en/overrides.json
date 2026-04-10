@@ -40,7 +40,6 @@
   "menu_bm_total_cost" : "",
   "menu_infamy_banner_already_unlocked" : "Infamy rewards are unlocked by default.\nGoing infamous is purely for bragging rights!",
   "menu_cs_upgrade_cost" : "It costs ##1## coin to upgrade a room.",
-  "menu_cs_upgrade_owned" : "More upgrades become available after finishing the current tier and reaching a new heist milestone.",
   "menu_cs_fully_upgraded" : "This room cannot be upgraded any further!",
   "menu_end_game" : "There is no escape",
 }

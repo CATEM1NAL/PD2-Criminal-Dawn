@@ -1,7 +1,13 @@
 local FileIdent = "heist_selector"
 
 function CrimDawn:NextHeist(HeistsWon)
-  local TierIndex = (6 - Global.CrimDawn.data.game.run_length) + (HeistsWon or 0) + 1
+  if Global.CrimDawn.data.game.campaign then self:CampaignHeist(HeistsWon) return end
+
+  local TierIndex
+  if Global.CrimDawn.data.game.heists_won < Global.CrimDawn.data.game.run_length then
+    TierIndex = (6 - Global.CrimDawn.data.game.run_length) + (HeistsWon or 0) + 1
+  end
+  
   local ValidHeists = deep_clone(Global.CrimDawn.tables.heists)
   local CurrentTier
 
@@ -61,6 +67,39 @@ function CrimDawn:NextHeist(HeistsWon)
   table.insert(Global.CrimDawn.data.game.heists, NextHeist)
   NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
 
+  self.Log(FileIdent, NextHeist)
+  self:WriteSave(FileIdent, "next heist selected")
+end
+
+local campaigns = {
+  ["Return Of The Rat"] = { "watchdogs_wrapper", "firestarter", "alex", "hox_3" },
+  ["Murky Day"] = { "kosugi", "shoutout_raid", "pbr", "des" },
+  ["I Need My Payday Too"] = { "big", "mus", "mia", "hox", "kenaz" },
+  ["Greatest Heist Of All"] = { "rvd", "brb", "sah", "tag", "bph", "vit" },
+  ["Silk Road"] = { "mex", "bex", "pex", "fex" },
+  ["City Of Gold"] = { "chas", "chca", "pent" },
+  ["Texas Heat"] = { "ranc", "corp", "deep" },
+  ["Night Of Frights"] = { "hvh", "help", "nail", "haunted" },
+  ["Christmas Special"] = {  },
+  ["Classics"] = { "red2", "run", "flat", "glace", "dah", "dinner" },
+}
+
+function CrimDawn:CampaignHeist(HeistsWon)
+  local NextHeist
+  if HeistsWon <= #campaigns[Global.CrimDawn.data.game.goal] then
+    NextHeist = campaigns[Global.CrimDawn.data.game.goal][HeistsWon + 1]
+    log(NextHeist)
+    -- DLC check...
+    local FoundHeist
+    for tier, _ in pairs(Global.CrimDawn.tables.heists) do
+      for _, heist in ipairs(Global.CrimDawn.tables.heists[tier]) do
+        if heist == NextHeist then FoundHeist = true break end
+      end
+    if FoundHeist then break end end
+    assert(FoundHeist, "You don't own the next heist (" .. managers.localization:text("heist_" .. NextHeist) .. ")")
+    table.insert(Global.CrimDawn.data.game.heists, NextHeist)
+
+  else table.insert(Global.CrimDawn.data.game.heists, math.random(1, #campaigns[Global.CrimDawn.data.game.goal])) end
   self.Log(FileIdent, NextHeist)
   self:WriteSave(FileIdent, "next heist selected")
 end

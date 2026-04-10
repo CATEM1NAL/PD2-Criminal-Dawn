@@ -51,11 +51,11 @@
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_help",
-      "title" : "heist_help",
+      "id" : "crimdawn_cane",
+      "title" : "heist_cane",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "help",
+      "value" : "cane",
       "default_value" : true
     },
     {

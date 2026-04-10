@@ -1,8 +1,7 @@
 local FileIdent = "victory"
 
 Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
-  CrimDawn.state.ponr = false
-  if not NetworkHelper:IsHost() then return end
+  if not NetworkHelper:IsHost() then CrimDawn.state.maskup_time = false return end
 
   -- Determine points for victory
   local HeistCount = #Global.CrimDawn.data.game.heists or 1
@@ -12,15 +11,17 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
 
   local VictoryScore = (HeistCount + CrimDawn.DiffScale(true)) * (1 + CrimDawn.DiffScale(true))
 
-  -- Calculate time for next PONR
-  if level_id ~= "hvh" then -- Cursed Kill Room is special because the timer counts backwards
-    local MaskupDuration = TimerManager:game():time() - CrimDawn.state.maskup_time
-    Global.CrimDawn.data.game.ponr = Global.CrimDawn.data.game.ponr - MaskupDuration
+  if CrimDawn.state.maskup_time ~= -1 then -- Calculate time for next PONR
+    if level_id ~= "hvh" then -- Cursed Kill Room is special because the timer counts backwards
+      local MaskupDuration = TimerManager:game():time() - CrimDawn.state.maskup_time
+      Global.CrimDawn.data.game.ponr = Global.CrimDawn.data.game.ponr - MaskupDuration
 
-  else Global.CrimDawn.data.game.ponr = managers.groupai:state():get_point_of_no_return_timer() end
-  -- Doesn't work globally - heists like Shadow Raid can overwrite the timer, but works for Cursed Kill Room
+    -- Doesn't work globally - heists like Shadow Raid can overwrite the timer, but works for Cursed Kill Room
+    else Global.CrimDawn.data.game.ponr = managers.groupai:state():get_point_of_no_return_timer() end
 
-  CrimDawnClient:PollTimeUpgrades()
+    CrimDawn.state.maskup_time = false
+    CrimDawnClient:PollTimeUpgrades()
+  end
 
   -- Heist completion score handling
   if managers.job:on_last_stage() then -- Heist completed, give more points

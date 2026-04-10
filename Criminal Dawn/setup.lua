@@ -19,9 +19,8 @@ function CrimDawn:Init()
   MenuHelper:LoadFromJsonFile(CrimDawn.ModPath .. "menus/heist4.json", CrimDawn, CrimDawn.SettingsData)
   MenuHelper:LoadFromJsonFile(CrimDawn.ModPath .. "menus/heist5.json", CrimDawn, CrimDawn.SettingsData)
 
-  self.state = { ponr = false,
+  self.state = { maskup_time = false,
                  heist_started = false,
-                 maskup_time = 0,
                  cap_reached = false,
                  upg_queue = {} }
 
@@ -35,10 +34,16 @@ function CrimDawn:Init()
   end
 
   function self.MaxTimeItems()
-    return ((Global.CrimDawn.data.game.run_length * 15) / (Global.CrimDawn.data.game.timer_strength / 60)) - 1
-  end
+    if Global.CrimDawn.data.game.seed then
+      if Global.CrimDawn.data.game.run_length > 0 then
+        return ((Global.CrimDawn.data.game.run_length * 15) / (Global.CrimDawn.data.game.timer_strength / 60)) - 1
+      else return (100 / (Global.CrimDawn.data.game.timer_strength / 60)) - 1 end
+    end
+  return 121200 end -- This can be any non-0 value, I chose my birthday
 
   function self.DiffScale(ignore_settings)
+    local RunLength = Global.CrimDawn.data.game.run_length
+    if RunLength == 0 then RunLength = 6 end
     local MaxDiff = ignore_settings and Global.CrimDawn.data.game.run_length or Global.CrimDawn.data.game.max_diff
     local DiffItemCount = Global.CrimDawn.data.x.bots +
                           Global.CrimDawn.data.x.permaskills +
@@ -85,7 +90,7 @@ function CrimDawn:Init()
     local SaveSeed, SaveSlot = Global.CrimDawn.data.game.seed, Global.CrimDawn.data.game.slot
     local ClientSeed, ClientSlot = CrimDawnClient.data.seed, CrimDawnClient.data.slot
     if SaveSeed == ClientSeed and SaveSlot == ClientSlot then return true
-    else CrimDawn.Log(FileIdent, "save is invalid!") return false end
+    else CrimDawn.Log(FileIdent, "Save is invalid!") return false end
   end
 
   function self:Reset()
@@ -101,7 +106,7 @@ function CrimDawn:Init()
       game = {
         seed = false, slot = false, max_diff = false, max_diff_items = false, timer_strength = false, run_length = 0,
         score = 0, f_score = 0, score_cap = false, ponr = false, deathlink = os.time(),
-        run = 1, heists_won = 0, heists = {}, cash = 0
+        run = 1, heists_won = 0, heists = {}, cash = 0, goal = false, campaign = false
       },
       chat = { message = "", timestamp = 0 },
       safehouse = {}

@@ -4,21 +4,23 @@ Hooks:OverrideFunction(CustomSafehouseManager, "give_upgrade_points", function()
 Hooks:OverrideFunction(CustomSafehouseManager, "attempt_give_initial_coins", function() end)
 Hooks:OverrideFunction(CustomSafehouseManager, "save", function() end)
 
+local MaxSafehouseTier = Global.CrimDawn.data.game.safehouse_tiers
+
 local function UpdateDescriptions(tier)
   managers.localization:load_localization_file(CrimDawn.SavePath .. "crimdawn_rooms.txt")
 
   for _, data in ipairs(tweak_data.safehouse.rooms) do
     local CurrentRoom = Global.custom_safehouse_manager.rooms[data.room_id]
 
-    for i = tier, Global.CrimDawn.data.game.run_length + 1 do
+    for i = tier, MaxSafehouseTier do
       managers.localization:add_localized_strings({ -- Future items use the description of the current item
         [data.help_id .. "_" .. i] = managers.localization:text(data.help_id .. "_" .. i - 1):gsub("#", "")
       })
     end
 
-    if Global.CrimDawn.data.safehouse[data.room_id] == Global.CrimDawn.data.game.run_length + 1 then
+    if Global.CrimDawn.data.safehouse[data.room_id] == MaxSafehouseTier then
       managers.localization:add_localized_strings({ -- Final tier description to let you know you're done
-        [data.help_id .. "_" .. Global.CrimDawn.data.game.run_length + 1] = managers.localization:text("menu_cs_fully_upgraded")
+        [data.help_id .. "_" .. MaxSafehouseTier] = managers.localization:text("menu_cs_fully_upgraded")
       })
     end
   end
@@ -33,7 +35,7 @@ local function RoomsUpgraded()
 
 return RoomUpgrades end
 
-local function HighestTier()
+local function HighestTierUnlocked()
   local SafehouseTier = 1
 
   for _, RoomTier in pairs(Global.CrimDawn.data.safehouse) do
@@ -42,24 +44,24 @@ local function HighestTier()
     end
   end
 
-  if RoomsUpgraded() % 23 == 0 and SafehouseTier ~= Global.CrimDawn.data.game.run_length + 1 then
+  if RoomsUpgraded() % 23 == 0 and SafehouseTier ~= MaxSafehouseTier then
     SafehouseTier = SafehouseTier + 1
   end
 
 return SafehouseTier end
 
 local function SetTierCap()
-  local MaxTier = math.min(Global.CrimDawn.data.game.heists_won + 2, Global.CrimDawn.data.game.run_length + 1)
+  local UnlockableTier = math.min(Global.CrimDawn.data.game.heists_won + 2, MaxSafehouseTier)
   local NextTier = 2 + (1 * math.floor(RoomsUpgraded() / 23))
 
-  CrimDawn.Log(FileIdent, "Tier cap " .. MaxTier - 1)
+  CrimDawn.Log(FileIdent, "Tier cap " .. UnlockableTier - 1)
 
   for _, data in ipairs(tweak_data.safehouse.rooms) do
     local CurrentRoom = Global.custom_safehouse_manager.rooms[data.room_id]
-    CurrentRoom.tier_max = math.min(NextTier, MaxTier)
+    CurrentRoom.tier_max = math.min(NextTier, UnlockableTier)
   end
 
-  UpdateDescriptions(HighestTier())
+  UpdateDescriptions(HighestTierUnlocked())
 end
 
 Hooks:PostHook(CustomSafehouseManager, "purchase_room_tier", "CrimDawn_SafehouseUpgrade", function(self, room_id, tier)

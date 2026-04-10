@@ -87,15 +87,6 @@
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_cane",
-      "title" : "heist_cane",
-      "description" : "crimdawn_settings_heist_desc",
-      "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "cane",
-      "default_value" : true
-    },
-    {
-      "type" : "toggle",
       "id" : "crimdawn_arm_und",
       "title" : "heist_arm_und",
       "description" : "crimdawn_settings_dlc_desc",

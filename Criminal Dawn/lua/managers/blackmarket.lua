@@ -42,9 +42,7 @@ Hooks:OverrideFunction(BlackMarketManager, "_setup_unlocked_mask_slots", functio
   local unlocked_mask_slots = {}
   Global.blackmarket_manager.unlocked_mask_slots = unlocked_mask_slots
 
-  for i = 1, 320 do
-    unlocked_mask_slots[i] = true
-  end
+  for i = 1, 320 do unlocked_mask_slots[i] = true end
 end)
 
 Hooks:OverrideFunction(BlackMarketManager, "_setup_unlocked_weapon_slots", function(self)
@@ -56,5 +54,11 @@ Hooks:OverrideFunction(BlackMarketManager, "_setup_unlocked_weapon_slots", funct
   for i = 1, 320 do
     unlocked_weapon_slots.primaries[i] = true
     unlocked_weapon_slots.secondaries[i] = true
+  end
+end)
+
+Hooks:PostHook(BlackMarketManager, "_verfify_equipped", "CrimDawn_VerfifyDeployable", function(self)
+  if not Global.CrimDawn.data.unlocks[self:equipped_deployable()] and self:equipped_deployable() ~= "grenade_crate" then
+    self:equip_deployable({ target_slot = 1 })
   end
 end)

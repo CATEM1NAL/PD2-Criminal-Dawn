@@ -7,18 +7,18 @@ function CrimDawnClient:LoadData()
 
   -- Set default values if they don't exist
   self.data["Time Bonus"] = self.data["Time Bonus"] or 0
-  self.data["Drill Sawgeant"] = self.data["Drill Sawgeant"] or 0
-  self.data["Nine Lives"] = self.data["Nine Lives"] or 0
-  self.data["Perma-Skill"] = self.data["Perma-Skill"] or 0
-  self.data["Perma-Perk"] = self.data["Perma-Perk"] or 0
+  self.data["Drill Sawgeant"] = math.min(self.data["Drill Sawgeant"] or 0, 2)
+  self.data["Nine Lives"] = math.min(self.data["Nine Lives"] or 0, 2)
+  self.data["Perma-Skill"] = math.min(self.data["Perma-Skill"] or 0, 7)
+  self.data["Perma-Perk"] = math.min(self.data["Perma-Perk"] or 0, 7)
   self.data["Extra Bot"] = self.data["Extra Bot"] or 0
   self.data["Primary Weapon"] = self.data["Primary Weapon"] or 0
   self.data["Akimbo"] = self.data["Akimbo"] or 0
   self.data["Secondary Weapon"] = self.data["Secondary Weapon"] or 0
   self.data["Melee Weapon"] = self.data["Melee Weapon"] or 0
   self.data["Throwable"] = self.data["Throwable"] or 0
-  self.data["Armor"] = self.data["Armor"] or 0
-  self.data["Deployable"] = self.data["Deployable"] or 0
+  self.data["Armor"] = math.min(self.data["Armor"] or 0, 6)
+  self.data["Deployable"] = math.min(self.data["Deployable"] or 0, 9)
   self.data["Skill"] = self.data["Skill"] or 0
   self.data["Perk"] = self.data["Perk"] or 0
   self.data["Stat Boost"] = self.data["Stat Boost"] or 0
@@ -49,7 +49,7 @@ function CrimDawnClient:PollTimeUpgrades()
     CrimDawn:WriteSave(FileIdent, "Time Bonus received from multiworld")
     if NetworkHelper:IsHost() then NetworkHelper:SendToPeers("CrimDawn_TimeUpdate", TimeRemaining) end
 
-    if CrimDawn.state.ponr then -- Mid-game timer update (increase score cap)
+    if CrimDawn.state.maskup_time then -- Mid-game timer update (increase score cap)
       CrimDawn.state.cap_reached = false
       CrimDawn.ChatNotify("Next heist will start with " .. Global.CrimDawn.data.game.timer_strength / 60 .. " more minutes."
                        .. "\nScore cap increased to " .. Global.CrimDawn.data.game.score_cap .. "!")
@@ -61,7 +61,7 @@ function CrimDawnClient:PollTimeUpgrades()
       end)
     end
 
-  else if CrimDawn.state.ponr then return end
+  else if CrimDawn.state.maskup_time then return end
     if NetworkHelper:IsHost() then -- No time upgrades received, send current time to peers
       DelayedCalls:Add("CrimDawn_ChatPONR", 1, function()
         if TimeRemaining < 0 then
@@ -92,6 +92,9 @@ function CrimDawnClient:PollData()
     Global.CrimDawn.data.game.score_cap = self.data.score_cap
     Global.CrimDawn.data.game.max_diff_items = self.data.max_diff_items
     Global.CrimDawn.data.game.run_length = self.data.run_length
+    Global.CrimDawn.data.game.goal = self.data.goal
+    Global.CrimDawn.data.game.campaign = self.data.campaign
+    Global.CrimDawn.data.game.safehouse_tiers = self.data.safehouse_tiers
     DataChanged = true
 
   elseif not CrimDawn.CorrectSaveLoaded() then return end
@@ -140,9 +143,9 @@ function CrimDawnClient:PollData()
 
   if managers.custom_safehouse then -- Safehouse coins
     if self.data["Coins"] > Global.CrimDawn.data.x.coins then
-      CrimDawn.Log(FileIdent, "Giving " .. 2 * (self.data["Coins"] - Global.CrimDawn.data.x.coins) .. " coins")
-      managers.custom_safehouse:add_coins(2 * (self.data["Coins"] - Global.CrimDawn.data.x.coins))
-      CrimDawn.ChatNotify("Received " .. 2 * (self.data["Coins"] - Global.CrimDawn.data.x.coins) .. " coins!")
+      CrimDawn.Log(FileIdent, "Giving " .. 3 * (self.data["Coins"] - Global.CrimDawn.data.x.coins) .. " coins")
+      managers.custom_safehouse:add_coins(3 * (self.data["Coins"] - Global.CrimDawn.data.x.coins))
+      CrimDawn.ChatNotify("Received " .. 3 * (self.data["Coins"] - Global.CrimDawn.data.x.coins) .. " coins!")
       Global.CrimDawn.data.x.coins = self.data["Coins"]
       DataChanged = true
     end
