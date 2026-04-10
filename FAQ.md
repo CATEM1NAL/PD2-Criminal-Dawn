@@ -112,8 +112,9 @@ four options:
 Go to `Options > Mod Options > Criminal Dawn` and you can disable any heist in the game.
 You can do this at any time, but if the game has already picked a heist you need to play it first.
 
-I'd recommend only disabling the heists you *really* don't like, as disabling too many may
-negatively impact the experience. Disabling every heist will cause the game to crash on heist gen.
+I'd recommend only disabling the heists you *really* don't like, as disabling too many will limit
+the available pool which may negatively impact the experience. Disabling every heist will also cause
+the game to crash on heist generation, so uh... don't do that.
 
 ## I'm playing but nothing is happening.
 Did you connect to a different multiworld while in a lobby? In this case the game will allow you
