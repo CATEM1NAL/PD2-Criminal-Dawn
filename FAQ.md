@@ -5,7 +5,7 @@ This page contains simple answers to common issues or questions you might have.
 Make sure you have the [0.6.7 launcher](https://github.com/ArchipelagoMW/Archipelago/releases/latest)!
 
 ## How do I install this/the mod isn't working?
-Make sure you have [SuperBLT](https://superblt.znix.xyz/) installed, and then extracthasn't been played
+Make sure you have [SuperBLT](https://superblt.znix.xyz/) installed, and then extract
 `BLT-Criminal_Dawn.zip` into `PAYDAY 2/mods`. There are a few dependencies which BLT will prompt you
 to install after launching the game with Criminal Dawn. Download them, restart the game, and you should
 be good to go. You'll know if the mod is working because you will have a fresh save file and the game
