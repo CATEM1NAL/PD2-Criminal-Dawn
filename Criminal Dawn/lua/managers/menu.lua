@@ -277,6 +277,7 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
       local DiffCap = CrimDawn.SettingsData.diff_cap
       local HeistNum = #Global.CrimDawn.data.game.heists
       local RunLength = Global.CrimDawn.data.game.run_length
+      if RunLength == 0 then RunLength = 6 end
 
       local DiffMod = math.min(math.floor(HeistNum * DiffCap / RunLength) + CrimDawn.DiffScale(), DiffCap - 1)
       local NextHeist = Global.CrimDawn.data.game.heists[HeistNum]

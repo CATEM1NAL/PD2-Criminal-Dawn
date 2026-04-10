@@ -9,6 +9,8 @@ local MutatorTable = { "EnemyDamage", "EnemyHealth", "ShotgunTweak", "ZealSniper
 local DiffCap = CrimDawn.SettingsData.diff_cap
 local HeistNum = #Global.CrimDawn.data.game.heists
 local RunLength = Global.CrimDawn.data.game.run_length
+if RunLength == 0 then RunLength = 6 end
+
 local Difficulty = 1 + math.min(math.floor(HeistNum * DiffCap / RunLength) + CrimDawn.DiffScale(), DiffCap - 1)
 local Mutators = Difficulty
 

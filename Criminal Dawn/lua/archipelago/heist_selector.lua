@@ -3,10 +3,7 @@ local FileIdent = "heist_selector"
 function CrimDawn:NextHeist(HeistsWon)
   if Global.CrimDawn.data.game.campaign then self:CampaignHeist(HeistsWon) return end
 
-  local TierIndex
-  if Global.CrimDawn.data.game.heists_won < Global.CrimDawn.data.game.run_length then
-    TierIndex = (6 - Global.CrimDawn.data.game.run_length) + (HeistsWon or 0) + 1
-  end
+  local TierIndex = (6 - Global.CrimDawn.data.game.run_length) + (HeistsWon or 0) + 1
   
   local ValidHeists = deep_clone(Global.CrimDawn.tables.heists)
   local CurrentTier
@@ -19,22 +16,14 @@ function CrimDawn:NextHeist(HeistsWon)
 
   -- Conditional heists
   local PeerTable = managers.network and managers.network:session() and managers.network:session():peers()
-  local StealthTutorial, LoudTutorial
 
   if #PeerTable == 0 then
-    for _, heist in ipairs(Global.CrimDawn.tables.heists.tier1) do
-          if heist == "short1" then StealthTutorial = true
-      elseif heist == "short2" then LoudTutorial = true
-      end
-    end
+    if not StealthTutorial and Global.CrimDawn.data.x.permaskills > 1 then table.insert(ValidHeists.tier1, "short1") end
+    if not LoudTutorial and Global.CrimDawn.data.x.bots > 1 then table.insert(ValidHeists.tier1, "short2") end
   end
 
-  -- Tutorials: only valid if softlock impossible (bodybags/player count)
-  if not StealthTutorial and Global.CrimDawn.data.x.permaskills > 1 then table.insert(Global.CrimDawn.tables.heists.tier1, "short1") end
-  if not LoudTutorial and Global.CrimDawn.data.x.bots > 1 then table.insert(Global.CrimDawn.tables.heists.tier1, "short2") end
-
   -- If we haven't won yet, prevent duplicate heists and pick from next tier
-  if Global.CrimDawn.tables.heists["tier" .. TierIndex] then
+  if ValidHeists["tier" .. TierIndex] then
 
     -- Remove already played heists from heist pool
     local PlayedHeists = {}
@@ -59,7 +48,10 @@ function CrimDawn:NextHeist(HeistsWon)
     CurrentTier = ValidHeists["tier" .. TierIndex]
 
   -- If we HAVE won then allow duplicate heists and ignore heist tiering
-  else CurrentTier = ValidHeists["tier" .. math.random(#ValidHeists)] end
+  else CurrentTier = ValidHeists["tier" .. math.random(1, 6)] end
+
+  Utils.PrintTable(CurrentTier)
+  log(#ValidHeists)
 
   local NextHeist = CurrentTier[math.random(#CurrentTier)]
   assert(NextHeist ~= nil, "no available heists, are they all disabled?")

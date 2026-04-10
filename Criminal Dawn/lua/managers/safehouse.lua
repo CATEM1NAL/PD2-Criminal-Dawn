@@ -47,7 +47,6 @@ local function HighestTierUnlocked()
   if RoomsUpgraded() % 23 == 0 and SafehouseTier ~= MaxSafehouseTier then
     SafehouseTier = SafehouseTier + 1
   end
-
 return SafehouseTier end
 
 local function SetTierCap()
