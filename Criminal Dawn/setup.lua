@@ -44,7 +44,7 @@ function CrimDawn:Init()
   function self.DiffScale(ignore_settings)
     local RunLength = Global.CrimDawn.data.game.run_length
     if RunLength == 0 then RunLength = 6 end
-    local MaxDiff = ignore_settings and Global.CrimDawn.data.game.run_length or Global.CrimDawn.data.game.max_diff
+    local MaxDiff = ignore_settings and Global.CrimDawn.data.game.run_length or CrimDawn.SettingsData.diff_cap
     local DiffItemCount = Global.CrimDawn.data.x.bots +
                           Global.CrimDawn.data.x.permaskills +
                           Global.CrimDawn.data.x.permaperks +

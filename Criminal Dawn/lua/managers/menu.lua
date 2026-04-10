@@ -271,17 +271,23 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
       dofile(CrimDawn.ModPath .. "lua/tables/mutators.lua")
 
       -- Drop you straight into a heist
-      local DiffIndex =
-      math.min(#Global.CrimDawn.data.game.heists + CrimDawn.DiffScale(), Global.CrimDawn.data.game.max_diff)
-      local NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
+      local DiffIndex = math.min(#Global.CrimDawn.data.game.heists + CrimDawn.DiffScale(),
+                                 CrimDawn.SettingsData.diff_cap)
+
+      local DiffCap = CrimDawn.SettingsData.diff_cap
+      local HeistNum = #Global.CrimDawn.data.game.heists
+      local RunLength = Global.CrimDawn.data.game.run_length
+
+      local DiffMod = math.min(math.floor(HeistNum * DiffCap / RunLength) + CrimDawn.DiffScale(), DiffCap - 1)
+      local NextHeist = Global.CrimDawn.data.game.heists[HeistNum]
 
       self:start_job({
-        difficulty = tweak_data.difficulties[DiffIndex + 1],
+        difficulty = tweak_data.difficulties[2 + DiffMod],
         one_down = true,
         job_id = NextHeist
       })
 
-      CrimDawn.Log(FileIdent, "Loading: " .. NextHeist)
+      CrimDawn.Log(FileIdent, "Loading " .. NextHeist .. " on " .. tweak_data.difficulties[2 + DiffMod])
     end
 
   CrimDawn.state.heist_started = true

@@ -6,7 +6,10 @@ Global.mutators._peers_ready = {}
 
 local MutatorTable = { "EnemyDamage", "EnemyHealth", "ShotgunTweak", "ZealSniper", "Heavies" }
 
-local Difficulty = math.min(#Global.CrimDawn.data.game.heists + CrimDawn.DiffScale(), Global.CrimDawn.data.game.max_diff)
+local DiffCap = CrimDawn.SettingsData.diff_cap
+local HeistNum = #Global.CrimDawn.data.game.heists
+local RunLength = Global.CrimDawn.data.game.run_length
+local Difficulty = 1 + math.min(math.floor(HeistNum * DiffCap / RunLength) + CrimDawn.DiffScale(), DiffCap - 1)
 local Mutators = Difficulty
 
 if Difficulty >= 2 then -- Hard
