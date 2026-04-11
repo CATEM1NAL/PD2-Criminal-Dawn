@@ -85,7 +85,7 @@ Hooks:OverrideFunction(CustomSafehouseManager, "load", function(self)
     end
   end
 
-  self:add_coins((Global.CrimDawn.data.x.coins * 2) - RoomsUpgraded())
+  self:add_coins((Global.CrimDawn.data.x.coins * 3) - RoomsUpgraded())
 end)
 
 Hooks:PostHook(CustomSafehouseManager, "init", "CrimDawn_SafehouseInit", function()
