@@ -161,29 +161,25 @@ local function SetColours()
   tweak_data.screen_colors.button_stage_3 = Global.CrimDawn.archicolours.red
   tweak_data.screen_colors.risk = Global.CrimDawn.archicolours.yellow
   tweak_data.screen_colors.ghost_color = Global.CrimDawn.archicolours.red
-end
 
-local function LoadHooks()
-  dofile(CrimDawn.ModPath .. "lua/score_handler.lua")
   dofile(CrimDawn.ModPath .. "lua/managers/safehouse.lua")
 end
 
-if Global.CrimDawn then SetColours() LoadHooks() end
+if Global.CrimDawn then SetColours() end
 
 -- THIS SECTION ONLY RUNS ONCE ON GAME LAUNCH --
 if Global.CrimDawn then return end
 Global.CrimDawn = {
-    tables = {},
-    archicolours = {
-      green = Color(255, 117, 194, 117) / 255,
-      blue = Color(255, 118, 126, 189) / 255,
-      pink = Color(255, 202, 148, 194) / 255,
-      red = Color(255, 201, 118, 130) / 255,
-      orange = Color(255, 217, 160, 125) / 255,
-      yellow = Color(255, 238, 227, 145) / 255,
-    }
+  tables = {},
+  archicolours = {
+    green = Color(255, 117, 194, 117) / 255,
+    blue = Color(255, 118, 126, 189) / 255,
+    pink = Color(255, 202, 148, 194) / 255,
+    red = Color(255, 201, 118, 130) / 255,
+    orange = Color(255, 217, 160, 125) / 255,
+    yellow = Color(255, 238, 227, 145) / 255,
   }
-SetColours()
+}
 
 function Global.CrimDawn:Init()
   CrimDawn.Log(FileIdent, "Attempting to load save file...")
@@ -199,7 +195,7 @@ function Global.CrimDawn:Init()
   dofile(CrimDawn.ModPath .. "lua/tables/etc.lua")
   dofile(CrimDawn.ModPath .. "lua/tables/dlc.lua")
 
-  LoadHooks()
+  SetColours()
 end
 
 -- Logo replacements

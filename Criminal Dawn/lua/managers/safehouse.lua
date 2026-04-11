@@ -5,7 +5,7 @@ Hooks:OverrideFunction(CustomSafehouseManager, "attempt_give_initial_coins", fun
 Hooks:OverrideFunction(CustomSafehouseManager, "save", function() end)
 
 local MaxSafehouseTier = 6
-if Global.CrimDawn.data.game.safehouse_tiers then MaxSafehouseTier = Global.CrimDawn.data.game.safehouse_tiers end
+if Global.CrimDawn.data.game.safehouse_tiers then MaxSafehouseTier = 1 + Global.CrimDawn.data.game.safehouse_tiers end
 
 local function UpdateDescriptions(tier)
   managers.localization:load_localization_file(CrimDawn.SavePath .. "crimdawn_rooms.txt")

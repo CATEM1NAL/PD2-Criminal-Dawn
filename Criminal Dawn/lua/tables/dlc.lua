@@ -141,7 +141,7 @@ local dlc_content = {
             sparrow = secondary, iceaxe = melee, pugio = melee, selfie = melee, gator = melee },
 
   -- Goat Simulator
-  peta = { cd_goat1 = 3, cd_goat2 = 4, peta = heist.dlc,
+  peta = { cd_goat1 = heist.tier3, cd_goat2 = heist.tier4, peta = heist.dlc,
            m37 = secondary,
            pitchfork = melee, scoutknife = melee, shawn = melee, stick = melee },
 
@@ -303,6 +303,7 @@ if not Global.CrimDawn.DLC then -- Only apply DLC if ownership can be verified
         if type(dlc_target) == "boolean" then
           Global.CrimDawn.tables.upgrades.perks[dlc_item]["dlc_owned"] = dlc_target
         elseif CrimDawn.SettingsData[dlc_item] ~= false then
+          log(dlc_item)
           table.insert(dlc_target, dlc_item)
         end
       end
