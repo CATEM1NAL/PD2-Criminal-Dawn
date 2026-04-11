@@ -11,7 +11,7 @@ local throwable = Global.CrimDawn.tables.weapons.throwables
 local dlc_content = {
 
   -- Licensed content
-  rvd = { rvd = heist.tier3, dark = heist.tier4, mad = heist.tier5,
+  rvd = { cd_reservoir = heist.tier3, rvd = heist.dlc, dark = heist.tier4, mad = heist.tier5,
           model70 = primary, x_sr2 = akimbo, corgi = primary,
           g26 = secondary, sr2 = secondary, pl14 = secondary,
           kabar_tanto = melee, boxcutter = melee, zeus = melee, clean = melee },
@@ -49,7 +49,7 @@ local dlc_content = {
   hlm_game = { briefcase = melee },
 
   -- Hotline Miami (Heist)
-  hl_miami = { mia = heist.tier4,
+  hl_miami = { cd_miami1 = heist.tier3, cd_miami2 = heist.tier4, mia = heist.dlc,
                scorpion = secondary, tec9 = secondary, uzi = secondary,
                bat = melee, cleaver = melee, fireaxe = melee, machete = melee },
 
@@ -141,7 +141,7 @@ local dlc_content = {
             sparrow = secondary, iceaxe = melee, pugio = melee, selfie = melee, gator = melee },
 
   -- Goat Simulator
-  peta = { peta = heist.tier4,
+  peta = { cd_goat1 = 3, cd_goat2 = 4, peta = heist.dlc,
            m37 = secondary,
            pitchfork = melee, scoutknife = melee, shawn = melee, stick = melee },
 
@@ -165,7 +165,7 @@ local dlc_content = {
            biker_armour_cd = true },
 
   -- Biker Heist
-  born = { born = heist.tier3,
+  born = { cd_biker1 = heist.tier3 ,cd_biker2 = heist.tier1, born = heist.dlc,
            hajk = secondary,
            wpn_prj_hur = throwable },
 

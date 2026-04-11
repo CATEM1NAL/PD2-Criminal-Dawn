@@ -94,5 +94,14 @@
       "value" : "arm_und",
       "default_value" : true
     }
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_cd_biker2",
+      "title" : "heist_chew_hl",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "cd_biker2",
+      "default_value" : true
+    }
   ]
 }

@@ -29,7 +29,7 @@ function CrimDawn:Init()
   end -- Yes, this WILL crash without a FileIdent. This is intentional, otherwise I'd get lazy
 
   function self.ScoreNeeded()
-    local n = math.ceil((math.sqrt(1 + 8 * (Global.CrimDawn.data.game.score) - 1) / 2))
+    local n = math.ceil((math.sqrt(1 + 8 * Global.CrimDawn.data.game.score) - 1) / 2)
     return (n * (n + 1) / 2) - math.floor(Global.CrimDawn.data.game.score)
   end
 
@@ -163,7 +163,12 @@ local function SetColours()
   tweak_data.screen_colors.ghost_color = Global.CrimDawn.archicolours.red
 end
 
-if Global.CrimDawn then SetColours() end
+local function LoadHooks()
+  dofile(CrimDawn.ModPath .. "lua/score_handler.lua")
+  dofile(CrimDawn.ModPath .. "lua/managers/safehouse.lua")
+end
+
+if Global.CrimDawn then SetColours() LoadHooks() end
 
 -- THIS SECTION ONLY RUNS ONCE ON GAME LAUNCH --
 if Global.CrimDawn then return end
@@ -193,6 +198,8 @@ function Global.CrimDawn:Init()
   dofile(CrimDawn.ModPath .. "lua/tables/weapons.lua")
   dofile(CrimDawn.ModPath .. "lua/tables/etc.lua")
   dofile(CrimDawn.ModPath .. "lua/tables/dlc.lua")
+
+  LoadHooks()
 end
 
 -- Logo replacements

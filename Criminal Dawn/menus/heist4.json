@@ -6,20 +6,20 @@
   "items" : [
     {
       "type" : "toggle",
-      "id" : "crimdawn_firestarter",
-      "title" : "heist_firestarter",
+      "id" : "crimdawn_cd_firestarter1",
+      "title" : "heist_firestarter_1_hl",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "firestarter",
+      "value" : "cd_firestarter1",
       "default_value" : true
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_framing_frame",
-      "title" : "heist_framing_frame",
+      "id" : "crimdawn_cd_frame3",
+      "title" : "heist_framing_frame_3_hl",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "framing_frame",
+      "value" : "cd_frame3",
       "default_value" : true
     },
     {
@@ -78,11 +78,11 @@
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_mia",
-      "title" : "heist_mia",
+      "id" : "crimdawn_cd_miami2",
+      "title" : "heist_mia_2_hl",
       "description" : "crimdawn_settings_dlc_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "mia",
+      "value" : "cd_miami2",
       "default_value" : true
     },
     {

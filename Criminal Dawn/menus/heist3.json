@@ -6,20 +6,29 @@
   "items" : [
     {
       "type" : "toggle",
-      "id" : "crimdawn_alex",
-      "title" : "heist_alex",
+      "id" : "crimdawn_rat",
+      "title" : "heist_rat",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "alex",
+      "value" : "rat",
       "default_value" : true
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_election_day",
-      "title" : "heist_election_day",
+      "id" : "crimdawn_cd_erection1",
+      "title" : "heist_election_day_2_hl",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "election_day",
+      "value" : "cd_erection1",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_cd_erection2",
+      "title" : "heist_election_day_3_hl",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "cd_erection2",
       "default_value" : true
     },
     {
@@ -29,15 +38,6 @@
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
       "value" : "kosugi",
-      "default_value" : true
-    },
-    {
-      "type" : "toggle",
-      "id" : "crimdawn_rat",
-      "title" : "heist_rat",
-      "description" : "crimdawn_settings_heist_desc",
-      "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "rat",
       "default_value" : true
     },
     {
@@ -105,6 +105,15 @@
     },
     {
       "type" : "toggle",
+      "id" : "crimdawn_cd_miami1",
+      "title" : "heist_mia_1_hl",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "cd_miami1",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
       "id" : "crimdawn_pbr",
       "title" : "heist_pbr",
       "description" : "crimdawn_settings_dlc_desc",
@@ -114,11 +123,11 @@
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_born",
-      "title" : "heist_born",
+      "id" : "crimdawn_cd_biker1",
+      "title" : "heist_watchdogs_1_hl",
       "description" : "crimdawn_settings_dlc_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "born",
+      "value" : "cd_biker1",
       "default_value" : true
     },
     {
@@ -132,11 +141,11 @@
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_rvd",
-      "title" : "heist_rvd",
+      "id" : "crimdawn_cd_reservoir",
+      "title" : "heist_rvd2_hl",
       "description" : "crimdawn_settings_dlc_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "rvd",
+      "value" : "cd_reservoir",
       "default_value" : true
     },
     {

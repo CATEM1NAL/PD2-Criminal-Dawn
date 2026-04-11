@@ -6,11 +6,20 @@
   "items" : [
     {
       "type" : "toggle",
-      "id" : "crimdawn_watchdogs_wrapper",
-      "title" : "heist_watchdogs",
+      "id" : "crimdawn_cd_watchdogs1",
+      "title" : "heist_watchdogs_1_hl",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "watchdogs_wrapper",
+      "value" : "cd_watchdogs1",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_cd_watchdogs2",
+      "title" : "heist_watchdogs_2_hl",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "cd_watchdogs2",
       "default_value" : true
     },
     {

@@ -23,4 +23,6 @@ Hooks:PostHook(GameSetup, "init_finalize", "CrimDawn_CreatePONR", function()
 
   tweak_data.point_of_no_returns.crimdawn_ponr_tweak = deep_clone(tweak_data.point_of_no_returns.noreturn)
   tweak_data.point_of_no_returns.crimdawn_ponr_tweak.text_id = "hud_crimdawn_no_return"
+
+  dofile(CrimDawn.ModPath .. "lua/managers/criminals.lua")
 end)

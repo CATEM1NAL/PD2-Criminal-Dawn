@@ -43,10 +43,10 @@ function MenuCallbackHandler:CrimDawn_Safehouse()
   managers.menu:open_node("custom_safehouse")
   if Global.CrimDawn.data.game.run_length > 0 then
     managers.localization:add_localized_strings({
-      [""] = managers.localization:text("crimdawn_safehouse_upg_hint")
+      ["menu_cs_upgrade_owned"] = managers.localization:text("crimdawn_safehouse_upg_hint")
     })
   else managers.localization:add_localized_strings({
-      [""] = managers.localization:text("crimdawn_safehouse_inf_upg_hint")
+      ["menu_cs_upgrade_owned"] = managers.localization:text("crimdawn_safehouse_inf_upg_hint")
     })
   end
 end

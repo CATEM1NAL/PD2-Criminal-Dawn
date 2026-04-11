@@ -6,20 +6,29 @@
   "items" : [
     {
       "type" : "toggle",
-      "id" : "crimdawn_welcome_to_the_jungle",
-      "title" : "heist_welcome_to_the_jungle",
+      "id" : "crimdawn_cd_bigoil",
+      "title" : "heist_welcome_to_the_jungle_2_hl",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "welcome_to_the_jungle",
+      "value" : "cd_bigoil",
       "default_value" : true
     },
     {
       "type" : "toggle",
-      "id" : "crimdawn_hox",
-      "title" : "heist_hox",
+      "id" : "crimdawn_cd_hox1",
+      "title" : "heist_hox_1_hl",
       "description" : "crimdawn_settings_heist_desc",
       "callback" : "CrimDawn_SaveToggleSettings",
-      "value" : "hox",
+      "value" : "cd_hox1",
+      "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_cd_hox2",
+      "title" : "heist_hox_2_hl",
+      "description" : "crimdawn_settings_heist_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "cd_hox2",
       "default_value" : true
     },
     {
