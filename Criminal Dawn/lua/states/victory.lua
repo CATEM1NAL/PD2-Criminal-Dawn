@@ -42,7 +42,7 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
       Global.CrimDawn.data.game.heists_won = #Global.CrimDawn.data.game.heists - 1
       CrimDawn.Log(FileIdent, "Heists won: " .. Global.CrimDawn.data.game.heists_won)
       if Global.CrimDawn.data.game.heists_won == Global.CrimDawn.data.game.run_length then
-        CrimDawn.Log("Conglaturation !!!\nYou have completed a great game.\nAnd prooved the justice of our culture.\nNow go and rest our heroes !")
+        CrimDawn.ChatNotify("Conglaturation !!!\nYou have completed a great game.\nAnd prooved the justice of our culture.\nNow go and rest our heroes !")
       end
     end
 
