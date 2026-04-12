@@ -1,7 +1,7 @@
 local FileIdent = "victory"
 
 Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
-  if not NetworkHelper:IsHost() then CrimDawn.state.maskup_time = false return end
+  if NetworkHelper:IsClient() then CrimDawn.state.maskup_time = false return end
 
   -- Determine points for victory
   local HeistCount = #Global.CrimDawn.data.game.heists or 1

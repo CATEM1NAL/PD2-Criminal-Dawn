@@ -1,4 +1,4 @@
-if not NetworkHelper:IsHost() or not CrimDawn then return end
+if NetworkHelper:IsClient() or not CrimDawn then return end
 local FileIdent = "score_handler"
 
 local HeistCount = #Global.CrimDawn.data.game.heists or 1
