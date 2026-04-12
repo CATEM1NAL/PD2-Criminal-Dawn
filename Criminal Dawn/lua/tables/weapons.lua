@@ -37,5 +37,6 @@ Global.CrimDawn.tables.WeaponIDToName = {
   poison_gas_grenade = "grenade_poison_gas_grenade",
   molotov = "grenade_molotov",
   wpn_gre_electric = "grenade_electric",
-  frag = "grenade_frag"
+  frag = "grenade_frag",
+  sticky_grenade = "grenade_sticky_grenade"
 }

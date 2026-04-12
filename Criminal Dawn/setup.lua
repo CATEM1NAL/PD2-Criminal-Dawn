@@ -19,6 +19,8 @@ function CrimDawn:Init()
   MenuHelper:LoadFromJsonFile(CrimDawn.ModPath .. "menus/heist4.json", CrimDawn, CrimDawn.SettingsData)
   MenuHelper:LoadFromJsonFile(CrimDawn.ModPath .. "menus/heist5.json", CrimDawn, CrimDawn.SettingsData)
 
+  if not CrimDawn.SettingsData.diff_cap then CrimDawn.SettingsData.diff_cap = 4 end
+
   self.state = { maskup_time = false,
                  heist_started = false,
                  cap_reached = false,
