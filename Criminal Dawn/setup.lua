@@ -57,6 +57,66 @@ function CrimDawn:Init()
     return math.max(math.floor((DiffItemCount - 1) / (Global.CrimDawn.data.game.max_diff_items / MaxDiff)), 0)
   end
 
+  -- Lookup Tables (unimplemented)
+  local DiffTables = {
+    { -- Easy (End on Very Hard)
+      { 2, 2, 3, 3, 3, 4 },
+      { 2, 2, 3, 3, 4, 4 },
+      { 2, 3, 3, 3, 4, 4 },
+      { 3, 3, 3, 4, 4, 4 },
+      { 3, 3, 4, 4, 4, 4 },
+      { 3, 4, 4, 4, 4, 4 }
+    },
+    { -- Normal (End on Overkill)
+      { 2, 2, 3, 3, 4, 5 },
+      { 2, 3, 3, 4, 4, 5 },
+      { 3, 3, 4, 4, 5, 5 },
+      { 3, 4, 4, 5, 5, 5 },
+      { 4, 4, 4, 5, 5, 5 },
+      { 4, 4, 5, 5, 5, 5 }
+    },
+    { -- Hard (End on Mayhem)
+      { 2, 3, 4, 4, 5, 6 },
+      { 3, 4, 4, 5, 5, 6 },
+      { 3, 4, 5, 5, 6, 6 },
+      { 4, 4, 5, 5, 6, 6 },
+      { 4, 5, 5, 6, 6, 6 },
+      { 4, 5, 6, 6, 6, 6 }
+    },
+    { -- Overkill (End on Death Wish)
+      { 2, 3, 4, 5, 6, 7 },
+      { 3, 4, 4, 5, 6, 7 },
+      { 3, 4, 4, 5, 6, 7 },
+      { 4, 4, 5, 6, 7, 7 },
+      { 4, 5, 6, 7, 7, 7 },
+      { 5, 6, 7, 7, 7, 7 }
+    },
+    { -- Death Sentence (Death Sentence)
+      { 2, 3, 4, 5, 5, 8 },
+      { 3, 3, 4, 5, 6, 8 },
+      { 3, 4, 5, 6, 6, 8 },
+      { 4, 5, 6, 6, 6, 8 },
+      { 5, 6, 6, 6, 6, 8 },
+      { 6, 6, 6, 6, 6, 8 }
+    }
+  }
+
+  local function CalculateDiff(offset)
+    local DiffCap = CrimDawn.SettingsData.diff_cap
+    local HeistNum = #Global.CrimDawn.data.game.heists - offset
+    local RunLength = Global.CrimDawn.data.game.run_length
+    if RunLength == 0 then RunLength = 6 end
+
+    -- Any questions about this equation should be directed to @jordansds
+    local BaseDiff = (1 + HeistNum / RunLength) * (1 + (HeistNum + CrimDawn.DiffScale()) / RunLength) * 2
+    return math.max(math.min(math.floor(BaseDiff), 8) + (DiffCap - 7), 2)
+  end
+
+  function self.DiffIndex()
+    if #Global.CrimDawn.data.game.heists == 1 then return CalculateDiff(0)
+    else return math.min(CalculateDiff(0), CalculateDiff(1) + 1) end
+  end
+
   function self.ScoreCap(points)
     if not Global.CrimDawn.data.game.score_cap then return true end
 

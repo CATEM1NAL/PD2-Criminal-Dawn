@@ -11,18 +11,18 @@ function CrimDawnClient:LoadData()
   self.data["Nine Lives"] = math.min(self.data["Nine Lives"] or 0, 2)
   self.data["Perma-Skill"] = math.min(self.data["Perma-Skill"] or 0, 7)
   self.data["Perma-Perk"] = math.min(self.data["Perma-Perk"] or 0, 7)
-  self.data["Extra Bot"] = self.data["Extra Bot"] or 0
-  self.data["Primary Weapon"] = self.data["Primary Weapon"] or 0
-  self.data["Akimbo"] = self.data["Akimbo"] or 0
-  self.data["Secondary Weapon"] = self.data["Secondary Weapon"] or 0
-  self.data["Melee Weapon"] = self.data["Melee Weapon"] or 0
-  self.data["Throwable"] = self.data["Throwable"] or 0
+  self.data["Extra Bot"] = math.min(self.data["Extra Bot"] or 0, 21)
+  self.data["Primary Weapon"] = math.min(self.data["Primary Weapon"] or 0, 77)
+  self.data["Akimbo"] = math.min(self.data["Akimbo"] or 0, 58)
+  self.data["Secondary Weapon"] = math.min(self.data["Secondary Weapon"] or 0, 78)
+  self.data["Melee Weapon"] = math.min(self.data["Melee Weapon"] or 0, 94)
+  self.data["Throwable"] = math.min(self.data["Throwable"] or 0, 15)
   self.data["Armor"] = math.min(self.data["Armor"] or 0, 6)
   self.data["Deployable"] = math.min(self.data["Deployable"] or 0, 9)
-  self.data["Skill"] = self.data["Skill"] or 0
-  self.data["Perk"] = self.data["Perk"] or 0
-  self.data["Stat Boost"] = self.data["Stat Boost"] or 0
-  self.data["Coins"] = self.data["Coins"] or 0
+  self.data["Skill"] = math.min(self.data["Skill"] or 0, 45)
+  self.data["Perk"] = math.min(self.data["Perk"] or 0, 50)
+  self.data["Stat Boost"] = math.min(self.data["Stat Boost"] or 0, 100)
+  self.data["Coins"] = math.min(self.data["Coins"] or 0, 46)
 end CrimDawnClient:LoadData()
 
 -- Timer upgrades need to be checked between heists and when score cap is reached

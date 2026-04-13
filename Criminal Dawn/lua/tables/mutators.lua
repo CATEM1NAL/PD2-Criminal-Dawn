@@ -11,27 +11,26 @@ local HeistNum = #Global.CrimDawn.data.game.heists
 local RunLength = Global.CrimDawn.data.game.run_length
 if RunLength == 0 then RunLength = 6 end
 
-local Difficulty = 1 + math.min(math.floor(HeistNum * DiffCap / RunLength) + CrimDawn.DiffScale(), DiffCap - 1)
-local Mutators = Difficulty
+local Mutators = CrimDawn.DiffIndex()
 
-if Difficulty >= 2 then -- Hard
+if CrimDawn.DiffIndex() >= 2 then -- Hard
   table.insert(MutatorTable, "TaserOvercharge")
   managers.mutators:set_enabled("MutatorFriendlyFire")
 end
 
-if Difficulty >= 3 then -- Very Hard
+if CrimDawn.DiffIndex() >= 3 then -- Very Hard
   table.insert(MutatorTable, "CloakerEffect")
   table.insert(MutatorTable, "CloakerArrest")
   table.insert(MutatorTable, "MedicDozer")
   table.insert(MutatorTable, "DozerRage")
 end
 
-if Difficulty >= 4 then -- Overkill
+if CrimDawn.DiffIndex() >= 4 then -- Overkill
   table.insert(MutatorTable, "MedicAdrenaline")
   table.insert(MutatorTable, "MedicRage")
 end
 
-if Difficulty >= 6 then -- Death Wish
+if CrimDawn.DiffIndex() >= 6 then -- Death Wish
   managers.mutators:set_enabled("MutatorShieldPhalanx")
 end
 
@@ -68,6 +67,6 @@ managers.mutators:get_mutator_from_id("MutatorEnemyDamage"):set_value("damage_mu
 managers.mutators:get_mutator_from_id("MutatorCloakerEffect"):set_value("kick_effect", "random")
 managers.mutators:get_mutator_from_id("MutatorShotgunTweak"):set_value("pull_strength", 1 + math.random() * (5 - 1))
 managers.mutators:get_mutator_from_id("MutatorShotgunTweak"):set_value("mothership", math.random() < 0.5)
-managers.mutators:get_mutator_from_id("MutatorFriendlyFire"):set_value("damage_multiplier", math.min(Difficulty - 1, 3))
+managers.mutators:get_mutator_from_id("MutatorFriendlyFire"):set_value("damage_multiplier", math.min(CrimDawn.DiffIndex() - 1, 3))
 
 MenuCallbackHandler:update_matchmake_attributes()

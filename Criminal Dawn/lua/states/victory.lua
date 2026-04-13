@@ -32,7 +32,7 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
       "heist completion"
     )
 
-    if not CrimDawn.ScoreCap(VictoryScore) then
+    if not CrimDawn.ScoreCap(VictoryScore * 2) then
       CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
         .. "\n+" .. VictoryScore * 2 .. " from heist completion.\n"
         .. CrimDawn.ScoreNeeded() .. " more for next check.") end
