@@ -22,18 +22,9 @@ only valid in the 1st of 6 heist tiers for example.
 
 Beating a few heists in a row sounds easy, right?
 
-## How is this hard?
-At the beginning the game starts on normal difficulty with one random mutator active. Every heist the difficulty
-increases, and you get another mutator. You can choose the difficulty cap in the APWorld YAML, but the minimum is Overkill.
-As you receive more items, the starting difficulty and number of mutators gradually increase to keep the game balanced.
-
-If you think you can beat White House on Overkill with no skills, no perks, no bots, no deployable, an AMCAR and Chimano,
-and 5 active mutators on Overkill, I would like to see you try. Oh yeah, you also have to finish the entire run in under **10 minutes total**.
-
-## Wait, what?
 At the start of the game, each run has a 10 minute point of no return timer that begins counting down after masking up. This timer
 persists between heists, capping the length of each run. You can receive items that increase the timer by 10 minutes up
-to a cap of 90 minutes (60 minutes in 4 heist mode).
+to a cap of 90 minutes (for 6 heists).
 
 There are some APWorld settings that tweak the timer for different use cases (shorter or longer games). There's also a setting
 to add an additional time bonus which permanently disables the timer. This is the default setting, but if you're okay with potentially
