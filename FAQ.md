@@ -12,6 +12,10 @@ be good to go. You'll know if the mod is working because you will have a fresh s
 will have an orange/pink colour palette (instead of blue). After verifying that the mod is loading
 correctly, you need to restart the game before you can start playing.
 
+If you're comfortable modifying YAMLs directly and don't use the options creator, I'd recommend starting
+from one of the presets found in `Players/Templates/Presets`. If you use the options creator... uh...
+figure it out, I guess!
+
 When it comes to connecting to the multiworld, always make sure you connect *before* launching the game.
 The client automatically handles switching between different save files (if they exist), but the mod only
 loads saves on launch. If you connect while the game is open nothing bad will happen, but you will have to
