@@ -14,13 +14,30 @@ correctly, you need to restart the game before you can start playing.
 
 If you're comfortable modifying YAMLs directly and don't use the options creator, I'd recommend starting
 from one of the presets found in `Players/Templates/Presets`. If you use the options creator, the default
-settings are the same as the 4 heist preset. If you want to try one of the other modes with options creator,
-check [here]() for the recommended settings.
+settings are the same as the standard 4 heist preset. If you want to try one of the other modes with options creator,
+the recommended settings will be just below.
 
 When it comes to connecting to the multiworld, always make sure you connect *before* launching the game.
 The client automatically handles switching between different save files (if they exist), but the mod only
 loads saves on launch. If you connect while the game is open nothing bad will happen, but you will have to
 restart for the mod to work again.
+
+### Recommended settings for each goal:
+**Original (4 Heists, ~8 hours):**
+Run Length / Safe House Tiers: 4
+Score Checks: 52
+
+**Original (6 Heists, ~12 hours):**
+Run Length / Safe House Tiers: 6
+Score Checks: 72
+
+**Score:**
+Safe House Tiers: 2
+Score Checks: 64
+
+**Campaign:**
+Safe House Tiers: 1
+Score Checks: 77
 
 ## What mods is this compatible with?
 As long as it isn't a total overhaul or a mod that adds new content (new weapons, new heists, etc)
