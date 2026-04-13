@@ -64,9 +64,9 @@ function CrimDawn:NextHeist(HeistsWon)
 end
 
 local campaigns = {
-  ["Return Of The Rat"] = { "watchdogs_wrapper", "cd_firestarter1", "alex", "hox_3" },
+  ["Return Of The Rat"] = { "watchdogs_wrapper", "cd_firestarter1", "alex", "cd_hox2", "hox_3" },
   ["Murky Day"] = { "kosugi", "shoutout_raid", "pbr", "des" },
-  ["I Need My Payday Too"] = { "big", "mus", "mia", "hox", "kenaz" },
+  ["I Need My Payday Too"] = { "big", "mus", "mia", "cd_hox1", "kenaz" },
   ["Greatest Heist Of All"] = { "rvd", "brb", "sah", "tag", "bph", "vit" },
   ["Silk Road"] = { "mex", "bex", "pex", "fex" },
   ["City Of Gold"] = { "chas", "chca", "pent" },
