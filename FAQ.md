@@ -31,11 +31,11 @@ Score Checks: 68
 Run Length / Safe House Tiers: 6  
 Score Checks: 72
 
-**Score (80 checks):**  
+**Score (80 checks, ~? hours):**  
 Safe House Tiers: 2  
 Score Checks: 64
 
-**Campaign:**  
+**Campaigns:**  
 Safe House Tiers: 1  
 Score Checks: 77
 
