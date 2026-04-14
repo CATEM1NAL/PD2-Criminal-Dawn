@@ -3,6 +3,7 @@ local FileIdent = "ponr"
 -- Mask up hook
 Hooks:PostHook(IngameStandardState, "at_enter", "CrimDawn_ForcePONR", function(self)
   if NetworkHelper:IsHost() then
+    log(CrimDawn.MaxTimeItems())
     if Global.CrimDawn.data.x.time_upgrades > CrimDawn.MaxTimeItems() then
       CrimDawn.Log(FileIdent, "disabling PONR timer")
       CrimDawn.state.maskup_time = -1

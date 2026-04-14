@@ -67,7 +67,7 @@ local campaigns = {
   ["Return Of The Rat"] = { "watchdogs_wrapper", "cd_firestarter1", "alex", "cd_hox2", "hox_3" },
   ["Murky Day"] = { "kosugi", "shoutout_raid", "pbr", "des" },
   ["I Need My Payday Too"] = { "big", "mus", "mia", "cd_hox1", "kenaz" },
-  ["Greatest Heist Of All"] = { "rvd", "brb", "sah", "tag", "bph", "vit" },
+  ["Greatest Heist Of All"] = { "cd_reservoir", "brb", "sah", "tag", "bph", "vit" },
   ["Silk Road"] = { "mex", "bex", "pex", "fex" },
   ["City Of Gold"] = { "chas", "chca", "pent" },
   ["Texas Heat"] = { "ranc", "corp", "deep" },
@@ -78,7 +78,7 @@ local campaigns = {
 
 function CrimDawn:CampaignHeist(HeistsWon)
   local NextHeist
-  if HeistsWon <= #campaigns[Global.CrimDawn.data.game.goal] then
+  if HeistsWon < #campaigns[Global.CrimDawn.data.game.goal] then
     NextHeist = campaigns[Global.CrimDawn.data.game.goal][HeistsWon + 1]
     log(NextHeist)
     -- DLC check...
@@ -88,10 +88,14 @@ function CrimDawn:CampaignHeist(HeistsWon)
         if heist == NextHeist then FoundHeist = true break end
       end
     if FoundHeist then break end end
+
     assert(FoundHeist, "You don't own the next heist (" .. managers.localization:text("heist_" .. NextHeist) .. ")")
     table.insert(Global.CrimDawn.data.game.heists, NextHeist)
 
-  else table.insert(Global.CrimDawn.data.game.heists, math.random(1, #campaigns[Global.CrimDawn.data.game.goal])) end
+  else NextHeist = math.random(1, #campaigns[Global.CrimDawn.data.game.goal])
+    table.insert(Global.CrimDawn.data.game.heists, NextHeist)
+  end
+
   self.Log(FileIdent, NextHeist)
   self:WriteSave(FileIdent, "next heist selected")
 end

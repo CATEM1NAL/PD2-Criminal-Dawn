@@ -38,8 +38,8 @@ function CrimDawn:Init()
   function self.MaxTimeItems()
     if Global.CrimDawn.data.game.seed then
       if Global.CrimDawn.data.game.run_length > 0 then
-        return ((Global.CrimDawn.data.game.run_length * 15) / (Global.CrimDawn.data.game.timer_strength / 60)) - 1
-      else return (100 / (Global.CrimDawn.data.game.timer_strength / 60)) - 1 end
+        return math.floor((Global.CrimDawn.data.game.run_length * 15) / (Global.CrimDawn.data.game.timer_strength / 60) - 0.5)
+      else return math.floor(100 / (Global.CrimDawn.data.game.timer_strength / 60) - 0.5) end
     end
   return 121200 end -- This can be any non-0 value, I chose my birthday
 
