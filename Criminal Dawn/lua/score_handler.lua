@@ -2,7 +2,7 @@ if NetworkHelper:IsClient() or not CrimDawn then return end
 local FileIdent = "score_handler"
 
 local HeistCount = #Global.CrimDawn.data.game.heists or 1
-if Global.CrimDawn.data.game.run_length < 6 then
+if Global.CrimDawn.data.game.run_length < 6 and Global.CrimDawn.data.game.run_length ~= 0 then
   HeistCount = HeistCount + (6 - Global.CrimDawn.data.game.run_length)
 end
 

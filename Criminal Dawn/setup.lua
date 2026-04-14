@@ -31,7 +31,7 @@ function CrimDawn:Init()
   end -- Yes, this WILL crash without a FileIdent. This is intentional, otherwise I'd get lazy
 
   function self.ScoreNeeded()
-    local n = math.ceil((math.sqrt(1 + 8 * Global.CrimDawn.data.game.score) - 1) / 2)
+    local n = math.ceil((math.sqrt(1 + 8 * (Global.CrimDawn.data.game.score) - 1) / 2))
     return (n * (n + 1) / 2) - math.floor(Global.CrimDawn.data.game.score)
   end
 

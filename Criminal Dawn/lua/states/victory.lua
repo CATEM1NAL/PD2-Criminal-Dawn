@@ -5,7 +5,7 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
 
   -- Determine points for victory
   local HeistCount = #Global.CrimDawn.data.game.heists or 1
-  if Global.CrimDawn.data.game.run_length < 6 then
+  if Global.CrimDawn.data.game.run_length < 6 and Global.CrimDawn.data.game.run_length ~= 0 then
     HeistCount = HeistCount + (6 - Global.CrimDawn.data.game.run_length)
   end
 
