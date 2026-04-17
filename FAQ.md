@@ -105,7 +105,7 @@ Perma-Skill allows you to bag bodies and the third Perma-Skill allows you to int
 ### Those are some weird numbers.
 I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21 each (52 total).
 
-## Can I get a list of gameplay changes this mod makes?
+## Are there any core gameplay changes I should know about?
 Coming in v0.6.0 (not currently live):
 - **Kickstarter** is guaranteed to repair drills on melee (50% chance in vanilla).
 - If you get the associated skill, all drills are guaranteed to be auto restarters (max 30% chance in vanilla).
