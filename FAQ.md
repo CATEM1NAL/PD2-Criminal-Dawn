@@ -55,8 +55,8 @@ custom HUDs I tried only MUI and VanillaHUD+ work exactly as intended.
 
 ## Does this work in VR?
 No idea! Feel free to give it a shot and tell me how it goes, but realistically it *should* work?
-The VR exclusive skill/perk bonuses are not part of this mod and I don't know if VR supports BLT's
-custom keybinds - if it does and QuickMenu works, then the mod should be fully playable.
+The VR exclusive skill/perk bonuses are not part of this mod, but if QuickMenu works in the VR version
+then the mod should be fully playable.
 
 ## Is this multiplayer?
 Yes! Same slot coop is the preferred way to play syncs, with everyone that wants to play together
