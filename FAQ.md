@@ -35,7 +35,7 @@ Score Checks: 72
 Safe House Tiers: 2  
 Score Checks: 64
 
-**Campaign:**  
+**Campaign (~3 hours):**  
 Safe House Tiers: 1  
 Score Checks: 77
 
