@@ -126,6 +126,7 @@ Coming in v0.6.0 (not currently live):
 - Enemy health is locked at **Overkill** values on all difficulties, with a lower headshot/crit multiplier (same as vanilla Normal/Hard).
 - The grace period for taking damage has been removed, and enemy damage is now locked at **Hard** values on all difficulties.
 - Dodge is no longer random, instead stacking for each shot you take until it exceeds 100%. With 25% dodge you will take 3 shots and then dodge 1, for example.
+- Damage absorption cannot reduce damage to 0.
 
 ## The mod is too easy/hard!
 Go to `Options > Mod Options > Criminal Dawn` and you can change the difficulty cap. The difficulty
