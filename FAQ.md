@@ -124,7 +124,7 @@ Coming in v0.6.0 (not currently live):
   - **Improved Combined Tactical Vest:** 7.5s regen (ignores suppression).
 - **Tooth and Claw** isn't a fixed 1.5s armour regen on armour break - it's now half of your normal regen time, to a minimum of 1.5s.
 - Enemy health is locked at **Overkill** values on all difficulties, with a lower headshot/crit multiplier (same as vanilla Normal/Hard).
-- The grace period for taking damage has been removed, and enemy damage is now locked at **Hard** values on all difficulties.
+- The grace period for taking damage now only applies on armour break, varies with difficulty, and enemy damage is locked at **Hard** values.
 - Dodge is no longer random, instead stacking for each shot you take until it exceeds 100%. With 25% dodge you will take 3 shots and then dodge 1, for example.
 - Damage absorption cannot reduce damage to 0.
 
