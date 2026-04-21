@@ -138,7 +138,7 @@ Coming in v0.6.0 (not currently live):
 - **Tooth and Claw** (Hitman 9) isn't a fixed 1.5s armour regen on armour break - it's now half of your normal regen time, to a minimum of 1.5s.
 - Enemy health is locked at **Overkill** values on all difficulties, with a lower headshot/crit multiplier (same as vanilla Normal/Hard).
 - Enemy base damage is locked at **Hard** values, with some tweaks for problematic enemies to bring them in line.
-  - Enemy fall-off/ramp-up values are based on 
+  - Enemy damage fall-off/ramp-up values are based on **Overkill**/**Mayhem**.
 - Enemies cannot penetrate player armour.
 - Enemies cannot steal bags.
 - Damage grace period only applies on armour break and duration varies with difficulty. Additionally, revive health is different per difficulty:
