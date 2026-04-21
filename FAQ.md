@@ -39,19 +39,32 @@ Score Checks: 64
 Safe House Tiers: 1  
 Score Checks: 77
 
+## Does this include DLC?
+All DLC that you verifiably own is accounted for by the mod, and it automatically adds the corresponding
+content into the appropriate pools. The safe house has also been modified to make Scarface, Bodhi,
+Wick, and Jimmy's rooms available to upgrade even if you don't have access to them (otherwise the
+world could get softlocked - all unlocks that requires licensed content will still be unavailable).
+
+Another subtle change is that you don't need to follow the community hub to access community content -
+this tends to be confusing for players that don't understand how the community items work, and the fact
+that the game still requires that you do this to have access to as much free content as possible is very
+silly (imo).
+
 ## What mods is this compatible with?
-As long as it isn't a total overhaul or a mod that adds new content (new weapons, new heists, etc)
+As long as it isn't a gameplay overhaul or a mod that adds new content (new weapons, new heists, etc)
 it should work fine! Custom weapons will probably be available from the start, and custom heists just
 won't appear at all.
+
+Due to this mod adding a persistent point of no return timer, using unused upgrades, and modifying
+how parts of the game work, some HUDs might be a bit fucky. From my testing there won't be any major
+issues but most HUDs *won't* tell you if an assault is currently in progress, and some HUDs may
+potentially hide the hostage counter too. Additionally, info HUDs may give misleading or incorrect
+stats in some cases. Out of all the custom HUDs I've tried, only MUI worked *exactly* as intended.
+VanillaHUD+ works pretty well but some of the buff info may be incorrect.
 
 The world has built in support for BigLobby, but in my testing it seemed a little unstable.
 I left it in as an option in the YAML since it *is* pretty neat, even if a little broken. I don't
 recommend it as a serious option though.
-
-Due to this mod adding a persistent point of no return timer, some HUDs might be a bit fucky.
-From my testing there won't be any major issues but most HUDs *won't* tell you if an assault is
-currently in progress, and some HUDs may potentially hide the hostage counter too. Out of all the
-custom HUDs I tried only MUI and VanillaHUD+ work exactly as intended.
 
 ## Does this work in VR?
 No idea! Feel free to give it a shot and tell me how it goes, but realistically it *should* work?
@@ -94,7 +107,7 @@ Set the key to whatever you want, and now you can see the full list at any time!
 ## How many upgrades do I get in a playthrough?
 7 Perma-Skills, 7 Perma-Perks, 13 Skills, 13 Perks, and at least 7 Stat Boosts.
 
-There are also 6 Drill Sawgeant upgrades and 8 Nine Lives upgrades.
+There are also 6 Drill Sawgeant upgrades (levels up as you receive items) and 8 Nine Lives upgrades.
 
 ### The fuck is a Perma-Skill/Perk?
 Basically a progressive line of upgrades. The Perma-Perks are the universal perk cards (with the
@@ -124,8 +137,10 @@ Coming in v0.6.0 (not currently live):
   - **Improved Combined Tactical Vest:** 7.5s regen (ignores suppression).
 - **Tooth and Claw** (Hitman 9) isn't a fixed 1.5s armour regen on armour break - it's now half of your normal regen time, to a minimum of 1.5s.
 - Enemy health is locked at **Overkill** values on all difficulties, with a lower headshot/crit multiplier (same as vanilla Normal/Hard).
-- Enemy damage is locked at **Hard** values, with some tweaks for problematic enemies to bring them in line.
+- Enemy base damage is locked at **Hard** values, with some tweaks for problematic enemies to bring them in line.
+  - Enemy fall-off/ramp-up values are based on 
 - Enemies cannot penetrate player armour.
+- Enemies cannot steal bags.
 - Damage grace period only applies on armour break and duration varies with difficulty. Additionally, revive health is different per difficulty:
   - **Normal:** 2 second grace period, revived with 50% health.
   - **Hard:** 1.5 second grace period, revived with 40% health.
