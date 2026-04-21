@@ -139,6 +139,7 @@ Coming in v0.6.0 (not currently live):
 - Enemy health is locked at **Overkill** values on all difficulties, with a lower headshot/crit multiplier (same as vanilla Normal/Hard).
 - Enemy base damage is locked at **Hard** values, with some tweaks for problematic enemies to bring them in line.
   - Enemy damage fall-off/ramp-up values are based on **Overkill**/**Mayhem**.
+- Snipers don't have lasers on Mayhem+.
 - Enemies cannot penetrate player armour.
 - Enemies cannot steal bags.
 - Damage grace period only applies on armour break and duration varies with difficulty. Additionally, revive health is different per difficulty:
