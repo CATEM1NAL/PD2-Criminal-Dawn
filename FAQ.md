@@ -110,7 +110,7 @@ are organised in such a way that they give you generally useful abilities, for e
 perma-skill allows you to bag bodies and the third perma-skill allows you to intimidate cops.
 
 ### Those are some weird numbers.
-I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21 each (52 total).
+I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21 each.
 
 ## Are there any core gameplay changes I should know about?
 - Friendly fire is enabled on Hard+, with the damage multiplier increasing by 100% on Very Hard and Overkill (total of 300% team damage).
