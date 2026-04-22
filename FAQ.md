@@ -101,7 +101,7 @@ You can also see this menu in game by going to `Options > Mod Keybinds > Crimina
 Set the key to whatever you want, and now you can see the full list at any time!
 
 ## How many upgrades do I get in a playthrough?
-7 perma-skills, 7 perma-perks, 13 skills, 13 perks, at least 7 stat boosts, and 8 extra lives.
+7 Perma-Skills, 7 Perma-Perks, 13 Skills, 13 Perks, at least 7 Stat Boosts, and 8 Extra Lives.
 
 ### The fuck is a Perma-Skill/Perk?
 Basically a progressive line of upgrades. The perma-perks are the universal perk cards (with the
