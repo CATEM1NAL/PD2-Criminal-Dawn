@@ -151,15 +151,13 @@ Coming in v0.6.0 (not currently live):
 Go to `Options > Mod Options > Criminal Dawn` and you can change the difficulty cap. The difficulty
 increases towards the cap as you progress through a run and receive items.
 
-The early game will generally be easy, but increase in difficulty as you play more.
-
 ## I don't like the mutators.
 Go to `Options > Mod Options > Criminal Dawn` and you can change the mutator mode. There are
 four options:
 - **Off:** No random mutators will generate. Friendly Fire (Hard+) and Winters' Shields (Death Wish+) will still be enabled.
 - **On:** Number of mutators will scale with heist number (1 mutator for first heist, 2 for second heist, etc).
 - **On + Scaling (default):** Number of mutators will also scale with items received in the same way as difficulty.
-- **Inverted Scaling:** Number of mutators will start maxed out (based on difficulty setting), but decrease as you receive items.
+- **Inverted Scaling:** Number of mutators will start maxed out (based on difficulty setting), but _decrease_ as you receive items.
 
 ## I keep getting [heist] and it sucks.
 Go to `Options > Mod Options > Criminal Dawn` and you can disable any heist in the game.
