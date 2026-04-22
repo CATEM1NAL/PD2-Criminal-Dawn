@@ -119,6 +119,9 @@ Perma-Skill allows you to bag bodies and the third Perma-Skill allows you to int
 I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21 each (52 total).
 
 ## Are there any core gameplay changes I should know about?
+- Friendly fire is enabled on Hard+, with the damage multiplier increasing by 100% on Very Hard and Overkill (total of 300% team damage).
+- Shields are replaced with Winters shields on Death Wish+.
+
 Coming in v0.6.0 (not currently live):
 - **Kickstarter** is guaranteed to repair drills on melee (50% chance in vanilla).
 - If you get the associated skill, all drills are guaranteed to be auto restarters (max 30% chance in vanilla).
