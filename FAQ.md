@@ -102,6 +102,7 @@ Set the key to whatever you want, and now you can see the full list at any time!
 
 ## How many upgrades do I get in a playthrough?
 7 Perma-Skills, 7 Perma-Perks, 13 Skills, 13 Perks, at least 7 Stat Boosts, and 8 Extra Lives.
+You also get a deployable upgrade for each deployable you have unlocked (up to 9 upgrades).
 
 ### The fuck is a Perma-Skill/Perk?
 Basically a progressive line of upgrades. The perma-perks are the universal perk cards (with the
