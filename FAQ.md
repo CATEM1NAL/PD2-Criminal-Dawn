@@ -148,11 +148,11 @@ Coming in v0.6.0 (not currently live):
 - Damage absorption cannot reduce damage to 0.
 
 ## The mod is too easy/hard!
-Go to `Options > Mod Options > Criminal Dawn` and you can change the difficulty cap. The difficulty
+Go to `Options > Mod Options > Criminal Dawn` in-game and you can change the difficulty cap. The difficulty
 increases towards the cap as you progress through a run and receive items.
 
 ## I don't like the mutators.
-Go to `Options > Mod Options > Criminal Dawn` and you can change the mutator mode. There are
+Go to `Options > Mod Options > Criminal Dawn` in-game and you can change the mutator mode. There are
 four options:
 - **Off:** No random mutators will generate. Friendly Fire (Hard+) and Winters' Shields (Death Wish+) will still be enabled.
 - **On:** Number of mutators will scale with heist number (1 mutator for first heist, 2 for second heist, etc).
@@ -160,7 +160,7 @@ four options:
 - **Inverted Scaling:** Number of mutators will start maxed out (based on difficulty setting), but _decrease_ as you receive items.
 
 ## I keep getting [heist] and it sucks.
-Go to `Options > Mod Options > Criminal Dawn` and you can disable any heist in the game.
+Go to `Options > Mod Options > Criminal Dawn` in-game and you can stop any heist from appearing in a run.
 You can do this at any time, but if the game has already picked a heist you need to play it first.
 
 I'd recommend only disabling the heists you *really* don't like, as disabling too many will limit
