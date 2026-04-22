@@ -37,14 +37,7 @@ Score Checks: 77
 
 ## Does this include DLC?
 All DLC that you verifiably own is accounted for by the mod, and it automatically adds the corresponding
-content into the appropriate pools. The safe house has also been modified to make Scarface, Bodhi,
-Wick, and Jimmy's rooms available to upgrade even if you don't have access to them (otherwise the
-world would get softlocked - all unlocks that require licensed content will still be unavailable).
-
-Another subtle change is that you don't need to follow the community hub to access community content -
-this tends to be confusing for players that don't understand how the community items work, and the fact
-that the game still requires that you do this to have access to as much free content as possible is very
-silly (imo).
+content into the appropriate pools.
 
 ## What mods is this compatible with?
 As long as it isn't a gameplay overhaul or a mod that adds new content (new weapons, new heists, etc)
