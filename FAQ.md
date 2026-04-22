@@ -101,15 +101,13 @@ You can also see this menu in game by going to `Options > Mod Keybinds > Crimina
 Set the key to whatever you want, and now you can see the full list at any time!
 
 ## How many upgrades do I get in a playthrough?
-7 Perma-Skills, 7 Perma-Perks, 13 Skills, 13 Perks, and at least 7 Stat Boosts.
-
-There are also 6 Drill Sawgeant upgrades (levels up as you receive items) and 8 Nine Lives upgrades.
+7 perma-skills, 7 perma-perks, 13 skills, 13 perks, at least 7 stat boosts, and 8 extra lives.
 
 ### The fuck is a Perma-Skill/Perk?
-Basically a progressive line of upgrades. The Perma-Perks are the universal perk cards (with the
-final one being an upgraded Walk-In Closet (which is actually just Fully Loaded)). The Perma-Skills
+Basically a progressive line of upgrades. The perma-perks are the universal perk cards (with the
+final one being an upgraded Walk-In Closet (which is actually just Fully Loaded)). The perma-skills
 are organised in such a way that they give you generally useful abilities, for example the second
-Perma-Skill allows you to bag bodies and the third Perma-Skill allows you to intimidate cops.
+perma-skill allows you to bag bodies and the third perma-skill allows you to intimidate cops.
 
 ### Those are some weird numbers.
 I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21 each (52 total).
