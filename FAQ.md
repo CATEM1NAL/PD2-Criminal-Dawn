@@ -139,18 +139,21 @@ Coming in v0.6.0 (not currently live):
 - Enemy health is locked at **Overkill** values on all difficulties, with a lower headshot/crit multiplier (same as vanilla Normal/Hard).
 - Enemy base damage is locked at **Hard** values, with some tweaks for problematic enemies to bring them in line.
   - Enemy damage fall-off/ramp-up values are based on **Overkill**/**Mayhem**.
+- Friendly fire is enabled on Hard+, with the damage multiplier increasing by 100% on Very Hard and Overkill (total of 300% team damage).
 - Snipers don't have lasers on Mayhem+.
+- Shields are replaced with Winters shields on Death Wish+.
 - Enemies cannot penetrate player armour.
 - Enemies cannot steal bags.
 - Damage grace period only applies on armour break and duration varies with difficulty. Additionally, revive health is different per difficulty:
-  - **Normal:** 2 second grace period, revived with 50% health.
-  - **Hard:** 1.5 second grace period, revived with 40% health.
-  - **Very Hard:** 1 second grace period, revived with 30% health.
-  - **Overkill:** 0.75 second grace period, revived with 25% health.
-  - **Mayhem:** 0.5 second grace period, revived with 20% health.
-  - **Death Wish:** 0.25 second grace period, revived with 15% health.
-  - **Death Sentence:** No grace period, revived with 10% health.
+  - **Normal:** 2 second grace period, revived with 50% health (10% more than vanilla).
+  - **Hard:** 1.5 second grace period, revived with 40% health (same as vanilla).
+  - **Very Hard:** 1 second grace period, revived with 30% health (10% less than vanilla).
+  - **Overkill:** 0.75 second grace period, revived with 25% health (15% less than vanilla).
+  - **Mayhem:** 0.5 second grace period, revived with 20% health (10% more than vanilla).
+  - **Death Wish:** 0.25 second grace period, revived with 15% health (5% more than vanilla).
+  - **Death Sentence:** No grace period, revived with 10% health (same as vanilla).
 - Dodge is no longer random, instead stacking for each shot you take until it exceeds 100%. With 25% dodge you will take 3 shots and then dodge 1, for example.
+  - Each consecutive dodge also adds a stack of **entropy** (5% dodge penalty) to prevent insane dodge values from being untouchable. Entropy is reset upon taking damage. 
 - Damage absorption cannot reduce damage to 0.
 
 ## The mod is too easy/hard!
