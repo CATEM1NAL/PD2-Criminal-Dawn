@@ -131,6 +131,8 @@ Coming in v0.6.0 (not currently live):
 - Enemy base damage is locked at **Hard** values, with some tweaks for problematic enemies to bring them in line.
   - Enemy damage fall-off/ramp-up values are based on **Overkill**/**Mayhem**.
 - Friendly fire is enabled on Hard+, with the damage multiplier increasing by 100% on Very Hard and Overkill (total of 300% team damage).
+- Cloaker cuffing is enabled by default, with a chance to be disabled on Very Hard+.
+  - Cloaker cuffing only punishes Inspire (which you won't have most of the time).
 - Snipers don't have lasers on Mayhem+.
 - Shields are replaced with Winters shields on Death Wish+.
 - Enemies cannot penetrate player armour.
