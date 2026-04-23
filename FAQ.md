@@ -118,7 +118,7 @@ Coming in v0.6.0 (not currently live):
 - Remaining downs now persist between heists. You restore one between heists.
 - You come out of custody with no extra downs (all downs in vanilla).
 - Doctor bags only restore one down (all downs in vanilla).
-- Player base health as been reduced to **100** (230 in vanilla).
+- Player base health as been reduced to 100 (230 in vanilla).
 - Lighter armours recover faster, while heavier armours take longer to recover:
   - **Two-Piece Suit:** 1s regen (affected by suppression).
   - **Lightweight Ballistic Vest:** 1.5s regen (affected by suppression).
