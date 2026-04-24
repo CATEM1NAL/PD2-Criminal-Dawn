@@ -149,7 +149,7 @@ Coming in v0.6.0 (not currently live):
   - Each consecutive dodge also adds a stack of **entropy** (5% dodge penalty) to prevent insane dodge values from being untouchable. Entropy is reset upon taking damage.
 - Sicario's smoke bomb now provides a fixed +50% dodge (unaffected by entropy and works with armour).
 - **Agility Shield** recovers 10% of your armour on dodge (all armour in vanilla).
-- Damage absorption cannot reduce damage to 0.
+- Damage taken cannot be reduced below 1.
 
 ## The mod is too easy/hard!
 Go to `Options > Mod Options > Criminal Dawn` in-game and you can change the difficulty cap. The difficulty
