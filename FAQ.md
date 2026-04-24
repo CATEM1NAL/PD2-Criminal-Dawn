@@ -133,7 +133,7 @@ Coming in v0.6.0 (not currently live):
   - Enemy damage fall-off/ramp-up values are based on **Overkill**/**Mayhem**.
 - Friendly fire is enabled on Hard+, with the damage multiplier increasing by 100% on Very Hard and Overkill (total of 300% team damage).
 - Cloaker cuffing is enabled by default, with a chance to be disabled on Very Hard+.
-- Snipers don't have lasers on Mayhem+.
+- Snipers don't have lasers on Mayhem+, and now fire tracers.
 - Shields are replaced with Winters shields on Death Wish+.
 - Enemies cannot penetrate player armour.
 - Enemies cannot pick up bags.
