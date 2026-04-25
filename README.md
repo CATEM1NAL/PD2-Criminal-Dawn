@@ -3,17 +3,13 @@ PAYDAY 2 mod that turns the game into a multiworld roguelite, powered by [Archip
 
 [FAQ](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md) • [APWorld Repo](https://github.com/CATEM1NAL/Archipelago/tree/payday2) • [My Other Stuff](https://ema.stupidcat.uk/)
 
-## Why?
-Because Archipelago is fucking awesome and deserves more implementations.
-PAYDAY 2 is a game that I have put 3000 hours into since 2014.
-Makes a lot of sense that I'd do this, right?
-
-As for why the mod is a roguelite - PAYDAY 2 is a game without a structure so I figured trying to make a standard
-implementation would be a bit hellish (especially when trying to factor in DLCs). Additionally I just don't have much fun with the
-game having played it to death and having squeezed the game dry. Randomised builds that you are forced to use and randomised
-loadouts that you have to try and make work creates an interesting player experience where I'm actually excited to see if the
-fucked up skill/perk combo I got is actually viable. Turning the game into a roguelite also provides a solution to the number one problem:
-what's the goal?
+## What does this do?
+Strips out a lot of PAYDAY 2's core skill/perk building mechanics in favour of randomly generated builds and random weapon unlocks!
+This helps keep the game fresh even for players that have exhausted everything the game has to offer, and gives access to impossible
+perk combos that would never be useable in the vanilla game. On top of this,
+[the core gameplay has been *drastically* reworked](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#are-there-any-core-gameplay-changes-i-should-know-about)
+to be an experience closer to something like PAYDAY: The Heist or PAYDAY 3, while still scaling up to the power fantasy of vanilla
+PAYDAY 2 in the late-game. Turning the game into a roguelite also provides a solution to the number one problem: what's the goal?
 
 ## So what *is* the goal?
 Beat X amount of heists in a row without failing. The heists are grouped into tiers that loosely follow heist complexity/story progress,
