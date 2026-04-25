@@ -25,14 +25,16 @@ local function PermaUpgrade(upg_name, count)
     end
 
     UpgradeStr = "- " .. string.upper(loc:text("cd_" .. upg_name .. count .. "_name")) ..": "
-      .. loc:text("cd_" .. upg_name .. count .. "_desc")
+      .. loc:text("cd_" .. upg_name .. count .. "_desc", {
+        SPEED = math.min(Global.CrimDawn.data.game.progression_items * 2, 99)
+      })
     table.insert(upgrades.skills, UpgradeStr)
   end
 end
 
 if Global.CrimDawn.data.x.permaskills > 0 then PermaUpgrade("permaskills") end
-if Global.CrimDawn.data.x.lives > 0 then PermaUpgrade("player_additional_lives_", Global.CrimDawn.data.x.lives) end
-if Global.CrimDawn.data.x.drill > 0 then PermaUpgrade("player_drill_speed_multiplier", Global.CrimDawn.data.x.drill) end
+if Global.CrimDawn.data.x.max_lives > 1 then PermaUpgrade("player_additional_lives_", Global.CrimDawn.data.x.max_lives - 1) end
+if Global.CrimDawn.data.game.progression_items > 0 then PermaUpgrade("player_drill_speed_multiplier", CrimDawn.DiffScale(true, 6)) end
 if PermaHeader then table.insert(upgrades.skills, string.upper("\nRandom Skills:")) end
 
 if Global.CrimDawn.data.x.permaperks > 0 then
@@ -102,23 +104,33 @@ function CrimDawn.BuildUpgradeMenus()
   CrimDawn.DeployMenu = UpgradeMenu(4)
 end
 
+function CrimDawn.CloseUpgradeMenus()
+  CrimDawn.SkillsMenu:Hide()
+  CrimDawn.PerksMenu:Hide()
+  CrimDawn.StatsMenu:Hide()
+  CrimDawn.DeployMenu:Hide()
+end
 
 function CrimDawn.DisplaySkills()
   CrimDawn.BuildUpgradeMenus()
+  CrimDawn.CloseUpgradeMenus()
   CrimDawn.SkillsMenu:Show()
 end
 
 function CrimDawn.DisplayPerks()
   CrimDawn.BuildUpgradeMenus()
+  CrimDawn.CloseUpgradeMenus()
   CrimDawn.PerksMenu:Show()
 end
 
 function CrimDawn.DisplayStats()
   CrimDawn.BuildUpgradeMenus()
+  CrimDawn.CloseUpgradeMenus()
   CrimDawn.StatsMenu:Show()
 end
 
 function CrimDawn.DisplayDeploy()
   CrimDawn.BuildUpgradeMenus()
+  CrimDawn.CloseUpgradeMenus()
   CrimDawn.DeployMenu:Show()
 end

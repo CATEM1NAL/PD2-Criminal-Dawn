@@ -1,16 +1,18 @@
-local FileIdent = "menu"
+local FileIdent = "Menu"
 
 -- PLAY BUTTON
 function MenuCallbackHandler:CrimDawn_CreateLobby()
-  CrimDawnClient:PollData()
+  CrimDawnClient:InitWorld()
 
   if CrimDawn.CorrectSaveLoaded() then
-    CrimDawnClient:PollTimeUpgrades()
+    CrimDawnClient:PollProgression()
+    CrimDawnClient:PollData()
 
     if NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY ~= Global.CrimDawn.data.game.seed then
-      NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
-      NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
-      CrimDawn.Log(FileIdent, "Updated matchmaking key: " .. NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY)
+      local key = Global.CrimDawn.data.game.seed .. "_" .. Global.CrimDawn.data.game.slot
+      NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = key
+      NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = key
+      CrimDawn.Log(FileIdent, "Updated matchmaking key: " .. NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY)
     end
 
     if CrimDawnClient.data.seed then
@@ -128,8 +130,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
   if mainmenu ~= nil then
     managers.localization:load_localization_file(CrimDawn.SavePath .. "crimdawn_rooms.txt")
 
-    CrimDawnClient:PollTimeUpgrades()
-    CrimDawnClient:PollData()
+    DelayedCalls:Add("CrimDawn_MenuPoll", 1, function() CrimDawnClient:PollData() end)
 
     local MaxTime = 900 * Global.CrimDawn.data.game.run_length
     if Global.CrimDawn.data.game.run_length == 0 then MaxTime = 6000 end
@@ -142,42 +143,50 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
       end
     end
 
-    if Global.CrimDawn.data.x.time_upgrades > CrimDawn.MaxTimeItems() then
-      managers.localization:add_localized_strings({
-        ["crimdawn_play_next_desc"] = managers.localization:text("crimdawn_play_inf_desc")
-      })
-    else managers.localization:add_localized_strings({
-        ["crimdawn_play_next_desc"] = TimeCharacter .. " " .. math.floor((Global.CrimDawn.data.game.ponr or 0) / 60) .. " minutes remaining."
-      })
-    end
+    -- Play button
+    if CrimDawn.InfiniteTime() then managers.localization:add_localized_strings({
+      ["crimdawn_continue_run_desc"] = managers.localization:text("crimdawn_play_inf_desc")
+    })
 
-    if Global.CrimDawn.data.game.run_length > 0 then
-      managers.localization:add_localized_strings({
-        ["crimdawn_play_next_title"] = ordinal(Global.CrimDawn.data.game.run) ..
-          " Criminal Dawn [" .. #Global.CrimDawn.data.game.heists .. "/" .. Global.CrimDawn.data.game.run_length .. "]"
-      })
     else managers.localization:add_localized_strings({
-        ["crimdawn_play_next_title"] = ordinal(Global.CrimDawn.data.game.run) .. " Criminal Dawn [Heist " .. #Global.CrimDawn.data.game.heists .. "]"
+      ["crimdawn_continue_run_desc"] = managers.localization:text("crimdawn_play_next_desc", {
+        CLOCK = TimeCharacter,
+        TIME = math.floor((Global.CrimDawn.data.game.ponr or 0) / 60)
       })
-    end
+    }) end
 
+    local HeistNumText = ""
+    local IsEndless = Global.CrimDawn.data.game.heists_won >= Global.CrimDawn.data.game.run_length
+    if IsEndless then HeistNumText = ("[Heist " .. #Global.CrimDawn.data.game.heists .. "]")
+    else HeistNumText = "[" .. #Global.CrimDawn.data.game.heists .. "/" .. Global.CrimDawn.data.game.run_length .. "]" end
+
+    managers.localization:add_localized_strings({
+      ["crimdawn_continue_run_title"] = managers.localization:text("crimdawn_play_next_title", {
+        ORDINAL = ordinal(Global.CrimDawn.data.game.run),
+        HEIST_NUM = HeistNumText
+      })
+    })
+
+    if Global.CrimDawn.data.game.run == 1 then managers.localization:add_localized_strings({
+      ["crimdawn_start_run_title"] = managers.localization:text("crimdawn_first_run_title")
+    })
+
+    else managers.localization:add_localized_strings({
+      ["crimdawn_start_run_title"] = managers.localization:text("crimdawn_new_run_title", {
+        ORDINAL = ordinal(Global.CrimDawn.data.game.run)
+      })
+    }) end
+
+    -- Create Lobby
     managers.localization:add_localized_strings({
       ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_init_multiworld_title"),
       ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_init_multiworld_desc")
     })
 
-    if CrimDawn.CorrectSaveLoaded() then
-      managers.localization:add_localized_strings({
-        ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_create_lobby_title"),
-        ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_create_lobby_desc")
-      })
-    end
-
-    if Global.CrimDawn.data.game.run == 1 then managers.localization:add_localized_strings({
-      ["crimdawn_start_run_title"] = managers.localization:text("crimdawn_first_run_title") })
-
-    else managers.localization:add_localized_strings({
-      ["crimdawn_start_run_title"] = "A " .. ordinal(Global.CrimDawn.data.game.run) .. " Criminal Dawn" })
+    if CrimDawn.CorrectSaveLoaded() then managers.localization:add_localized_strings({
+      ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_create_lobby_title"),
+      ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_create_lobby_desc")
+    })
     end
 
     InjectCrimDawnButtons(mainmenu)
@@ -210,11 +219,10 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
         table.remove(item._visible_callback_list, 2)
 
         if next(Global.CrimDawn.data.game.heists) then
-          item._parameters.text_id = "crimdawn_play_next_title"
-          item._parameters.help_id = "crimdawn_play_next_desc"
+          item._parameters.text_id = "crimdawn_continue_run_title"
+          item._parameters.help_id = "crimdawn_continue_run_desc"
 
-        else
-          item._parameters.text_id = "crimdawn_start_run_title"
+        else item._parameters.text_id = "crimdawn_start_run_title"
           item._parameters.help_id = "crimdawn_start_run_desc"
         end break
       end
@@ -240,16 +248,11 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
     local breakCounter = 0
     for i, item in pairs(pausemenu._items) do
 
-      if item._parameters.name == "abort_mission" then
+      if item._parameters.name == "end_game" then
         item:set_visible(false)
-        breakCounter = breakCounter + 1
-
-      elseif item._parameters.name == "end_game" then
         item._enabled = false
-        breakCounter = breakCounter + 1
-      end
+      break end
 
-      if breakCounter == 2 then break end
     end
   end
 end)
@@ -260,7 +263,7 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
 
   if not Utils:IsInGameState() then
     -- check for any last second items
-    CrimDawnClient:PollTimeUpgrades()
+    CrimDawnClient:PollProgression()
     CrimDawnClient:PollData()
 
     if NetworkHelper:IsHost() then
@@ -284,6 +287,21 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
 
   CrimDawn.state.heist_started = true
   end
+end)
+
+Hooks:OverrideFunction(MenuCallbackHandler, "abort_mission", function(self)
+  if game_state_machine:current_state_name() == "disconnected" then return end
+
+	local function yes_func()
+		--if game_state_machine:current_state_name() ~= "disconnected" then
+	  CrimDawn:RunReset(FileIdent)
+
+		self:load_start_menu_lobby()
+		managers.preplanning:reset_rebuy_assets()
+		--end
+	end
+
+	managers.menu:show_abort_mission_dialog({ yes_func = yes_func })
 end)
 
 -- Resetting save also resets mod

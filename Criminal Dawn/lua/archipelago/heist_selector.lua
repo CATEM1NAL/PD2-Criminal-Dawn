@@ -1,4 +1,4 @@
-local FileIdent = "heist_selector"
+local FileIdent = "HeistSelector"
 
 function CrimDawn:NextHeist(HeistsWon)
   if Global.CrimDawn.data.game.campaign then self:CampaignHeist(HeistsWon) return end
@@ -6,7 +6,7 @@ function CrimDawn:NextHeist(HeistsWon)
   local TierIndex = (6 - Global.CrimDawn.data.game.run_length) + (HeistsWon or 0) + 1
   
   local ValidHeists = deep_clone(Global.CrimDawn.tables.heists)
-  local CurrentTier
+  local CurrentTier, NextHeist
 
   for tier, heists in pairs(ValidHeists) do
     for i = #heists, 1, -1 do
@@ -14,47 +14,49 @@ function CrimDawn:NextHeist(HeistsWon)
     end
   end
 
-  -- Conditional heists
-  local PeerTable = managers.network and managers.network:session() and managers.network:session():peers()
+  -- Remove already played heists from heist pool
+  local PlayedHeists = {}
+  local PrevHeists = Global.CrimDawn.data.game.previous_run
 
-  if #PeerTable == 0 then
-    if not StealthTutorial and Global.CrimDawn.data.x.permaskills > 1 then table.insert(ValidHeists.tier1, "short1") end
-    if not LoudTutorial and Global.CrimDawn.data.x.bots > 1 then table.insert(ValidHeists.tier1, "short2") end
-  end
+  for _, heist in ipairs(Global.CrimDawn.data.game.heists) do PlayedHeists[heist] = true end
 
-  -- If we haven't won yet, prevent duplicate heists and pick from next tier
-  if ValidHeists["tier" .. TierIndex] then
+  for tier, heistTable in pairs(ValidHeists) do
+    local NewTable = {}
 
-    -- Remove already played heists from heist pool
-    local PlayedHeists = {}
-
-    for _, heist in ipairs(Global.CrimDawn.data.game.heists) do PlayedHeists[heist] = true end
-
-    for tier, heistTable in pairs(ValidHeists) do
-      local NewTable = {}
-
-      for _, heist in ipairs(heistTable) do
-        if not PlayedHeists[heist] then table.insert(NewTable, heist) end
-      end
-
-      ValidHeists[tier] = NewTable
+    for _, heist in ipairs(heistTable) do
+      if not PlayedHeists[heist] and not PrevHeists[heist] then table.insert(NewTable, heist) end
     end
 
-    -- 28 Stores replaces final heist with 27+ minutes
-    if not (Global.CrimDawn.data.x.time_upgrades > self.MaxTimeItems()) and Global.CrimDawn.data.game.ponr >= 1620 then
-      ValidHeists.tier6 = {"cd_28stores"}
+    ValidHeists[tier] = NewTable
+  end
+
+  -- If we haven't won yet, prevent pick from next tier
+  if ValidHeists["tier" .. TierIndex] then
+
+    -- Final Heist overrides
+    if Global.CrimDawn.data.game.ponr <= 80 then ValidHeists.tier6 = { "short1", "short2" } -- Tutorials
+    elseif not self.InfiniteTime() and Global.CrimDawn.data.game.ponr >= 1680 then
+      ValidHeists.tier6 = { "cd_28stores" } -- 28 Stores
     end
 
     CurrentTier = ValidHeists["tier" .. TierIndex]
 
-  -- If we HAVE won then allow duplicate heists and ignore heist tiering
-  else CurrentTier = ValidHeists["tier" .. math.random(1, 6)] end
+    NextHeist = CurrentTier[math.random(#CurrentTier)]
+    assert(NextHeist ~= nil, "no available heists, are they all disabled?")
 
-  Utils.PrintTable(CurrentTier)
-  log(#ValidHeists)
+  -- If we HAVE won then ignore heist tiering
+  else local ValidTiers = { "tier1", "tier2", "tier3", "tier4", "tier5", "tier6" }
+    local NextTier = math.random(1, 6)
 
-  local NextHeist = CurrentTier[math.random(#CurrentTier)]
-  assert(NextHeist ~= nil, "no available heists, are they all disabled?")
+    while not NextHeist do
+      CurrentTier = ValidHeists[ValidTiers[NextTier]]
+      NextHeist = CurrentTier[math.random(#CurrentTier)]
+      if NextHeist then break end
+      table.remove(ValidTiers, NextTier)
+      NextTier = math.random(#ValidTiers)
+      assert(#ValidTiers > 0, "you have beaten every possible heist. please do something else")
+    end
+  end
 
   table.insert(Global.CrimDawn.data.game.heists, NextHeist)
   NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
@@ -66,14 +68,16 @@ end
 local campaigns = {
   ["Return Of The Rat"] = { "watchdogs_wrapper", "cd_firestarter1", "alex", "cd_hox2", "hox_3" },
   ["Murky Day"] = { "kosugi", "shoutout_raid", "pbr", "des" },
-  ["I Need My Payday Too"] = { "big", "mus", "mia", "cd_hox1", "kenaz" },
+  ["I Need My Payday Too"] = { "big", "mus", "cd_miami1", "cd_miami2", "cd_hox1", "kenaz" },
   ["Greatest Heist Of All"] = { "cd_reservoir", "brb", "sah", "tag", "bph", "vit" },
   ["Silk Road"] = { "mex", "bex", "pex", "fex" },
   ["City Of Gold"] = { "chas", "chca", "pent" },
   ["Texas Heat"] = { "ranc", "corp", "deep" },
   ["Night Of Frights"] = { "hvh", "help", "nail", "haunted" },
-  ["Christmas Special"] = {  },
+  ["Holiday Special"] = { "pines", "cane", "moon" },
   ["Classics"] = { "red2", "run", "flat", "glace", "dah", "dinner" },
+  ["You Guys No Fun"] = { "four_stores", "mallcrasher", "nightclub", "jolly", "shoutout_raid" },
+  ["Follow The Money"] = { "branchbank_cash", "roberts", "brb", "bex", "red2", "big" }
 }
 
 function CrimDawn:CampaignHeist(HeistsWon)

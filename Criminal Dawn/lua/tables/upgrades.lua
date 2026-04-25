@@ -46,7 +46,7 @@ Global.CrimDawn.tables.upgrades = {
     { -- [6] Die Hard: 50% damage reduction while interacting
       "player_interacting_damage_multiplier"
     },
-    { -- [7] Jack of all Trades: 100% faster deployable interactions
+    { -- [7] Jack of all Trades: 100% faster deployable interactions, two deployables
       "deploy_interact_faster_1",
       "second_deployable_1"
     },
@@ -393,6 +393,7 @@ Global.CrimDawn.tables.upgrades = {
     },
     no_bag_penalty = {
       dlc_owned = true, upg_type = "general",
+      disable = "bag_penalty_armour_reduction",
       "carry_movement_penalty_nullifier"
     },
   },
@@ -404,10 +405,6 @@ Global.CrimDawn.tables.upgrades = {
       dlc_owned = true, upg_type = "stat",
       "team_damage_reduction_1",
       "player_passive_damage_reduction_1"
-    },
-    chief_stamina = {
-      dlc_owned = true, upg_type = "stat",
-      "team_passive_stamina_multiplier_1"
     },
     chief_shout_distance = {
       dlc_owned = true, upg_type = "stat",
@@ -424,8 +421,7 @@ Global.CrimDawn.tables.upgrades = {
     chief_hostage_1 = {
       dlc_owned = true, upg_type = "ability",
       count_req = "permaskills:3",
-      "team_hostage_health_multiplier",
-      "team_hostage_stamina_multiplier"
+      "team_hostage_health_multiplier"
     },
     chief_hostage_2 = {
       dlc_owned = true, upg_type = "ability",
@@ -765,7 +761,7 @@ Global.CrimDawn.tables.upgrades = {
       "melee_stacking_hit_damage_multiplier_1"
     },
     infil_melee_timer = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-infil_melee_boost",
       "melee_stacking_hit_expire_t"
     },
@@ -845,7 +841,7 @@ Global.CrimDawn.tables.upgrades = {
       "player_armor_piercing_chance_2"
     },
     grind_hot_duration = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-grind_hot_1,perks-grind_hot_2,perks-grind_hot_3,perks-grind_hot_4",
       "player_damage_to_hot_extra_ticks"
     },
@@ -871,7 +867,7 @@ Global.CrimDawn.tables.upgrades = {
       "player_movement_speed_damage_health_ratio_multiplier"
     },
     yakuza_threshold = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-yakuza_recovery_1,perks-yakuza_recovery_2,perks-yakuza_recovery_3,perks-yakuza_speed",
       "player_armor_regen_damage_health_ratio_threshold_multiplier",
       "player_movement_speed_damage_health_ratio_threshold_multiplier"
@@ -894,7 +890,7 @@ Global.CrimDawn.tables.upgrades = {
       "player_armor_health_store_amount_3"
     },
     expres_cap = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-expres_1,perks-expres_2,perks-expres_3",
       "player_armor_max_health_store_multiplier"
     },
@@ -911,17 +907,17 @@ Global.CrimDawn.tables.upgrades = {
       "player_sync_cocaine_stacks"
     },
     maniac_decay = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-maniac_base",
       "player_cocaine_stacks_decay_multiplier_1"
     },
     maniac_cap = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-maniac_base",
       "player_sync_cocaine_upgrade_level_1"
     },
     maniac_boost = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-maniac_base",
       "player_cocaine_stack_absorption_multiplier_1"
     },
@@ -944,13 +940,13 @@ Global.CrimDawn.tables.upgrades = {
       dlc_owned = false, upg_type = "stat",
       disable = "anarch_armour_1,anarch_armour_3",
       "player_armor_increase_2",
-      "player_health_decrease_1"
+      "player_health_decrease_2"
     },
     anarch_armour_3 = {
       dlc_owned = false, upg_type = "stat",
       disable = "anarch_armour_1,anarch_armour_2",
       "player_armor_increase_3",
-      "player_health_decrease_1"
+      "player_health_decrease_3"
     },
     anarch_bullseye = {
       dlc_owned = false, upg_type = "ability",
@@ -965,23 +961,23 @@ Global.CrimDawn.tables.upgrades = {
       "player_wild_armor_amount_1"
     },
     biker_armour_plus = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-biker_base",
       disable = "stoic_armor_convert",
       "player_less_health_wild_armor_1"
     },
     biker_health_cd = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-biker_base",
       "player_less_health_wild_cooldown_1"
     },
     biker_health_plus = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-biker_base",
       "player_less_armor_wild_health_1"
     },
     biker_armour_cd = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-biker_base",
       "player_less_armor_wild_cooldown_1"
     },
@@ -992,17 +988,17 @@ Global.CrimDawn.tables.upgrades = {
       "chico_injector", "temporary_chico_injector_1"
     },
     kingpin_prio = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-kingpin_base",
       "player_chico_preferred_target"
     },
     kingpin_immunity = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-kingpin_base",
       "player_chico_injector_low_health_multiplier"
     },
     kingpin_cd = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-kingpin_base",
       "player_chico_injector_health_to_speed"
     },
@@ -1022,7 +1018,7 @@ Global.CrimDawn.tables.upgrades = {
       "player_dodge_replenish_armor"
     },
     sicario_boost = {
-      dlc_owned = true, upg_type = "stat", upg_req = "perks-sicario_base",
+      dlc_owned = true, upg_type = "ability", upg_req = "perks-sicario_base",
       "player_sicario_multiplier"
     },
 
@@ -1034,12 +1030,12 @@ Global.CrimDawn.tables.upgrades = {
       "player_damage_control_cooldown_drain_1"
     },
     stoic_cd = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-stoic_base",
       "player_damage_control_cooldown_drain_2"
     },
     stoic_armor_convert = {
-      dlc_owned = true, upg_type = "stat", count = "armor:1",
+      dlc_owned = true, upg_type = "ability", count = "armor:1",
       upg_req = "perks-stoic_base,perks-grind_hot_1,perks-grind_hot_2,perks-grind_hot_3,perks-grind_hot_4," ..
                 "perks-gambler_heal_1,perks-gambler_heal_2,perks-gambler_heal_3,perks-muscle_regen,perks-biker_base," ..
                 "perks-h3h3_base,perks-socio_heal,perks-infil_melee_heal,perks-kingpin_immunity,perks-hacker_heal," ..
@@ -1053,12 +1049,12 @@ Global.CrimDawn.tables.upgrades = {
       "player_armor_to_health_conversion"
     },
     stoic_negate = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-stoic_base",
       "player_damage_control_auto_shrug"
     },
     stoic_heal = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-stoic_base",
       "player_damage_control_healing"
     },
@@ -1071,12 +1067,12 @@ Global.CrimDawn.tables.upgrades = {
       "player_tag_team_cooldown_drain_1"
     },
     h3h3_cd = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-h3h3_base",
       "player_tag_team_cooldown_drain_2"
     },
     h3h3_absorption = {
-      dlc_owned = false, upg_type = "stat",
+      dlc_owned = false, upg_type = "ability",
       upg_req = "perks-h3h3_base",
       "player_tag_team_damage_absorption"
     },
@@ -1088,17 +1084,17 @@ Global.CrimDawn.tables.upgrades = {
       "player_pocket_ecm_jammer_base"
     },
     hacker_heal = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-hacker_base",
       "player_pocket_ecm_heal_on_kill_1"
     },
     hacker_dodge = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-hacker_base",
       "player_pocket_ecm_kill_dodge_1"
     },
     hacker_team_heal = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-hacker_base",
       "team_pocket_ecm_heal_on_kill_1"
     },
@@ -1114,28 +1110,28 @@ Global.CrimDawn.tables.upgrades = {
       "player_copr_teammate_heal_1"
     },
     leech_duration = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-leech_base",
       "temporary_copr_ability_2"
     },
     leech_segments = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-leech_base",
       "player_copr_static_damage_ratio_2",
       "player_copr_kill_life_leech_2"
     },
     leech_swan_song = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-leech_base",
       "player_copr_out_of_health_move_slow_1"
     },
     leech_cd = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-leech_base",
       "player_copr_speed_up_on_kill_1"
     },
     leech_revive = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-leech_base",
       "player_activate_ability_downed"
     },
@@ -1182,7 +1178,7 @@ Global.CrimDawn.tables.upgrades = {
       "player_secondary_reload_primary_1"
     },
     copycat_reload_switch = {
-      dlc_owned = true, upg_type = "stat",
+      dlc_owned = true, upg_type = "ability",
       upg_req = "perks-copycat_tactical_reload",
       "weapon_mrwi_swap_speed_multiplier_1"
     },
@@ -1450,9 +1446,7 @@ Global.CrimDawn.tables.upgrades = {
     sprinter = {
       dlc_owned = true, upg_type = "player",
       "player_run_speed_multiplier",
-      "player_run_dodge_chance",
-      "player_stamina_regen_timer_multiplier",
-      "player_stamina_regen_multiplier"
+      "player_run_dodge_chance"
     },
     move_speed = {
       dlc_owned = true, upg_type = "player",
@@ -1583,10 +1577,6 @@ Global.CrimDawn.tables.upgrades = {
     crouch_dodge = {
       dlc_owned = true, upg_type = "player",
       "player_crouch_dodge_chance_2"
-    },
-    stamina = {
-      dlc_owned = true, upg_type = "player",
-      "player_stamina_multiplier"
     },
     silencer_ap = {
       dlc_owned = true, upg_type = "weapon",
@@ -1767,9 +1757,16 @@ Global.CrimDawn.tables.upgrades = {
 
   deployable = {
 
-    doctor_bag_capacity = {
+    doctor_bag_capacity_1 = {
       dlc_owned = true, item_req = "doctor_bag",
+      disable = "doctor_bag_capacity_2",
       "doctor_bag_quantity"
+    },
+    doctor_bag_capacity_2 = {
+      dlc_owned = true, item_req = "doctor_bag",
+      disable = "doctor_bag_capacity_1",
+      "doctor_bag_quantity",
+      "doctor_bag_quantity_2"
     },
     doctor_bag_charges = {
       dlc_owned = true, item_req = "doctor_bag",
@@ -1780,18 +1777,35 @@ Global.CrimDawn.tables.upgrades = {
       "first_aid_kit_damage_reduction_upgrade",
       "first_aid_kit_deploy_time_multiplier"
     },
-    fak_capacity = {
+    fak_capacity_1 = {
       dlc_owned = true, item_req = "first_aid_kit",
+      disable = "fak_capacity_2",
+      "first_aid_kit_quantity_increase_1"
+    },
+    fak_capacity_2 = {
+      dlc_owned = true, item_req = "first_aid_kit",
+      disable = "fak_capacity_1",
       "first_aid_kit_quantity_increase_1",
       "first_aid_kit_quantity_increase_2"
+    },
+    fak_restore_down = {
+      dlc_owned = true, item_req = "first_aid_kit",
+      "first_aid_kit_downs_restore_chance"
     },
     fak_autoheal = {
       dlc_owned = true, item_req = "first_aid_kit",
       "first_aid_kit_auto_recovery_1"
     },
-    ammo_bag_capacity = {
+    ammo_bag_capacity_1 = {
       dlc_owned = true, item_req = "ammo_bag",
+      disable = "ammo_bag_capacity_2",
       "ammo_bag_quantity"
+    },
+    ammo_bag_capacity_2 = {
+      dlc_owned = true, item_req = "ammo_bag",
+      disable = "ammo_bag_capacity_1",
+      "ammo_bag_quantity",
+      "ammo_bag_quantity_2"
     },
     ammo_bag_charges = {
       dlc_owned = true, item_req = "ammo_bag",
@@ -1834,10 +1848,18 @@ Global.CrimDawn.tables.upgrades = {
       "sentry_gun_fire_rate_reduction_1",
       "sentry_gun_damage_multiplier"
     },
-    charge_capacity = {
+    charge_capacity_1 = {
       dlc_owned = true, item_req = "trip_mine",
+      disable = "charge_capacity_2",
       "shape_charge_quantity_increase_1",
       "shape_charge_quantity_increase_2"
+    },
+    charge_capacity_2 = {
+      dlc_owned = true, item_req = "trip_mine",
+      disable = "charge_capacity_1",
+      "shape_charge_quantity_increase_1",
+      "shape_charge_quantity_increase_2",
+      "shape_charge_quantity_increase_3",
     },
     trip_capacity_1 = {
       dlc_owned = true, item_req = "trip_mine",

@@ -12,6 +12,8 @@ Hooks:PostHook(MoneyTweakData, "init", "CrimDawn_MoneyTweakInit", function(self,
   self.mission_asset_cost_medium = self._create_value_table(20000, 75000, 10, true, 1)
   self.mission_asset_cost_large = self._create_value_table(100000, 500000, 10, true, 1)
 
+  self.mission_asset_cost_multiplier_by_risk = { 1, 2, 5, 10, 13, 13, 13 }
+
   self.preplaning_asset_cost_thermite = 50000
   self.preplaning_asset_cost_escapebig = 25000
 	self.preplaning_asset_cost_spycam = 5000

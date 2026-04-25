@@ -1,4 +1,7 @@
-local FileIdent = "upgrades"
+local FileIdent = "UpgradeHandler"
+
+Hooks:OverrideFunction(PlayerManager, "verify_equipment", function() return true end)
+Hooks:OverrideFunction(PlayerManager, "health_skill_multiplier", function() return 1 end)
 
 local function PermaUpgrade(upg_name, count)
   if upg_name == "permaskills" or upg_name == "permaperks" then
@@ -40,9 +43,8 @@ local function DropNuke()
   for key, _ in pairs(Global.upgrades_manager.aquired) do
     if not NukeImmune[key] then
       if not Global.CrimDawn.data.unlocks[key] then managers.upgrades:unaquire(key) end
-      if key == "second_deployable_1" then Global.upgrades_manager.aquired.second_deployable_1 = nil end
-    end  -- Removing Jack of all Trades using unaquire causes it to reset the second deployable
-  end
+    elseif key == "second_deployable_1" then Global.upgrades_manager.aquired.second_deployable_1 = nil end
+  end -- Removing Jack of all Trades using unaquire causes it to reset the second deployable
 
   Global.player_manager.upgrades = {}
   Global.player_manager.team_upgrades = {}
@@ -62,10 +64,50 @@ Hooks:PreHook(PlayerManager, "aquire_default_upgrades", "CrimDawn_DefaultUpgrade
   }
 
   if Global.CrimDawn.data.x.permaskills > 0 then PermaUpgrade("permaskills") end
-  if Global.CrimDawn.data.x.lives > 0 then PermaUpgrade("player_additional_lives_", Global.CrimDawn.data.x.lives) end
-  if Global.CrimDawn.data.x.drill > 0 then PermaUpgrade("player_drill_speed_multiplier", Global.CrimDawn.data.x.drill) end
+  if Global.CrimDawn.data.x.max_lives > 1 then PermaUpgrade("player_additional_lives_", Global.CrimDawn.data.x.max_lives - 1) end
+  if CrimDawn.DiffScale(true, 6) > 0 then PermaUpgrade("player_drill_speed_multiplier", CrimDawn.DiffScale(true, 6)) end
   if Global.CrimDawn.data.x.permaperks > 0 then PermaUpgrade("permaperks") end
 
   ApplyUpgrades()
   ApplyUnlocks()
+end)
+
+Hooks:OverrideFunction(PlayerManager, "_dodge_replenish_armor", function(self)
+  local armour = self:player_unit():character_damage():_max_armor() * 0.1
+  self:player_unit():character_damage():restore_armor(armour)
+end)
+
+Hooks:OverrideFunction(PlayerManager, "health_skill_addend", function(self)
+	local addend = 0
+	addend = addend + self:upgrade_value("team", "crew_add_health", 0)
+	addend = addend - self:upgrade_value("player", "health_decrease", 0)
+
+  -- Convert health multipliers to flat amount
+  addend = addend + self:upgrade_value("player", "health_multiplier", 0)
+	addend = addend + self:upgrade_value("player", "passive_health_multiplier", 0)
+	addend = addend + self:upgrade_value("health", "passive_multiplier", 0)
+  addend = addend + self:get_hostage_bonus_multiplier("health") - 1
+	addend = addend + self:upgrade_value("player", "mrwi_health_multiplier", 0)
+
+  if self:num_local_minions() > 0 then
+		addend = addend + self:upgrade_value("player", "minion_master_health_multiplier", 0)
+	end
+
+  -- Max health can't go below 1
+  if PlayerDamage._HEALTH_INIT + addend <= 0 then addend = -PlayerDamage._HEALTH_INIT + 0.1 end
+
+	return addend
+end)
+
+Hooks:OverrideFunction(PlayerManager, "body_armor_skill_addend", function(self, override_armor)
+  local addend = 0
+	addend = addend + self:upgrade_value("player", tostring(override_armor or managers.blackmarket:equipped_armor(true, true)) .. "_armor_addend", 0)
+
+	if self:has_category_upgrade("player", "armor_increase") then
+	  local AnarchArmour = 5 * self:upgrade_value("player", "armor_increase", 1)
+		addend = addend + AnarchArmour
+	end
+
+	addend = addend + self:upgrade_value("team", "crew_add_armor", 0)
+	return addend
 end)

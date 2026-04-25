@@ -37,9 +37,12 @@
   "bm_global_value_gage_pack_jobs_unlock" : "Buy the Gage Mod Courier DLC to unlock!",
   "bm_menu_armor_max_health_store" : "Break: can store up to $amount health.",
   "bm_menu_disables_damage_to_hot" : "'Dopamine' perk is disabled while wearing this armor!",
+  "bm_menu_stamina" : "Recovery Time",
   "menu_bm_total_cost" : "",
   "menu_infamy_banner_already_unlocked" : "Infamy rewards are unlocked by default.\nGoing infamous is purely for bragging rights!",
   "menu_cs_upgrade_cost" : "It costs ##1## coin to upgrade a room.",
   "menu_cs_fully_upgraded" : "This room cannot be upgraded any further!",
+  "menu_abort_mission" : "Abandon Run",
+  "dialog_abort_mission_text" : "You are about to return to the lobby.\n\nDoing this will reset your current run and re-roll your upgrades!",
   "menu_end_game" : "There is no escape",
 }

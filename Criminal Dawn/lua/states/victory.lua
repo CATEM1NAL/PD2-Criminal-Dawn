@@ -1,6 +1,7 @@
-local FileIdent = "victory"
+local FileIdent = "Victory"
 
 Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
+  Global.CrimDawn.data.x.lives = math.min(math.max(Global.CrimDawn.data.x.lives + 1, 1), Global.CrimDawn.data.x.max_lives)
   if NetworkHelper:IsClient() then CrimDawn.state.maskup_time = false return end
 
   -- Determine points for victory
@@ -20,7 +21,7 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
     else Global.CrimDawn.data.game.ponr = managers.groupai:state():get_point_of_no_return_timer() end
 
     CrimDawn.state.maskup_time = false
-    CrimDawnClient:PollTimeUpgrades()
+    CrimDawnClient:PollProgression()
   end
 
   -- Heist completion score handling
@@ -29,21 +30,32 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
       "CrimDawn_SendPoints",
       VictoryScore * 2 .. "," ..
       -1 .. "," ..
-      "heist completion"
+      "heist_completed"
     )
 
-    if not CrimDawn.ScoreCap(VictoryScore * 2) then
-      CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
-        .. "\n+" .. VictoryScore * 2 .. " from heist completion.\n"
-        .. CrimDawn.ScoreNeeded() .. " more for next check.") end
+    if not CrimDawn.IsScoreCapped(VictoryScore * 2) then
+      CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_score_gain", {
+        SCORE_ICON = "",
+        SCORE = Global.CrimDawn.data.game.score,
+        POINTS = VictoryScore,
+        REASON = managers.localization:text("crimdawn_score_heist_completed"),
+        TO_NEXT = CrimDawn.ScoreNeeded()
+      }))
+    end
 
     CrimDawn:NextHeist(#Global.CrimDawn.data.game.heists)
     if #Global.CrimDawn.data.game.heists - 1 > Global.CrimDawn.data.game.heists_won then
       Global.CrimDawn.data.game.heists_won = #Global.CrimDawn.data.game.heists - 1
       CrimDawn.Log(FileIdent, "Heists won: " .. Global.CrimDawn.data.game.heists_won)
+
       if Global.CrimDawn.data.game.heists_won == Global.CrimDawn.data.game.run_length then
-        CrimDawn.ChatNotify("Conglaturation !!!\nYou have completed a great game.\nAnd prooved the justice of our culture.\nNow go and rest our heroes !")
+        CrimDawn:WriteSave(FileIdent, "run completed")
+        CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_victory"))
+        DelayedCalls:Add("CrimDawn_VictoryTease", 3, function()
+          CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_victory2"))
+        end)
       end
+
     end
 
     NetworkHelper:SendToPeers(
@@ -56,13 +68,17 @@ Hooks:PostHook(VictoryState, "at_enter", "CrimDawn_HeistWon", function(self)
       "CrimDawn_SendPoints",
       VictoryScore .. "," ..
       -1 .. "," ..
-      "day completion"
+      "day_completed"
     )
 
-    if not CrimDawn.ScoreCap(VictoryScore) then
-      CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
-        .. "\n+" .. VictoryScore .. " from day completion.\n"
-        .. CrimDawn.ScoreNeeded() .. " more for next check.")
+    if not CrimDawn.IsScoreCapped(VictoryScore) then
+      CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_score_gain", {
+        SCORE_ICON = "",
+        SCORE = Global.CrimDawn.data.game.score,
+        POINTS = VictoryScore,
+        REASON = managers.localization:text("crimdawn_score_day_completed"),
+        TO_NEXT = CrimDawn.ScoreNeeded()
+      }))
     end
 
     CrimDawn:WriteSave(FileIdent, "day completed")

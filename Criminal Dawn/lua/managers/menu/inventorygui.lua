@@ -12,16 +12,41 @@ Hooks:OverrideFunction(PlayerInventoryGui, "open_specialization_menu", function(
   CrimDawn.DisplayPerks()
 end)
 
+local function format_round(num, round_value)
+	return round_value and tostring(math.round(num)) or string.format("%.1f", num):gsub("%.?0+$", "")
+end
+
+-- The original function does a bunch of unneccessary shit, so I got annoyed and replaced it.
+Hooks:OverrideFunction(PlayerInventoryGui, "_update_player_stats", function(self)
+	local base_stats, _, skill_stats = self:_get_armor_stats(managers.blackmarket:equipped_item("armors"))
+
+	for _, stat in ipairs(self._player_stats_shown) do
+		local value = math.max(base_stats[stat.name].value + skill_stats[stat.name].value, 0)
+		local base = base_stats[stat.name].value
+
+		self._player_stats_texts[stat.name].total:set_alpha(1)
+		self._player_stats_texts[stat.name].total:set_text(format_round(value, stat.round_value))
+		self._player_stats_texts[stat.name].base:set_text(format_round(base, stat.round_value))
+		self._player_stats_texts[stat.name].skill:set_text(skill_stats[stat.name].skill_in_effect and (skill_stats[stat.name].value > 0 and "+" or "") .. format_round(skill_stats[stat.name].value, stat.round_value) or "")
+
+		if value ~= 0 and base < value then
+		  local colour = stat.name ~= "stamina" and tweak_data.screen_colors.stats_positive or tweak_data.screen_colors.stats_negative
+			self._player_stats_texts[stat.name].total:set_color(colour)
+		elseif value ~= 0 and value < base then
+		  local colour = stat.name ~= "stamina" and tweak_data.screen_colors.stats_negative or tweak_data.screen_colors.stats_positive
+			self._player_stats_texts[stat.name].total:set_color(colour)
+		else self._player_stats_texts[stat.name].total:set_color(tweak_data.screen_colors.text) end
+	end
+end)
+
 Hooks:OverrideFunction(PlayerInventoryGui, "_get_armor_stats", function(self, name)
-	local base_stats = {}
-	local mods_stats = {}
-	local skill_stats = {}
+	local base_stats, mods_stats, skill_stats = {}, {}, {}
 	local detection_risk = managers.blackmarket:get_suspicion_offset_from_custom_data({ armors = name}, tweak_data.player.SUSPICION_OFFSET_LERP or 0.75)
 	detection_risk = math.round(detection_risk * 100)
 	local bm_armor_tweak = tweak_data.blackmarket.armors[name]
 	local upgrade_level = bm_armor_tweak.upgrade_level
 
-	for i, stat in ipairs(self._stats_shown) do
+	for i, stat in ipairs(self._player_stats_shown) do
 		base_stats[stat.name] = { value = 0 }
 		mods_stats[stat.name] = { value = 0 }
 		skill_stats[stat.name] = { value = 0 }
@@ -31,13 +56,15 @@ Hooks:OverrideFunction(PlayerInventoryGui, "_get_armor_stats", function(self, na
 			local mod = managers.player:body_armor_value("armor", upgrade_level)
 			base_stats[stat.name] = { value = (base + mod) * tweak_data.gui.stats_present_multiplier }
 			skill_stats[stat.name] = {
-			  value = (base_stats[stat.name].value + managers.player:body_armor_skill_addend(name) * tweak_data.gui.stats_present_multiplier) * managers.player:body_armor_skill_multiplier(name) - base_stats[stat.name].value }
+			  value = (base_stats[stat.name].value + managers.player:body_armor_skill_addend(name) * tweak_data.gui.stats_present_multiplier) *
+			           managers.player:body_armor_skill_multiplier(name) - base_stats[stat.name].value
+			}
 
 		elseif stat.name == "health" then
 			local base = tweak_data.player.damage.HEALTH_INIT
-			local mod = managers.player:health_skill_addend()
-			base_stats[stat.name] = { value = (base + mod) * tweak_data.gui.stats_present_multiplier }
-			skill_stats[stat.name] = { value = base_stats[stat.name].value * managers.player:health_skill_multiplier() - base_stats[stat.name].value }
+			local mod = managers.player:health_skill_addend() * tweak_data.gui.stats_present_multiplier
+			base_stats[stat.name] = { value = base * tweak_data.gui.stats_present_multiplier }
+			skill_stats[stat.name] = { value = base_stats[stat.name].value * managers.player:health_skill_multiplier() + mod - base_stats[stat.name].value }
 
 		elseif stat.name == "concealment" then
 			base_stats[stat.name] = { value = managers.player:body_armor_value("concealment", upgrade_level) }

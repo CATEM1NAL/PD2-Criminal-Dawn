@@ -1,4 +1,4 @@
-if Global.CrimDawn.data.game.seed and Global.CrimDawn.data.x.time_upgrades > CrimDawn.MaxTimeItems() then return end
+if CrimDawn.InfiniteTime() then return end
 
 -- Move tickers down to not overlap PONR timer
 Hooks:PostHook(HUDAssaultCorner, "init", "CrimDawn_HUDCorner", function(self)

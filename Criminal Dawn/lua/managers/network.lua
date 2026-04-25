@@ -1,12 +1,13 @@
-local FileIdent = "network"
+local FileIdent = "Network"
 
 -- Assign matchmaking key
 if Global.CrimDawn.data.game.seed then
-  NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
-  NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = Global.CrimDawn.data.game.seed
+  local key = Global.CrimDawn.data.game.seed .. "_" .. Global.CrimDawn.data.game.slot
+  NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = key
+  NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = key
 else
-  NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "NO ARCHIPELAGO SEED FOUND"
-  NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = "NO ARCHIPELAGO SEED FOUND"
+  NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "NO SEED FOUND"
+  NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = "NO SEED FOUND"
 end
 
 CrimDawn.Log(FileIdent, "Matchmaking key: " .. NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY)
@@ -18,9 +19,13 @@ NetworkHelper:AddReceiveHook("CrimDawn_HeistCount", "CrimDawn_SyncHeistCount", f
 
   if HostHeistsWon > Global.CrimDawn.data.game.heists_won then
     Global.CrimDawn.data.game.heists_won = HostHeistsWon
-    if Global.CrimDawn.data.game.heists_won == Global.CrimDawn.data.game.run_length then
-      CrimDawn.Log("Conglaturation !!!\nYou have completed a great game.\nAnd prooved the justice of our culture.\nNow go and rest our heroes !")
-    end
+  else return end
+
+  if Global.CrimDawn.data.game.heists_won == Global.CrimDawn.data.game.run_length then
+    CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_victory"))
+    DelayedCalls:Add("CrimDawn_VictoryTease", 3, function()
+      CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_victory2"))
+    end)
   end
 
   CrimDawn:WriteSave(FileIdent, "received heist number [" .. data .. "] from host")
@@ -61,14 +66,22 @@ if NetworkHelper:IsClient() then -- Disable PONR (overrides/peer_sync.lua)
 
     -- Give points
     if xPerPoint == "-1" and not CrimDawn.ScoreCap(tonumber(points)) then
-      CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
-        .. "\n+" .. tonumber(points) .. " from " .. reason .. ".\n"
-        .. CrimDawn.ScoreNeeded() .. " more for next check.")
+      CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_score_gain", {
+        SCORE_ICON = "",
+        SCORE = Global.CrimDawn.data.game.score,
+        POINTS = tonumber(points),
+        REASON = managers.localization:text("crimdawn_score_" .. reason),
+        TO_NEXT = CrimDawn.ScoreNeeded()
+      }))
 
     elseif not CrimDawn.ScoreCap(tonumber(points)) then
-      CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score
-        .. "\n+1 per " .. xPerPoint .. " " .. reason .. ".\n"
-        .. CrimDawn.ScoreNeeded() .. " more for next check.")
+      CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_fscore_gain", {
+        SCORE_ICON = "",
+        SCORE = Global.CrimDawn.data.game.score,
+        POINTS = xPerPoint,
+        REASON = managers.localization:text("crimdawn_score_" .. reason),
+        TO_NEXT = CrimDawn.ScoreNeeded()
+      }))
     end
 
     CrimDawn:WriteSave(FileIdent, "received score [" .. points .. "] from host")

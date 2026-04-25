@@ -1,5 +1,5 @@
 if CrimDawn then return end
-local FileIdent = "setup"
+local FileIdent = "Setup"
 CrimDawn = {}
 
 function CrimDawn:Init()
@@ -26,80 +26,93 @@ function CrimDawn:Init()
                  cap_reached = false,
                  upg_queue = {} }
 
+  -- Helper functions
   function self.Log(FileIdent, LogMessage)
     log("[DAWN>" .. FileIdent .. "] " .. LogMessage)
-  end -- Yes, this WILL crash without a FileIdent. This is intentional, otherwise I'd get lazy
+  end -- Yes, this WILL crash without a FileIdent. This is intentional.
 
   function self.ScoreNeeded()
     local n = math.ceil((math.sqrt(1 + 8 * (Global.CrimDawn.data.game.score) - 1) / 2))
     return (n * (n + 1) / 2) - math.floor(Global.CrimDawn.data.game.score)
   end
 
-  function self.MaxTimeItems()
-    if Global.CrimDawn.data.game.seed then
-      if Global.CrimDawn.data.game.run_length > 0 then
-        return math.floor((Global.CrimDawn.data.game.run_length * 15) / (Global.CrimDawn.data.game.timer_strength / 60) - 0.5)
-      else return math.floor(100 / (Global.CrimDawn.data.game.timer_strength / 60) - 0.5) end
-    end
-  return 121200 end -- This can be any non-0 value, I chose my birthday
+  function self.GoMode()
+  return Global.CrimDawn.data.game.progression_items >= Global.CrimDawn.data.game.max_progression_items end
 
-  function self.DiffScale(ignore_settings)
+  function self.InfiniteTime()
+  return Global.CrimDawn.data.game.inf_time and CrimDawn.GoMode() end
+
+  function self.TimeFromUpgrade()
+    local TimePerUpgrade = { 6, 18, 26, 35, 44, 47, 106 }
     local RunLength = Global.CrimDawn.data.game.run_length
-    if RunLength == 0 then RunLength = 6 end
-    local MaxDiff = ignore_settings and Global.CrimDawn.data.game.run_length or CrimDawn.SettingsData.diff_cap
-    local DiffItemCount = Global.CrimDawn.data.x.bots +
-                          Global.CrimDawn.data.x.permaskills +
-                          Global.CrimDawn.data.x.permaperks +
-                          Global.CrimDawn.data.x.skills +
-                          Global.CrimDawn.data.x.perks +
-                          Global.CrimDawn.data.x.lives
+    if RunLength == 0 then RunLength = 7 end
+  return TimePerUpgrade[RunLength] end
 
-    return math.max(math.floor((DiffItemCount - 1) / (Global.CrimDawn.data.game.max_diff_items / MaxDiff)), 0)
+  function self.ChatNotify(message)
+    if not managers.chat then return end
+    managers.chat:_receive_message(ChatManager.GAME, "CRIMINAL DAWN", message, Global.CrimDawn.archicolours.orange)
   end
 
-  -- Lookup Tables (unimplemented)
-  local DiffTables = {
-    { -- Easy (End on Very Hard)
-      { 2, 2, 3, 3, 3, 4 },
-      { 2, 2, 3, 3, 4, 4 },
-      { 2, 3, 3, 3, 4, 4 },
-      { 3, 3, 3, 4, 4, 4 },
-      { 3, 3, 4, 4, 4, 4 },
-      { 3, 4, 4, 4, 4, 4 }
-    },
-    { -- Normal (End on Overkill)
-      { 2, 2, 3, 3, 4, 5 },
-      { 2, 3, 3, 4, 4, 5 },
-      { 3, 3, 4, 4, 5, 5 },
-      { 3, 4, 4, 5, 5, 5 },
-      { 4, 4, 4, 5, 5, 5 },
-      { 4, 4, 5, 5, 5, 5 }
-    },
-    { -- Hard (End on Mayhem)
-      { 2, 3, 4, 4, 5, 6 },
-      { 3, 4, 4, 5, 5, 6 },
-      { 3, 4, 5, 5, 6, 6 },
-      { 4, 4, 5, 5, 6, 6 },
-      { 4, 5, 5, 6, 6, 6 },
-      { 4, 5, 6, 6, 6, 6 }
-    },
-    { -- Overkill (End on Death Wish)
-      { 2, 3, 4, 5, 6, 7 },
-      { 3, 4, 4, 5, 6, 7 },
-      { 3, 4, 4, 5, 6, 7 },
-      { 4, 4, 5, 6, 7, 7 },
-      { 4, 5, 6, 7, 7, 7 },
-      { 5, 6, 7, 7, 7, 7 }
-    },
-    { -- Death Sentence (Death Sentence)
-      { 2, 3, 4, 5, 5, 8 },
-      { 3, 3, 4, 5, 6, 8 },
-      { 3, 4, 5, 6, 6, 8 },
-      { 4, 5, 6, 6, 6, 8 },
-      { 5, 6, 6, 6, 6, 8 },
-      { 6, 6, 6, 6, 6, 8 }
-    }
-  }
+  function self:WriteSave(FileIdent, SaveReason)
+    if not self.CorrectSaveLoaded() then return end
+    io.save_as_json(Global.CrimDawn.data, self.SaveFile)
+    self.Log(FileIdent, "Saved " .. self.SaveFile .. " (" .. SaveReason .. ")")
+  end -- Yes, this WILL crash without a FileIdent or SaveReason. This is intentional.
+
+  function self.CorrectSaveLoaded()
+    local SaveSeed, SaveSlot = Global.CrimDawn.data.game.seed, Global.CrimDawn.data.game.slot
+    local ClientSeed, ClientSlot = CrimDawnClient.data.seed, CrimDawnClient.data.slot
+    if SaveSeed == ClientSeed and SaveSlot == ClientSlot then return true
+    else CrimDawn.Log(FileIdent, "Save is invalid!") return false end
+  end
+
+  function self:RunReset(FileIdent)
+    Global.CrimDawn.data.upgrades = {}
+
+    -- Generate new random upgrades
+    self:RandomUpgrade(Global.CrimDawn.data.x.skills, "skills")
+    self:RandomUpgrade(Global.CrimDawn.data.x.perks, "perks")
+    self:RandomUpgrade(Global.CrimDawn.data.x.stats, "stats")
+    
+    local DeployableUpgrades = 0
+    for _, deployable in ipairs(Global.CrimDawn.tables.etc.deployables) do
+      if Global.CrimDawn.data.unlocks[deployable] then DeployableUpgrades = DeployableUpgrades + 1 end
+    end
+
+    self:RandomUpgrade(DeployableUpgrades, "deployable")
+
+    -- Prevent deathlink loopback, setup next run
+    Global.CrimDawn.data.game.deathlink_time = os.time() + 10
+    if NetworkHelper:IsHost() then
+      Global.CrimDawn.data.game.run = Global.CrimDawn.data.game.run + 1
+      Global.CrimDawn.data.game.ponr = false
+      Global.CrimDawn.data.game.previous_run = {}
+
+      local skip = { vit = true, deep = true, cd_28stores = true }
+      for _, heist in ipairs(Global.CrimDawn.data.game.heists) do
+        if not skip[heist] then Global.CrimDawn.data.game.previous_run[heist] = true end
+      end
+
+      Global.CrimDawn.data.game.heists = {}
+    end
+
+    Global.CrimDawn.data.x.lives = Global.CrimDawn.data.x.max_lives
+
+    self:WriteSave(FileIdent, "run failed")
+  end
+
+  -- Difficulty scaling
+  function self.DiffScale(ignore_settings, max_value)
+    local RunLength = Global.CrimDawn.data.game.run_length
+    if RunLength == 0 then RunLength = 6 end
+    if max_value then RunLength = max_value end
+
+    local MaxDiff = ignore_settings and Global.CrimDawn.data.game.run_length or CrimDawn.SettingsData.diff_cap
+    local ItemCount = Global.CrimDawn.data.game.progression_items
+    local MaxItems = Global.CrimDawn.data.game.max_progression_items
+
+    return math.max(math.floor((ItemCount - 1) / (MaxItems / MaxDiff)), 0)
+  end
 
   local function CalculateDiff(offset)
     local DiffCap = CrimDawn.SettingsData.diff_cap
@@ -117,71 +130,62 @@ function CrimDawn:Init()
     else return math.min(CalculateDiff(0), CalculateDiff(1) + 1) end
   end
 
-  function self.ScoreCap(points)
-    if not Global.CrimDawn.data.game.score_cap then return true end
+  -- Score cap
+  function self.CalculateScoreCap()
+    if not Global.CrimDawn then return 0 end
+    local state = Global.CrimDawn.data.game
 
+    for i = 1, state.max_score_checks do
+      local ReqItems = (i - 1) * state.max_progression_items / state.max_score_checks
+      if ReqItems > state.progression_items + 1 then return (i - 1) * i / 2 end
+    end
+
+  return state.max_score_checks * (state.max_score_checks - 1) / 2 end
+
+  function self.IsScoreCapped(points)
     local NewScore = Global.CrimDawn.data.game.score + points
-    if NewScore >= Global.CrimDawn.data.game.score_cap then CrimDawnClient:PollTimeUpgrades() end
-    -- Might seem redundant, but we only want to check if upgrades were received IF we are over the score cap before
-    -- we continue. Otherwise we'd be polling the client EVERY SINGLE TIME we get a point, which feels very wasteful
-    if NewScore >= Global.CrimDawn.data.game.score_cap then
-      Global.CrimDawn.data.game.score = Global.CrimDawn.data.game.score_cap
+    if NewScore >= CrimDawn.CalculateScoreCap() then CrimDawnClient:PollProgression() end
+    local ScoreCap = CrimDawn.CalculateScoreCap()
+    if NewScore >= ScoreCap then
+      Global.CrimDawn.data.game.score = ScoreCap
       CrimDawn.state.cap_reached = true
 
-      if Utils:IsInGameState() then
-        if Global.CrimDawn.data.x.time_upgrades >= CrimDawn.MaxTimeItems() then
-          CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score_cap .. " (score cap reached).")
-        else
-          CrimDawn.ChatNotify(" " .. Global.CrimDawn.data.game.score_cap .. " (score cap reached)."
-                           .. "\nTime Bonus required to increase cap.")
-        end
-      end return true
+      local hint = managers.localization:text("crimdawn_chat_score_cap_hint")
+      if CrimDawn.GoMode() then hint = "" end
+
+      CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_score_capped", {
+        SCORE_ICON = "",
+        SCORE_CAP = ScoreCap,
+        HINT = hint
+      }))
+      return true
+
     else Global.CrimDawn.data.game.score = NewScore return false end
   end
 
-  function self.ChatNotify(message)
-    managers.chat:_receive_message(
-      ChatManager.GAME,
-      "CRIMINAL DAWN",
-      message,
-      Global.CrimDawn.archicolours.orange
-    )
-  end
-
-  function self.CorrectSaveLoaded()
-    local SaveSeed, SaveSlot = Global.CrimDawn.data.game.seed, Global.CrimDawn.data.game.slot
-    local ClientSeed, ClientSlot = CrimDawnClient.data.seed, CrimDawnClient.data.slot
-    if SaveSeed == ClientSeed and SaveSlot == ClientSlot then return true
-    else CrimDawn.Log(FileIdent, "Save is invalid!") return false end
-  end
-
+  -- Wipe save data
   function self:Reset()
     Global.CrimDawn.data = {
       upgrades = {},
       unlocks = {},
+
       x = {
-        bots = 0, time_upgrades = 0,
-        skills = 0, permaskills = 0, perks = 0, permaperks = 0, stats = 0,
-        drill = 0, lives = 0, saws = 0,
-        coins = 0
+        bots = 0, skills = 0, permaskills = 0, perks = 0, permaperks = 0,
+        max_lives = 1, lives = 1, stats = 0, saws = 0, coins = 0
       },
+
       game = {
-        seed = false, slot = false, max_diff = false, max_diff_items = false, timer_strength = false, run_length = 0,
-        score = 0, f_score = 0, score_cap = false, ponr = false, deathlink = os.time(),
-        run = 1, heists_won = 0, heists = {}, cash = 0, goal = false, campaign = false
+        seed = false, slot = false, max_progression_items = false, run_length = 0, inf_time = false,
+        score = 0, f_score = 0, max_score_checks = 0, ponr = false, deathlink = false, previous_run = {},
+        run = 1, heists_won = 0, heists = {}, cash = 0, goal = false, campaign = false, progression_items = 0
       },
+
       chat = { message = "", timestamp = 0 },
       safehouse = {}
     }
   end
 
   if Global.CrimDawn then Global.CrimDawn.data.chat = { message = "", timestamp = 0 } end
-
-  function self:WriteSave(FileIdent, SaveReason)
-    if not self.CorrectSaveLoaded() then return end
-    io.save_as_json(Global.CrimDawn.data, self.SaveFile)
-    self.Log(FileIdent, "Saved " .. self.SaveFile .. " (" .. SaveReason .. ")")
-  end -- Yes, this WILL crash without a FileIdent or SaveReason. This is intentional, otherwise I'd get lazy
 
   dofile(self.ModPath .. "lua/archipelago/heist_selector.lua")
   dofile(self.ModPath .. "lua/archipelago/unlock_generator.lua")
@@ -199,19 +203,19 @@ local function SetColours()
 
   tweak_data.peer_vector_colors[1] = player1
   tweak_data.chat_colors[1] = player1
-  tweak_data.preplanning_peer_colors[1] = player1
+  tweak_data.preplanning_peer_colors[1] = Global.CrimDawn.archicolours.blue_alt
 
   tweak_data.peer_vector_colors[2] = player2
   tweak_data.chat_colors[2] = player2
-  tweak_data.preplanning_peer_colors[2] = player2
+  tweak_data.preplanning_peer_colors[2] = Global.CrimDawn.archicolours.pink_alt
 
   tweak_data.peer_vector_colors[3] = player3
   tweak_data.chat_colors[3] = player3
-  tweak_data.preplanning_peer_colors[3] = player3
+  tweak_data.preplanning_peer_colors[3] = Global.CrimDawn.archicolours.red_alt
 
   tweak_data.peer_vector_colors[4] = player4
   tweak_data.chat_colors[4] = player4
-  tweak_data.preplanning_peer_colors[4] = player4
+  tweak_data.preplanning_peer_colors[4] = Global.CrimDawn.archicolours.yellow_alt
 
   tweak_data.peer_vector_colors[5] = team_ai
   tweak_data.chat_colors[5] = team_ai
@@ -233,23 +237,38 @@ if Global.CrimDawn then SetColours() end
 if Global.CrimDawn then return end
 Global.CrimDawn = {
   tables = {},
+
   archicolours = {
     green = Color(255, 117, 194, 117) / 255,
+    green_alt = Color(255, 43, 194, 43) / 255,
+
     blue = Color(255, 118, 126, 189) / 255,
+    blue_alt = Color(255, 66, 83, 189) / 255,
+
     pink = Color(255, 202, 148, 194) / 255,
+    pink_alt = Color(255, 202, 89, 194) / 255,
+
     red = Color(255, 201, 118, 130) / 255,
+    red_alt = Color(255, 201, 41, 66) / 255,
+
     orange = Color(255, 217, 160, 125) / 255,
+    orange_alt = Color(255, 217, 160, 56) / 255,
+
     yellow = Color(255, 238, 227, 145) / 255,
+    yellow_alt = Color(255, 238, 227, 50) / 255
   }
 }
 
 function Global.CrimDawn:Init()
   CrimDawn.Log(FileIdent, "Attempting to load save file...")
   self.data = io.load_as_json(CrimDawn.SaveFile)
-  if not self.data then CrimDawn:Reset() end
-  self.data.game.deathlink = os.time()
 
-  self.next_point = 100 + (self.data.game.score - self.data.game.score % 100)
+  if not self.data then
+    CrimDawn:Reset()
+    CrimDawnClient:InitWorld()
+  end
+
+  self.data.game.deathlink_time = os.time()
 
   dofile(CrimDawn.ModPath .. "lua/tables/heists.lua")
   dofile(CrimDawn.ModPath .. "lua/tables/upgrades.lua")
@@ -272,5 +291,8 @@ end
 -- Background replacements
 DB:create_entry(Idstring("texture"), Idstring("guis/textures/loading/loading-bg"), CrimDawn.ModPath .. "assets/bg/loading.texture")
 DB:create_entry(Idstring("texture"), Idstring("guis/textures/pd2/menu_backdrop/bd_baselayer"), CrimDawn.ModPath .. "assets/bg/briefing.texture")
+
+-- Drill
+DB:create_entry(Idstring("texture"), Idstring("guis/textures/drill_screen_background"), CrimDawn.ModPath .. "assets/drill_screen_background.texture")
 
 Global.CrimDawn:Init()

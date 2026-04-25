@@ -1,5 +1,6 @@
 local FileIdent = "safehouse"
 
+Hooks:OverrideFunction(CustomSafehouseManager, "add_coins_ingore_locked", function() end)
 Hooks:OverrideFunction(CustomSafehouseManager, "give_upgrade_points", function() end)
 Hooks:OverrideFunction(CustomSafehouseManager, "attempt_give_initial_coins", function() end)
 Hooks:OverrideFunction(CustomSafehouseManager, "save", function() end)
@@ -48,6 +49,7 @@ local function HighestTierUnlocked()
   if RoomsUpgraded() % 23 == 0 and SafehouseTier ~= MaxSafehouseTier then
     SafehouseTier = SafehouseTier + 1
   end
+
 return SafehouseTier end
 
 local function SetTierCap()
@@ -71,6 +73,11 @@ Hooks:PostHook(CustomSafehouseManager, "purchase_room_tier", "CrimDawn_Safehouse
   SetTierCap()
 end)
 
+Hooks:OverrideFunction(CustomSafehouseManager, "add_coins", function(self, amount, reason)
+  if reason ~= "archipelago" then return end
+  Global.custom_safehouse_manager.total = Application:digest_value(self:coins() + amount, true)
+end)
+
 Hooks:OverrideFunction(CustomSafehouseManager, "load", function(self)
   for _, data in ipairs(tweak_data.safehouse.rooms) do
     CurrentRoom = Global.custom_safehouse_manager.rooms[data.room_id]
@@ -85,7 +92,7 @@ Hooks:OverrideFunction(CustomSafehouseManager, "load", function(self)
     end
   end
 
-  self:add_coins((Global.CrimDawn.data.x.coins * 3) - RoomsUpgraded())
+  self:add_coins((Global.CrimDawn.data.x.coins * 3) - RoomsUpgraded(), "archipelago")
 end)
 
 Hooks:PostHook(CustomSafehouseManager, "init", "CrimDawn_SafehouseInit", function()

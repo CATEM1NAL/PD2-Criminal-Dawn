@@ -1,6 +1,7 @@
 <mod name="Criminal Dawn">
 	<Localization directory="loc">
 		<loc file="en/menu.json" language="english"/>
+		<loc file="en/chat.json" language="english"/>
 		<loc file="en/jobs.json" language="english"/>
 		<loc file="en/ponr.json" language="english"/>
 		<loc file="en/upgrades.json" language="english"/>

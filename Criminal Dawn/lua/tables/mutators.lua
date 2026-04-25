@@ -5,7 +5,11 @@ Global.mutators._peers_notified = {}
 Global.mutators._peers_ready = {}
 
 local MutatorTable = { "EnemyDamage", "EnemyHealth", "ShotgunTweak", "ZealSniper", "Heavies" }
-local Mutators = CrimDawn.DiffIndex()
+
+local DefaultMutators = { CloakerArrest = true }
+managers.mutators:set_enabled("MutatorCloakerArrest")
+
+local Mutators = #Global.CrimDawn.data.game.heists + CrimDawn.DiffIndex() - 2
 
 if CrimDawn.DiffIndex() >= 3 then -- Hard
   table.insert(MutatorTable, "TaserOvercharge")
@@ -34,24 +38,25 @@ if CrimDawn.SettingsData and CrimDawn.SettingsData.mutator_mode then
 
   if MutatorMode == 1 then Mutators = 0
   elseif MutatorMode == 2 then Mutators = #Global.CrimDawn.data.game.heists
-  elseif MutatorMode == 4 then Mutators = (Global.CrimDawn.data.game.max_diff - 1) - CrimDawn.DiffScale()
+  elseif MutatorMode == 4 then Mutators = Global.CrimDawn.data.game.max_diff - CrimDawn.DiffScale() - 3
   end
 end
 
 CrimDawn.Log(FileIdent, "Generating " .. Mutators .. " mutators:")
 
-local ActiveMutators = {}
 for i = 1, Mutators do
   if next(MutatorTable) then
     local CurrentIndex = math.random(#MutatorTable)
     local CurrentMutator = MutatorTable[CurrentIndex]
-    
+    local state = true
+
     if CurrentMutator then
-      table.insert(ActiveMutators, "Mutator" .. CurrentMutator)
-      managers.mutators:set_enabled("Mutator" .. CurrentMutator)
+      if DefaultMutators[CurrentMutator] then activate = false end
+      managers.mutators:set_enabled("Mutator" .. CurrentMutator, state)
       CrimDawn.Log(FileIdent, CurrentMutator)
       table.remove(MutatorTable, CurrentIndex)
     end
+
   end
 end
 
