@@ -70,7 +70,7 @@ if NetworkHelper:IsClient() then -- Disable PONR (overrides/peer_sync.lua)
     local points, xPerPoint, reason = data:match("([^,]+),([^,]+),([^,]+)")
 
     -- Give points
-    if xPerPoint == "-1" and not CrimDawn.ScoreCap(tonumber(points)) then
+    if xPerPoint == "-1" and not CrimDawn.IsScoreCapped(tonumber(points)) then
       CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_score_gain", {
         SCORE_ICON = "",
         SCORE = Global.CrimDawn.data.game.score,
@@ -79,7 +79,7 @@ if NetworkHelper:IsClient() then -- Disable PONR (overrides/peer_sync.lua)
         TO_NEXT = CrimDawn.ScoreNeeded()
       }))
 
-    elseif not CrimDawn.ScoreCap(tonumber(points)) then
+    elseif not CrimDawn.IsScoreCapped(tonumber(points)) then
       CrimDawn.ChatNotify(managers.localization:text("crimdawn_chat_fscore_gain", {
         SCORE_ICON = "",
         SCORE = Global.CrimDawn.data.game.score,
