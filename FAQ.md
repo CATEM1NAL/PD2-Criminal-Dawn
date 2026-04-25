@@ -158,7 +158,7 @@ increases towards the cap as you progress through a run and receive items.
 ## I don't like the mutators.
 Go to `Options > Mod Options > Criminal Dawn` in-game and you can change the mutator mode. There are
 four options:
-- **Off:** No random mutators will generate. Friendly Fire (Hard+) and Winters' Shields (Death Wish+) will still be enabled.
+- **Off:** No random mutators will generate. Cloaker Arrest, Friendly Fire (Hard+), and Winters' Shields (Death Wish+) will still be enabled.
 - **On:** Number of mutators will scale with heist number (1 mutator for first heist, 2 for second heist, etc).
 - **On + Scaling (default):** Number of mutators will also scale with items received in the same way as difficulty.
 - **Inverted Scaling:** Number of mutators will start maxed out (based on difficulty setting), but _decrease_ as you receive items.
