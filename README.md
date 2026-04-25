@@ -23,25 +23,15 @@ only valid in the 1st of 6 heist tiers for example.
 Beating a few heists in a row sounds easy, right?
 
 At the start of the game, each run has a 10 minute point of no return timer that begins counting down after masking up. This timer
-persists between heists, capping the length of each run. You can receive items that increase the timer by 10 minutes up
-to a cap of 90 minutes (for 6 heists).
-
-There are some APWorld settings that tweak the timer for different use cases (shorter or longer games). There's also a setting
-to add an additional time bonus which permanently disables the timer. This is the default setting, but if you're okay with potentially
-failing a run due to running out of time even after unlocking everything, I would recommend turning it off. The pressure the timer gives
-you during the final few heists is *extremely* exhilarating.
+persists between heists, capping the length of each run. As you receive progression items the timer extends and your drill speed increases,
+allowing you to get further than before.
 
 ## How do I send checks?
-Score! Pretty much everything you do gives points that progress towards sending a check. Securing bags and Gage packages gives a point,
-stealing 100 loose cash or getting 100 kills gives a point, finishing a day of a heist gives a point, and finishing a full heist gives
-double points. The number of points you get scales with how far through the run you are and how many items you have received, and
-there's also a hard score cap that is increased through the time upgrades - this means you can't just slowly and painfully grind out *every
-single check* from the very first heist before receiving any items. Even if that *was* possible, the later checks require so many points
-that you'd legitimately be better off just playing the game normally anyway.
-
-There are additional checks locked behind upgrading the safe house.
-
-Finally, there are checks for finishing each heist number for the first time. Right now these are set to always be progression items.
+Score! Pretty much everything you do gives points that progress towards sending a check. Securing bags and packages gives a point,
+stealing 100 loose cash or getting 100 kills gives a point, and finishing heists gives double points. The number of points you get
+scales with how far through the run you are and how many progression items you have received, with hard score caps that increase as you
+receive progression items - this means you can't just slowly and painfully grind out *every single check* from the very first heist before
+receiving anything. There are also checks locked behind upgrading the safe house, and checks for reaching new heist milestones.
 
 ## Is this multiplayer compatible?
 There wouldn't be much point if it wasn't! Ignoring the obvious argument I could make about how Archipelago is inherently multiplayer
