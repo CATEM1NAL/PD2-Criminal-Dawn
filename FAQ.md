@@ -83,9 +83,9 @@ Finally, you also send checks when you reach a new heist milestone (heist 1 comp
 completed, etc). These are always progression items.
 
 ## How do I join an in-game lobby?
-1. Connect to the multiworld using the Criminal Dawn client in the Archipelago launcher.
-2. Launch PAYDAY 2 (or restart it if it was already open) and click "Load Client Data".
-3. You can now connect to any other lobby in the same multiworld!
+1. Connect to the same multiworld slot using the Criminal Dawn client in the Archipelago launcher.
+2. Launch PAYDAY 2.
+3. You can now play with anyone else on the same slot!
 
 ## How do I see my current skills/perks/stat boosts?
 Clicking skills or perks in the inventory will open the upgrade menu.
@@ -107,10 +107,6 @@ perma-skill allows you to bag bodies and the third perma-skill allows you to int
 I was leaning into PAYDAY 2's playing card motif, so the perks and skills add up to 21 each.
 
 ## Are there any core gameplay changes I should know about?
-- Friendly fire is enabled on Hard+, with the damage multiplier increasing by 100% on Very Hard and Overkill (total of 300% team damage).
-- Shields are replaced with Winters shields on Death Wish+.
-
-Coming in v0.6.0 (not currently live):
 - **Kickstarter** is guaranteed to repair drills on melee (50% chance in vanilla).
 - If you get the associated skill, all drills are guaranteed to be auto restarters (max 30% chance in vanilla).
 - **Drill Sawgeant** also applies to computer hacks.
