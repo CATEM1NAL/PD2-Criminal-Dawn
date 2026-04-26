@@ -138,7 +138,7 @@ function CrimDawnClient:PollData()
     CrimDawn.Log(FileIdent, "Permaskills: " .. self.data["Perma-Skill"])
     Global.CrimDawn.data.x.permaskills = self.data["Perma-Skill"]
     ItemLog = ItemLog .. managers.localization:text("crimdawn_client_new_item", {
-      ITEM = "Perma-Skill",
+      ITEM = "perma-skill",
       CURRENT = self.data["Perma-Skill"],
       TOTAL = 7
     })
@@ -150,7 +150,7 @@ function CrimDawnClient:PollData()
     CrimDawn.Log(FileIdent, "Permaperks: " .. self.data["Perma-Perk"])
     Global.CrimDawn.data.x.permaperks = self.data["Perma-Perk"]
     ItemLog = ItemLog .. managers.localization:text("crimdawn_client_new_item", {
-      ITEM = "Perma-Perk",
+      ITEM = "perma-perk",
       CURRENT = self.data["Perma-Perk"],
       TOTAL = 7
     })
@@ -162,7 +162,7 @@ function CrimDawnClient:PollData()
     CrimDawn.Log(FileIdent, self.data["Extra Bot"] .. " bots")
     Global.CrimDawn.data.x.bots = self.data["Extra Bot"]
     ItemLog = ItemLog .. managers.localization:text("crimdawn_client_new_item", {
-      ITEM = "Extra Bot",
+      ITEM = "extra bot",
       CURRENT = self.data["Extra Bot"],
       TOTAL = 3
     })
@@ -348,7 +348,7 @@ function CrimDawnClient:PollData()
 
     Global.CrimDawn.data.x.skills = self.data["Skill"]
     ItemLog = ItemLog .. managers.localization:text("crimdawn_client_new_item", {
-      ITEM = "Skill",
+      ITEM = "skill",
       CURRENT = self.data["Skill"],
       TOTAL = 13
     })
@@ -362,7 +362,7 @@ function CrimDawnClient:PollData()
 
     Global.CrimDawn.data.x.perks = self.data["Perk"]
     ItemLog = ItemLog .. managers.localization:text("crimdawn_client_new_item", {
-      ITEM = "Perk",
+      ITEM = "perk",
       CURRENT = self.data["Perk"],
       TOTAL = 13
     })
@@ -376,7 +376,7 @@ function CrimDawnClient:PollData()
 
     Global.CrimDawn.data.x.stats = self.data["Stat Boost"]
     ItemLog = ItemLog .. managers.localization:text("crimdawn_client_new_item", {
-      ITEM = "Stat Boost",
+      ITEM = "stat boost",
       CURRENT = self.data["Stat Boost"],
       TOTAL = "??"
     })

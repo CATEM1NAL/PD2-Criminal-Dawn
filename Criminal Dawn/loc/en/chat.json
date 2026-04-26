@@ -24,5 +24,5 @@
   "crimdawn_client_new_item" : "Received $ITEM ($CURRENT/$TOTAL)!\n",
   "crimdawn_client_first_saw" : "Unlocked an OVE9000 saw!\n",
   "crimdawn_client_second_saw" : "Unlocked second OVE9000 saw!\n",
-  "crimdawn_client_coins" : "Received $NUM coins!",
+  "crimdawn_client_coins" : "Received $NUM coins!\n",
 }

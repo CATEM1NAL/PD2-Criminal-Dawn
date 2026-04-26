@@ -1,5 +1,5 @@
 Global.CrimDawn.tables.heists = {
-  dlc = { "watchdogs_wrapper", "rat", "election_day", "firestarter", "framing_frame", "hox" },
+  dlc = { "watchdogs_wrapper", "rat", "election_day", "firestarter", "framing_frame", "hox", "alex" },
   -- Used for campaign ownership check
 
   -- Small jobs, loot and leave

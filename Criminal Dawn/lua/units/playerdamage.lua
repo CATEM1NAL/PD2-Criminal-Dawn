@@ -144,7 +144,7 @@ Hooks:OverrideFunction(PlayerDamage, "damage_bullet", function(self, attack_data
 	end
 
 	if dodge_value >= 1 then
-	  --log(dodge_value .. " we dodged! Yippee!")
+	  log(dodge_value .. " we dodged! Yippee!")
 	  self._dodge_stack = dodge_value - 1
 	  self._entropy = self._entropy + 1
 		if attack_data.damage > 0 then self:_send_damage_drama(attack_data, 0) end
@@ -179,7 +179,6 @@ Hooks:OverrideFunction(PlayerDamage, "damage_bullet", function(self, attack_data
 	attack_data.damage = pm:modify_value("damage_taken", attack_data.damage, attack_data)
 
 	if self._bleed_out then self:_bleed_out_damage(attack_data) return end
-	if not attack_data.ignore_suppression and not self:is_suppressed() then return end
 
 	self:mutator_update_attack_data(attack_data)
 	self:_check_chico_heal(attack_data)

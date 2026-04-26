@@ -60,10 +60,8 @@ if NetworkHelper:IsClient() then -- Disable PONR (overrides/peer_sync.lua)
 
   -- Syncing score (score_handler.lua)
   NetworkHelper:AddReceiveHook("CrimDawn_SendPoints", "CrimDawn_ReceivePoints", function(data, sender)
-    if CrimDawn.state.cap_reached then CrimDawnClient:PollTimeUpgrades()
-      if Global.CrimDawn.data.game.score < Global.CrimDawn.data.game.score_cap then
-        CrimDawn.state.cap_reached = false
-      else return end
+    if CrimDawn.state.cap_reached then CrimDawnClient:PollProgression()
+      if CrimDawn.state.cap_reached then return end
     end
 
     CrimDawn.Log(FileIdent, "Received score from host")
