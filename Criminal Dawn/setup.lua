@@ -103,6 +103,8 @@ function CrimDawn:Init()
 
   -- Difficulty scaling
   function self.DiffScale(ignore_settings, max_value)
+    if not Global.CrimDawn.data.game.max_progression_items then return 0 end
+
     local RunLength = Global.CrimDawn.data.game.run_length
     if RunLength == 0 then RunLength = 6 end
     if max_value then RunLength = max_value end
