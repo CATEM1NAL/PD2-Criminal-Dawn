@@ -35,6 +35,10 @@ Score Checks: 64
 Safe House Tiers: 1  
 Score Checks: 77
 
+## Is it safe for me to update the mod in the middle of a multiworld?
+Hotfixes will always be safe to download, but minor releases will be incompatible (e.g.
+updating to 0.6.x while playing a world created on 0.5.x will likely crash).
+
 ## Does this include DLC?
 All DLC that you verifiably own is accounted for by the mod, and it automatically adds the corresponding
 content into the appropriate pools.
