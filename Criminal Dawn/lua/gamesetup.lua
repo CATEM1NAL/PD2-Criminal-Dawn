@@ -41,15 +41,6 @@ Hooks:PostHook(GameSetup, "init_finalize", "CrimDawn_GameSetupInit", function()
     mallcrasher = { delay = "on_executed" },
   }
 
-  -- Totally unnecessary Big Bank thermite change
-  if level == "big" then
-    local NextDelay = 150
-    for i = 1, 18 do script["ignite_0" .. i]._values.base_delay = NextDelay
-      TimerTweaks.big["ignite_0" .. i] = "base_delay"
-    end
-    NextDelay = NextDelay * 0.5
-  end -- Still takes 5 minutes total
-
   local TimerMult = math.min(Global.CrimDawn.data.game.progression_items * 2, 99)
   TimerMult = 1 - (TimerMult / 100)
 
