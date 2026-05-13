@@ -15,7 +15,7 @@ This page contains simple answers to common issues or questions you might have.
 9. [Upgrade Menu](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#how-do-i-see-my-current-skillsperksstat-boosts)
 10. [Upgrade Details / Perma-Perks & Perma-Skills](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#how-many-upgrades-do-i-get-in-a-playthrough)
 11. [Gameplay Changes From Vanilla](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#are-there-any-core-gameplay-changes-i-should-know-about)
-12. [Difficulty Option](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#the-mod-is-too-easyhard)
+12. [Difficulty Scaling](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#the-mod-is-too-easyhard)
 13. [Mutator Modes](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#i-dont-like-the-mutators)
 14. [Heist Whitelist](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#i-keep-getting-heist-and-it-sucks)
 15. [Misc. Issues](https://github.com/CATEM1NAL/PD2-Criminal-Dawn/blob/main/FAQ.md#i-keep-getting-heist-and-it-sucks)
