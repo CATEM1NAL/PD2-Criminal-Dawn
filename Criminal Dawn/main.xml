@@ -1,12 +1,7 @@
 <mod name="Criminal Dawn">
-	<Localization directory="loc">
-		<loc file="en/menu.json" language="english"/>
-		<loc file="en/chat.json" language="english"/>
-		<loc file="en/jobs.json" language="english"/>
-		<loc file="en/ponr.json" language="english"/>
-		<loc file="en/upgrades.json" language="english"/>
-		<loc file="en/overrides.json" language="english"/>
-	</Localization>
+	<localization directory="loc" default_language="english">
+		<loc file="english.yaml" language="english"/>
+	</localization>
 	<narrative id = "cd_28stores" name_id = "heist_cd_28stores_name" contact = "vlad"
 	load_screen = "guis/dlcs/pic/textures/loading/job_fourstores" package = "packages/job_four_stores">
 		<chain>

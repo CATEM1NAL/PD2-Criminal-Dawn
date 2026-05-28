@@ -47,6 +47,8 @@ local TimerTweaks = { big = { start_timer = "time", set_time_normal = "time", se
   flat = { sniper_spawn_loop = "on_executed", heli_loop_restart = "on_executed",
            started = "on_executed", ["helicopter drops bag"] = "on_executed" }, -- Panic Room
   glace = { set_plane_time_after_miss = "time", plane_timer = "timer" }, -- Green Bridge
+  crojob2 = { hacking_TIMER_SET_150 = "time", hacking_TIMER_SET_300 = "time", delay_start_chopper = "on_executed",
+              chopper_normal_TIMER = "on_executed", chopper_better_pilot_TIMER = "on_executed" }, -- Bomb: Dockyard
 
   -- Undercover
   man = { intro_anyways_30s = "on_executed", intro_anyways_40s = "on_executed", intro_anyways_50s = "on_executed",
