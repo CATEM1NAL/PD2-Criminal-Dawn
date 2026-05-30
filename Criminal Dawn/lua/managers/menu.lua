@@ -278,7 +278,17 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
 
     -- Setup next heist
     local NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
+    Utils.PrintTable(Global.CrimDawn.tables.heists.tier4)
 
+    local FoundHeist
+    for _, tier in pairs(Global.CrimDawn.tables.heists) do
+      for _, heist in ipairs(tier) do
+        if heist == NextHeist then FoundHeist = true break end
+      end
+      if FoundHeist then break end
+    end
+
+    assert(FoundHeist, "You don't own the next heist (" .. managers.localization:text("heist_" .. NextHeist) .. ")")
     self:start_job({
       difficulty = tweak_data.difficulties[CrimDawn.DiffIndex()],
       one_down = true,

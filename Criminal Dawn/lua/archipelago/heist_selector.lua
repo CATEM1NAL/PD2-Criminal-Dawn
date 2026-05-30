@@ -83,22 +83,11 @@ function CrimDawn:CampaignHeist(HeistsWon)
   local NextHeist
   if HeistsWon < #campaigns[Global.CrimDawn.data.game.goal] then
     NextHeist = campaigns[Global.CrimDawn.data.game.goal][HeistsWon + 1]
-    log(NextHeist)
-    -- DLC check...
-    local FoundHeist
-    for tier, _ in pairs(Global.CrimDawn.tables.heists) do
-      for _, heist in ipairs(Global.CrimDawn.tables.heists[tier]) do
-        if heist == NextHeist then FoundHeist = true break end
-      end
-    if FoundHeist then break end end
-
-    assert(FoundHeist, "You don't own the next heist (" .. managers.localization:text("heist_" .. NextHeist) .. ")")
     table.insert(Global.CrimDawn.data.game.heists, NextHeist)
 
   else NextHeist = math.random(1, #campaigns[Global.CrimDawn.data.game.goal])
     table.insert(Global.CrimDawn.data.game.heists, NextHeist)
   end
 
-  self.Log(FileIdent, NextHeist)
-  self:WriteSave(FileIdent, "next heist selected")
+  self:WriteSave(FileIdent, "next heist selected [" .. managers.localization:text("heist_" .. NextHeist) .. "]")
 end
