@@ -277,10 +277,7 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
     dofile(CrimDawn.ModPath .. "lua/tables/mutators.lua")
 
     -- Setup next heist
-    local NextHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
-    Utils.PrintTable(Global.CrimDawn.tables.heists.tier4)
-
-    local FoundHeist
+    local NextHeist, FoundHeist = Global.CrimDawn.data.game.heists[#Global.CrimDawn.data.game.heists]
     for _, tier in pairs(Global.CrimDawn.tables.heists) do
       for _, heist in ipairs(tier) do
         if heist == NextHeist then FoundHeist = true break end
@@ -295,7 +292,8 @@ Hooks:PreHook(MenuCallbackHandler, "start_the_game", "CrimDawn_PreStartGame", fu
       job_id = NextHeist
     })
 
-    CrimDawn.Log(FileIdent, "Loading " .. NextHeist .. " on " .. tweak_data.difficulties[CrimDawn.DiffIndex()])
+    CrimDawn.Log(FileIdent, "Loading " .. managers.localization:text("heist_" .. NextHeist) .. " on " ..
+    tweak_data.difficulties[CrimDawn.DiffIndex()])
   end
 
   -- Prevent from running again, otherwise peer mutators become desynced
