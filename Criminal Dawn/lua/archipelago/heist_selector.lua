@@ -31,8 +31,9 @@ function CrimDawn:NextHeist(HeistsWon)
     ValidHeists[tier] = NewTable
   end
 
-  -- If we haven't won yet, prevent pick from next tier
-  if ValidHeists["tier" .. TierIndex] then
+  -- If we haven't won yet, pick from next tier
+  local AlreadyWon = Global.CrimDawn.data.game.heists_won >= Global.CrimDawn.data.game.run_length
+  if not AlreadyWon and ValidHeists["tier" .. TierIndex] then
 
     -- Final Heist overrides
     if Global.CrimDawn.data.game.ponr <= 80 then ValidHeists.tier6 = { "short1", "short2" } -- Tutorials

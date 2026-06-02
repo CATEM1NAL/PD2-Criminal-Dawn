@@ -49,6 +49,17 @@ local TimerTweaks = { big = { start_timer = "time", set_time_normal = "time", se
   hox_3 = { open_timelock_timer = "timer" }, -- Hoxton Revenge
   tag = { normal = "on_executed", h_vhard = "on_executed", ovk = "on_executed", ew_dw = "on_executed", sm = "on_executed" },
 
+  -- Watchdogs day 1
+  watchdogs_1 = { pilot_001 = "on_executed", ["2minuteswait"] = "on_executed", ["1minute"] = "on_executed",
+                  ["30seconds"] = "on_executed", func_sequence_034 = "on_executed", escapeFlyIn = "on_executed",
+                  logic_counter_002 = "on_executed", justBeforeCarComesIn = "on_executed",
+                  logic_link_050 = "on_executed", logic_link_051 = "on_executed", logic_link_052 = "on_executed" },
+  watchdogs_1_night = watchdogs_1,
+
+  watchdogs_2 = { ["150"] = "on_executed", ["120"] = "on_executed", ["60"] = "on_executed", ["30"] = "on_executed" },
+  watchdogs_2_day = watchdogs_2,
+
+  -- Scarface Mansion
   friend = { show_and_fly_in = "on_executed", to_car001 = "on_executed", to_car002 = "on_executed", to_car003 = "on_executed",
              to_car004 = "on_executed", to_car005 = "on_executed", logic_link_013 = "on_executed",
              show_go_to_wp006 = "on_executed", show_go_to_wp007 = "on_executed", show_go_to_wp008 = "on_executed",
@@ -87,8 +98,10 @@ local TimerTweaks = { big = { start_timer = "time", set_time_normal = "time", se
   election_day_3_skip2 = election_day_3,
 
   -- Hotline Miami day 1
-  mia_1 = { hatch_timer_2min = "timer", hatch_timer_3min = "timer",
-            ["90s"] = "time", ["120"] = "time", ["180"] = "time" },
+  mia_1 = { hatch_timer_2min = "timer", hatch_timer_3min = "timer", ["90s"] = "time", ["120"] = "time", ["180"] = "time",
+            Bile_3minutes = "on_executed", Bile_2minutes = "on_executed", Bile_1minutes = "on_executed",
+            Bile_30s_left = "on_executed", bring_in_the_heliflopper = "on_executed", heli_bile_flyin001 = "on_executed",
+            heli_bile_flyin002 = "on_executed", heli_bile_flyin003 = "on_executed" },
 
   -- Heat Street
   run = { func_sequence_034 = "on_executed", func_sequence_033 = "on_executed",

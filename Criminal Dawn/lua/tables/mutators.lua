@@ -13,6 +13,7 @@ local Mutators = #Global.CrimDawn.data.game.heists + CrimDawn.DiffIndex() - 2
 
 if CrimDawn.DiffIndex() >= 3 then -- Hard
   table.insert(MutatorTable, "TaserOvercharge")
+  table.insert(MutatorTable, "EnemyReplacer")
   managers.mutators:set_enabled("MutatorFriendlyFire")
 end
 
@@ -32,9 +33,13 @@ if CrimDawn.DiffIndex() >= 7 then -- Death Wish
   managers.mutators:set_enabled("MutatorShieldPhalanx")
 end
 
+if CrimDawn.DiffIndex() >= 8 then -- Death Sentence
+  managers.mutators:set_enabled("MutatorTitandozers")
+end
+
 if CrimDawn.SettingsData and CrimDawn.SettingsData.mutator_mode then
   MutatorMode = CrimDawn.SettingsData.mutator_mode
-  CrimDawn.Log(FileIdent, "Mutator Mode: " .. MutatorMode)
+  --CrimDawn.Log(FileIdent, "Mutator Mode: " .. MutatorMode)
 
   if MutatorMode == 1 then Mutators = 0
   elseif MutatorMode == 2 then Mutators = #Global.CrimDawn.data.game.heists
@@ -51,7 +56,7 @@ for i = 1, Mutators do
     local state = true
 
     if CurrentMutator then
-      if DefaultMutators[CurrentMutator] then activate = false end
+      if DefaultMutators[CurrentMutator] then state = false end
       managers.mutators:set_enabled("Mutator" .. CurrentMutator, state)
       CrimDawn.Log(FileIdent, CurrentMutator)
       table.remove(MutatorTable, CurrentIndex)
@@ -67,5 +72,6 @@ managers.mutators:get_mutator_from_id("MutatorCloakerEffect"):set_value("kick_ef
 managers.mutators:get_mutator_from_id("MutatorShotgunTweak"):set_value("pull_strength", 1 + math.random() * (5 - 1))
 managers.mutators:get_mutator_from_id("MutatorShotgunTweak"):set_value("mothership", math.random() < 0.5)
 managers.mutators:get_mutator_from_id("MutatorFriendlyFire"):set_value("damage_multiplier", math.min(CrimDawn.DiffIndex() - 2, 3))
+managers.mutators:get_mutator_from_id("MutatorEnemyReplacer"):set_value("override_enemy", "taser")
 
 MenuCallbackHandler:update_matchmake_attributes()

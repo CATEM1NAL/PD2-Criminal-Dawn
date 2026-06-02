@@ -2,6 +2,7 @@ local FileIdent = "UpgradeHandler"
 
 Hooks:OverrideFunction(PlayerManager, "verify_equipment", function() return true end)
 Hooks:OverrideFunction(PlayerManager, "health_skill_multiplier", function() return 1 end)
+Hooks:OverrideFunction(PlayerManager, "carry_blocked_by_cooldown", function() return false end)
 
 local function PermaUpgrade(upg_name, count)
   if upg_name == "permaskills" or upg_name == "permaperks" then

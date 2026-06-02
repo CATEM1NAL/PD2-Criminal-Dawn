@@ -1101,8 +1101,11 @@ cd_bag_penalty_reduction_desc : "Move 50% faster while carrying a bag."
 cd_fall_damage_reduction_name : "Feather Fall"
 cd_fall_damage_reduction_desc : "Take 75% less damage from falls."
 
-cd_body_bag_capacity_name : "Winston Wolfe"
-cd_body_bag_capacity_desc : "Can hold up to 2 body bags."
+cd_body_bag_capacity_name : "Citizen Bane"
+cd_body_bag_capacity_desc : "Start each heist with 2 body bags."
+
+cd_body_bag_max_capacity_name : "Winston Wolfe"
+cd_body_bag_max_capacity_desc : "Can hold an extra body bag."
 
 cd_striker_reload_speed_name : "Lighter Cylinder"
 cd_striker_reload_speed_desc : "Street Sweeper reloads 15% faster."

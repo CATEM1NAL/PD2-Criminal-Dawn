@@ -32,7 +32,7 @@ Global.CrimDawn.tables.upgrades = {
     },
     { -- [2] Cleaner: Can bag bodies
       "player_corpse_dispose",
-      "player_extra_corpse_dispose_amount"
+      "player_corpse_dispose_amount_1"
     },
     { -- [3] Dominator: Can intimidate non-special enemies
       "player_intimidate_enemies"
@@ -1230,7 +1230,13 @@ Global.CrimDawn.tables.upgrades = {
     },
     body_bag_capacity = {
       dlc_owned = true, upg_type = "uncommon",
-      "player_corpse_dispose_amount_1"
+      count_req = "permaskills:2",
+      "player_corpse_dispose_amount_2"
+    },
+    body_bag_max_capacity = {
+      dlc_owned = true, upg_type = "uncommon",
+      count_req = "permaskills:2",
+      "player_extra_corpse_dispose_amount"
     },
     striker_reload_speed = {
       dlc_owned = true, upg_type = "uncommon",
