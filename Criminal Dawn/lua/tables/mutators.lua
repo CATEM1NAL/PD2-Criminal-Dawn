@@ -9,11 +9,13 @@ local MutatorTable = { "EnemyDamage", "EnemyHealth", "ShotgunTweak", "ZealSniper
 local DefaultMutators = { CloakerArrest = true }
 managers.mutators:set_enabled("MutatorCloakerArrest")
 
+local SpecialMutators = { CloakerEffect = true, CloakerArrest = true, MedicDozer = true, DozerRage = true,
+                          MedicAdrenaline = true, MedicRage = true, ZealSniper = true, Heavies = true }
+
 local Mutators = #Global.CrimDawn.data.game.heists + CrimDawn.DiffIndex() - 2
 
 if CrimDawn.DiffIndex() >= 3 then -- Hard
   table.insert(MutatorTable, "TaserOvercharge")
-  table.insert(MutatorTable, "EnemyReplacer")
   managers.mutators:set_enabled("MutatorFriendlyFire")
 end
 
@@ -27,6 +29,7 @@ end
 if CrimDawn.DiffIndex() >= 5 then -- Overkill
   table.insert(MutatorTable, "MedicAdrenaline")
   table.insert(MutatorTable, "MedicRage")
+  table.insert(MutatorTable, "EnemyReplacer")
 end
 
 if CrimDawn.DiffIndex() >= 7 then -- Death Wish
@@ -49,20 +52,45 @@ end
 
 CrimDawn.Log(FileIdent, "Generating " .. Mutators .. " mutators:")
 
-for i = 1, Mutators do
-  if next(MutatorTable) then
-    local CurrentIndex = math.random(#MutatorTable)
-    local CurrentMutator = MutatorTable[CurrentIndex]
-    local state = true
+local CurrentIndex
 
-    if CurrentMutator then
-      if DefaultMutators[CurrentMutator] then state = false end
-      managers.mutators:set_enabled("Mutator" .. CurrentMutator, state)
-      CrimDawn.Log(FileIdent, CurrentMutator)
-      table.remove(MutatorTable, CurrentIndex)
+for i = 1, Mutators do
+  if not next(MutatorTable) then break end
+  local CurrentIndex = math.random(#MutatorTable)
+  local CurrentMutator = MutatorTable[CurrentIndex]
+  local EnemyModifierEnabled = false
+  local state = true
+
+  -- Clone Army disables other enemy mutators
+  if CurrentMutator == "EnemyReplacer" then
+    EnemyModifierEnabled = true
+
+    for i = #MutatorTable, 1, -1 do
+      if SpecialMutators[MutatorTable[i]] then table.remove(MutatorTable, i) end
     end
 
+    Utils.PrintTable(MutatorTable)
+
+  -- Enemy mutators disable Clone Army
+  elseif SpecialMutators[CurrentMutator] then
+    EnemyModifierEnabled = true
+
+    for index, mutator in ipairs(MutatorTable) do
+      if mutator == "EnemyReplacer" then table.remove(MutatorTable, index) break end
+    end
   end
+
+  -- Determine new mutator index
+  if EnemyModifierEnabled then
+    for index, mutator in ipairs(MutatorTable) do
+      if mutator == CurrentMutator then CurrentIndex = index break end
+    end
+  end
+
+  if DefaultMutators[CurrentMutator] then state = false end
+  managers.mutators:set_enabled("Mutator" .. CurrentMutator, state)
+  CrimDawn.Log(FileIdent, CurrentMutator)
+  table.remove(MutatorTable, CurrentIndex)
 end
 
 -- Assign random properties!
