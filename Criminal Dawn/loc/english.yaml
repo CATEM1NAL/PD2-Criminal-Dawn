@@ -13,7 +13,7 @@ crimdawn_play_inf_desc : "No time limit!"
 
 # Client Error
 crimdawn_multiworld_missing_title : "Missing Client Data"
-crimdawn_multiworld_missing_desc : "You need to connect to a multiworld first."
+crimdawn_multiworld_missing_desc : "You need to connect to a multiworld first - full instructions can be found on the 'Installation' page of the mod wiki. The client can be found in the Archipelago launcher.\n\nhttps://github.com/CATEM1NAL/PD2-Criminal-Dawn/wiki/Installation"
 crimdawn_multiworld_invalid_title : "Invalid Client Data"
 crimdawn_multiworld_invalid_desc : "The wrong save is currently in use. Please restart the game."
 

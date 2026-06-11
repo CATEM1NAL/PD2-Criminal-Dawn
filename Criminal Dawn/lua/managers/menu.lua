@@ -17,10 +17,6 @@ function MenuCallbackHandler:CrimDawn_CreateLobby()
 
     if CrimDawnClient.data.seed then
       managers.localization:load_localization_file(CrimDawn.SavePath .. "crimdawn_rooms.txt")
-      managers.localization:add_localized_strings({
-        ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_create_lobby_title"),
-        ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_create_lobby_desc")
-      })
     end
 
     self:create_lobby()
@@ -148,7 +144,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
     end
 
     -- Play button
-    if CrimDawn.InfiniteTime() then managers.localization:add_localized_strings({
+    if CrimDawn.CorrectSaveLoaded() and CrimDawn.InfiniteTime() then managers.localization:add_localized_strings({
       ["crimdawn_continue_run_desc"] = managers.localization:text("crimdawn_play_inf_desc")
     })
 
@@ -184,15 +180,9 @@ Hooks:Add("MenuManagerBuildCustomMenus", "CrimDawn_MenuTweaks", function(menu_ma
 
     -- Create Lobby
     managers.localization:add_localized_strings({
-      ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_init_multiworld_title"),
-      ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_init_multiworld_desc")
-    })
-
-    if CrimDawn.CorrectSaveLoaded() then managers.localization:add_localized_strings({
       ["crimdawn_enter_lobby_title"] = managers.localization:text("crimdawn_create_lobby_title"),
       ["crimdawn_enter_lobby_desc"] = managers.localization:text("crimdawn_create_lobby_desc")
     })
-    end
 
     InjectCrimDawnButtons(mainmenu)
 
