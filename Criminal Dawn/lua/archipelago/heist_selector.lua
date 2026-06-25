@@ -77,7 +77,8 @@ local campaigns = {
   ["Follow The Money"] = { "branchbank_cash", "roberts", "brb", "bex", "red2", "big" },
   ["Death Of Democracy"] = { "cd_frame3", "cd_erection2", "cd_bigoil" },
   ["Gun Runners"] = { "cd_firestarter1", "jolly", "spa", "crojob2", "ranc", "mex" },
-  ["Stealth Mission"] = { "tag", "fish", "dark", "kosugi", "cage" }
+  ["Stealth Mission"] = { "tag", "fish", "dark", "kosugi", "cage" },
+  ["Hox Hox Hox"] = { "cd_hox1", "cd_hox2", "hox_3" }
 }
 
 function CrimDawn:CampaignHeist(HeistsWon)
