@@ -22,14 +22,24 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "CrimDawn_InitPD2UpgradeTw
   self.values.player.drill_speed_multiplier = { 0.85, 0.7, 0.55, 0.4, 0.25, 0.1 }
 
   -- Rise Above
-  self.values.player.health_decrease = { 5, 7.5, 10 }
-  self.values.player.armor_increase = { 1, 2, 3 }
+  self.values.player.health_decrease = { 2.5, 5, 7.5 }
+  self.values.player.armor_increase = { 2, 4, 6 }
 
   -- Hysteria stacks
   self.cocaine_stacks_tick_rounding = 2
-  self.cocaine_stacks_decay_t = cocaine_stacks_tick_rounding
+  self.cocaine_stacks_tick_t = 0.1
+  self.cocaine_stacks_decay_t = self.cocaine_stacks_tick_rounding
   self.cocaine_stacks_decay_amount_per_tick = 0
   self.cocaine_stacks_decay_percentage_per_tick = 1
+
+  -- Tag Team
+  self.values.player.tag_team_base[1].kill_health_gain = 0.6
+  self.values.player.tag_team_base[1].kill_extension = 1
+  self.values.player.tag_team_damage_absorption[1].kill_gain = 0.1
+
+  -- Stoic
+  self.values.player.damage_control_passive[1] = { 100, 3.4 }
+  self.values.player.damage_control_auto_shrug = { 1.5 }
 
   -- Health mult to flat
   self.values.player.health_multiplier = { 1 }

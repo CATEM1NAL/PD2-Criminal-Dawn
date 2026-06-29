@@ -35,6 +35,56 @@ end)
 -- Regenerating armour resets armour break flag
 Hooks:PostHook(PlayerDamage, "_regenerate_armor", "CrimDawn_PlayerRegenerateArmour", function(self)
   self._armor_broken = false
+  self._regen_on_the_side = false
+  self._regen_on_the_side_timer = 0
+end)
+
+-- Stoic damage tick
+Hooks:OverrideFunction(PlayerDamage, "delay_damage", function(self, damage, ticks)
+  local damage_chunk = { tick = damage / ticks, remaining = damage }
+
+  if not self._delayed_damage.next_tick then
+    self._delayed_damage.next_tick = TimerManager:game():time() + 0.2
+  end
+
+  table.insert(self._delayed_damage.chunks, damage_chunk)
+  managers.hud:set_teammate_delayed_damage(HUDManager.PLAYER_PANEL, self:remaining_delayed_damage())
+end)
+
+-- Stoic damage update
+Hooks:OverrideFunction(PlayerDamage, "_update_delayed_damage", function(self, t, dt)
+  local no_chunks = #self._delayed_damage.chunks == 0
+  local time_for_tick = self._delayed_damage.next_tick and t < self._delayed_damage.next_tick
+  if no_chunks or time_for_tick then return end
+
+  self._delayed_damage.next_tick = t + 0.2
+
+  local total_tick = 0
+  local remaining_chunks = {}
+  for _, damage_chunk in ipairs(self._delayed_damage.chunks) do
+    total_tick = total_tick + damage_chunk.tick
+    damage_chunk.remaining = damage_chunk.remaining - damage_chunk.tick
+
+    if self._delayed_damage.epsilon < damage_chunk.remaining then
+      table.insert(remaining_chunks, damage_chunk)
+    end
+  end
+
+  self._delayed_damage.chunks = remaining_chunks
+
+  if total_tick > 0 then
+    self:damage_simple({ variant = "delayed_tick", damage = total_tick })
+  end
+
+  local remaining_damage = self:remaining_delayed_damage()
+  if remaining_damage == 0 then self._delayed_damage.next_tick = nil end
+
+  managers.hud:set_teammate_delayed_damage(HUDManager.PLAYER_PANEL, remaining_damage)
+end)
+
+-- Leech kill immunity
+Hooks:OverrideFunction(PlayerDamage, "on_copr_killshot", function(self)
+  self._armor_break_t = managers.player:player_timer():time() + 1
 end)
 
 -- Tooth & Claw regens at twice the speed, instead of fixed 1.5s

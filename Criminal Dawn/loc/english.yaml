@@ -284,6 +284,14 @@ bm_menu_skill_locked_tag_team : "Requires the 'Soul Mates' perk!"
 menu_asset_lock_buy_bodybags_asset : "Requires the 'Inside Man' skill!"
 menu_asset_lock_additional_assets : "Requires the 'Inside Man' skill!"
 
+# Consumable Descriptions
+bm_ability_chico_injector_desc: "Press the throwable key to activate. While active, 75% of all damage taken is converted into healing. This effect lasts 6 seconds."
+bm_grenade_smoke_screen_grenade_desc: "Grants 50% dodge chance to all crewmates standing inside the cloud, and decreases enemy accuracy by 50% if they enter it. Lasts 10 seconds."
+bm_grenade_tag_team_desc: "Press the throwable key while looking at an ally to activate. When you or the tagged ally get a kill, you restore 6 health and the tagged ally restores 3. This effect lasts 12 seconds, but is extended by 1 second per kill."
+bm_grenade_pocket_ecm_jammer_desc: "Press the throwable key to activate for 6 seconds. During stealth this will function like a regular ECM, and benefits from any ECM skills you may have. In loud it will instead activate feedback, potentially stunning enemies within 25m."
+bm_grenade_copr_ability_desc: "Press the throwable key to activate for 6 seconds. Upon activation you restore 40% of your health, your armor is disabled, and your health is divided into 5 segments. Taking damage causes the crew to recover 5% of their health and removes a segment (two segments if the damage is higher than 200), while killing 2 enemies restores 1 segment. All kills block damage for 1 second."
+bm_grenade_damage_control_desc: "Press the throwable key to negate stacked damage."
+
 # Perk Effects
 bm_menu_armor_max_health_store : "Break: can store up to $amount health."
 bm_menu_disables_damage_to_hot : "'Dopamine' perk is disabled while wearing this armor!"
@@ -732,7 +740,7 @@ cd_hitman_recovery_5_name : "Recovery Lv5"
 cd_hitman_recovery_5_desc : "45% faster armor recovery."
 
 cd_hitman_recovery_6_name : "Tooth and Claw"
-cd_hitman_recovery_6_desc : "Armor recovers at double speed after breaking (3s minimum), no matter what."
+cd_hitman_recovery_6_desc : "Armor recovers at double speed after breaking (3s minimum), even when taking damage."
 
 # Crook
 cd_crook_recovery_name : "Composure"
@@ -940,13 +948,13 @@ cd_anarch_recovery_name : "Blitzkrieg Bop"
 cd_anarch_recovery_desc : "Armor continuously recovers. Weaker armors recover faster."
 
 cd_anarch_armour_1_name : "Rise Above Lv1"
-cd_anarch_armour_1_desc : "+50 max armor, -50 max health."
+cd_anarch_armour_1_desc : "+20 max armor, -25 max health."
 
 cd_anarch_armour_2_name : "Rise Above Lv2"
-cd_anarch_armour_2_desc : "+100 max armor, -75 max health."
+cd_anarch_armour_2_desc : "+40 max armor, -50 max health."
 
 cd_anarch_armour_3_name : "Rise Above Lv3"
-cd_anarch_armour_3_desc : "+150 max armor, -100 max health."
+cd_anarch_armour_3_desc : "+60 max armor, -75 max health."
 
 cd_anarch_bullseye_name : "Lust for Life"
 cd_anarch_bullseye_desc : "+10 armor on damage dealt (1.5s cooldown)."
@@ -995,7 +1003,7 @@ cd_sicario_boost_desc : "Smoke bomb effects are doubled."
 
 # Stoic
 cd_stoic_base_name : "Virtue"
-cd_stoic_base_desc : "75% damage reduction. Damage is applied over 12 seconds. Can equip hip flask."
+cd_stoic_base_desc : "Damage is applied over 6 seconds. Can equip hip flask."
 
 cd_stoic_cd_name : "Imperturbable"
 cd_stoic_cd_desc : "Hip flask cooldown reduced by 2s on kill when below 35% health."
@@ -1004,7 +1012,7 @@ cd_stoic_armor_convert_name : "Unmoved"
 cd_stoic_armor_convert_desc : "Armor is converted into health."
 
 cd_stoic_negate_name : "Calm"
-cd_stoic_negate_desc : "Lingering damage from 'Virtue' is negated after not taking damage for 4s."
+cd_stoic_negate_desc : "Lingering damage from 'Virtue' is negated after not taking damage for 1.5s."
 
 cd_stoic_heal_name : "Enduring"
 cd_stoic_heal_desc : "50% of lingering damage from 'Virtue' is healed when damage is negated."
@@ -1017,7 +1025,7 @@ cd_h3h3_cd_name : "Harmony"
 cd_h3h3_cd_desc : "Gas dispenser tag kills reduce cooldown by 2s on kill."
 
 cd_h3h3_absorption_name : "Synergy"
-cd_h3h3_absorption_desc : "+2 damage absorption on kill (up to 20) while gas dispenser is active."
+cd_h3h3_absorption_desc : "+1 damage absorption on kill (up to 20) while gas dispenser is active."
 
 # Hacker
 cd_hacker_base_name : "Code Glitch"

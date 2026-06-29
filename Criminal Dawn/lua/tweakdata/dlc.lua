@@ -1,5 +1,4 @@
 local DefaultUnlocks = {
-  mxm = { "grenade_crate" },
   esp = { "spy_camera" },
 }
 
