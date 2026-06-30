@@ -40,7 +40,7 @@ crimdawn_lethal_deathlink : "On + Lethal"
 crimdawn_lethal_deathlink_desc : "Whether death link can send you into custody on 0 downs."
 
 crimdawn_inf_time : "Infinite Time"
-crimdawn_inf_time_desc : "Timer is disabled after receiving all progression items."
+crimdawn_inf_time_desc : "Timer is disabled after receiving enough progression items to win."
 
 # Heist Tiers
 crimdawn_heist1_settings_name : "Heists (Tier 1)"
