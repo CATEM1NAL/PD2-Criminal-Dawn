@@ -47,7 +47,7 @@ function CrimDawn:Init()
   end
 
   function self.GoMode()
-  return Global.CrimDawn.data.game.progression_items >= Global.CrimDawn.data.game.max_progression_items end
+  return Global.CrimDawn.data.game.progression_items >= Global.CrimDawn.data.game.max_progression_items - 6 end
 
   function self.OnFinalHeist()
     local RunLength = Global.CrimDawn.data.game.run_length
