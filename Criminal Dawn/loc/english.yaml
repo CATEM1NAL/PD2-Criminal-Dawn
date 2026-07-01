@@ -140,106 +140,106 @@ crimdawn_chat_no_time_left : "No time remaining!"
 ### POINT OF NO RETURN ###
 crimdawn_ponr_default: "Dawn turns to dusk in"
 crimdawn_ponr_rare1: "Bain goons and dies in"
-crimdawn_ponr_rare2: "Garrett wipes in"
+crimdawn_ponr_rare2: "Garrett wipes in" # Garrett takes a shit in Breakin' Feds
 crimdawn_ponr_rare3: "Vlad wakes up in"
-crimdawn_ponr_rare4: "Christmas comes in"
-crimdawn_ponr_rare5: "Assets frozen in"
-crimdawn_ponr_rare6: "Nuke detonates in"
+crimdawn_ponr_rare4: "Christmas comes in" # Today Is Payday Too
+crimdawn_ponr_rare5: "Assets frozen in" # PAYDAY 3 cutscene
+crimdawn_ponr_rare6: "Nuke detonates in" # Breaking News event
 crimdawn_ponr_rare7: "Rapture occurs in"
-crimdawn_ponr_rare8: "Chronoblunt smoked in"
+crimdawn_ponr_rare8: "Chronoblunt smoked in" # Inside joke
 crimdawn_ponr_rare9: "PAYDAY 3 is good in"
-crimdawn_ponr_rare10: "Gage stands up in"
+crimdawn_ponr_rare10: "Gage stands up in" # Epilogue text
 crimdawn_ponr_rare11: "Allegations raised in"
 crimdawn_ponr_rare12: "Dallas farts in"
-crimdawn_ponr_rare13: "Sick in the car seat in"
+crimdawn_ponr_rare13: "Sick in the car seat in" # Undercover Martyn (I really like this song)
 crimdawn_ponr_rare14: "Ultimate is ready in"
 crimdawn_ponr_rare15: "AlmirCorp rules in"
-crimdawn_ponr_rare16: "Ice-T arrives in"
-crimdawn_ponr_rare17: "Beckett is born in"
-crimdawn_ponr_rare18: "RPK releases in"
+crimdawn_ponr_rare16: "Ice-T arrives in" # Ice-T plays Mac in PAYDAY 3
+crimdawn_ponr_rare17: "Beckett is born in" # who the fuck is beckett
+crimdawn_ponr_rare18: "RPK releases in" # RPK for PAYDAY 3 took over a year to be released
 crimdawn_ponr_rare19: "Game crashes in"
-crimdawn_ponr_rare20: "Everyone gets a gun in"
-crimdawn_ponr_rare21: "Dragan steals a car in"
+crimdawn_ponr_rare20: "Everyone gets a gun in" # Bob McKendrick promised to give everyone a gun
+crimdawn_ponr_rare21: "Dragan steals a car in" # https://youtu.be/WiSdIBJ1zJA
 crimdawn_ponr_rare22: "Cthulhu fhtagn"
 crimdawn_ponr_rare23: "World War III in"
-crimdawn_ponr_rare24: "My mind state is"
-crimdawn_ponr_rare25: "Kids raised in"
-crimdawn_ponr_rare26: "Discord crashout in"
+crimdawn_ponr_rare24: "My mind state is" # Criminal's Ambition
+crimdawn_ponr_rare25: "Kids raised in" # Criminal's Ambition
+crimdawn_ponr_rare26: "Discord crashout in" # Inside joke
 crimdawn_ponr_rare27: "He becomes him in"
 crimdawn_ponr_rare28: "Jiro finds Kento in"
-crimdawn_ponr_rare29: "Chuck Norris is here in"
+crimdawn_ponr_rare29: "Chuck Norris is here in" # Crime Boss
 crimdawn_ponr_rare30: "John Wick is back in"
 crimdawn_ponr_rare31: "Mr Beast dominates in"
 crimdawn_ponr_rare32: "New DLC released in"
-crimdawn_ponr_rare33: "Starbreeze bankrupt in"
-crimdawn_ponr_rare34: "Kknowley twerks in"
+crimdawn_ponr_rare33: "Starbreeze bankrupt in" # This has almost happened twice already
+crimdawn_ponr_rare34: "Kknowley twerks in" # have you seen his ass
 crimdawn_ponr_rare35: "You win in"
 crimdawn_ponr_rare36: "Wolf seeks therapy in"
 crimdawn_ponr_rare37: "GTFO in"
-crimdawn_ponr_rare38: "Houston drinks in"
+crimdawn_ponr_rare38: "Houston drinks in" # Houston is noted as never drinking alcohol
 crimdawn_ponr_rare39: "Jimmy does fentanyl in"
-crimdawn_ponr_rare40: "Jacket jacks it in"
+crimdawn_ponr_rare40: "Jacket jacks it in" # Play on words - probably doesn't work in other languages
 crimdawn_ponr_rare41: "Clover abandoned in"
-crimdawn_ponr_rare42: "God is in control in"
-crimdawn_ponr_rare43: "Scarface gets shot in"
-crimdawn_ponr_rare44: "Ethan's career ends in"
-crimdawn_ponr_rare45: "Touchdown defends in"
-crimdawn_ponr_rare46: "Sangres chokes in"
-crimdawn_ponr_rare47: "Sydney drowns in"
-crimdawn_ponr_rare48: "Duke's liver fails in"
-crimdawn_ponr_rare49: "Touchdown defends in"
-crimdawn_ponr_rare50: "Hila goes to war in"
-crimdawn_ponr_rare51: "Shade replaces Bain in"
-crimdawn_ponr_rare52: "Bodhi waterboarded in"
-crimdawn_ponr_rare53: "Rust's bike is stuck in"
-crimdawn_ponr_rare54: "Joy learns Python in"
+crimdawn_ponr_rare42: "God is in control in" # Episode 6 of the web series
+crimdawn_ponr_rare43: "Scarface gets shot in" # Scarface (the movie)
+crimdawn_ponr_rare44: "Ethan's career ends in" # It's probably going to happen eventually
+crimdawn_ponr_rare45: "Touchdown defends in" # Crime Boss
+crimdawn_ponr_rare46: "Sangres chokes in" # Smoke grenades
+crimdawn_ponr_rare47: "Sydney drowns in" # Sydney's VA swims for charity (this one is kinda dark)
+crimdawn_ponr_rare48: "Duke's liver fails in" # Hip flask
+crimdawn_ponr_rare49: "Touchdown defends in" # Crime Boss (DUPLICATE - SHOULD BE REPLACED!)
+crimdawn_ponr_rare50: "Hila goes to war in" # Hila was in the IDF
+crimdawn_ponr_rare51: "Shade replaces Bain in" # PAYDAY 3
+crimdawn_ponr_rare52: "Bodhi waterboarded in" # Play on words about how he's a surfer
+crimdawn_ponr_rare53: "Rust's bike is stuck in" # Biker Heist day 1
+crimdawn_ponr_rare54: "Joy learns Python in" # PAYDAY 3 server maintenance social media posts (yes, really)
 crimdawn_ponr_rare55: "Bonnie loses it all in"
-crimdawn_ponr_rare56: "Sokol plays Dota in"
+crimdawn_ponr_rare56: "Sokol plays Dota in" # Lots of Russians play Dota (and CS)
 crimdawn_ponr_rare57: "Hoxton is executed in"
-crimdawn_ponr_rare58: "Chains is a pickle in"
-crimdawn_ponr_rare59: "Locke hits boat in"
+crimdawn_ponr_rare58: "Chains is a pickle in" # Old community meme
+crimdawn_ponr_rare59: "Locke hits boat in" # PAYDAY 2 good ending
 crimdawn_ponr_rare60: "Heart failure in"
-crimdawn_ponr_rare61: "Added to core in"
+crimdawn_ponr_rare61: "Added to core in" # After Dark APWorlds can't be added to core
 crimdawn_ponr_rare62: "Bile hits a sparrow in"
 crimdawn_ponr_rare63: "Twitch hits a wall in"
-crimdawn_ponr_rare64: "Alex misses drop in"
-crimdawn_ponr_rare65: "You get BK'd in"
-crimdawn_ponr_rare66: "Dentist is reborn in"
-crimdawn_ponr_rare67: "funny meme"
+crimdawn_ponr_rare64: "Alex misses drop in" # I knew I was an idiot for hiring you again, Alex
+crimdawn_ponr_rare65: "You get BK'd in" # BK'd is Archipelago slang for getting stuck
+crimdawn_ponr_rare66: "Dentist is reborn in" # The secret
+crimdawn_ponr_rare67: "funny meme" # six seven
 crimdawn_ponr_rare68: "Steam sale in"
 crimdawn_ponr_rare69: "Training montage"
-crimdawn_ponr_rare70: "Bo flees country in"
+crimdawn_ponr_rare70: "Bo flees country in" # https://www.eurogamer.net/the-fall-of-swedish-game-wonder-starbreeze
 crimdawn_ponr_rare71: "Difficulty reduced in"
 crimdawn_ponr_rare72: "It is what it is"
-crimdawn_ponr_rare73: "HAHAHAHAHAHAHAHAHAHAHA"
-crimdawn_ponr_rare74: "Someone will die in"
-crimdawn_ponr_rare75: "Psync failed in"
-crimdawn_ponr_rare76: "Ragnarok crashes in"
-crimdawn_ponr_rare77: "Time to collision:"
-crimdawn_ponr_rare78: "0.7.0 is released in"
-crimdawn_ponr_rare79: "Greatest heist of all"
+crimdawn_ponr_rare73: "HAHAHAHAHAHAHAHAHAHAHA" # Risk of Rain
+crimdawn_ponr_rare74: "Someone will die in" # PAYDAY 3, Touch The Sky
+crimdawn_ponr_rare75: "Psync failed in" # Somnium Files
+crimdawn_ponr_rare76: "Ragnarok crashes in" # Mega Man Zero 4
+crimdawn_ponr_rare77: "Time to collision:" # Mega Man X5
+crimdawn_ponr_rare78: "0.7.0 is released in" # Archipelago 0.7.0 has yet to be released
+crimdawn_ponr_rare79: "Greatest heist of all" # Classic Bain line
 crimdawn_ponr_rare80: "Safe house found in"
-crimdawn_ponr_rare81: "Triforce stolen in"
-crimdawn_ponr_rare82: "Shadow Queen free in"
-crimdawn_ponr_rare83: "Great Disaster in"
-crimdawn_ponr_rare84: "Rat eats the moon in"
-crimdawn_ponr_rare85: "Morrslieb rises in"
+crimdawn_ponr_rare81: "Triforce stolen in" # Legend of Zelda
+crimdawn_ponr_rare82: "Shadow Queen free in" # Thousand Year Door
+crimdawn_ponr_rare83: "Great Disaster in" # Evoland 2 (one of my favourite games!)
+crimdawn_ponr_rare84: "Rat eats the moon in" # Autopelago
+crimdawn_ponr_rare85: "Morrslieb rises in" # Warhammer
 crimdawn_ponr_rare86: "Left for dead in"
-crimdawn_ponr_rare87: "He's back for blood in"
-crimdawn_ponr_rare88: "Mavericks attack in"
-crimdawn_ponr_rare89: "Model W consumes all"
-crimdawn_ponr_rare90: "T-Virus outbreak in"
-crimdawn_ponr_rare91: "Dawn of A New Day"
-crimdawn_ponr_rare92: "First Flame linked in"
-crimdawn_ponr_rare93: "Dracula revived in"
-crimdawn_ponr_rare94: "Gandhi declares war in"
-crimdawn_ponr_rare95: "King K. Rool escapes in"
-crimdawn_ponr_rare96: "Hell portals open in"
-crimdawn_ponr_rare97: "Resonance cascade in"
-crimdawn_ponr_rare98: "You have a bad time in"
-crimdawn_ponr_rare99: "Zerg rush occurs in"
-crimdawn_ponr_rare100: "Tight Deadline:"
-crimdawn_ponr_rare: ""
+crimdawn_ponr_rare87: "He's back for blood in" # Back 4 Blood
+crimdawn_ponr_rare88: "Mavericks attack in" # Mega Man X
+crimdawn_ponr_rare89: "Model W consumes all" # Mega Man ZX/A
+crimdawn_ponr_rare90: "T-Virus outbreak in" # Resident Evil
+crimdawn_ponr_rare91: "Dawn of A New Day" # Majora's Mask
+crimdawn_ponr_rare92: "First Flame linked in" # Dark Souls
+crimdawn_ponr_rare93: "Dracula revived in" # Castlevania
+crimdawn_ponr_rare94: "Gandhi declares war in" # Civilization
+crimdawn_ponr_rare95: "King K. Rool escapes in" # Donkey Kong Country
+crimdawn_ponr_rare96: "Hell portals open in" # Doom
+crimdawn_ponr_rare97: "Resonance cascade in" # Half-Life
+crimdawn_ponr_rare98: "You have a bad time in" # Undertale
+crimdawn_ponr_rare99: "Zerg rush occurs in" # Starcraft
+crimdawn_ponr_rare100: "Tight Deadline:" # Hades
+crimdawn_ponr_rare: "" # Placeholder
 
 ### STRING OVERRIDES ###
 # Locked Items
