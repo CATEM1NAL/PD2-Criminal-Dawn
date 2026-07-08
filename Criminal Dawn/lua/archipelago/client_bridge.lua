@@ -48,7 +48,7 @@ function CrimDawnClient:PollProgression(ItemLog)
   self:LoadData()
   local data, UpgradeTime = Global.CrimDawn.data, CrimDawn.TimeFromUpgrade()
   if not data.game.ponr then data.game.ponr = 600 + (data.game.progression_items * UpgradeTime) end
-  if not CrimDawn.CorrectSaveLoaded() or CrimDawn.GoMode() then return end
+  if not CrimDawn.CorrectSaveLoaded() then return end
 
   self.progression_items = math.min(self.data["Extra Bot"], 3) +
                            self.data["Extra Life"] - 1 +
