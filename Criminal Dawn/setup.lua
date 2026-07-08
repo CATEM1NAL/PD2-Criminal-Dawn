@@ -47,6 +47,8 @@ function CrimDawn:Init()
   end
 
   function self.GoMode()
+    if CrimDawn.TimeFromUpgrade() == 100 then return false end
+
     local ItemsRequired = Global.CrimDawn.data.game.max_progression_items
     ItemsRequired = ItemsRequired - math.ceil(300 / CrimDawn.TimeFromUpgrade())
   return Global.CrimDawn.data.game.progression_items >= ItemsRequired end
