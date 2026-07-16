@@ -11,23 +11,26 @@ local function SetStats(self)
 
   -- Damage (vanilla Hard)
   self.ak47_ass_npc.DAMAGE = 0.4
+  self.ak47_npc.DAMAGE = 0.5
   self.m4_npc.DAMAGE = 0.4
-	self.m4_yellow_npc.DAMAGE = 0.4
-	self.g36_npc.DAMAGE = 0.6
-	self.r870_npc.DAMAGE = 1
-	self.smoke_npc.DAMAGE = 0.6
+  self.m4_yellow_npc.DAMAGE = 0.4
+  self.g36_npc.DAMAGE = 0.6
+  self.r870_npc.DAMAGE = 1
+  self.benelli_npc.DAMAGE = 1
+  self.smoke_npc.DAMAGE = 0.6
 
   -- Turret damage adjustments
-	self.swat_van_turret_module.DAMAGE = 0.05
-	self.ceiling_turret_module.DAMAGE = 0.05
-	self.aa_turret_module.DAMAGE = 0.05
-	self.crate_turret_module.DAMAGE = 0.05
+  self.swat_van_turret_module.DAMAGE = 0.05
+  self.ceiling_turret_module.DAMAGE = 0.05
+  self.aa_turret_module.DAMAGE = 0.05
+  self.crate_turret_module.DAMAGE = 0.05
 
   -- Dozers
   self.mossberg_npc.DAMAGE = 2
   self.saiga_npc.DAMAGE = 1
-	self.m249_npc.DAMAGE = 0.25
-	self.mini_npc.DAMAGE = 0.1
+  self.m249_npc.DAMAGE = 0.25
+  self.rpk_lmg_npc.DAMAGE = 0.25
+  self.mini_npc.DAMAGE = 0.1
 
   -- Bosses
   self.hk21_npc.DAMAGE = 0.5
@@ -38,11 +41,24 @@ local function SetStats(self)
   self.npc_melee.baton.damage = 5
   self.npc_melee.knife_1.damage = 10
   self.npc_melee.fists.damage = 2.5
+
   self.c45_npc.DAMAGE = 0.5
+  self.colt_1911_primary_npc.DAMAGE = 0.5
+  self.glock_18_npc.DAMAGE = 0.5
+
   self.raging_bull_npc.DAMAGE = 2.5
+
   self.mp5_npc.DAMAGE = 0.25
+  self.mp5_tactical_npc.DAMAGE = 0.25
+  self.ump_npc.DAMAGE = 0.25
+  self.akmsu_smg_npc.DAMAGE = 0.25
+  self.asval_smg_npc.DAMAGE = 0.25
+
   self.mac11_npc.DAMAGE = 0.25
+
   self.mp9_npc.DAMAGE = 0.25
+  self.sr2_smg_npc.DAMAGE = 0.25
+
   self.m14_npc.DAMAGE = 2.5
   self.s552_npc.DAMAGE = 0.6
   self.scar_npc.DAMAGE = 1
