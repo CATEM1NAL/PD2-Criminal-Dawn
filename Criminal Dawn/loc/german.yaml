@@ -4,10 +4,10 @@ crimdawn_create_lobby_title : "Lobby erstellen"
 crimdawn_create_lobby_desc : "Starte Criminal Dawn."
 crimdawn_init_multiworld_title : "Client-Daten laden"
 crimdawn_init_multiworld_desc : "Richte die notwendige Daten für Criminal Dawn ein."
-crimdawn_first_run_title : "Ein neuer Anbruch der Kriminalität"
-crimdawn_new_run_title : "Der $ORDINAL Anbruch der Kriminalität"
-crimdawn_start_run_desc : "Verursache innerhalb des Zeitlimits so viel Chaos wie möglich in D.C."
-crimdawn_play_next_title : "$ORDINAL Anbruch der Kriminalität - $HEIST_NUM"
+crimdawn_first_run_title : "Starte einen neuen Run"
+crimdawn_new_run_title : "$ORDINAL Run"
+crimdawn_start_run_desc : "Verursache so viel Chaos innerhalb des Zeitlimits."
+crimdawn_play_next_title : "$ORDINAL Run - $HEIST_NUM"
 crimdawn_play_next_desc : "$CLOCK $TIME Minuten übrig."
 crimdawn_play_inf_desc : "Kein Zeitlimit!"
 
@@ -15,7 +15,7 @@ crimdawn_play_inf_desc : "Kein Zeitlimit!"
 crimdawn_multiworld_missing_title : "Fehlend Client-Daten"
 crimdawn_multiworld_missing_desc : "Du musst dich erst mit einer Mutliworld verbinden. Eine vollständige Anleitung hierfür findest du auf der 'Installation'-Seite im Mod-Wiki. Der Client kann im Archipelago-Launcher gefunden werden.\n\nDie Installations-Anleitung ist auf ENGLISCH\n\nhttps://github.com/CATEM1NAL/PD2-Criminal-Dawn/wiki/Installation"
 crimdawn_multiworld_invalid_title : "Ungültige Client-Daten"
-crimdawn_multiworld_invalid_desc : "Der falsche Speicherstand ist gerade in benutzung. Bitte starte das Spiel neu."
+crimdawn_multiworld_invalid_desc : "Der falsche Speicherstand ist gerade in Benutzung. Bitte starte das Spiel neu."
 
 ## SAFEHOUSE
 crimdawn_safehouse_desc : "Wer weißt, was man hier finden kann..."
@@ -28,7 +28,7 @@ crimdawn_settings_desc : "Passe das Gamepaly an."
 
 # Options
 crimdawn_difficulty : "Höchster Schwierigkeitsgrad"
-crimdawn_difficulty_desc : "Der höchster Schwierigkeitsgrad, zu dem das Spiel skalieren wird.\nDer Schwierigkeitsgrad kann sich erhöhen, wenn Raubüberfälle abgeschlossen werden oder Progressionsitems erlangt werden."
+crimdawn_difficulty_desc : "Der höchster Schwierigkeitsgrad, zu dem das Spiel skalieren wird.\nDer Schwierigkeitsgrad erhöht sich, wenn Raubüberfälle abgeschlossen werden oder Progressionsitems erlangt werden."
 
 crimdawn_mutator_desc : "Regelt ob zufällige Mutatoren eingeschaltet und wie sie integriert sind.\nInvertierte Skalierung beginnt mit der maximalen Anzahl an Mutatoren und reduziert diese laufend wenn man Items erhält."
 crimdawn_diff_scaling : "An mit Standard-Skalierung"
@@ -59,30 +59,30 @@ crimdawn_settings_dlc_desc : "Aktiviere/Deaktiviere diesen Raubüberfall - diese
 
 ## UNLOCK MENU
 crimdawn_new_item1 : "Gage hat etwas neues für euch liegen gelassen."
-crimdawn_new_item2 : "Beim letzten Raubüberfall hast du etwas von einem toten Polizisten mitgenommen, keine Ahnung was er damit vor hatte..."
+crimdawn_new_item2 : "Beim letzten Raubüberfall hast du etwas von einem toten Polizisten mitgenommen..."
 crimdawn_new_item3 : "Bei eurer Flucht ins Versteck hast du in die Beutetasche geschaut und hast etwas gefunden, mit dem du nicht gerechnet hast..."
 crimdawn_new_item4 : "Vlad kam heute vorbei, nachdem er euch eine gute Stunde ausführlichst über seine Ziegen informiert hat, überreicht er euch etwas."
 crimdawn_new_item5 : "Als du dich auf die Couch werfen wolltest, spürst du etwas hartest unter dem Polster..."
 crimdawn_new_item6 : "Den anderen war langweilig und sie haben einen Militärtransporter überfallen."
-crimdawn_new_item7 : "Ein Typ namens Troy kam beim Versteck vorbei. Wir haben ihn zu Jacket geschickt... vorher haben wir aber etwas in seinen Taschen gefunden."
-crimdawn_new_item8 : "Ein bärtiger Mann ist dir in deinen Träumen erschienen... Danach bist du neben ihm aufgewacht."
+crimdawn_new_item7 : "Ein Typ namens Troy kam beim Versteck vorbei - Wir haben ihn zu Jacket geschickt. Das hier blieb von ihm übrig..."
+crimdawn_new_item8 : "Ein bärtiger Mann ist dir in deinen Träumen erschienen... Das lag neben dir als du aufgewacht bist."
 crimdawn_new_item9 : "Eine seltsame Box lag vor der Versteck. Unter ihr war ein Bild von einem Gesicht mit Sonnenbrille und einer Faust. Soll das eine Drohung sein?"
-crimdawn_new_item10 : "Locke kramte in seinen Erinnerungen von der Zeit als er in China stationiert war. Dabei hat er etwas in seinen alten Sachen gefunden."
-crimdawn_new_item11 : "Wolf startte dir unangenehm lange in die Augen, dann hat er dir etwas gegeben."
-crimdawn_new_item12 : "Bonnie hat etwas gefunden, als sie die Toiletten untersucht hat."
-crimdawn_new_item13 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein enthusiastisches 'WAHOO'."
-crimdawn_new_item14 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein elektrisches Knistern."
-crimdawn_new_item15 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du wie Gras zerschnitten wird."
-crimdawn_new_item16 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du lautes Meeresrauschen"
-crimdawn_new_item17 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du stürmische Winde"
-crimdawn_new_item18 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein hektisches Kreuzfeuer."
-crimdawn_new_item19 : "Eine große Schlange schleicht auf dich zu. 'SALAZAR!' ist das einzige, was sie sagt bevor sie sagt, bevor sie wieder weiterzieht. Dabei hat sie etwas fallen lassen."
-crimdawn_new_item20 : "Als du gerade die neusten Nachrichten über AlmirCorp hörst, bemerkst du, dass Hoxton sich gerade sehr stark auf etwas konzentriert."
-crimdawn_new_item21 : "Houston hat die ganze Nacht damit verbracht, warum der Van nicht mehr gefahren ist. Stellt sich raus, dass etwas im Auspuff steckte."
-crimdawn_new_item22 : "Der Zahnarzt hat irgendetwas über mesopotamischen Mist erzählt. Als er fertig war, hat er uns etwas geschenkt."
+crimdawn_new_item10 : "Locke kramte in seinen Erinnerungen von der Zeit als er in China stationiert war. Dabei hat er etwas in seinen alten Sachen gefunden..."
+crimdawn_new_item11 : "Wolf startte dir unangenehm lange in die Augen, dann hat er dir etwas gegeben..."
+crimdawn_new_item12 : "Bonnie hat etwas gefunden, als sie die Toiletten untersucht hat..."
+crimdawn_new_item13 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein enthusiastisches 'WAHOO'..."
+crimdawn_new_item14 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein elektrisches Knistern..."
+crimdawn_new_item15 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du wie Gras zerschnitten wird..."
+crimdawn_new_item16 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du lautes Meeresrauschen..."
+crimdawn_new_item17 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du stürmische Winde..."
+crimdawn_new_item18 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein hektisches Kreuzfeuer..."
+crimdawn_new_item19 : "Eine große Schlange schleicht auf dich zu. 'SALAZAR!' ist das einzige, was sie sagt bevor sie sagt, bevor sie wieder weiterzieht. Dabei hat sie etwas fallen lassen..."
+crimdawn_new_item20 : "Als du gerade die neusten Nachrichten über AlmirCorp hörst, bemerkst du, dass Hoxton sich gerade sehr stark auf etwas konzentriert..."
+crimdawn_new_item21 : "Houston hat die ganze Nacht damit verbracht, warum der Van nicht mehr gefahren ist. Stellt sich raus, dass etwas im Auspuff steckte..."
+crimdawn_new_item22 : "Der Zahnarzt hat irgendetwas über mesopotamischen Mist erzählt. Als er fertig war, hat er uns etwas geschenkt..."
 crimdawn_new_item23 : "Hector hat uns versprochen, dass wir noch bessere Belohnungen erhalten, wenn wir unsere Leben aufs Spiel setzen... Klingt super!"
-crimdawn_new_item24 : "Bain ist kurz bei Kung Bo angehalten und hat uns was mitgebracht."
-crimdawn_new_item25 : "Der Elephant versucht uns andauernd Öl zu verkaufen. Schade nur, dass uns nur Überfall-Materialien interessieren."
+crimdawn_new_item24 : "Bain ist kurz bei Kung Bo angehalten und hat uns was mitgebracht..."
+crimdawn_new_item25 : "Der Elephant versucht uns andauernd Öl zu verkaufen. Schade nur, dass uns nur Überfall-Materialien interessieren!"
 
 ## UPGRADE MENU
 # Title
@@ -102,13 +102,13 @@ crimdawn_upgrades_none : "Nichts."
 
 ### CHAT NOTIFICATIONS ###
 # Victory
-crimdawn_chat_victory : "Du schaust zu, wie die Sonne über deiner Zerstörung untergehst und spürst ein Gefühl von Zufriedenheit. Es ist vorbei, du hast es geschafft..."
+crimdawn_chat_victory : "Gratulation, du hast es geschafft! D.C. liegt in Schutt und Asche und du fühlst ein warmes Gefühl der Zurfriedenheit..."
 crimdawn_chat_victory2 : "... oder bist du doch noch nicht ganz fertig?"
 
 # Received Client Update
 crimdawn_chat_received_items : "Du hast etwas von der Multiworld erhalten!\n"
 crimdawn_client_progression_upgrade : "Der Timer wurde um $TIME_GAINED Sekunden verängert (noch $MINS_REMAINING Minuten übrig)!\nZielgeschwindigkeit wurde um $SPEED% erhöht ($TOTAL_SPEED% schneller)!\n"
-crimdawn_client_extra_life : "Du beginnst absofort jede Runde mit $LIVES Leben!\n"
+crimdawn_client_extra_life : "Du beginnst absofort jede Runde mit $LIVES Downs!\n"
 crimdawn_client_new_item : "Gegenstand erhalten: $ITEM ($CURRENT/$TOTAL)\n"
 crimdawn_client_infinite_item : "Gegenstand erhalten: $ITEM\n"
 crimdawn_client_saw : "Du hast die OVE9000-Säge als Primärwaffe freigeschaltet!\n"
@@ -158,7 +158,7 @@ crimdawn_ponr_rare13: "Ich kotze ins Auto in" # tried to translate this as close
 crimdawn_ponr_rare14: "Ultimate bereit in"
 crimdawn_ponr_rare15: "MaxTec erscheint in" # Cyberpunk 2077
 crimdawn_ponr_rare16: "Ice-T erscheint in"
-crimdawn_ponr_rare17: "Josh's Shirt verschwindet in" # Twenty One Pilots! One of my absolute favourite bands of all time. There's a big meme that Josh Dun (the drummer) pulls of his shirt all the time
+crimdawn_ponr_rare17: "Blurryface gewinnt in" # Twenty One Pilots! One of my absolute favourite bands of all time. It's a reference to the Blurryface album and the charcter in lore
 crimdawn_ponr_rare18: "Star Citizen fertig in" # Big critique
 crimdawn_ponr_rare19: "Spiel crasht in"
 crimdawn_ponr_rare20: "Drei mal Klatschen in" # Enter Shikari! Ever heard of the song "Sorry You're Not a Winner"? The Claps have become infamous in the emo scene.
