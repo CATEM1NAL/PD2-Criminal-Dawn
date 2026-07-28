@@ -1,6 +1,7 @@
 <mod name="Criminal Dawn">
 	<localization directory="loc" default_language="english">
 		<loc file="english.yaml" language="english"/>
+		<loc file="german.yaml" language="german"/>
 	</localization>
 	<narrative id = "cd_28stores" name_id = "heist_cd_28stores_name" contact = "vlad"
 	load_screen = "guis/dlcs/pic/textures/loading/job_fourstores" package = "packages/job_four_stores">
