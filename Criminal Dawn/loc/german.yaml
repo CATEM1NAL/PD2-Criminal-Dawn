@@ -289,11 +289,11 @@ menu_asset_lock_additional_assets : "Benötigt den 'Insider' Skill!"
 
 # Consumable Descriptions
 bm_ability_chico_injector_desc: "Wurwaffen-Taste drücken um zu aktivieren. Während dieses Item aktiv ist wird 75% des erlittenen Schadens in Heilung umgewandelt.\nDieser Effekt hält 6 Sekunden an."
-bm_grenade_smoke_screen_grenade_desc: "Wurwaffen-Taste drücken um zu aktivieren. Gewährt allen Crewmitgliedern, die in der Wolke stehen 50% Ausweichchance. Gegner, die sich in der Wolke befinden haben eine 50% reduzierte Genauigkeit.\nDieser Effekt hält 10 Sekunden an."
-bm_grenade_tag_team_desc: "Wurwaffen-Taste drücken um zu aktivieren. Du musst einen verbündeten anschauen, um den Effekt zu aktivieren. Während der Effekt aktiv ist erhältst du 6 Lebenspunkte, der Verbündete 3 Lebenspunkte, für jeden von dir oder dem Verbündeten getöteten Gegner.\nDieser Effekt hält 12 Sekunden an und wird für jeden getöteten Gegner um 1 Sekunde verlängert."
+bm_grenade_smoke_screen_grenade_desc: "Wurwaffen-Taste drücken um zu aktivieren. Erhöht die Ausweichchance aller Crewmitglieder in der Rauchwolke um 50%. Gegner, die sich in der Wolke befinden haben eine 50% reduzierte Genauigkeit.\nDieser Effekt hält 10 Sekunden an."
+bm_grenade_tag_team_desc: "Wurwaffen-Taste drücken um zu aktivieren. Du musst einen Verbündeten anschauen, um den Effekt zu aktivieren. Während der Effekt aktiv ist erhältst du 6 Lebenspunkte, der Verbündete 3 Lebenspunkte, für jeden von dir oder dem Verbündeten getöteten Gegner.\nDieser Effekt hält 12 Sekunden an und wird für jeden getöteten Gegner um 1 Sekunde verlängert."
 bm_grenade_pocket_ecm_jammer_desc: "Wurwaffen-Taste drücken um zu aktivieren. Während des Schleichens funktioniert das Item wie ein normaler ECM-Störsender und profitiert von allen ECM-Fähigkeiten, in Benutzung. Außerhalb des Schleichens wird ein ECM-Feedback aktiviert, welcher Gegner im Umkreis von 25m betäuben kann.\nDieser Effekt hält 6 Sekunden an."
 bm_grenade_copr_ability_desc: "Wurwaffen-Taste drücken um zu aktivieren. Bei Aktivierung regenerierst du 40% deiner Lebenspunkte und deine Rüstung wird deaktiviert. Deine gesamten Lebenspunkte werden in 5 Segmente unterteilt. Jedes Mal, wenn du Schaden erhälts, wird 1 Segment entfernt (bei mehr als 200 Schaden werden 2 Segmente entfernt) und alle Crewmitglieder regenerieren 5% ihrer Lebenspunkte. Du regenerierst 1 Segment pro 2 getöteter Gegner, zusätzlich verhindert jeder getötete Gegner deinen erlittenen Schaden für 1 Sekunde.\nDieser Effekt hält 6 Sekunden an."
-bm_grenade_damage_control_desc: "Wurwaffen-Taste drücken um zu aktivieren. Negiert gestapelten Schaden."
+bm_grenade_damage_control_desc: "Wurwaffen-Taste drücken um zu aktivieren. Entfernt gestapelten Schaden."
 
 # Perk Effects
 bm_menu_armor_max_health_store : "Bruch: Kann bis zu $amount Lebenspunkte speichern."
@@ -370,7 +370,7 @@ cd_player_additional_lives_7_name : "Acht Leben"
 cd_player_additional_lives_7_desc : "Starte jede Runde mit 8 Downs."
 
 cd_player_additional_lives_8_name : "Neun Leben"
-cd_player_additional_lives_8_desc : "Du bist zwar keine Katze, aber dafür startest du jede Runde mit 9 Downs."
+cd_player_additional_lives_8_desc : "Du bist zwar keine Katze, aber dafür startest du jede Runde mit 9 Downs." # Fluff Line about cats
 
 # Perma-Perks
 cd_permaperks1_name : "Chamäleon"
@@ -386,7 +386,7 @@ cd_permaperks4_name : "Einbauschrank"
 cd_permaperks4_desc : "Die Menge an Munition, die du aufsammelst ist um 35% erhöht."
 
 cd_permaperks5_name : "Helm-Popping"
-cd_permaperks5_desc : "Deine Kopfschüsse verursachen 25% mehr Schaden.\nLass die Hüte fliegen!"
+cd_permaperks5_desc : "Deine Kopfschüsse verursachen 25% mehr Schaden.\nLass die Hüte fliegen!" # Let those hats fly!
 
 cd_permaperks6_name : "Triage"
 cd_permaperks6_desc : "Du interagierst 20% schneller mit Arzttaschen."
@@ -396,10 +396,10 @@ cd_permaperks7_desc : "Die Menge an Munition, die du aufsammelst ist um 75% erh�
 
 # Perma-Skills
 cd_permaskills1_name : "Katzenartig"
-cd_permaskills1_desc : "Du landest auf deinen 4 Pfoten. Erlittener Fallschaden verursacht zuerst Rüstungsschaden."
+cd_permaskills1_desc : "Du landest auf deinen 4 Pfoten. Erlittener Fallschaden verursacht zuerst Rüstungsschaden." # Cat joke
 
 cd_permaskills2_name : "Der Tatortreiniger"
-cd_permaskills2_desc : "Du kannst Leichensäcke benutzen."
+cd_permaskills2_desc : "Du machst Schotty's Job und kannst jetzt Leichensäcke benutzen." # Nudge to the classic german series "Der Tatortreiniger"
 
 cd_permaskills3_name : "Dominant"
 cd_permaskills3_desc : "Du kannst Gegner anschreien um sie einzuschüchtern.\nSpezialeinheiten sind davon unbeeindruckt."
@@ -750,60 +750,60 @@ cd_crook_recovery_name : "Gelassenheit"
 cd_crook_recovery_desc : "Deine Rüstung regeneriert sich 10% schneller."
 
 # Crook (LBV)
-cd_crook_lbv_dodge_1_name : "Gelassenheit - Leichte ballistische Weste Level 1"
+cd_crook_lbv_dodge_1_name : "Gelassenheit - LBW - Level 1"
 cd_crook_lbv_dodge_1_desc : "Deine Ausweichchance erhöht sich um 5% (Leichte ballistische Weste)."
 
-cd_crook_lbv_dodge_2_name : "Gelassenheit - Leichte ballistische Weste Level 2"
+cd_crook_lbv_dodge_2_name : "Gelassenheit - LBW - Level 2"
 cd_crook_lbv_dodge_2_desc : "Deine Ausweichchance erhöht sich um 15% (Leichte ballistische Weste)."
 
-cd_crook_lbv_dodge_3_name : "Gelassenheit - Leichte ballistische Weste Level 3"
+cd_crook_lbv_dodge_3_name : "Gelassenheit - LBW - Level 3"
 cd_crook_lbv_dodge_3_desc : "Deine Ausweichchance erhöht sich um 25% (Leichte ballistische Weste)."
 
-cd_crook_lbv_armour_1_name : "Einschlag - Leichte ballistische Weste Level 1"
+cd_crook_lbv_armour_1_name : "Einschlag - LBW - Level 1"
 cd_crook_lbv_armour_1_desc : "Deine Rüstung erhöht sich um 20% (Leichte ballistische Weste)."
 
-cd_crook_lbv_armour_2_name : "Einschlag - Leichte ballistische Weste Level 2"
+cd_crook_lbv_armour_2_name : "Einschlag - LBW - Level 2"
 cd_crook_lbv_armour_2_desc : "Deine Rüstung erhöht sich um 40% (Leichte ballistische Weste)."
 
-cd_crook_lbv_armour_3_name : "Einschlag - Leichte ballistische Weste Level 3"
+cd_crook_lbv_armour_3_name : "Einschlag - LBW - Level 3"
 cd_crook_lbv_armour_3_desc : "Deine Rüstung erhöht sich um 65% (Leichte ballistische Weste)."
 
 # Crook (Ballistic Vest)
-cd_crook_vest_dodge_1_name : "Gelassenheit - Ballistische Weste Level 1"
+cd_crook_vest_dodge_1_name : "Gelassenheit - BW - Level 1"
 cd_crook_vest_dodge_1_desc : "Deine Ausweichchance erhöht sich um 5% (Ballistische Weste)."
 
-cd_crook_vest_dodge_2_name : "Gelassenheit - Ballistische Weste Level 2"
+cd_crook_vest_dodge_2_name : "Gelassenheit - BW - Level 2"
 cd_crook_vest_dodge_2_desc : "Deine Ausweichchance erhöht sich um 15% (Ballistische Weste)."
 
-cd_crook_vest_dodge_3_name : "Gelassenheit - Ballistische Weste Level 3"
+cd_crook_vest_dodge_3_name : "Gelassenheit - BW - Level 3"
 cd_crook_vest_dodge_3_desc : "Deine Ausweichchance erhöht sich um 25% (Ballistische Weste)."
 
-cd_crook_vest_armour_1_name : "Einschlag - Ballistische Weste Level 1"
+cd_crook_vest_armour_1_name : "Einschlag - BW - Level 1"
 cd_crook_vest_armour_1_desc : "Deine Rüstung erhöht sich um 20% (Ballistische Weste)."
 
-cd_crook_vest_armour_2_name : "Einschlag - Ballistische Weste Level 2"
+cd_crook_vest_armour_2_name : "Einschlag - BW - Level 2"
 cd_crook_vest_armour_2_desc : "Deine Rüstung erhöht sich um 40% (Ballistische Weste)."
 
-cd_crook_vest_armour_3_name : "Einschlag - Ballistische Weste Level 3"
+cd_crook_vest_armour_3_name : "Einschlag - BW - Level 3"
 cd_crook_vest_armour_3_desc : "Deine Rüstung erhöht sich um 65% (Ballistische Weste)."
 
 # Crook (HBV)
-cd_crook_hbv_dodge_1_name : "Gelassenheit - Schwere ballistische Weste Level 1"
+cd_crook_hbv_dodge_1_name : "Gelassenheit - SBW - Level 1"
 cd_crook_hbv_dodge_1_desc : "Deine Ausweichchance erhöht sich um 5% (Schwere ballistische Weste)."
 
-cd_crook_hbv_dodge_2_name : "Gelassenheit - Schwere ballistische Weste Level 2"
+cd_crook_hbv_dodge_2_name : "Gelassenheit - SBW - Level 2"
 cd_crook_hbv_dodge_2_desc : "Deine Ausweichchance erhöht sich um 15% (Schwere ballistische Weste)."
 
-cd_crook_hbv_dodge_3_name : "Gelassenheit - Schwere ballistische Weste Level 3"
+cd_crook_hbv_dodge_3_name : "Gelassenheit - SBW - Level 3"
 cd_crook_hbv_dodge_3_desc : "Deine Ausweichchance erhöht sich um 25% (Schwere ballistische Weste)."
 
-cd_crook_hbv_armour_1_name : "Einschlag - Schwere ballistische Weste Level 1"
+cd_crook_hbv_armour_1_name : "Einschlag - SBW - Level 1"
 cd_crook_hbv_armour_1_desc : "Deine Rüstung erhöht sich um 20% (Schwere ballistische Weste)."
 
-cd_crook_hbv_armour_2_name : "Einschlag - Schwere ballistische Weste Level 1"
+cd_crook_hbv_armour_2_name : "Einschlag - SBW - Level 1"
 cd_crook_hbv_armour_2_desc : "Deine Rüstung erhöht sich um 40% (Schwere ballistische Weste)."
 
-cd_crook_hbv_armour_3_name : "Einschlag - Schwere ballistische Weste Level 1"
+cd_crook_hbv_armour_3_name : "Einschlag - SBW - Level 1"
 cd_crook_hbv_armour_3_desc : "Deine Rüstung erhöht sich um 65% (Schwere ballistische Weste)."
 
 # Burglar
@@ -819,10 +819,10 @@ cd_burglar_dodge_3_desc : "Deine Ausweichchance erhöht sich um 30%."
 cd_burglar_prio_1_name : "Gerissen Level 1"
 cd_burglar_prio_1_desc : "Während du still stehst und dich duckst, haben Gegner eine 10% niedrigere Wahrscheinlichkeit dich als Ziel zu wählen."
 
-cd_burglar_prio_2_name : "Gerissen Lv2"
+cd_burglar_prio_2_name : "Gerissen Level 2"
 cd_burglar_prio_2_desc : "Während du still stehst und dich duckst, haben Gegner eine 15% niedrigere Wahrscheinlichkeit dich als Ziel zu wählen."
 
-cd_burglar_prio_3_name : "Gerissen Lv3"
+cd_burglar_prio_3_name : "Gerissen Level 3"
 cd_burglar_prio_3_desc : "Während du still stehst und dich duckst, haben Gegner eine 20% niedrigere Wahrscheinlichkeit dich als Ziel zu wählen."
 
 cd_burglar_bag_speed_name : "Einsacker"
@@ -905,13 +905,13 @@ cd_grind_hot_duration_name : "Euphorie"
 cd_grind_hot_duration_desc : "Der Effekt von 'Dopamin' hält 40% länger an."
 
 # Yakuza
-cd_yakuza_recovery_1_name : "Yoroi Irezumi Lv1"
+cd_yakuza_recovery_1_name : "Yoroi Irezumi Level 1"
 cd_yakuza_recovery_1_desc : "Je niedriger deine Lebenspunkte sind, desto schneller regeneriert sich deine Rüstung bis zu maximal 20%.\nDieser Effekt beginnt bei 25% Lebenspunkten."
 
-cd_yakuza_recovery_2_name : "Yoroi Irezumi Lv2"
+cd_yakuza_recovery_2_name : "Yoroi Irezumi Level 2"
 cd_yakuza_recovery_2_desc : "Je niedriger deine Lebenspunkte sind, desto schneller regeneriert sich deine Rüstung bis zu maximal 40%.\nDieser Effekt beginnt bei 25% Lebenspunkten."
 
-cd_yakuza_recovery_3_name : "Yoroi Irezumi Lv3"
+cd_yakuza_recovery_3_name : "Yoroi Irezumi Level 3"
 cd_yakuza_recovery_3_desc : "Je niedriger deine Lebenspunkte sind, desto schneller regeneriert sich deine Rüstung bis zu maximal 60%.\nDieser Effekt beginnt bei 25% Lebenspunkten."
 
 cd_yakuza_speed_name : "Sokudo Irezumi"
