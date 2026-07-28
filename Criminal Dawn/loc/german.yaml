@@ -1,0 +1,1603 @@
+### MENUS ###
+## MAIN MENU
+crimdawn_create_lobby_title : "Lobby erstellen"
+crimdawn_create_lobby_desc : "Starte Criminal Dawn."
+crimdawn_init_multiworld_title : "Client-Daten laden"
+crimdawn_init_multiworld_desc : "Richte die notwendige Daten für Criminal Dawn ein."
+crimdawn_first_run_title : "Starte einen neuen Run"
+crimdawn_new_run_title : "$ORDINAL Run"
+crimdawn_start_run_desc : "Verursache so viel Chaos innerhalb des Zeitlimits."
+crimdawn_play_next_title : "$ORDINAL Run - $HEIST_NUM"
+crimdawn_play_next_desc : "$CLOCK $TIME Minuten übrig."
+crimdawn_play_inf_desc : "Kein Zeitlimit!"
+
+# Client Error
+crimdawn_multiworld_missing_title : "Fehlend Client-Daten"
+crimdawn_multiworld_missing_desc : "Du musst dich erst mit einer Mutliworld verbinden. Eine vollständige Anleitung hierfür findest du auf der 'Installation'-Seite im Mod-Wiki. Der Client kann im Archipelago-Launcher gefunden werden.\n\nDie Installations-Anleitung ist auf ENGLISCH\n\nhttps://github.com/CATEM1NAL/PD2-Criminal-Dawn/wiki/Installation"
+crimdawn_multiworld_invalid_title : "Ungültige Client-Daten"
+crimdawn_multiworld_invalid_desc : "Der falsche Speicherstand ist gerade in Benutzung. Bitte starte das Spiel neu."
+
+## SAFEHOUSE
+crimdawn_safehouse_desc : "Wer weißt, was man hier finden kann..."
+crimdawn_safehouse_upg_hint : "Weitere Upgrades werden verfügbar, sobald die aktuelle Stufe des Verstecks vollständig aufgewertet und ein neuer Meilenstein erreicht wurde."
+crimdawn_safehouse_inf_upg_hint : "Weitere Upgrades werden verfügbar, sobald die aktuelle Stufe des Verstecks vollständig aufgewertet wurde."
+
+## MOD SETTINGS
+crimdawn_settings_name : "Criminal Dawn"
+crimdawn_settings_desc : "Passe das Gamepaly an."
+
+# Options
+crimdawn_difficulty : "Höchster Schwierigkeitsgrad"
+crimdawn_difficulty_desc : "Der höchster Schwierigkeitsgrad, zu dem das Spiel skalieren wird.\nDer Schwierigkeitsgrad erhöht sich, wenn Raubüberfälle abgeschlossen werden oder Progressionsitems erlangt werden."
+
+crimdawn_mutator_desc : "Regelt ob zufällige Mutatoren eingeschaltet und wie sie integriert sind.\nInvertierte Skalierung beginnt mit der maximalen Anzahl an Mutatoren und reduziert diese laufend wenn man Items erhält."
+crimdawn_diff_scaling : "An mit Standard-Skalierung"
+crimdawn_inverse_scaling : "Invertierte Skalierung"
+
+crimdawn_deathlink : "Death Link"
+crimdawn_deathlink_desc : "Regelt ob Death Links gesendet und erhalten werden können.\nTödliche Death Links schicken dich direkt in Haft, wenn kein Niederschläge mehr Verfügbar sind."
+crimdawn_lethal_deathlink : "An mit Tödlichen Death Links"
+crimdawn_lethal_deathlink_desc : "Regelt ob Death Links dich direkt in Haft schicken, wenn sie bei 0 übringen Niederschlägen geschehen."
+
+crimdawn_inf_time : "Unendliche Zeit"
+crimdawn_inf_time_desc : "Timer wird nach erhalt aller für den Sieg notwendigen Progressions-Items deaktiviert."
+
+# Heist Tiers
+crimdawn_heist1_settings_name : "Raubüberfälle (Stufe 1)"
+crimdawn_heist1_settings_desc : "Aktiviert/Deaktiviert Raubüberfälle der Stufe 1 (Erster Raubüberfall bei einer Run-Länge von 6)."
+crimdawn_heist2_settings_name : "Raubüberfälle (Stufe 2)"
+crimdawn_heist2_settings_desc : "Aktiviert/Deaktiviert Raubüberfälle der Stufe 2 (Erster Raubüberfall bei einer Run-Länge von 5)."
+crimdawn_heist3_settings_name : "Raubüberfälle (Stufe 3)"
+crimdawn_heist3_settings_desc : "Aktiviert/Deaktiviert Raubüberfälle der Stufe 3 (Erster Raubüberfall bei einer Run-Länge von 4)."
+crimdawn_heist4_settings_name : "Raubüberfälle (Stufe 4)"
+crimdawn_heist4_settings_desc : "Aktiviert/Deaktiviert Raubüberfälle der Stufe 4 (Erster Raubüberfall bei einer Run-Länge von 3)."
+crimdawn_heist5_settings_name : "Raubüberfälle (Stufe 5)"
+crimdawn_heist5_settings_desc : "Aktiviert/Deaktiviert Raubüberfälle der Stufe 5 (Erster Raubüberfall bei einer Run-Länge von 2)."
+
+crimdawn_settings_heist_desc : "Aktiviere/Deaktiviere diesen Raubüberfall - dieser erscheint dann nicht in einem Run."
+crimdawn_settings_dlc_desc : "Aktiviere/Deaktiviere diesen Raubüberfall - dieser erscheint dann nicht in einem Run.\nDieser Raubüberfall benötigt sein entsprechendes DLC!"
+
+## UNLOCK MENU
+crimdawn_new_item1 : "Gage hat etwas neues für euch liegen gelassen."
+crimdawn_new_item2 : "Beim letzten Raubüberfall hast du etwas von einem toten Polizisten mitgenommen..."
+crimdawn_new_item3 : "Bei eurer Flucht ins Versteck hast du in die Beutetasche geschaut und hast etwas gefunden, mit dem du nicht gerechnet hast..."
+crimdawn_new_item4 : "Vlad kam heute vorbei, nachdem er euch eine gute Stunde ausführlichst über seine Ziegen informiert hat, überreicht er euch etwas."
+crimdawn_new_item5 : "Als du dich auf die Couch werfen wolltest, spürst du etwas hartest unter dem Polster..."
+crimdawn_new_item6 : "Den anderen war langweilig und sie haben einen Militärtransporter überfallen."
+crimdawn_new_item7 : "Ein Typ namens Troy kam beim Versteck vorbei - Wir haben ihn zu Jacket geschickt. Das hier blieb von ihm übrig..."
+crimdawn_new_item8 : "Ein bärtiger Mann ist dir in deinen Träumen erschienen... Das lag neben dir als du aufgewacht bist."
+crimdawn_new_item9 : "Eine seltsame Box lag vor der Versteck. Unter ihr war ein Bild von einem Gesicht mit Sonnenbrille und einer Faust. Soll das eine Drohung sein?"
+crimdawn_new_item10 : "Locke kramte in seinen Erinnerungen von der Zeit als er in China stationiert war. Dabei hat er etwas in seinen alten Sachen gefunden..."
+crimdawn_new_item11 : "Wolf startte dir unangenehm lange in die Augen, dann hat er dir etwas gegeben..."
+crimdawn_new_item12 : "Bonnie hat etwas gefunden, als sie die Toiletten untersucht hat..."
+crimdawn_new_item13 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein enthusiastisches 'WAHOO'..."
+crimdawn_new_item14 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein elektrisches Knistern..."
+crimdawn_new_item15 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du wie Gras zerschnitten wird..."
+crimdawn_new_item16 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du lautes Meeresrauschen..."
+crimdawn_new_item17 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du stürmische Winde..."
+crimdawn_new_item18 : "Während du darüber nachgedacht hast, wo all diese Items überhaupt herkommen, öffnete sich ein Portal vor dir. Als du dich diesem näherst hörst du ein hektisches Kreuzfeuer..."
+crimdawn_new_item19 : "Eine große Schlange schleicht auf dich zu. 'SALAZAR!' ist das einzige, was sie sagt bevor sie sagt, bevor sie wieder weiterzieht. Dabei hat sie etwas fallen lassen..."
+crimdawn_new_item20 : "Als du gerade die neusten Nachrichten über AlmirCorp hörst, bemerkst du, dass Hoxton sich gerade sehr stark auf etwas konzentriert..."
+crimdawn_new_item21 : "Houston hat die ganze Nacht damit verbracht, warum der Van nicht mehr gefahren ist. Stellt sich raus, dass etwas im Auspuff steckte..."
+crimdawn_new_item22 : "Der Zahnarzt hat irgendetwas über mesopotamischen Mist erzählt. Als er fertig war, hat er uns etwas geschenkt..."
+crimdawn_new_item23 : "Hector hat uns versprochen, dass wir noch bessere Belohnungen erhalten, wenn wir unsere Leben aufs Spiel setzen... Klingt super!"
+crimdawn_new_item24 : "Bain ist kurz bei Kung Bo angehalten und hat uns was mitgebracht..."
+crimdawn_new_item25 : "Der Elephant versucht uns andauernd Öl zu verkaufen. Schade nur, dass uns nur Überfall-Materialien interessieren!"
+
+## UPGRADE MENU
+# Title
+crimdawn_upgrades_title_skills : "Aktuelle Fähigkeiten"
+crimdawn_upgrades_title_perks : "Aktuelle Vorteile"
+crimdawn_upgrades_title_stats : "Aktuelle Werteverbesserungen"
+crimdawn_upgrades_title_deploy : "Aktuelle Ausrüstungs Upgrades"
+
+# Buttons
+crimdawn_upgrades_button_skills : "Fähigkeiten"
+crimdawn_upgrades_button_perks : "Vorteile"
+crimdawn_upgrades_button_stats : "Werteverbesserungen"
+crimdawn_upgrades_button_deploy : "Ausrüstungen"
+
+# Placeholder
+crimdawn_upgrades_none : "Nichts."
+
+### CHAT NOTIFICATIONS ###
+# Victory
+crimdawn_chat_victory : "Gratulation, du hast es geschafft! D.C. liegt in Schutt und Asche und du fühlst ein warmes Gefühl der Zurfriedenheit..."
+crimdawn_chat_victory2 : "... oder bist du doch noch nicht ganz fertig?"
+
+# Received Client Update
+crimdawn_chat_received_items : "Du hast etwas von der Multiworld erhalten!\n"
+crimdawn_client_progression_upgrade : "Der Timer wurde um $TIME_GAINED Sekunden verängert (noch $MINS_REMAINING Minuten übrig)!\nZielgeschwindigkeit wurde um $SPEED% erhöht ($TOTAL_SPEED% schneller)!\n"
+crimdawn_client_extra_life : "Du beginnst absofort jede Runde mit $LIVES Downs!\n"
+crimdawn_client_new_item : "Gegenstand erhalten: $ITEM ($CURRENT/$TOTAL)\n"
+crimdawn_client_infinite_item : "Gegenstand erhalten: $ITEM\n"
+crimdawn_client_saw : "Du hast die OVE9000-Säge als Primärwaffe freigeschaltet!\n"
+crimdawn_client_saw_secondary : "Du hast die OVE9000-Säge als Sekundärwaffe freigeschaltet!\n"
+crimdawn_client_laser_watch : "Du hast den Laser-Chronometer freigeschaltet!\n"
+crimdawn_client_coins : "$NUM Münzen erhalten!\n"
+
+# Score
+crimdawn_chat_score_increased : "Punktemaximum auf $SCORE erhöht!"
+crimdawn_chat_infinite_time : "Du spürst, wie der Zeitdruck nachlässt..."
+crimdawn_chat_score_capped : "$SCORE_ICON $SCORE_CAP (Punktemaximum erreicht).$HINT"
+crimdawn_chat_score_cap_hint : "\nEs werden mehr Progressions-Items benötigt um das Maximum zu erhöhen."
+crimdawn_chat_score_cap_inc : "Punktemaximum auf $SCORE_CAP erhöht!\n"
+crimdawn_chat_score_gain : "$SCORE_ICON $SCORE.\n+$POINTS von $REASON.\n$TO_NEXT für den nächsten Check benötigt."
+crimdawn_chat_fscore_gain : "$SCORE_ICON $SCORE.\n+1 pro $POINTS $REASON.\n$TO_NEXT für den nächsten Check benötigt."
+crimdawn_score_bag_secured : "Beute gesichert"
+crimdawn_score_package_secured : "Gage-Paket gesichert"
+crimdawn_score_obj_completed : "Ziel geschafft"
+crimdawn_score_loose_cash : "Looses Bargeld"
+crimdawn_score_enemies_killed : "Gegner getötet"
+crimdawn_score_day_completed : "Tag geschafft"
+crimdawn_score_heist_completed : "Raubüberfall geschafft"
+
+# Time
+crimdawn_chat_time_remaining : "$TIME Minuten übrig."
+crimdawn_chat_final_minute : "Weniger als eine Minuten übrig!"
+crimdawn_chat_no_time_left : "Zeit abgelaufen!"
+
+### POINT OF NO RETURN ###
+# About 22 letters are the cutoff
+# it was about "t wird wiederbelebt in" which was shown in my test run
+# so yeah there will be some cutting here and there, np tho
+crimdawn_ponr_default: "Sonnenuntergang in"
+crimdawn_ponr_rare1: "Bain stirbt in"
+crimdawn_ponr_rare2: "Moon Lord erscheint in" # Terraria
+crimdawn_ponr_rare3: "Tagesschau in" # best known german news broadcast
+crimdawn_ponr_rare4: "Weihnachten in"
+crimdawn_ponr_rare5: "Uuuund es ist weg in" # South Park (S13 Margaritaville "aaaaand it's gone")
+crimdawn_ponr_rare6: "Zündung in" # detonation/Ignition
+crimdawn_ponr_rare7: "Engel erscheinen in"
+crimdawn_ponr_rare8: "UT 2014 erscheint in" # Unreal Tournament 2014 was abandoned by Epic Games in favour of Fortnite. I hold a very deep grudge, as the UT series is a big part of my childhood
+crimdawn_ponr_rare9: "PAYDAY 3 wird gut in"
+crimdawn_ponr_rare10: "Gage steht auf in"
+crimdawn_ponr_rare11: "Arbeitszeitbetrug in" # working time fraud has become a gigantic meme in germany because of our current government telling us to work more and harder
+crimdawn_ponr_rare12: "Dallas furzt in"
+crimdawn_ponr_rare13: "Ich kotze ins Auto in" # tried to translate this as close as possible, because you like the song so much :)
+crimdawn_ponr_rare14: "Ultimate bereit in"
+crimdawn_ponr_rare15: "MaxTec erscheint in" # Cyberpunk 2077
+crimdawn_ponr_rare16: "Ice-T erscheint in"
+crimdawn_ponr_rare17: "Blurryface gewinnt in" # Twenty One Pilots! One of my absolute favourite bands of all time. It's a reference to the Blurryface album and the charcter in lore
+crimdawn_ponr_rare18: "Star Citizen fertig in" # Big critique
+crimdawn_ponr_rare19: "Spiel crasht in"
+crimdawn_ponr_rare20: "Drei mal Klatschen in" # Enter Shikari! Ever heard of the song "Sorry You're Not a Winner"? The Claps have become infamous in the emo scene.
+crimdawn_ponr_rare21: "Dragan klaut Autos in"
+crimdawn_ponr_rare22: "Cthulhu fhtagn" # hail the great old one
+crimdawn_ponr_rare23: "Blue Womb schließt in" # The Binding of Isaac
+crimdawn_ponr_rare24: "Panikattacke in" # changed to panic attack
+crimdawn_ponr_rare25: "Karsten rennt los in" # German meme - "Was ist denn mit Karsten los?", shows a gay blasting off and jumping into a corner. Later it came out that he had some kind o diabetic "seizure". He also stated that he loves his meme status.
+crimdawn_ponr_rare26: "Discord-Crashout in" # I liked it, so I didn't change it, also makes sense in german
+crimdawn_ponr_rare27: "Fuck ich muss zur Uni" # "Fuck I need to get to Uni" - I sometimes (often) forget the time and have to blast through my city to get there on time
+crimdawn_ponr_rare28: "Jiro findet Kento in"
+crimdawn_ponr_rare29: "Chuck Norris kommt in"
+crimdawn_ponr_rare30: "John Wick 5 kommt in" # changed to chapter, makes more sense in german
+crimdawn_ponr_rare31: "YTitty-Comeback in" # VERY OG German YouTubers. They left a big impact on the humor of Germans around my age
+crimdawn_ponr_rare32: "Neues DLC in"
+crimdawn_ponr_rare33: "Starbreeze pleite in"
+crimdawn_ponr_rare34: "Bazelgeuse kommt in" # Monster Hunter, the Bazelgeuse (commonly called Beetlejuice) is a Monster that just crashes hunts from time to time
+crimdawn_ponr_rare35: "Du gewinnst in"
+crimdawn_ponr_rare36: "Wolf sucht Therapie in" # Changed to him getting sent to a psychiatric clinic
+crimdawn_ponr_rare37: "Innocents gewinnen in" # Garry's Mod Trouble in Terrorist Town. If the time runs out, the Innocents win!
+crimdawn_ponr_rare38: "Houston betrunken in"
+crimdawn_ponr_rare39: "Jimmy nimmt DMT in" # changed to DMT
+crimdawn_ponr_rare40: "Jacket spricht in" # changed to "speaks", as he never speaks
+crimdawn_ponr_rare41: "Clover... wer?" # sent the joke to the next level
+crimdawn_ponr_rare42: "Bohrer verschwindet in" # drill disappears
+crimdawn_ponr_rare43: "Scarface stirbt in"
+crimdawn_ponr_rare44: "Ethans Skandal in"
+crimdawn_ponr_rare45: "Breakdown in" # refering to song breakdowns - I'm really into extreme music genres
+crimdawn_ponr_rare46: "Sangres erstickt in"
+crimdawn_ponr_rare47: "Sydney ertrinkt in"
+crimdawn_ponr_rare48: "Dukes Leber versagt in"
+crimdawn_ponr_rare49: "Selbstzerstörung in" # self destruction
+crimdawn_ponr_rare50: "Hila geht zur Armee in"
+crimdawn_ponr_rare51: "Shade ersetzt Bain in"
+crimdawn_ponr_rare52: "Bodhi surft im Web in" # changed to surfing the web
+crimdawn_ponr_rare53: "Rust bleibt liegen"
+crimdawn_ponr_rare54: "Joy lernt Python in"
+crimdawn_ponr_rare55: "Bonnie rastet aus in"
+crimdawn_ponr_rare56: "Sokol rusht B in" # moved to CS, because this meme is bigger in germany
+crimdawn_ponr_rare57: "Hoxton flüchtet in" # flees, nod to his skilltree
+crimdawn_ponr_rare58: "Chains vollstreckt in" # enforces, nod to his skilltree
+crimdawn_ponr_rare59: "Locke sticht in See in"
+crimdawn_ponr_rare60: "Herzversagen in"
+crimdawn_ponr_rare61: "Core-Spiel in"
+crimdawn_ponr_rare62: "Bile zockt Flight Sim" # plays flight simulator
+crimdawn_ponr_rare63: "Twitch crasht in"
+crimdawn_ponr_rare64: "Alex wird gefeuert in" # gets fired
+crimdawn_ponr_rare65: "BK in"
+crimdawn_ponr_rare66: "Zahnarzttermin in" # dentist appointment
+crimdawn_ponr_rare67: "67!!!!!!!!!1111elf" # went for full absurdity
+crimdawn_ponr_rare68: "Steam-Sale in"
+crimdawn_ponr_rare69: "Die Fabrik wächst in" # Factorio/Satisfactory
+crimdawn_ponr_rare70: "Vernichtung glitcht in" # Remnant 2 - the final boss (Annihilation) constantly glitches the screens and shift between "phases"
+crimdawn_ponr_rare71: "Schwierigkeit fällt in"
+crimdawn_ponr_rare72: "Tja" # this is the german reaction to the apocalypse, dawn of the gods, alien attacks or having no bread in the house
+crimdawn_ponr_rare73: "HAHAHAHAHAHAHAHAHAHAHA"
+crimdawn_ponr_rare74: "Jemand stirbt in"
+crimdawn_ponr_rare75: "Gommage in" # Clair Obscur: Expedition 33, the event of people getting erased
+crimdawn_ponr_rare76: "Höllenflut steigt in" # Diablo IV - Helltides are a world event where you slaughter immense amounts of enemies
+crimdawn_ponr_rare77: "Raidabend in" # World of Warcraft (my by far most played game of all time) - next raid
+crimdawn_ponr_rare78: "0.7.0 Release in"
+crimdawn_ponr_rare79: "Robe verfolgt dich in" # R.E.P.O. - the robe is one of the best known enemies (and also the most beloved one)
+crimdawn_ponr_rare80: "Versteck entlarft in"
+crimdawn_ponr_rare81: "Triforce komplett in" # changed to completed, as it feels more natural
+crimdawn_ponr_rare82: "Vaati wird böse in" # Minish Cap
+crimdawn_ponr_rare83: "Massives Disaster in" # kept it because it's one of your favourite games :)
+crimdawn_ponr_rare84: "Pokedex vollständig in" # Never played autopelago, but I play Pokepelago every single time. Therefore changed to this
+crimdawn_ponr_rare85: "Blutmond in" # Breath of the Wild, Terraria and wherever else a blood moon exists
+crimdawn_ponr_rare86: "Zeit für Knoppers in" # Knoppers is a german snack (try it if you have the chance) with a meme that you should only eat it at 9:30 AM
+crimdawn_ponr_rare87: "Zug verspätet sich um" # Deutsch Bahn!
+crimdawn_ponr_rare88: "Lewis sucht seine Hose" # Stardew Valley
+crimdawn_ponr_rare89: "The End stirbt in" # Metal Gear Solid 3 Snake Eater. The character "The End" dies after one week (real time) of encountering him.
+crimdawn_ponr_rare90: "T-Virus bricht aus in"
+crimdawn_ponr_rare91: "5min Codingabenteuer" # DougDoug was (still is) my favourite YouTuber/Streamer. he's know for his 5minute coding adventures (in and out), which regularly take half his streams
+crimdawn_ponr_rare92: "Spotify Wrapped in"
+crimdawn_ponr_rare93: "Dracula erscheint in"
+crimdawn_ponr_rare94: "Gandhi wirft Nukes in"
+crimdawn_ponr_rare95: "King K Rool entkommt"
+crimdawn_ponr_rare96: "Höllenportale in"
+crimdawn_ponr_rare97: "Resonanz-Kaskade in"
+crimdawn_ponr_rare98: "Der Spaß ist vorbei in" # South Park (S06 Asspen "you're gonna have a bad time")
+crimdawn_ponr_rare99: "Zerg-Rush in"
+crimdawn_ponr_rare100: "Deadline:"
+crimdawn_ponr_rare: ""
+
+### STRING OVERRIDES ###
+# Locked Items
+bm_menu_level_req : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_level_7 : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_usp : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_ppk : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_p226 : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_g22c : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_g17 : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_deagle : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_b92fs : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_1911 : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_jowi : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_akmsu : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_m45 : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_mp5 : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_x_mp7 : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_saw : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_saw_secondary : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_ammo_bag : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_armor_kit : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_bodybags_bag : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_doctor_bag : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_ecm_jammer : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_first_aid_kit : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_sentry_gun : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_sentry_gun_silent : "Noch nicht freigeschaltet!"
+bm_menu_skill_locked_trip_mine : "Noch nicht freigeschaltet!"
+bm_menu_dlc_locked : "Noch nicht freigeschaltet!"
+bm_global_value_mxm_unlock : "Noch nicht freigeschaltet!"
+bm_wpn_gre_electric_unlock : "Noch nicht freigeschaltet!"
+bm_wpn_money_event_ended : "Noch nicht freigeschaltet!"
+bm_global_value_gage_pack_jobs_unlock : "Benötigt das Gage Mod Courier DLC um freigeschaltet zu werden"
+
+# Upgrade Requirements
+bm_menu_skill_locked_copr_ability : "Benötigt den 'Momentum'-Vorteil!"
+bm_menu_skill_locked_damage_control : "Benötigt den 'Tugend'-Vorteil!"
+bm_menu_skill_locked_pocket_ecm_jammer : "Benötigt den 'Glitch'-Vorteil!"
+bm_menu_skill_locked_smoke_screen_grenade : "Benötigt den 'Raucher'-Vorteil!"
+bm_menu_skill_locked_tag_team : "Benötigt den 'Seelenverwandte'-Vorteil!"
+menu_asset_lock_buy_bodybags_asset : "Benötigt den 'Insider' Skill!"
+menu_asset_lock_additional_assets : "Benötigt den 'Insider' Skill!"
+
+# Consumable Descriptions
+bm_ability_chico_injector_desc: "Wurwaffen-Taste drücken um zu aktivieren. Während dieses Item aktiv ist wird 75% des erlittenen Schadens in Heilung umgewandelt.\nDieser Effekt hält 6 Sekunden an."
+bm_grenade_smoke_screen_grenade_desc: "Wurwaffen-Taste drücken um zu aktivieren. Erhöht die Ausweichchance aller Crewmitglieder in der Rauchwolke um 50%. Gegner, die sich in der Wolke befinden haben eine 50% reduzierte Genauigkeit.\nDieser Effekt hält 10 Sekunden an."
+bm_grenade_tag_team_desc: "Wurwaffen-Taste drücken um zu aktivieren. Du musst einen Verbündeten anschauen, um den Effekt zu aktivieren. Während der Effekt aktiv ist erhältst du 6 Lebenspunkte, der Verbündete 3 Lebenspunkte, für jeden von dir oder dem Verbündeten getöteten Gegner.\nDieser Effekt hält 12 Sekunden an und wird für jeden getöteten Gegner um 1 Sekunde verlängert."
+bm_grenade_pocket_ecm_jammer_desc: "Wurwaffen-Taste drücken um zu aktivieren. Während des Schleichens funktioniert das Item wie ein normaler ECM-Störsender und profitiert von allen ECM-Fähigkeiten, in Benutzung. Außerhalb des Schleichens wird ein ECM-Feedback aktiviert, welcher Gegner im Umkreis von 25m betäuben kann.\nDieser Effekt hält 6 Sekunden an."
+bm_grenade_copr_ability_desc: "Wurwaffen-Taste drücken um zu aktivieren. Bei Aktivierung regenerierst du 40% deiner Lebenspunkte und deine Rüstung wird deaktiviert. Deine gesamten Lebenspunkte werden in 5 Segmente unterteilt. Jedes Mal, wenn du Schaden erhälts, wird 1 Segment entfernt (bei mehr als 200 Schaden werden 2 Segmente entfernt) und alle Crewmitglieder regenerieren 5% ihrer Lebenspunkte. Du regenerierst 1 Segment pro 2 getöteter Gegner, zusätzlich verhindert jeder getötete Gegner deinen erlittenen Schaden für 1 Sekunde.\nDieser Effekt hält 6 Sekunden an."
+bm_grenade_damage_control_desc: "Wurwaffen-Taste drücken um zu aktivieren. Entfernt gestapelten Schaden."
+
+# Perk Effects
+bm_menu_armor_max_health_store : "Bruch: Kann bis zu $amount Lebenspunkte speichern."
+bm_menu_disables_damage_to_hot : "'Dopamin'-Vorteil ist deaktiviert, wenn du diese Rüstung trägst."
+
+# Black Market
+bm_menu_stamina : "Erholungsdauer"
+menu_bm_total_cost : ""
+
+# Safehouse
+menu_cs_upgrade_cost : "Es kostet ##1## Münze um einen Raum aufzuwerten."
+menu_cs_fully_upgraded : "Dieser Raum kann nicht weiter aufgewertet werden!"
+
+# Infamy
+menu_infamy_banner_already_unlocked : "Alle Berüchtigt-Belohnungen sind standardmäßig freigeschaltet.\nDas hier ist also nur zum angeben."
+menu_infamy_go_infamous_error_money : "Du benötigst mindestens $200,000,000 im Offshore."
+
+# Pause Menu
+menu_abort_mission : "Runde abbrechen"
+dialog_abort_mission_text : "Du bist dabei in die Lobby zurückzukehren.\n\nDas wird die aktuelle Runde zurücksetzen!"
+menu_end_game : "Es gibt kein Entkommen"
+
+### CUSTOM HEISTS ###
+heist_cd_28stores_name: "Zwanzig Plus Zwei Mal Vier Läden"
+heist_cd_28stores_brief: "Das sind echt viele Läden... ich hab mich auch nicht verzählt ja?\n\nIch glaube an euch Leute! Vlad wird sich freuen!"
+
+### UPGRADES ###
+## PROGRESSION
+# OVKL ToolSys
+cd_player_drill_speed_multiplier0_name : "OVKL ToolSys 2.0"
+cd_player_drill_speed_multiplier0_desc : "Computer-Hacks, Bohrer, und Sägen sind $SPEED% schneller."
+
+cd_player_drill_speed_multiplier1_name : "OVKL ToolSys 3.0"
+cd_player_drill_speed_multiplier1_desc : "Computer-Hacks, Bohrer, und Sägen sind $SPEED% schneller."
+
+cd_player_drill_speed_multiplier2_name : "OVKL ToolSys 4.0"
+cd_player_drill_speed_multiplier2_desc : "Computer-Hacks, Bohrer, und Sägen sind $SPEED% schneller. Sie können nur 2x hängen/klemmen."
+
+cd_player_drill_speed_multiplier3_name : "OVKL ToolSys 5.0"
+cd_player_drill_speed_multiplier3_desc : "Computer-Hacks, Bohrer, und Sägen sind $SPEED% schneller. Sie können nur 2x hängen/klemmen."
+
+cd_player_drill_speed_multiplier4_name : "OVKL ToolSys 6.0"
+cd_player_drill_speed_multiplier4_desc : "Computer-Hacks, Bohrer, und Sägen sind $SPEED% schneller. Sie können nur 1x hängen/klemmen."
+
+cd_player_drill_speed_multiplier5_name : "OVKL ToolSys 7.0"
+cd_player_drill_speed_multiplier5_desc : "Computer-Hacks, Bohrer, und Sägen sind $SPEED% schneller. Sie können nur 1x hängen/klemmen."
+
+cd_player_drill_speed_multiplier6_name : "OVKL ToolSys 8.0"
+cd_player_drill_speed_multiplier6_desc : "Computer-Hacks, Bohrer, und Sägen sind $SPEED% schneller und können nicht mehr hängen/klemmen!"
+
+cd_faster_objectives_name : "Zielorientiert"
+cd_faster_objectives_desc : "Missionsziele sind $SPEED% schneller (wird im letzten Raubüberfall ignoriert)."
+
+# Nine Lives
+cd_player_additional_lives_1_name : "Zwei Leben"
+cd_player_additional_lives_1_desc : "Starte jede Runde mit 2 Downs."
+
+cd_player_additional_lives_2_name : "Drei Leben"
+cd_player_additional_lives_2_desc : "Starte jede Runde mit 3 Downs."
+
+cd_player_additional_lives_3_name : "Vier Leben"
+cd_player_additional_lives_3_desc : "Starte jede Runde mit 4 Downs."
+
+cd_player_additional_lives_4_name : "Fünf Leben"
+cd_player_additional_lives_4_desc : "Starte jede Runde mit 5 Downs."
+
+cd_player_additional_lives_5_name : "Sechs Leben"
+cd_player_additional_lives_5_desc : "Starte jede Runde mit 6 Downs."
+
+cd_player_additional_lives_6_name : "Sieben Leben"
+cd_player_additional_lives_6_desc : "Starte jede Runde mit 7 Downs."
+
+cd_player_additional_lives_7_name : "Acht Leben"
+cd_player_additional_lives_7_desc : "Starte jede Runde mit 8 Downs."
+
+cd_player_additional_lives_8_name : "Neun Leben"
+cd_player_additional_lives_8_desc : "Du bist zwar keine Katze, aber dafür startest du jede Runde mit 9 Downs." # Fluff Line about cats
+
+# Perma-Perks
+cd_permaperks1_name : "Chamäleon"
+cd_permaperks1_desc : "Deine Tarnung steigt um 1."
+
+cd_permaperks2_name : "Zweite Haut"
+cd_permaperks2_desc : "Dein Geschwindigkeitsmalus durch Rüstungen wird um 15% reduziert."
+
+cd_permaperks3_name : "Aggressor"
+cd_permaperks3_desc : "Dein Schaden erhöht sich um 5%."
+
+cd_permaperks4_name : "Einbauschrank"
+cd_permaperks4_desc : "Die Menge an Munition, die du aufsammelst ist um 35% erhöht."
+
+cd_permaperks5_name : "Helm-Popping"
+cd_permaperks5_desc : "Deine Kopfschüsse verursachen 25% mehr Schaden.\nLass die Hüte fliegen!" # Let those hats fly!
+
+cd_permaperks6_name : "Triage"
+cd_permaperks6_desc : "Du interagierst 20% schneller mit Arzttaschen."
+
+cd_permaperks7_name : "Begehbarer Kleiderschrank"
+cd_permaperks7_desc : "Die Menge an Munition, die du aufsammelst ist um 75% erhöht."
+
+# Perma-Skills
+cd_permaskills1_name : "Katzenartig"
+cd_permaskills1_desc : "Du landest auf deinen 4 Pfoten. Erlittener Fallschaden verursacht zuerst Rüstungsschaden." # Cat joke
+
+cd_permaskills2_name : "Der Tatortreiniger"
+cd_permaskills2_desc : "Du machst Schotty's Job und kannst jetzt Leichensäcke benutzen." # Nudge to the classic german series "Der Tatortreiniger"
+
+cd_permaskills3_name : "Dominant"
+cd_permaskills3_desc : "Du kannst Gegner anschreien um sie einzuschüchtern.\nSpezialeinheiten sind davon unbeeindruckt."
+
+cd_permaskills4_name : "Shhhh..."
+cd_permaskills4_desc : "Die Todesgeräusche von Gegner sind schwerer zu hören. Die Reichweite verringert sich um 95%."
+
+cd_permaskills5_name : "Werkzeugkasten"
+cd_permaskills5_desc : "Du reparierst Bohrer 25% schneller."
+
+cd_permaskills6_name : "Hyperfokussierung"
+cd_permaskills6_desc : "Während du mit etwas interagierst, erleidest du 50% weniger Schaden."
+
+cd_permaskills7_name : "Tausendsassa"
+cd_permaskills7_desc : "Du kannst zwei verschiedene Ausrüstungen mitnehmen. Du interagierst mit Ausrüstungen doppelt so schnell."
+
+## SKILLS
+# Default
+cd_harmless_melee_name : "Knuff"
+cd_harmless_melee_desc : "Der erste Nahkampf-Treffer tötet Zivilisten nicht mehr."
+
+cd_downed_primary_name : "Action-Held"
+cd_downed_primary_desc : "Du kannst deine Primärwaffe nutzen und Zielen während du am Boden liegst.\nZiemlich Badass."
+
+# Mastermind Tree
+cd_revive_damage_reduction_name : "Feldsanitäter"
+cd_revive_damage_reduction_desc : "Während du jemanden wiederbelebst, erleidest du 30% weniger Schaden."
+
+cd_inspire_shout_name : "Anfeuern"
+cd_inspire_shout_desc : "Du kannst deine Crewmitglieder anschreien um ihre Bewegungs- und Nachladegeschwindigkeit um 20% zu erhöhen.\nDieser Effekt hält 10 Sekunden an.\n\nWenn du niedergeschlagene Crewmitglieder anschreist, belebst du sie wieder.\nDieser Effekt hat eine Abklingzeit von 20s."
+
+cd_hostage_absorption_name : "Zwangsfreundschaft"
+cd_hostage_absorption_desc : "Du erhältst pro Geisel 0,5 Schadensreduktion bis maximal 4."
+
+cd_intimidate_sounds_name : "Kontroll-Freak"
+cd_intimidate_sounds_desc : "Laute Geräusche schüchtern Zivilisten ein.\nEingeschüchterte Zivilisten innerhalb von 10m Umkreis von dir bleiben eingschüchtert."
+
+cd_stockholm_syndrome_name : "Stockholm-Syndrom"
+cd_stockholm_syndrome_desc : "Während du in Gefangenschaft bist kannst du springen um sofort eine Gesel zu handeln. Dieser Effekt kann nur einmal pro Raubüberfall eingesetzt werden."
+
+cd_hostage_taker_name : "Geiselnehmer"
+cd_hostage_taker_desc : "Solange du mindestens eine Geisel hast, regenerierst du alle 5s 5 Lebenspunkte."
+
+cd_headshot_faster_reload_name : "Aggressives Nachladen"
+cd_headshot_faster_reload_desc : "Wenn du mit Einzelschuss MPs/Sturmgewehren/Scharfschützengewehren eine Kopfschuss-Tötungen erzielst, erhöht sich deine Nachladegeschwindigkeit für 4s um 100%"
+
+cd_headshot_ammo_return_name : "Magisches Magazin"
+cd_headshot_ammo_return_desc : "Wenn du mit Einzelschuss MPs/Sturmgewehren/Scharfschützengewehren 2 Kopfschüsse innerhalb von 6s triffst erhältst du ein Kugel in dein Magazin zurück."
+
+cd_graze_name : "Streifschuss"
+cd_graze_desc : "Scharfschützengewehre verursachen 20% ihres Schadens auf alle Gegner im Umkreis von 1 Meter um den Schusspfad. Bei einer Kopfschuss-Tötung erhöht sich der Schaden auf 100% des verursachten Schadens."
+
+cd_joker_1_name : "Joker"
+cd_joker_1_desc : "Du kannst eingeschüchterte Polizisten konvertieren."
+
+cd_joker_2_name : "Personenkult"
+cd_joker_2_desc : "Konvertierte Polizisten verursachen 35% mehr und erleiden 54% weniger Schaden.\nDu kannst zwei konvertierte Polzisten gleichzeitig aktiv haben."
+
+cd_joker_stats_name : "Partners in Crime"
+cd_joker_stats_desc : "Solange mindestens ein konvertierter Polizist aktiv ist, erhöhen sich deine Lebenspunkte um 30% und deine Bewegungsgeschwindigkeit um 10%."
+
+# Enforcer Tree
+cd_underdog_name : "Underdog"
+cd_underdog_desc : "Solange sich 3 oder mehr Gegner im Umkreis von 18m um dich befinden verursachst du 15% mehr Schaden und erleidest 15 weniger Schaden."
+
+cd_shotgun_sprint_shoot_name : "Dran bleiben"
+cd_shotgun_sprint_shoot_desc : "Du kannst mit Schrotflinten aus der Hüfte schießen, während du sprintest."
+
+cd_overkill_name : "Overkill"
+cd_overkill_desc : "Wenn du einen Gegner mit einer Schrotflinte oder Säge tötest, verursachst du 20s lang 75% mehr Schaden."
+
+cd_bag_penalty_armour_reduction_name : "Packesel"
+cd_bag_penalty_armour_reduction_desc : "Pro 10 Rüstungspunkte reduziert sich der Geschwindigkeitsmalus beim Tragen von Taschen um 1%."
+
+cd_shield_knock_name : "Mit Wucht"
+cd_shield_knock_desc : "Wenn du Schilde triffst, besteht die Chance sie wegzustoßen."
+
+cd_bullseye_name : "Volltreffer"
+cd_bullseye_desc : "Bei einem Kopfschusstreffer regenerierst du 25 Rüstung.\nDieser Effekt hat eine Abklingzeit von 2s."
+
+cd_saw_ap_name : "Zerstörung"
+cd_saw_ap_desc : "Die Säge ignoriert Schilde und Rüstung."
+
+cd_saw_panic_name : "Sägen-Mörder"
+cd_saw_panic_desc : "Tötungen mit der Säge haben eine 50%ige Chance Panik im Umkreis von 10m zu verursachen."
+
+cd_throwable_pickup_name : "Schnorrer"
+cd_throwable_pickup_desc : "Jedes Mal wenn du Munition aufsammelst, hast du eine Chance eine Wurfwaffe aufzusammeln. Diese Chance erhöht sich jedes Mal um 1% und setzt sich zurück sobald du eine Wurfwaffe erhalten hast.\nJede 6. Tötung lässt eine zusätzliche Munitionsbox fallen."
+
+# Technician Tree
+cd_silent_drill_name : "Verbohrgen"
+cd_silent_drill_desc : "Bohrer sind leise."
+
+cd_drill_autorepair_name : "Reperatursystem"
+cd_drill_autorepair_desc : "Klemmende Bohrer haben eine Chance sich selbst zu reparieren."
+
+cd_drill_melee_repair_name : "Schnellstarter"
+cd_drill_melee_repair_desc : "Ein klemmender Bohrer kann mit einem Nahkampfangriff sofort repariert werden."
+
+cd_weapon_knock_down_name : "40cm Bizeps"
+cd_weapon_knock_down_desc : "Nahkampfangriffe haben eine 20%ige Chance Gegner wegzustoßen."
+
+cd_sprint_shoot_name : "Aus der Hüfte"
+cd_sprint_shoot_desc : "Du kannst aus der Hüfte schießen, während du sprintest."
+
+cd_lock_n_load_name : "Geladen und Entsichert"
+cd_lock_n_load_desc : "Nach zwei Tötungen mit vollautomatischen Waffen erhöht sich deine Nachladegeschwidigkeit um 100% - 40%.\nDieser Effekt für jede Kugel über 20 im Magazin um 1%."
+
+cd_ap_bullets_full_name : "Durchschlag"
+cd_ap_bullets_full_desc : "Deine Waffen ignorieren die Rüstung von Gegnern."
+
+cd_body_expertise_1_name : "Anatomie Grundkurs"
+cd_body_expertise_1_desc : "Deine Körpertreffer mit vollautomatischen Waffen verursachen zusätzlich 30% ihres Kopfschuss-Schadens."
+
+cd_body_expertise_2_name : "Anatomie Leistungskurs"
+cd_body_expertise_2_desc : "Deine Körpertreffer mit vollautomatischen Waffen verursachen zusätzlich 90% ihres Kopfschuss-Schadens."
+
+# Ghost Tree
+cd_mark_unmasked_name : "Spotter"
+cd_mark_unmasked_desc : "Du kannst im Ausspähmodus markieren."
+
+cd_unmasked_pickup_name : "Langfinger"
+cd_unmasked_pickup_desc : "Du kannst im Ausspähmodus kleine Gegenstände aufsammeln."
+
+cd_sixth_sense_name : "Sechster Sinn"
+cd_sixth_sense_desc : "Wenn du für 3,5s stehen bleibst wird jeder im Umkreis von 10m um dich markiert."
+
+cd_additional_assets_name : "Insider"
+cd_additional_assets_desc : "Du kannst in der Planungsphase Insider-Vorteile kaufen."
+
+cd_cam_loop_name : "Kameraschleife"
+cd_cam_loop_desc : "Du kannst Kameras 25s lang in eine Schleife bringen.\nDu kannst nur eine Kamera gleichzeitg in einer Schleife haben."
+
+cd_pick_safes_name : "Panzerknacker"
+cd_pick_safes_desc : "Du kannst Tresore knacken."
+
+cd_strafe_sprint_name : "Beweglich"
+cd_strafe_sprint_desc : "Du kannst seitwärts sprinten."
+
+cd_free_sprint_name : "Äußerst Beweglich"
+cd_free_sprint_desc : "Du kannst in alle Richtungen sprinten."
+
+cd_sprint_reload_name : "Multitasker"
+cd_sprint_reload_desc : "Du kannst während du sprintest nachladen."
+
+cd_armor_broken_stagger_name : "Vergeltung"
+cd_armor_broken_stagger_desc : "Wenn deine Rüstung bricht, stößt dein verursachter Schaden Gegner weg.\nDieser Effekt hält bis zu 6s nachdem deine Rüstung regeneriert ist an."
+
+cd_shockproof_1_name : "Halbleiter"
+cd_shockproof_1_desc : "Während du geschockt wirst, schießt du nicht mehr automatisch.\nWährend du geschockt wirst besteht jede Sekunde eine 30%ige Chance dich davon zu befreien."
+
+cd_shockproof_2_name : "Uno-Reverse"
+cd_shockproof_2_desc : "Während du von einem Taser geschockt wirst, kannst du mit ihm interagieren um dich von dem Schockzustand zu befreien."
+
+cd_sneaky_bastard_name : "Hinterhältiger Bastard"
+cd_sneaky_bastard_desc : "Für jeden Punkt Entdeckungsrisiko unter 35 erhöht sich deine Ausweichchance um 1% bis zu maximal 10%."
+
+cd_second_wind_name : "Leichtigkeit"
+cd_second_wind_desc : "Nachdem deine Rüstung bricht bewegst du dich für 5 Sekunden 30% schneller."
+
+cd_low_blow_name : "Tiefschlag"
+cd_low_blow_desc : "Für jeden Punkt Entdeckungssrisiko unter 35 erhöht sich deine kritische Trefferchance um 3% bi zu maximal 30%."
+
+cd_hvt_1_name : "Wichtiges Ziel"
+cd_hvt_1_desc : "Wenn du auf Gegner zielst, werden sie markiert.\nMarkierte Gegner erleiden aus allen Quellen 15% mehr Schaden."
+
+cd_hvt_2_name : "Fernes Ziel"
+cd_hvt_2_desc : "Du fügst markierten Zielen, die mehr als 10m von dir entfernt sind 50% mehr Schaden zu."
+
+cd_unseen_strike_name : "Verborgener Schlag"
+cd_unseen_strike_desc : "Wenn du 4s lang keinen Schaten erlitten hast, erhöht sich deine kritische Trefferchance für 18s um 35%."
+
+# Fugitive Tree
+cd_pistol_acc_stack_name : "Desperado"
+cd_pistol_acc_stack_desc : "Treffer mit Pistolen erhöhen deine Genauigkeit für 10s um 10% bis zu maximal 40%."
+
+cd_pistol_damage_on_hit_name : "Schießwütig"
+cd_pistol_damage_on_hit_desc : "Treffer Pistoln erhöhen deinen verursachten Schaden für 4s um 120%."
+
+cd_revive_swap_reload_speed_name : "Am Abgrund"
+cd_revive_swap_reload_speed_desc : "Nachdem du wiederbelebt wurdest erhöht sich deine Waffenwechsel- und Nachladegeschwidigkeit für 10s um 100%."
+
+cd_revive_dr_movement_name : "Dem Tod entkommen"
+cd_revive_dr_movement_desc : "Nachdem du wiederbelebt wurdest erhöht sich deine Bewegungsgeschwindigkeit 10s um 30% und dein erlittener Schaden reduziert sich 10s um 30%."
+
+cd_swan_song_name : "Schwanengesang"
+cd_swan_song_desc : "Wenn du niedergeschlagen wirst, gehst du erst nach 6s zu Boden."
+
+cd_swan_song_inf_name : "Rachsüchtiger Schwan"
+cd_swan_song_inf_desc : "Während 'Schwanengesang' aktiv ist, verbrauchst du keine Munition."
+
+cd_messiah_name : "Messias"
+cd_messiah_desc : "Wenn du am Boden bist, kannst du dich selbst wiederbeleben indem du einen Gegner tötest. Dieser Effekt kann nur einmal pro Raubüberfall genutzt werden und wird zurückgesetzt, wenn du mit einer Arzttasche interagierst."
+
+cd_feign_death_name : "Totstellen"
+cd_feign_death_desc : "Du hast eine 45%ige Chance dich selbst wiederzubeleben."
+
+cd_melee_dmg_stack_name : "Blutdurst."
+cd_melee_dmg_stack_desc : "Für jede Tötung, die mit einer NICHT-Nahkampfwaffe getätigt wurde, erhöht sich dein Nahkampfschaden um 100% bis zu maximal 1600%. Dieser Effekt setzt sich zurück, wenn du einen Gegner mit einer Nahkampfwaffe getötet hast."
+
+cd_melee_reload_speed_name : "Magazin-Diebstahl"
+cd_melee_reload_speed_desc : "Wenn du einen Gegner mit einer Nahkampfwaffe getötet hast, erhöht sich deine Nachladegeschwidigkeit für 10 Sekunden um 50%."
+
+cd_drop_soap_name : "Gegenschlag"
+cd_drop_soap_desc : "Während du einen Nahkampfangriff auflädst, blockst du alle gegnerischen Nahkampfangriffe."
+
+cd_berserker_1_name : "Prügelserker"
+cd_berserker_1_desc : "Je weniger Lebenspunkte du hast, desto mehr Schaden verursachst du mit Nahkampfwaffen oder Sägen."
+
+cd_berserker_2_name : "Knarrenserker"
+cd_berserker_2_desc : "Je weniger Lebenspunkte du hast, desto mehr Schaden verursachst du mit Schusswaffen."
+
+cd_frenzy_name : "Raserei"
+cd_frenzy_desc : "Du erhältst 25% weniger Schaden, du hast jedoch maximal 30% deiner maximalen Lebenspunkte."
+
+# Unused
+cd_old_stockholm_name : "Stockholm Syndrom 1973"
+cd_old_stockholm_desc : "Zivilisten können dich wiederbeleben."
+
+cd_harmless_bullets_name : "Platzpatronen"
+cd_harmless_bullets_desc : "Die erste Kugel tötet keine Zivilisten."
+
+cd_loud_and_proud_name : "Laut und Stolz"
+cd_loud_and_proud_desc : "Für alle 7 Punkte Erkennungsrisiko über 40 erhöht sich dein verursachter Schaden um 5%."
+
+cd_pager_snatch_name : "Pager-Diebstahl"
+cd_pager_snatch_desc : "Bei einer Tötung mit einer Nahkampfwaffe besteht eine 25%ige Chance, dass kein Pageranruf kommt."
+
+cd_hostage_boost_name : "Geisel-Boost"
+cd_hostage_boost_desc : "Während du dich im Umkreis von 10m von mindestens einer Geisel befindest erhöht sich der Effekt deiner Geisel-Boni um 25%."
+
+cd_shotgun_no_consume_name : "Patronen-Dimension"
+cd_shotgun_no_consume_desc : "Schrotflinten haben eine 3%ig Chance keine Munition zu verbrauchen."
+
+cd_no_bag_penalty_name : "Nutztier"
+cd_no_bag_penalty_desc : "Du bist immun gegen die negativen Effekte von Beutetaschen."
+
+## PERKS
+# Crew Chief
+cd_chief_dr_name : "Die Kraft aus dem Inneren"
+cd_chief_dr_desc : "Du und deine Crewmitglieder erhalten 8% weniger Schaden.\nWenn du weniger als 50% deiner Lebenspunkte hast verdoppelt sich dieser Effekt für dich."
+
+cd_chief_shout_distance_name : "Deepthroat"
+cd_chief_shout_distance_desc : "Die Reichweite deiner Schreie erhöht sich um 25%."
+
+cd_chief_health_name : "Wolfsrudel"
+cd_chief_health_desc : "Die maximalen Lebenspunkte der gesamten Crew erhöhen sich um 10."
+
+cd_chief_armour_name : "Ninja-Turtles"
+cd_chief_armour_desc : "Die Rüstung der gesamten Crew erhöht sich um 5%."
+
+cd_chief_hostage_1_name : "Geiselnahme"
+cd_chief_hostage_1_desc : "Die maximalen Lebenspukte der gesamten Crew erhöhen sich um 6 für jede Geisel bis zu 24."
+
+cd_chief_hostage_2_name : "Menschliches Schild"
+cd_chief_hostage_2_desc : "Solange mindestens eine Geisel vorhanden ist, verringert sich der erhaltene Schaden um 8%."
+
+# Muscle
+cd_muscle_health_1_name : "Reine Muskelmasse Level 1"
+cd_muscle_health_1_desc : "Deine maximalen Lebenspunkte erhöhen sich um 10."
+
+cd_muscle_health_2_name : "Reine Muskelmasse Level 2"
+cd_muscle_health_2_desc : "Deine maximalen Lebenspunkte erhöhen sich um 20."
+
+cd_muscle_health_3_name : "Reine Muskelmasse Level 3"
+cd_muscle_health_3_desc : "Deine maximalen Lebenspunkte erhöhen sich um 40."
+
+cd_muscle_health_4_name : "Reine Muskelmasse Level 4"
+cd_muscle_health_4_desc : "Deine maximalen Lebenspunkte erhöhen sich um 80."
+
+cd_muscle_health_5_name : "Reine Muskelmasse Level 5"
+cd_muscle_health_5_desc : "Deine maximalen Lebenspunkte erhöhen sich um 100."
+
+cd_muscle_prio_name : "Fleischwand"
+cd_muscle_prio_desc : "Gegner haben eine 15% höhere Wahrscheinlichkeit dich als Ziel zu wählen."
+
+cd_muscle_panic_name : "Ruhestörung"
+cd_muscle_panic_desc : "Unterdrückte Gegner können in Panic verfallen."
+
+cd_muscle_regen_name : "350kg Gorilla"
+cd_muscle_regen_desc : "Du regenerierst alle 5 Sekunden 3 Lebenspunkte."
+
+# Armorer
+cd_armorer_1_name : "Schlagplatte Level 1"
+cd_armorer_1_desc : "Deine Rüstung erhöht sich um 5%."
+
+cd_armorer_2_name : "Schlagplatte Level 2"
+cd_armorer_2_desc : "Deine Rüstung erhöht sich um 10%."
+
+cd_armorer_3_name : "Schlagplatte Level 3"
+cd_armorer_3_desc : "Deine Rüstung erhöht sich um 20%."
+
+cd_armorer_4_name : "Schlagplatte Level 4"
+cd_armorer_4_desc : "Deine Rüstung erhöht sich um 30%."
+
+cd_armorer_6_name : "Schlagplatte Level 5"
+cd_armorer_6_desc : "Deine Rüstung erhöht sich um 35%."
+
+cd_armorer_recovery_name : "Tank"
+cd_armorer_recovery_desc : "Deine Rüstung regeneriert sich 10% schneller."
+
+cd_armorer_immunity_name : "Feste Panzerung"
+cd_armorer_immunity_desc : "Nachdem deine Rüstung bricht, erhältst du 2 Sekunden keinen Schaden."
+
+cd_armorer_team_recovery_name : "Flüssig-Panzer"
+cd_armorer_team_recovery_desc : "Die Rüstung der der gesamten Crew regeneriert sich 10% schneller."
+
+# Rogue
+cd_rogue_dodge_1_name : "Entrinnunen Level 1"
+cd_rogue_dodge_1_desc : "Deine Ausweichchance erhöht sich um 15%."
+
+cd_rogue_dodge_2_name : "Entrinnunen Level 2"
+cd_rogue_dodge_2_desc : "Deine Ausweichchance erhöht sich um 30%."
+
+cd_rogue_dodge_3_name : "Entrinnunen Level 3"
+cd_rogue_dodge_3_desc : "Deine Ausweichchance erhöht sich um 45%."
+
+cd_rogue_prio_name : "Flüchtigkeit"
+cd_rogue_prio_desc : "Gegner haben eine 15% niedrigere Wahrscheinlichkeit dich als Ziel zu wählen."
+
+cd_rogue_ap_name : "Raubtierinstinkt"
+cd_rogue_ap_desc : "Du hast eine 25%ige Chance gegnerische Rüstung zu ignorieren."
+
+cd_rogue_swap_speed_name : "Holster"
+cd_rogue_swap_speed_desc : "Du wechselst Waffen 80% schneller."
+
+# Hitman
+cd_hitman_recovery_1_name : "Regeneration Level 1"
+cd_hitman_recovery_1_desc : "Deine Rüstung regeneriert sich 5% schneller."
+
+cd_hitman_recovery_2_name : "Regeneration Level 2"
+cd_hitman_recovery_2_desc : "Deine Rüstung regeneriert sich 15% schneller."
+
+cd_hitman_recovery_3_name : "Regeneration Level 3"
+cd_hitman_recovery_3_desc : "Deine Rüstung regeneriert sich 25% schneller."
+
+cd_hitman_recovery_4_name : "Regeneration Level 4"
+cd_hitman_recovery_4_desc : "Deine Rüstung regeneriert sich 35% schneller."
+
+cd_hitman_recovery_5_name : "Regeneration Level 5"
+cd_hitman_recovery_5_desc : "Deine Rüstung regeneriert sich 45% schneller."
+
+cd_hitman_recovery_6_name : "Klauen und Zähne"
+cd_hitman_recovery_6_desc : "Deine Rüstung regeneriert sich doppel so schnell, nachdem sie gebrochen ist, jedoch über mindestens 3 Sekunden.. Wenn deine Rüstung gebrochen ist regenerierst du sie auch wenn du Schaden nimmst."
+
+# Crook
+cd_crook_recovery_name : "Gelassenheit"
+cd_crook_recovery_desc : "Deine Rüstung regeneriert sich 10% schneller."
+
+# Crook (LBV)
+cd_crook_lbv_dodge_1_name : "Gelassenheit - LBW - Level 1"
+cd_crook_lbv_dodge_1_desc : "Deine Ausweichchance erhöht sich um 5% (Leichte ballistische Weste)."
+
+cd_crook_lbv_dodge_2_name : "Gelassenheit - LBW - Level 2"
+cd_crook_lbv_dodge_2_desc : "Deine Ausweichchance erhöht sich um 15% (Leichte ballistische Weste)."
+
+cd_crook_lbv_dodge_3_name : "Gelassenheit - LBW - Level 3"
+cd_crook_lbv_dodge_3_desc : "Deine Ausweichchance erhöht sich um 25% (Leichte ballistische Weste)."
+
+cd_crook_lbv_armour_1_name : "Einschlag - LBW - Level 1"
+cd_crook_lbv_armour_1_desc : "Deine Rüstung erhöht sich um 20% (Leichte ballistische Weste)."
+
+cd_crook_lbv_armour_2_name : "Einschlag - LBW - Level 2"
+cd_crook_lbv_armour_2_desc : "Deine Rüstung erhöht sich um 40% (Leichte ballistische Weste)."
+
+cd_crook_lbv_armour_3_name : "Einschlag - LBW - Level 3"
+cd_crook_lbv_armour_3_desc : "Deine Rüstung erhöht sich um 65% (Leichte ballistische Weste)."
+
+# Crook (Ballistic Vest)
+cd_crook_vest_dodge_1_name : "Gelassenheit - BW - Level 1"
+cd_crook_vest_dodge_1_desc : "Deine Ausweichchance erhöht sich um 5% (Ballistische Weste)."
+
+cd_crook_vest_dodge_2_name : "Gelassenheit - BW - Level 2"
+cd_crook_vest_dodge_2_desc : "Deine Ausweichchance erhöht sich um 15% (Ballistische Weste)."
+
+cd_crook_vest_dodge_3_name : "Gelassenheit - BW - Level 3"
+cd_crook_vest_dodge_3_desc : "Deine Ausweichchance erhöht sich um 25% (Ballistische Weste)."
+
+cd_crook_vest_armour_1_name : "Einschlag - BW - Level 1"
+cd_crook_vest_armour_1_desc : "Deine Rüstung erhöht sich um 20% (Ballistische Weste)."
+
+cd_crook_vest_armour_2_name : "Einschlag - BW - Level 2"
+cd_crook_vest_armour_2_desc : "Deine Rüstung erhöht sich um 40% (Ballistische Weste)."
+
+cd_crook_vest_armour_3_name : "Einschlag - BW - Level 3"
+cd_crook_vest_armour_3_desc : "Deine Rüstung erhöht sich um 65% (Ballistische Weste)."
+
+# Crook (HBV)
+cd_crook_hbv_dodge_1_name : "Gelassenheit - SBW - Level 1"
+cd_crook_hbv_dodge_1_desc : "Deine Ausweichchance erhöht sich um 5% (Schwere ballistische Weste)."
+
+cd_crook_hbv_dodge_2_name : "Gelassenheit - SBW - Level 2"
+cd_crook_hbv_dodge_2_desc : "Deine Ausweichchance erhöht sich um 15% (Schwere ballistische Weste)."
+
+cd_crook_hbv_dodge_3_name : "Gelassenheit - SBW - Level 3"
+cd_crook_hbv_dodge_3_desc : "Deine Ausweichchance erhöht sich um 25% (Schwere ballistische Weste)."
+
+cd_crook_hbv_armour_1_name : "Einschlag - SBW - Level 1"
+cd_crook_hbv_armour_1_desc : "Deine Rüstung erhöht sich um 20% (Schwere ballistische Weste)."
+
+cd_crook_hbv_armour_2_name : "Einschlag - SBW - Level 1"
+cd_crook_hbv_armour_2_desc : "Deine Rüstung erhöht sich um 40% (Schwere ballistische Weste)."
+
+cd_crook_hbv_armour_3_name : "Einschlag - SBW - Level 1"
+cd_crook_hbv_armour_3_desc : "Deine Rüstung erhöht sich um 65% (Schwere ballistische Weste)."
+
+# Burglar
+cd_burglar_dodge_1_name : "Heimlich Level 1"
+cd_burglar_dodge_1_desc : "Deine Ausweichchance erhöht sich um 20%."
+
+cd_burglar_dodge_2_name : "Heimlich Level 2"
+cd_burglar_dodge_2_desc : "Deine Ausweichchance erhöht sich um 25%."
+
+cd_burglar_dodge_3_name : "Heimlich Level 3"
+cd_burglar_dodge_3_desc : "Deine Ausweichchance erhöht sich um 30%."
+
+cd_burglar_prio_1_name : "Gerissen Level 1"
+cd_burglar_prio_1_desc : "Während du still stehst und dich duckst, haben Gegner eine 10% niedrigere Wahrscheinlichkeit dich als Ziel zu wählen."
+
+cd_burglar_prio_2_name : "Gerissen Level 2"
+cd_burglar_prio_2_desc : "Während du still stehst und dich duckst, haben Gegner eine 15% niedrigere Wahrscheinlichkeit dich als Ziel zu wählen."
+
+cd_burglar_prio_3_name : "Gerissen Level 3"
+cd_burglar_prio_3_desc : "Während du still stehst und dich duckst, haben Gegner eine 20% niedrigere Wahrscheinlichkeit dich als Ziel zu wählen."
+
+cd_burglar_bag_speed_name : "Einsacker"
+cd_burglar_bag_speed_desc : "Du packst Leichen 20% schneller ein."
+
+cd_burglar_lockpick_speed_name : "Knacker"
+cd_burglar_lockpick_speed_desc : "Du knackst Schlösser 20% schneller."
+
+cd_burglar_pager_speed_name : "Mut antrinken"
+cd_burglar_pager_speed_desc : "Du beantwortest Pager 10% schneller."
+
+cd_burglar_recovery_name : "Frische Luft"
+cd_burglar_recovery_desc : "Während du still stehst und dich duckst, regeneriert sich deine Rüstung 20% schneller."
+
+# Infiltrator
+cd_infil_overdog_name : "Overdog"
+cd_infil_overdog_desc : "Wenn sich 3 oder mehr Gegner im Umkreis von 18m um dich befinden, erhältst du 12% weniger Schaden."
+
+cd_infil_single_dog_1_name : "Nahkampf Level 1"
+cd_infil_single_dog_1_desc : "Wenn sich mindestens ein Gegner im Umkreis von 18m um dich befindet, erhältst du 8% weniger Schaden."
+
+cd_infil_single_dog_2_name : "Nahkampf Level 2"
+cd_infil_single_dog_2_desc : "Wenn sich mindestens ein Gegner im Umkreis von 18m um dich befindet, erhältst du 16% weniger Schaden."
+
+cd_infil_single_dog_3_name : "Nahkampf Level 3"
+cd_infil_single_dog_3_desc : "Wenn sich mindestens ein Gegner im Umkreis von 18m um dich befindet, erhältst du 24% weniger Schaden."
+
+cd_infil_melee_boost_name : "Psychopath"
+cd_infil_melee_boost_desc : "Nahkampfangriffe, die innerhalb von 1s geschehen verursachen 1000% mehr Schaden."
+
+cd_infil_melee_timer_name : "Kognitive Verhaltenstherapie"
+cd_infil_melee_timer_desc : "Der Zeitraum von 'Psychopath' wird auf 7s erhöht."
+
+cd_infil_melee_heal_name : "Lebensraub"
+cd_infil_melee_heal_desc : "Wenn du einen Gegner mit einem Nahkampfangriff triffst, heilst du dich um 20% deiner Lebenspunkte.\nDieser Effekt hat eine Abklingzeit von 10s."
+
+# Sociopath
+cd_socio_armor_1_name : "Spannung"
+cd_socio_armor_1_desc : "Pro Tötung regenerierst du 30 Rüstungspunkte."
+
+cd_socio_heal_name : "Sauberer Treffer"
+cd_socio_heal_desc : "Wenn du einen Gegner mit einem Nahkampfangriff tötest, heilst du dich um 10% deiner Lebenspunkte."
+
+cd_socio_armor_2_name : "Überdosis"
+cd_socio_armor_2_desc : "Wenn du einen Gegner im Umkreis von 18m tötest, regenerierst du 30 Rüstungspunkte.\nDieser Effekt hat eine Abklingzeit von 1s."
+
+cd_socio_panic_name : "Showdown"
+cd_socio_panic_desc : "Wenn du einen Gegner im Umkreis von 18m tötest, hast du eine 75%ige Chance Panik zu verursachen.\nDieser Effekt hat eine Abklingzeit von 1s."
+
+# Gambler
+cd_gambler_heal_1_name : "Medizinische Ausrüstung Level 1"
+cd_gambler_heal_1_desc : "Wenn du Munitionsboxen aufsammelst, wird die gesamte Crew um 16-24 Leben geheilt.\nDieser Effekt hat eine Abklingzeit von 3s."
+
+cd_gambler_heal_2_name : "Medizinische Ausrüstung Level 2"
+cd_gambler_heal_2_desc : "Wenn du Munitionsboxen aufsammelst, wird die gesamte Crew um 24-32 Leben geheilt.\nDieser Effekt hat eine Abklingzeit von 3s."
+
+cd_gambler_heal_3_name : "Medizinische Ausrüstung Level 3"
+cd_gambler_heal_3_desc : "Wenn du Munitionsboxen aufsammelst, wird die gesamte Crew um 32-40 Leben geheilt.\nDieser Effekt hat eine Abklingzeit von 3s."
+
+cd_gambler_mag_throw_name : "Spendabel"
+cd_gambler_mag_throw_desc : "Wenn du Munitionsboxen aufsammelst, erhalten deine Crewmitglieder 50% der aufgesammelten Munition.\nDieser Effekt hat eine Abklingzeit von 5s."
+
+# Grinder
+cd_grind_hot_1_name : "Dopamin Level 1"
+cd_grind_hot_1_desc : "Nachdem du Schaden verursacht hast, erhältst du 3s lang alle 0,3s 1 Lebenspunkt.\nDieser Effekt hat eine Abklingzeit von 1,5s.\nDieser Effekt ist nur aktiv, solange du den Anzug oder die Leichte ballistische Weste trägst."
+
+cd_grind_hot_2_name : "Dopamin Level 2"
+cd_grind_hot_2_desc : "Nachdem du Schaden verursacht hast, erhältst du 3s lang alle 0,3s 2 Lebenspunkt.\nDieser Effekt hat eine Abklingzeit von 1,5s.\nDieser Effekt ist nur aktiv, solange du den Anzug oder die Leichte ballistische Weste trägst."
+
+cd_grind_hot_3_name : "Dopamin Level 3"
+cd_grind_hot_3_desc : "Nachdem du Schaden verursacht hast, erhältst du 3s lang alle 0,3s 3 Lebenspunkt.\nDieser Effekt hat eine Abklingzeit von 1,5s.\nDieser Effekt ist nur aktiv, solange du den Anzug oder die Leichte ballistische Weste trägst."
+
+cd_grind_hot_4_name : "Dopamin Level 4"
+cd_grind_hot_4_desc : "Nachdem du Schaden verursacht hast, erhältst du 3s lang alle 0,3s 4 Lebenspunkt.\nDieser Effekt hat eine Abklingzeit von 1,5s.\nDieser Effekt ist nur aktiv, solange du den Anzug oder die Leichte ballistische Weste trägst."
+
+cd_grind_ap_name : "Endorphine"
+cd_grind_ap_desc : "Du hast eine 30%ige Chance gegnerische Rüstung zu ignorieren."
+
+cd_grind_hot_duration_name : "Euphorie"
+cd_grind_hot_duration_desc : "Der Effekt von 'Dopamin' hält 40% länger an."
+
+# Yakuza
+cd_yakuza_recovery_1_name : "Yoroi Irezumi Level 1"
+cd_yakuza_recovery_1_desc : "Je niedriger deine Lebenspunkte sind, desto schneller regeneriert sich deine Rüstung bis zu maximal 20%.\nDieser Effekt beginnt bei 25% Lebenspunkten."
+
+cd_yakuza_recovery_2_name : "Yoroi Irezumi Level 2"
+cd_yakuza_recovery_2_desc : "Je niedriger deine Lebenspunkte sind, desto schneller regeneriert sich deine Rüstung bis zu maximal 40%.\nDieser Effekt beginnt bei 25% Lebenspunkten."
+
+cd_yakuza_recovery_3_name : "Yoroi Irezumi Level 3"
+cd_yakuza_recovery_3_desc : "Je niedriger deine Lebenspunkte sind, desto schneller regeneriert sich deine Rüstung bis zu maximal 60%.\nDieser Effekt beginnt bei 25% Lebenspunkten."
+
+cd_yakuza_speed_name : "Sokudo Irezumi"
+cd_yakuza_speed_desc : "Je niedriger deine Lebenspunkte sind, desto höher ist deine Bewegungsgeschwindigkeit bis zu maximal 20%.\nDieser Effekt beginnt bei 25% Lebenspunkten."
+
+cd_yakuza_threshold_name : "Ageru Irezumi"
+cd_yakuza_threshold_desc : "Deine 'Irezumi'-Effekte starten bei 50% Lebenspunkte."
+
+# Ex-President
+cd_expres_1_name : "Bruch Level 1"
+cd_expres_1_desc : "Jede Tötung speichert 4 Lebenspunkte. Diese Lebenspunkte werden regeneriert, wenn sich deine Rüstung regeneriert."
+
+cd_expres_2_name : "Bruch Level 2"
+cd_expres_2_desc : "Jede Tötung speichert 8 Lebenspunkte. Diese Lebenspunkte werden regeneriert, wenn sich deine Rüstung regeneriert."
+
+cd_expres_3_name : "Bruch Level 3"
+cd_expres_3_desc : "Jede Tötung speichert 12 Lebenspunkte. Diese Lebenspunkte werden regeneriert, wenn sich deine Rüstung regeneriert."
+
+cd_expres_cap_name : "Eiskalt"
+cd_expres_cap_desc : "'Burch' speichert 50% mehr Lebenspunkte."
+
+cd_expres_recovery_name : "Perfekte Linie"
+cd_expres_recovery_desc : "Tötungen beschleunigen die Rüstungsregeneration. Je weniger Rüstung, desto höher die Regenerationsgeschwindigkeit.\nDieser Effekt wird zurückgesetzt, wenn du deine Rüstung regenerierst."
+
+# Maniac
+cd_maniac_base_name : "Aufregung"
+cd_maniac_base_desc : "Die gesamte Crew erhält 1 Schadensabsorptions-Punkt pro 30 Schaden, die du in den letzten 2 Sekunden verursacht hast.\nMan kann maximal 20 Schadensabsorptions-Punkte haben."
+
+cd_maniac_cap_name : "Tollkühnheit"
+cd_maniac_cap_desc : "Der notwendige Schaden für 'Aufregung' wird um 5 reduziert. Die maximalen Schadensabsorptions-Punkte erhöhen sich um 4."
+
+cd_maniac_boost_name : "Wahnsinn"
+cd_maniac_boost_desc : "Die Anzahl an Schadensabsorptions-Punkte durch 'Aufregung' wird verdoppelt."
+
+# Anarchist
+cd_anarch_recovery_name : "Blitzkrieg Bop"
+cd_anarch_recovery_desc : "Deine Rüstung regeneriert sich dauerhaft. Schwache Rüstung regeneriert sich schneller als schwere."
+
+cd_anarch_armour_1_name : "Rise Above It Level 1"
+cd_anarch_armour_1_desc : "Deine Rüstung ist um 20 erhöht. Deine maximalen Lebenspunkte sind um 25 reduziert."
+
+cd_anarch_armour_2_name : "Rise Above It Level 2"
+cd_anarch_armour_2_desc : "Deine Rüstung ist um 40 erhöht. Deine maximalen Lebenspunkte sind um 50 reduziert."
+
+cd_anarch_armour_3_name : "Rise Above It Level 3"
+cd_anarch_armour_3_desc : "Deine Rüstung ist um 60 erhöht. Deine maximalen Lebenspunkte sind um 75 reduziert."
+
+cd_anarch_bullseye_name : "Lust for Life"
+cd_anarch_bullseye_desc : "Wenn du Schaden verursachst, regenerierst du 10 Rüstung.\nDieser Effekt hat eine Abklingzeit von 1,5s."
+
+# Biker
+cd_biker_base_name : "Prospekt"
+cd_biker_base_desc : "Wenn jemand in der Crew einen Gegner tötet, erhältst du 5 Lebenspunkte und 5 Rüstung.\nDieser Effekt kann nur 4x in 4s aktiviert werden."
+
+cd_biker_armour_plus_name : "Tail Gunner"
+cd_biker_armour_plus_desc : "Wenn jemand in der Crew einen Gegner tötet, erhältst du pro 10% fehlenden Lebenspunkten 1 Rüstung."
+
+cd_biker_health_cd_name : "Road Captain"
+cd_biker_health_cd_desc : "Die Abklingzeit von 'Prospekt' reduziert sich pro 10% fehlenden Lebenspunkten um 0,1s."
+
+cd_biker_health_plus_name : "Waffenwart"
+cd_biker_health_plus_desc : "Wenn jemand in der Crew einen Gegner tötet, erhältst du pro 10% fehlender Rüstung 1 Lebenspunkt."
+
+cd_biker_armour_cd_name : "President"
+cd_biker_armour_cd_desc : "Die Abklingzeit von 'Prospekt' reduziert sich pro 10% fehlender Rüstung um 0,1s."
+
+# Kingpin
+cd_kingpin_base_name : "Böser Bube"
+cd_kingpin_base_desc : "Du kannst den Injektor ausrüsten."
+
+cd_kingpin_prio_name : "Staatsfeind"
+cd_kingpin_prio_desc : "Während der Injektor aktiv ist, haben Gegner eine höhere Wahrscheinlichkeit dich als Ziel zu wählen."
+
+cd_kingpin_immunity_name : "Eier gegen Kugeln"
+cd_kingpin_immunity_desc : "Wenn du unter 50% Lebenspunkte bist, heilt der Injektor zusätzliche 25% des erlittenen Schadens."
+
+cd_kingpin_cd_name : "Ganz nach oben"
+cd_kingpin_cd_desc : "Die Abklingzeit des Injektors reduziert sich pro 5 regenerierter Lebenspunkte, die bei maximalen Lebenspunkten erhalten wurden, um 1s"
+
+# Sicario
+cd_sicario_base_name : "Raucher"
+cd_sicario_base_desc : "Du kannst die Rauchbombe ausrüsten."
+
+cd_sicario_dodge_stack_name : "Zuckungen"
+cd_sicario_dodge_stack_desc : "Wenn du getroffen wirst, erhöht sich deine Ausweichchance um 20%.\nDer Effekt setzt sich zurück, wenn du ausweichst.\nDieser Effekt hat eine Abklingzeit von 4s."
+
+cd_sicario_recovery_name : "Bewegliches Schild"
+cd_sicario_recovery_desc : "Wenn du einem Schuss ausweichst, regenerierst du 1 Lebenspunkt."
+
+cd_sicario_boost_name : "Verborgener Schatten"
+cd_sicario_boost_desc : "Die Effekte der Rauchbombe werden verdoppelt."
+
+# Stoic
+cd_stoic_base_name : "Tugend"
+cd_stoic_base_desc : "Dein erlittener Schaden wird dir im Verlauf von 6 Sekunden zugefügt. Du kannst den Flachmann ausrüsten."
+
+cd_stoic_cd_name : "Gelassen"
+cd_stoic_cd_desc : "Wenn du einen Gegner tötest, während du weniger als 35% deiner Lebenspunkte hast, reduziert sich die Abklingzeit des Flachmanns um 2s."
+
+cd_stoic_armor_convert_name : "Unbeeindruckt"
+cd_stoic_armor_convert_desc : "Deine Rüstung wird vollständig in Leben konvertiert."
+
+cd_stoic_negate_name : "Ruhig"
+cd_stoic_negate_desc : "Der gestaffelte Schaden von 'Tugend' wird entfernt, wenn du 1,5s lang keinen Schaden bekommst."
+
+cd_stoic_heal_name : "Ausdauernd"
+cd_stoic_heal_desc : "Wenn durch 'Tugend' gestaffelter Schaden entfernt wird, wirst du um 50% dieses Schadens geheilt."
+
+# Tag Team
+cd_h3h3_base_name : "Seelenverwandte"
+cd_h3h3_base_desc : "Du kannst den Inhalator ausrüsten."
+
+cd_h3h3_cd_name : "Harmonie"
+cd_h3h3_cd_desc : "Inhalator-Team-Törungen reduzieren die Abklingzeit des Inhalators um 2s."
+
+cd_h3h3_absorption_name : "Synergie"
+cd_h3h3_absorption_desc : "Während der Inhalator aktiv ist, erhältst du pro Tötung 1 Schadensabsorptions-Punkt.\nDu kannst maximal 20 Schadensabsorptions-Punkte haben."
+
+# Hacker
+cd_hacker_base_name : "Glitch"
+cd_hacker_base_desc : "Du kannst den Taschen-ECM ausrüsten."
+
+cd_hacker_heal_name : "Buffer Overflow"
+cd_hacker_heal_desc : "Während der Taschen-ECM aktiv ist, erhältst du pro Tötung 20 Lebenspunkte."
+
+cd_hacker_dodge_name : "Bodge"
+cd_hacker_dodge_desc : "Während der Taschen-ECM aktiv ist, erhöht sich bei einer Tötung deine Ausweichchance um 20%."
+
+cd_hacker_team_heal_name : "Botnet"
+cd_hacker_team_heal_desc : "Während der Taschen-ECM aktiv ist, heilt sich jede Crewmitglied um 10 Lebenspunkte pro Tötung."
+
+# Leech
+cd_leech_base_name : "Momentum"
+cd_leech_base_desc : "Du kannst die Ampulle ausrüsten."
+
+cd_leech_duration_name : "Standhaft"
+cd_leech_duration_desc : "Die Ampulle hält 10s länger an."
+
+cd_leech_segments_name : "Segmentierung"
+cd_leech_segments_desc : "Die Ampulle teilt deine Lebenspunkte stattdessen in 10 Segmente."
+
+cd_leech_swan_song_name : "Unbezwingbar"
+cd_leech_swan_song_desc : "Wenn du zu Boden gehen solltest, während die Ampulle aktiv ist bleibst du stattdessen stehen und dein Bewegungstempo wird um 80% reduziert."
+
+cd_leech_cd_name : "Blutsauger"
+cd_leech_cd_desc : "Tötungen reduzieren die Abklingzeit der Ampulle um 1s."
+
+cd_leech_revive_name : "Symbiose"
+cd_leech_revive_desc : "Du kannst die Ampulle benutzen, wenn du am Boden bist. Du wirst jedoch erneut zu Boden gehen, außer du belebst ein Crewmitglied oder interagierst mit einer Arzttasche."
+
+# Copy Cat
+cd_copycat_health_name : "Gedeihend"
+cd_copycat_health_desc : "Deine maximalen Lebenspunkte werden um 80 erhöht."
+
+cd_copycat_armour_name : "Abhörten"
+cd_copycat_armour_desc : "Deine Rüstung erhöht sich um 20%."
+
+cd_copycat_dodge_name : "Katzenartige Reflexe"
+cd_copycat_dodge_desc : "Deine Ausweichchance erhöht sich um 20%."
+
+cd_copycat_crouch_name : "Flinke Füße"
+cd_copycat_crouch_desc : "Deine Geschwindigkeit im Ducken wird um 40% erhöht."
+
+cd_copycat_bag_name : "Abzischen"
+cd_copycat_bag_desc : "Du bewegst dich 40% schneller, wenn du eine Tasche trägst."
+
+cd_copycat_tactical_reload_name : "Taktisches Nachladen"
+cd_copycat_tactical_reload_desc : "Die nicht ausgerüstete Waffe lädt sich nach 10 Tötungen automatisch nach."
+
+cd_copycat_reload_switch_name : "Taktischer Wechsel"
+cd_copycat_reload_switch_desc : "Nachdem 'Taktisches Nachladen' ausgelöst wurde, erhöht sich deine Waffenwechsel-Geschwindigkeit um 160%."
+
+cd_copycat_bullseye_name : "Spiel mit Köpfchen"
+cd_copycat_bullseye_desc : "Du regenerierst 10 Lebenspunkte, wenn du einen Kopfschuss triffst.\nDieser Effekt hat eine Abklingzeit von 2s."
+
+cd_copycat_ricochet_name : "Ricochet"
+cd_copycat_ricochet_desc : "Kugeln, denen du ausgewichen bist, fügen dem Schützen Schaden zu."
+
+cd_copycat_immunity_name : "Schonfrist"
+cd_copycat_immunity_desc : "Wenn du unter 50% deiner maximalen Lebenspunkte fällst, erleidest du 2s lang keinen Schaden.\nDieser Effekt hat eine Abklingzeit von 15s."
+
+## STAT BOOSTS
+# Default
+cd_shinobi_speed_name : "Shinobi"
+cd_shinobi_speed_desc : "Lauftempo um 25% erhöht. Geschwindigkeit in der Hocke um 10% erhöht."
+
+cd_fast_hands_1_name : "Flinke Hände Level 1"
+cd_fast_hands_1_desc : "Du packst Beute 25% schneller ein."
+
+cd_fast_hands_2_name : "Flinke Hände Level 2"
+cd_fast_hands_2_desc : "Du packst Beute 75% schneller ein."
+
+cd_bag_penalty_reduction_name : "Transporter"
+cd_bag_penalty_reduction_desc : "Während du eine Tasche trägst, bewegst du dich 50% schneller."
+
+cd_fall_damage_reduction_name : "Grazil"
+cd_fall_damage_reduction_desc : "Der erlittene Fallschaden wird um 75% reduziert."
+
+cd_body_bag_capacity_name : "Citizen Bane"
+cd_body_bag_capacity_desc : "Du beginnst jeden Raubüberfall mit 2 Leichensäcken."
+
+cd_body_bag_max_capacity_name : "Winston Wolfe"
+cd_body_bag_max_capacity_desc : "Du kannst einen weiteren Leichensack tragen."
+
+cd_striker_reload_speed_name : "Leichter Zylinder"
+cd_striker_reload_speed_desc : "Die 'Street Sweeper'-Schrotflinte lädt 15% schneller nach."
+
+# Akimbo
+cd_akimbo_recoil_1_name : "Beidhändigkeit Level 1"
+cd_akimbo_recoil_1_desc : "Deine Stabilität mit Akimbo-Waffen erhöht sich um 8."
+
+cd_akimbo_recoil_2_name : "Beidhändigkeit Level 2"
+cd_akimbo_recoil_2_desc : "Deine Stabilität mit Akimbo-Waffen erhöht sich um 16."
+
+cd_akimbo_recoil_3_name : "Beidhändigkeit Level 3"
+cd_akimbo_recoil_3_desc : "Deine Stabilität mit Akimbo-Waffen erhöht sich um 24."
+
+# Mastermind Tree
+cd_revive_speed_name : "Code Blue"
+cd_revive_speed_desc : "Du belebst 100% schneller."
+
+cd_start_cable_ties_1_name : "Kabelbinder"
+cd_start_cable_ties_1_desc : "Du beginnst jeden Raubüberfall mit 4 zusätzlichen Kabelbinder"
+
+cd_cable_tie_speed_name : "Fessler"
+cd_cable_tie_speed_desc : "Du fesselst Geiseln 75% schneller."
+
+cd_shout_distance_name : "Selbstbewusst"
+cd_shout_distance_desc : "Die Reichweite deiner Schreie ist um 50% erhöht."
+
+cd_civ_intimidation_time_name : "Angsteinflößend"
+cd_civ_intimidation_time_desc : "Zivilisten bleiben 50% länger eingeschüchtert."
+
+cd_stability_bonus_1_name : "Stabilität"
+cd_stability_bonus_1_desc : "Deine Stabilität steigt um 8."
+
+cd_static_accuracy_bonus_name : "Genauigkeit - Stillstehend"
+cd_static_accuracy_bonus_desc : "Wenn du still stehst, erhöht sich deine Genauigkeit um 16."
+
+cd_ads_speed_name : "Zielerfassung"
+cd_ads_speed_desc : "Du zielst schneller."
+
+cd_ads_movement_speed_name : "Mobil"
+cd_ads_movement_speed_desc : "Deine Bewegungsgeschwindigkeit wird beim Zielen nicht mehr reduziert."
+
+cd_ads_zoom_name : "Adlerauge"
+cd_ads_zoom_desc : "Der Zoom beim Ziele wird um 25% erhöht.\nDieser Effekt gilt nicht für Schrotflinten und Akimbo-Waffen."
+
+cd_moving_accuracy_bonus_name : "Genauigkeit - Bewegung"
+cd_moving_accuracy_bonus_desc : "Während du dich bewegst, erhöht sich deine Genauigkeit um 16.\nDieser Effekt gilt nur für MPs, Sturmgewehren und Scharfschützengewehren."
+
+cd_single_shot_flat_accuracy_name : "Genauigkeit - Zielen"
+cd_single_shot_flat_accuracy_desc : "Während du zielst, erhöht sich deine Genauigkeit um 8.\nDieser Effekt gilt nur für Einzelschuss-MPs, Einzelschuss-Sturmgewehren und Scharfschützengewehren."
+
+cd_single_shot_percent_accuracy_name : "Genaugikeit - Zielen (Prozentual)"
+cd_single_shot_percent_accuracy_desc : "Während du zielst, erhöht sich deine Genauigkeit um 20%.\nDieser Effekt gilt nur für Einzelschuss-MPs, Einzelschuss-Sturmgewehren und Scharfschützengewehren."
+
+cd_kilmer_name : "Kilmer"
+cd_kilmer_desc : "Du lädst 15% schneller nach.\nDieser Effekt gilt nur für MPs, Sturmgewehren und Scharfschützengewehren."
+
+# Enforcer Tree
+cd_shotgun_reload_1_name : "Schrotflinten-CQB Level 1"
+cd_shotgun_reload_1_desc : "Du lädst Schrotflinten 15% schneller nach."
+
+cd_shotgun_reload_2_name : "Schrotflinten-CQB Level 2"
+cd_shotgun_reload_2_desc : "Du lädst Schrotflinten 50% schneller nach."
+
+cd_shotgun_stability_name : "Stability - Schrotflinten"
+cd_shotgun_stability_desc : "Deine Stabilität mit Schrotflinten erhöht sich um 8."
+
+cd_shotgun_dmg_name : "Kollateral"
+cd_shotgun_dmg_desc : "Dein Schaden mit Schrotflinten erhöht sich um 10%."
+
+cd_shotgun_ads_accuracy_name : "Genauigkeit - Schrotflinten"
+cd_shotgun_ads_accuracy_desc : "Beim Zielen erhöht sich deine Genauigkeit mit Schrotflinten um 40%."
+
+cd_shotgun_range_bonus_name : "Weit weg"
+cd_shotgun_range_bonus_desc : "Die Effektive Reichweite deiner Schrotflinten erhöht sich beim Zielen um 50%."
+
+cd_shotgun_hip_rof_name : "Schlagfeuer"
+cd_shotgun_hip_rof_desc : "Deine Feuerrate mit Einzelschuss-Schrotflinten erhöht sich um 35%."
+
+cd_shotgun_mag_capacity_name : "Patrone für Patrone"
+cd_shotgun_mag_capacity_desc : "Die Magazingröße deiner Schrotflinten erhöht sich um 15."
+
+cd_weapon_switch_speed_name : "Waffenschleuder"
+cd_weapon_switch_speed_desc : "Du wechselst deine Waffen 80% schneller."
+
+cd_recovery_1_name : "Meditation"
+cd_recovery_1_desc : "Deine Rüstung regeneriert sich 15% schneller."
+
+cd_team_recovery_name : "Herdenmentalität"
+cd_team_recovery_desc : "Die Rüstung der gesamten Cre regeneriert sich 25% schneller."
+
+cd_lbv_boost_name : "Lederhaut"
+cd_lbv_boost_desc : "Die Rüstung deiner leichten ballisitischen Weste erhöht sich um 20."
+
+cd_vest_boost_name : "Schuppenhaut"
+cd_vest_boost_desc : "Die Rüstung deiner ballisitischen Weste erhöht sich um 20."
+
+cd_hbv_boost_name : "Plattenhaut"
+cd_hbv_boost_desc : "Die Rüstung deiner schweren ballisitischen Weste erhöht sich um 20."
+
+cd_bag_throw_distance_name : "Tribok"
+cd_bag_throw_distance_desc : "Du wirst Taschen 50% weiter."
+
+cd_bulletproof_name : "Kugelsicher"
+cd_bulletproof_desc : "Deine Rüstung erhöht sich um 30%."
+
+cd_ammo_range_name : "Containern"
+cd_ammo_range_desc : "Dein Ausammelradius für Munitionsboxen ist um 50% vergrößert."
+
+cd_saw_capacity_name : "Sägewerk"
+cd_saw_capacity_desc : "Du hast 1 zusätzliches Sägeblatt."
+
+cd_saw_speed_name : "100 Umdrehnungen/s"
+cd_saw_speed_desc : "Die Feuerrate deiner Säge erhöht sich um 35%."
+
+cd_saw_lock_dmg_name : "Carbonklinge"
+cd_saw_lock_dmg_desc : "Die Säge verursacht mehr 40% Schaden gegen Schlüssers."
+
+cd_saw_efficiency_name : "Schnitter"
+cd_saw_efficiency_desc : "Die Säge ist doppelt so stark gegen Gegner."
+
+cd_ammo_capacity_name : "Volle Ladung"
+cd_ammo_capacity_desc : "Deine maximale Munition erhöht sich um 25."
+
+# Technician Tree
+cd_accuracy_bonus_name : "Genauigkeit"
+cd_accuracy_bonus_desc : "Deine Genauigkeit erhöht sich um 8."
+
+cd_stability_bonus_2_name : "Stabilität"
+cd_stability_bonus_2_desc : "Deine Stabilität erhöht sich um 16."
+
+cd_accuracy_hip_bonus_name : "Genauigkeit - Hüftfeuer"
+cd_accuracy_hip_bonus_desc : "Während du nicht zielst, erhöht sich deine Genauigkeit um 12."
+
+cd_stability_movement_penalty_name : "Stabilität - Bewegung"
+cd_stability_movement_penalty_desc : "Deine Stabilität reduziert sich beim bewegen um 20% weniger."
+
+cd_mag_capacity_name : "Sicher gehen."
+cd_mag_capacity_desc : "+15 mag size (SMGs/LMGs/ARs)."
+
+# Ghost Tree
+cd_not_sus_name : "Chamäleon"
+cd_not_sus_desc : "Im Ausspähmodus wirst du 25% schlechter erkannt."
+
+cd_lockpick_speed_name : "Geschickt"
+cd_lockpick_speed_desc : "Du knackst Schlüsserl 100% schneller."
+
+cd_sprinter_name : "Sprinter"
+cd_sprinter_desc : "Du sprintest 25% schneller. Zusätzlich erhöht sich deine Ausweichchance beim sprinten um 10%."
+
+cd_move_speed_name : "Flink"
+cd_move_speed_desc : "Du bewegst dich 10% schneller."
+
+cd_climb_speed_name : "Absoluter Nervenkitzel"
+cd_climb_speed_desc : "Du kletterst 75% schneller."
+
+cd_melee_conceal_name : "Versteckte Klinge"
+cd_melee_conceal_desc : "Die Tarnung deiner Nahkampfwaffen steigt um 2."
+
+cd_vest_conceal_name : "Tarnung - Westen"
+cd_vest_conceal_desc : "Die Tarnung deiner Westen steigt um 4."
+
+cd_reduced_prio_name : "Unauffällig"
+cd_reduced_prio_desc : "Du wirst mit einer 35% niedrigeren Chance von Gegnern anvisiert."
+
+cd_silencer_conceal_name : "Tarnung - Schalldämpfer"
+cd_silencer_conceal_desc : "Deine Tarnung wird um 1 erhöht. Schalldämpfer reduzieren deine Tarnung um 2 weniger."
+
+cd_silencer_stability_name : "Stabilität - Schalldämpfer"
+cd_silencer_stability_desc : "Wenn du einen Schalldämpfer benutzt, erhöht sich deine Stabilität um 8."
+
+cd_silencer_ads_speed_name : "Professionell"
+cd_silencer_ads_speed_desc : "Wenn du einen Schalldämpfer benutzt, zielst du 100% schneller."
+
+cd_silencer_accuracy_name : "Assassine"
+cd_silencer_accuracy_desc : "Wenn du einen Schalldämpfer benutzt, erhöht sich deine Genauigkeit um 12."
+
+cd_mark_duration_name : "Strategiker"
+cd_mark_duration_desc : "Die Dauer deiner Markierungen ist um 100% erhöht."
+
+cd_pistol_swap_speed_name : "Schneller Zug"
+cd_pistol_swap_speed_desc : "Du wechselst 33% schneller zu Pistolen."
+
+cd_pistol_accuracy_name : "Equilibrium"
+cd_pistol_accuracy_desc : "Deine Genauigkeit mit Pistolen ist um 8 erhöht."
+
+cd_pistol_capacity_name : "Waffennarr"
+cd_pistol_capacity_desc : "Die Größe des Magazins von Pistolen erhöht sich um 5."
+
+cd_pistol_rof_name : "Cowboy"
+cd_pistol_rof_desc : "Deine Feuerrate mit Pistolen erhöht sich um 50%."
+
+cd_akimbo_capacity_1_name : "Akimbo Level 1"
+cd_akimbo_capacity_1_desc : "Die maximale Munition von Akimbowaffen ist um 50% erhöht."
+
+cd_akimbo_capacity_2_name : "Akimbo Level 2"
+cd_akimbo_capacity_2_desc : "Die maximale Munition von Akimbowaffen ist um 50% erhöht."
+
+cd_pistol_dmg_name : "Einhand-Talent"
+cd_pistol_dmg_desc : "Dein Schaden mit Pistolen wird um 15 erhöht."
+
+cd_pistol_reload_speed_name : "Pistolero"
+cd_pistol_reload_speed_desc : "Du lädst Pistolen 50% schneller nach."
+
+cd_bleedout_health_name : "Mehr Blut zum verlieren"
+cd_bleedout_health_desc : "Du hast 50% mehr Lebenspunkte, wenn du am Boden bist."
+
+cd_incoming_melee_reduction_name : "Hartes Training"
+cd_incoming_melee_reduction_desc : "Du erleidest 50% weniger Nahkampfschaden."
+
+cd_melee_knockdown_name : "Martial Arts"
+cd_melee_knockdown_desc : "Mit Nahkampfwaffen schlägst du Gegner 50% wahrscheinlicher nieder."
+
+cd_melee_dmg_name : "Pumpen gehen"
+cd_melee_dmg_desc : "Dein Nahkampfschaden ist um 100% erhöht."
+
+# Removed
+cd_cam_shake_name : "Harter Kerl"
+cd_cam_shake_desc : "Deine Kamera zuckt 50% weniger, wenn du Schaden bekommst."
+
+cd_shotgun_hip_accuracy_name : "Genauigkeit - Schrotflinten, aus der Hüfte"
+cd_shotgun_hip_accuracy_desc : "Wenn du mit Schrotflinten aus der Hüfte schießt, erhöht sich deine Genauigkeit um 20%."
+
+cd_hip_accuracy_name : "Genaugikeit - aus der Hüfte"
+cd_hip_accuracy_desc : "Wenn du aus der Hüfte schießt, erhöht sich deine Genauigkeit um 20%."
+
+cd_mag_plus_name : "Größerer Kasten"
+cd_mag_plus_desc : "Deine Magazingröße Mit Box-Magazinwaffen erhöht sich um 15.\n Dieser Effekt gilt nicht für Scharfschützengewehre."
+
+cd_smg_rof_name : "MP-Spezialist"
+cd_smg_rof_desc : "Deine Feuerrate mit Maschinenpistolen erhöht sich um 20%."
+
+cd_custody_time_name : "Meisterhändler"
+cd_custody_time_desc : "Deine Haftzeit dauer nur halb so lange."
+
+cd_zipline_dodge_name : "Draufgänger"
+cd_zipline_dodge_desc : "Wenn du an einer Seilrutsche hängst, erhöht sich deine Ausweichchance um 15%."
+
+cd_crouch_dodge_name : "In Deckung"
+cd_crouch_dodge_desc : "Wenn du in der Hocke bist, erhöht sich deine Ausweichchance um15%."
+
+cd_silencer_ap_name : "Stiller Mörder"
+cd_silencer_ap_desc : "Wenn du Schalldämpfer benutzt, ignorierst du 40% der gegnerischen Rüstung."
+
+# Unused
+cd_crit_chance_name : "Scheinheilig"
+cd_crit_chance_desc : "Deine kritische Trefferchance ist um 25% erhöht."
+
+cd_health_bonus_name : "Schützer"
+cd_health_bonus_desc : "Deine maximalen Lebenspunkte werden um 10 erhöht."
+
+cd_armour_bonus_name : "Rückgrat"
+cd_armour_bonus_desc : "Deine Rüstung erhöht sich um 25%."
+
+cd_recovery_2_name : "Anpassungsfähig"
+cd_recovery_2_desc : "Deine Rüstung regeneriert sich 15% schneller."
+
+cd_concealment_name : "Tarnung"
+cd_concealment_desc : "Deine Tarnung erhöht sich um 5."
+
+cd_sharp_melee_dmg_name : "Friss meinen Stahl"
+cd_sharp_melee_dmg_desc : "Dein Schaden mit scharfen Nahkampfwaffen erhöht sich um 200%."
+
+cd_threat_big_name : "Unterdrücker"
+cd_threat_big_desc : "Du bist 95% bedrohlicher."
+
+cd_damage_reduction_name : "Ein paar Dinge"
+cd_damage_reduction_desc : "Du erhältst 5% weniger Schaden."
+
+cd_nebula_plus_name : "Nebula Plus"
+cd_nebula_plus_desc : "Vorteile kosten 87,5% weniger."
+
+cd_cam_loop_distance_name : "Fernschleife"
+cd_cam_loop_distance_desc : "Du kannst Kameraschleifen 40% weiter entfernt aktivieren."
+
+cd_start_cable_ties_2_name : "Kabelbinder"
+cd_start_cable_ties_2_desc : "Du beginnst jeden Raubüberfall mit 4 zusätzlichen Kabelbinder."
+
+cd_saw_rof_name : "100 Umdrehnungen/s"
+cd_saw_rof_desc : "Die Feuerrate deiner Säge erhöht sich um 50%."
+
+cd_saw_swap_speed_name : "Sägenkoffer"
+cd_saw_swap_speed_desc : "Du wechselst schneller 80% schneller von und zur Säge."
+
+cd_saw_reload_speed_name : "Überarbeitung"
+cd_saw_reload_speed_desc : "Du lädst Sägen 50% schneller nach."
+
+cd_ar_stability_name : "Stabilität - Sturmgewehre"
+cd_ar_stability_desc : "Deine Stabilität mit Sturmgewehren erhöht sich um 8."
+
+cd_lmg_stability_name : "Stabilität- Maschinengewehre"
+cd_lmg_stability_desc : "Deine Stabilität mit Maschinengewehren erhöht sich um 4."
+
+cd_snp_stability_name : "Stabilität - Scharfschützengewehre"
+cd_snp_stability_desc : "Deine Stabilität mit Scharfschützengewehren erhöht sich um 8."
+
+cd_modded_bonus_name : "Ersatzteile"
+cd_modded_bonus_desc : "Wenn deine Waffe einen Mod ausgerüstet hat, erhöhen sich ein Schaden, deine Stabilität und Genauigkeit um 10%."
+
+cd_single_shot_accuracy_name : "Genauigkeit - Einzelschusswaffen"
+cd_single_shot_accuracy_desc : "Deine Genauigkeit mit Einzelschusswaffen ist um 20% erhöht."
+
+cd_silencer_accuracy_percent_name : "Genauigkeit - Schalldämpfer"
+cd_silencer_accuracy_percent_desc : "Deine Genauigkeit mit Schalldämpfern ist um 50% erhöht."
+
+cd_silencer_stability_percent_name : "Stabilität - Schalldämpfer"
+cd_silencer_stability_percent_desc : "Deine Stabilität mit Schalldämpfern ist um 50% erhöht."
+
+cd_reload_speed_name : "Schnelllader"
+cd_reload_speed_desc : "Deine Nachladegeschwidigkeit ist um 10% erhöht."
+
+cd_stability_bonus_percent_name : "Stabilität"
+cd_stability_bonus_percent_desc : "Deine Stabilität ist um 10% erhöht."
+
+cd_accuracy_bonus_percent_name : "Scharfschütze"
+cd_accuracy_bonus_percent_desc : "Deine Genauigkeit ist um 10% erhöht."
+
+cd_rof_bonus_name : "Illegale Waffenteile"
+cd_rof_bonus_desc : "Deine Feurrate wird um 100% erhöht."
+
+cd_pistol_damage_name : "Schaden - Pistolen"
+cd_pistol_damage_desc : "Dein Schaden mit Pistolen ist um 50% erhöht."
+
+cd_pistol_accuracy_percent_name : "Genauigkeit - Pistolen"
+cd_pistol_accuracy_percent_desc : "Deine Genauigkeit mit Pistolen ist um 10% erhöht."
+
+cd_pistol_sprint_end_name : "Allzeit bereit"
+cd_pistol_sprint_end_desc : "Wenn du Pistolen benutzt, stoppst du deinen Sprint 25% schneller."
+
+cd_pistol_hip_accuracy_name : "Genauigkeit - Pistolen, aus der Hüfte"
+cd_pistol_hip_accuracy_desc : "Wenn du mit Pistolen aus der Hüfte schießt, erhöht sich deine Genaugikeit um 20%."
+
+cd_ar_stability_percent_name : "Stabilität - Sturmgewehre"
+cd_ar_stability_percent_desc : "Deine Stabilität mit Sturmgewehren erhöht sich um 25%."
+
+cd_ar_accuracy_moving_name : "Genauigkeit - Sturmgewehre, in Bewegung"
+cd_ar_accuracy_moving_desc : "Während du dich bewegst, erhöht sich deine Genauigkeit mit Sturmgewehren um 50%."
+
+cd_ar_hip_accuracy_name : "Genauigkeit - Sturmgewehre, aus der Hüfte"
+cd_ar_hip_accuracy_desc : "Wenn du aus der Hüfte schießt, erhöht sich deine Genauigkeit mit Sturmgwehren um 20%."
+
+cd_lmg_stability_percent_name : "Stabilität - Maschinengewehre"
+cd_lmg_stability_percent_desc : "Deine Stabilität mit Maschinengewehren ist um 25% erhöht."
+
+cd_lmg_reload_name : "Leichte Bänder"
+cd_lmg_reload_desc : "Du lädst Maschinengewehre 25% schneller nach."
+
+cd_lmg_accuracy_moving_name : "Genauigkeit - Maschinengewehre, in Bewegung"
+cd_lmg_accuracy_moving_desc : "Während du dich bewegst erhöht sich deine Genauigkeit mit Maschinengewehren um 50%."
+
+cd_lmg_hip_accuracy_name : "Genauigkeit - Maschinengewehre, aus der Hüfte"
+cd_lmg_hip_accuracy_desc : "Du bist mit Maschinengewehren 20% genauer, wenn du aus der Hüfte schießt."
+
+cd_snp_accuracy_moving_name : "Genauigkeit - Scharfschützengewehre, in Bewegung"
+cd_snp_accuracy_moving_desc : "Du bist mit Scharfschützengewehren 50% genauer, wenn du in Bewegung bist."
+
+cd_snp_hip_accuracy_name : "Genauigkeit - Scharfschützengewehre, aus der Hüfte"
+cd_snp_hip_accuracy_desc : "Du bist mit Scharfschützengewehren 20% genauer, wenn du aus der Hüfte schießt."
+
+cd_smg_hip_accuracy_name : "Genauigkeit - Maschinenpistolen, aus der Hüfte"
+cd_smg_hip_accuracy_desc : "Du bist mit Maschinenpistolen 20% genauer, wenn du aus der Hüfte schießt."
+
+cd_shotgun_stability_percent_name : "Stabilität - Schrotflinten"
+cd_shotgun_stability_percent_desc : "Du hast 25% Bonus-Stabilität, wenn du mit Schrotflinten schießt."
+
+cd_shotgun_hip_accuracy_percent_name : "Genauigkeit - Schrotflinten"
+cd_shotgun_hip_accuracy_percent_desc : "Du bist mit Schrotflinten 20% genauer, wenn du aus der Hüfte schießt."
+
+cd_akimbo_dmg_name : "Schaden - Akimbo"
+cd_akimbo_dmg_desc : "Du verursachst mit Akimbo-Waffen 50% mehr Schaden."
+
+### DEPLOYABLES
+cd_health_deployable_buff_name : "Ersthelfer"
+cd_health_deployable_buff_desc : "Wenn du mit deinen Erste-Hilfe-Kits oder Arzttaschen interagierst, erhältst du für 2min 10% weniger Schaden.\nDu platzierst Erste-Hilfe-Kits und Arzttaschen 50% schneller."
+
+# Doctor Bag
+cd_doctor_bag_capacity_1_name : "Feldarzt"
+cd_doctor_bag_capacity_1_desc : "Du kannst 2 Arzttaschen tragen."
+
+cd_doctor_bag_capacity_2_name : "Feldchirurg"
+cd_doctor_bag_capacity_2_desc : "Du kannst 4 Arzttaschen tragen."
+
+cd_doctor_bag_charges_name : "Blutkonserven"
+cd_doctor_bag_charges_desc : "Deine Arzttaschen erhalten eine weitere Aufladung."
+
+# FAK
+cd_fak_capacity_1_name : "Rettungssanitäter"
+cd_fak_capacity_1_desc : "Du kannst 7 Erste-Hilfe-Kits tragen."
+
+cd_fak_capacity_2_name : "Notfallsanitäter"
+cd_fak_capacity_2_desc : "Du kannst 14 Erste-Hilfe-Kits tragen."
+
+cd_fak_restore_down_name : "Lebensretter"
+cd_fak_restore_down_desc : "Deine Erste-Hilfe-Kits haben eine 50%ige Chance einen Down wiederherzustellen." 
+
+cd_fak_autoheal_name : "Adrenalin-Spritze"
+cd_fak_autoheal_desc : "Falls du zu Boden gehen solltest, wird ein Erste-Hilfe-Kit im Umkreis von 5m verbraucht um dies zu verhindern.\nDieser Effekt hat eine Abklingzeit von 20s."
+
+# Ammo Bag
+cd_ammo_bag_capacity_1_name : "Tiefe Taschen"
+cd_ammo_bag_capacity_1_desc : "Du kannst 2 Munitionstaschen tragen."
+
+cd_ammo_bag_capacity_2_name : "Tiefere Taschen"
+cd_ammo_bag_capacity_2_desc : "Du kannst 4 Munitionstaschen tragen."
+
+cd_ammo_bag_charges_name : "Bis zu den Zähnen bewaffnet"
+cd_ammo_bag_charges_desc : "Deine Munitionstaschen beinhalten 50% mehr Munition."
+
+cd_ammo_bag_inf_name : "Kugelhagel"
+cd_ammo_bag_inf_desc : "Nachdem du mit einer Munitionstasche interagiert hast, verbrauchst du 15s lang keine Munition."
+
+# Sentry
+cd_sentry_capacity_1_name: "Tower Defense"
+cd_sentry_capacity_1_desc: "Du kannst zwei 2 Geschütztürme tragen."
+
+cd_sentry_capacity_2_name: "Dome Keeper"
+cd_sentry_capacity_2_desc: "Du kannst zwei 4 Geschütztürme tragen."
+
+cd_sentry_cost_name: "Öko-Geschütze"
+cd_sentry_cost_desc: "Das Aufstellen von Geschütztürmen kosten 10% weniger Munition.\nDu kannst Geschütztürme 50% schneller aufstellen."
+
+cd_sentry_accuracy_name: "Nächste Generation"
+cd_sentry_accuracy_desc: "Geschütztürme sind 100% genauer, drehen sich 150% schneller und haben 50% mehr Munition."
+
+cd_sentry_health_name: "Panzerplatten"
+cd_sentry_health_desc: "Geschütztürme erhalten einen Schild und 150% mehr Lebenspunkte."
+
+cd_sentry_ap_name: "Schwere Geschütze"
+cd_sentry_ap_desc: "Geschütztürme verursachen 150% mehr Schaden.\nDu kannst mit deinen Geschütztürmen interagieren um den Schussmodus zwischen 'Panzerbrechend' und 'Standard' zu wechseln.\nIm 'Panzerbrechend'-Modus verringert sich die Feuerrate des Geschützturms um 75%, der Schaden wird aber um 250% erhöht."
+
+# Trip Mine
+cd_charge_capacity_1_name : "Sprengungsberechtigt"
+cd_charge_capacity_1_desc : "Du kannst 6 Sprengladungen tragen."
+
+cd_charge_capacity_2_name : "Sprengmeister"
+cd_charge_capacity_2_desc : "Du kannst 9 Sprengladungen tragen."
+
+cd_trip_capacity_1_name : "Fallensteller"
+cd_trip_capacity_1_desc : "Du kannst 7 Sensor-Minen tragen."
+
+cd_trip_capacity_2_name : "Kevin McCallister"
+cd_trip_capacity_2_desc : "Du kannst 14 Sensor-Minen tragen."
+
+cd_trip_radius_1_name : "Demolition Man"
+cd_trip_radius_1_desc : "Der Explosionsradius deiner Sensor-Minen ist 30% größer.\nDu platzierst Sensor-Minen 20% schneller."
+
+cd_trip_radius_2_name : "Sprengkraft"
+cd_trip_radius_2_desc : "Der Explosionsradius deiner Sensor-Minen ist 70% größer und ihr Schaden ist um 50% erhöht."
+
+cd_trip_fire_name : "Brandmittel"
+cd_trip_fire_desc : "Die Explosion deiner Sensor-Minen hinterlässt eine Feuerfläche."
+
+cd_trip_sensor_name : "Bewegungssensor"
+cd_trip_sensor_desc : "Du kannst mit deinen Sensor-Minen interagieren um zwischen 'Explosions-Modus' und 'Sensor-Modus' zu wechseln.\nIm 'Sensor-Modus' markieren deine Sensor-Minen Gegner, die sich durch ihren Laser bewegt haben."
+
+# ECM
+cd_ecm_capacity_1_name : "Störungen"
+cd_ecm_capacity_1_desc : "Du kannst 2 ECM-Störsender tragen."
+
+cd_ecm_capacity_2_name : "Interferenzen"
+cd_ecm_capacity_2_desc : "Du kannst 4 ECM-Störsender tragen."
+
+cd_ecm_jam_duration_1_name : "Persistente Bedrohung"
+cd_ecm_jam_duration_1_desc : "Deine ECM-Störsender halten 25% länger an."
+
+cd_ecm_jam_duration_2_name : "Strukturelle Probleme"
+cd_ecm_jam_duration_2_desc : "Deine ECM-Störsender halten 50% länger an."
+
+cd_ecm_feedback_duration_1_name : "Synapsen-Überladung"
+cd_ecm_feedback_duration_1_desc : "Deine ECM-Rückkopplung hält 25% länger an."
+
+cd_ecm_feedback_duration_2_name : "System-Zusammenbruch"
+cd_ecm_feedback_duration_2_desc : "Deine ECM-Rückkopplung hält 25% länger an."
+
+cd_ecm_doors_name : "Sesam Öffne Dich!"
+cd_ecm_doors_desc : "Deine ECM-Störsender können elektronische Türen öffnen."
+
+cd_ecm_pagers_name : "Radiostörung"
+cd_ecm_pagers_desc : "Deine ECM-Störsender blockieren Pager und deaktivieren Kameras."
+
+cd_ecm_feedback_name : "ECM-Rückkopplung"
+cd_ecm_feedback_desc : "Du kannst mit deinen ECM-Störsendern interagieren um eine Rückkopplung auszulösen.\nEine ECM-Rückkopplung betäubt Gegner im Umkreis um den Störsender."
+
+# Body Bag
+cd_bodybag_capacity_name : "Saubermann"
+cd_bodybag_capacity_desc : "Du kannst einen zusätzlichen Leichensackkoffer tragen."
