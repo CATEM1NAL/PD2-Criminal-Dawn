@@ -4,14 +4,11 @@ local FileIdent = "NetworkManager"
 if Global.CrimDawn.data.game.seed then
   local key = Global.CrimDawn.data.game.seed .. "_" .. Global.CrimDawn.data.game.slot
   NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = key
-  NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = key
 else
   NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "NO SEED FOUND"
-  NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = "NO SEED FOUND"
 end
 
-CrimDawn.Log(FileIdent, "Matchmaking key: " .. NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY)
-
+CrimDawn.Log(FileIdent, "Matchmaking key: " .. NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY)
 
 -- SETTING UP NETWORK HOOKS
 NetworkHelper:AddReceiveHook("CrimDawn_HeistCount", "CrimDawn_SyncHeistCount", function(data, sender)
