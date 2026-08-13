@@ -2,7 +2,7 @@ local FileIdent = "NetworkManager"
 
 -- Assign matchmaking key
 if Global.CrimDawn.data.game.seed then
-  local key = Global.CrimDawn.data.game.seed .. "_" .. Global.CrimDawn.data.game.slot
+  local key = Global.CrimDawn.data.game.seed .. "_" .. Global.CrimDawn.data.game.slot:gsub(" ", "_")
   NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = key
 else
   NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "NO SEED FOUND"
