@@ -11,8 +11,7 @@ function MenuCallbackHandler:CrimDawn_CreateLobby()
     if NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY ~= Global.CrimDawn.data.game.seed then
       local key = Global.CrimDawn.data.game.seed .. "_" .. Global.CrimDawn.data.game.slot
       NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = key
-      NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = key
-      CrimDawn.Log(FileIdent, "Updated matchmaking key: " .. NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY)
+      CrimDawn.Log(FileIdent, "Updated matchmaking key: " .. NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY)
     end
 
     if CrimDawnClient.data.seed then
