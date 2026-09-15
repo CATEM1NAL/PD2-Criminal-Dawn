@@ -15,7 +15,7 @@ Global.CrimDawn.tables.weapons = {
                   "olympic", "p90", "shepheard", "erma", "slap", "system", "money", "judge", "basset", "coach",
                   "serbu", "rota", "victor", "flun" },
 
-  melee = { "baseballbat", "boxing_gloves", "chef", "grip", "moneybundle", "whiskey", "agave", "ballistic",
+  melee = { "barbedwire", "boxing_gloves", "chef", "grip", "moneybundle", "whiskey", "agave", "ballistic",
             "cutters", "fear", "funder_strike", "hauteur", "push", "sap", "aziz", "happy", "spoon",
             "piggy_hammer", "brass_knuckles", "bonk", "bonk2" },
 
@@ -38,5 +38,7 @@ Global.CrimDawn.tables.WeaponIDToName = {
   molotov = "grenade_molotov",
   wpn_gre_electric = "grenade_electric",
   frag = "grenade_frag",
-  sticky_grenade = "grenade_sticky_grenade"
+  sticky_grenade = "grenade_sticky_grenade",
+  baseballbat = "bat",
+  barbedwire = "baseballbat"
 }
