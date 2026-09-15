@@ -51,7 +51,7 @@ local dlc_content = {
   -- Hotline Miami (heist)
   hl_miami = { cd_miami1 = heist.tier3, cd_miami2 = heist.tier4, mia = heist.dlc,
                scorpion = secondary, tec9 = secondary, uzi = secondary,
-               bat = melee, cleaver = melee, fireaxe = melee, machete = melee },
+               baseballbat = melee, cleaver = melee, fireaxe = melee, machete = melee },
 
   -- Gage Historical Pack
   gage_pack_historical = { mosin = primary, mg42 = primary,
@@ -290,6 +290,9 @@ local dlc_content = {
   -- Espionage Weapon Pack
   esp = { x_pmm = akimbo,
           pmm = secondary, speen = secondary, dart = secondary },
+
+  -- Under the Hammer
+  auc = { auc = heist.tier3, bleckert = primary, order = melee },
 }
 
 -- To avoid distributing unowned content, test for a DLC unlocker
