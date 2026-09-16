@@ -165,6 +165,15 @@
       "callback" : "CrimDawn_SaveToggleSettings",
       "value" : "ranc",
       "default_value" : true
+    },
+    {
+      "type" : "toggle",
+      "id" : "crimdawn_auc",
+      "title" : "heist_auc",
+      "description" : "crimdawn_settings_dlc_desc",
+      "callback" : "CrimDawn_SaveToggleSettings",
+      "value" : "cd_auc",
+      "default_value" : true
     }
   ]
 }
